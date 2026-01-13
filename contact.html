@@ -2,68 +2,28 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Contact | GASA TECH</title>
   <link rel="stylesheet" href="css/style.css">
-  <style>
-    /* Adding some spacing for the form elements to look clean */
-    form {
-      display: flex;
-      flex-direction: column;
-      max-width: 500px;
-      gap: 15px;
-      margin-top: 20px;
-    }
-    input, textarea {
-      padding: 12px;
-      border: 1px solid #ccc;
-      border-radius: 5px;
-      font-family: inherit;
-      width: 100%;
-    }
-    textarea { height: 120px; resize: vertical; }
-  </style>
 </head>
 <body>
-
 <header>
   <div class="header-container">
-    <div class="logo">GASA TECH</div>
-    <nav>
-      <a href="index.html">Home</a>
-      <a href="services.html">Services</a>
-      <a href="portfolio.html">Portfolio</a>
-      <a href="pricing.html">Pricing</a>
-      <a href="about.html">About</a>
-      <a href="contact.html">Contact</a>
-    </nav>
+    <div class="logo"><img src="logo.png" alt="GASA TECH" style="height: 50px;"></div>
+    <nav><a href="index.html">Home</a><a href="services.html">Services</a><a href="portfolio.html">Portfolio</a><a href="pricing.html">Pricing</a><a href="about.html">About</a><a href="contact.html">Contact</a></nav>
   </div>
 </header>
-
-<main class="page">
-  <h1>Contact Us</h1>
-  <p>Let’s discuss your next project.</p>
-
-  <form action="https://formspree.io/f/xnjjqryr" method="POST">
-    <input type="text" name="name" placeholder="Your Name" required>
-    <input type="email" name="email" placeholder="Your Email" required>
-    <textarea name="message" placeholder="Your Message" required></textarea>
-    
-    <input type="hidden" name="_next" value="https://emmanuelmhlanga.github.io/gasa-tech/contact.html">
-    
-    <button type="submit" class="btn">Send Message</button>
-  </form>
-
-  <p style="margin-top:30px">
-    📧 gasatechptyltd@gmail.com <br>
-    📱 Instagram: @gasatechptyltd
-  </p>
-</main>
-
-<footer>
-  <p>© 2026 GASA TECH</p>
-</footer>
-
+<section class="page-header"><h1>Contact Us</h1></section>
+<div class="container" style="max-width: 600px;">
+  <div class="card">
+    <form action="https://formspree.io/f/xnjjqryr" method="POST" style="display:flex; flex-direction:column; gap:15px;">
+      <input type="text" name="name" placeholder="Full Name" required style="padding:12px; border:1px solid #ddd; border-radius:5px;">
+      <input type="email" name="email" placeholder="Email Address" required style="padding:12px; border:1px solid #ddd; border-radius:5px;">
+      <textarea name="message" placeholder="How can we help?" required style="padding:12px; border:1px solid #ddd; border-radius:5px; height:150px;"></textarea>
+      <button type="submit" class="btn primary">Send Message</button>
+    </form>
+  </div>
+</div>
+<footer><p>© 2026 GASA TECH</p></footer>
 </body>
 </html>
-
-
