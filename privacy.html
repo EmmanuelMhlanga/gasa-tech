@@ -3,31 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Privacy Policy | GASA TECH</title>
+    <title>Pricing | GASA TECH</title>
     <style>
+        @keyframes fadeInUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+        .animate { opacity: 0; animation: fadeInUp 0.8s ease-out forwards; }
+        .delay-1 { animation-delay: 0.2s; } .delay-2 { animation-delay: 0.4s; }
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Segoe UI', sans-serif; background: #f8fafc; color: #1e293b; line-height: 1.8; }
-        header { background: #fff; padding: 1rem; display: flex; justify-content: space-around; align-items: center; border-bottom: 1px solid #eee; }
-        .container { width: 90%; max-width: 800px; margin: 50px auto; background: white; padding: 40px; border-radius: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.05); }
-        h1, h2 { color: #1e293b; margin-bottom: 20px; }
-        footer { background: #1e293b; color: white; text-align: center; padding: 30px 0; margin-top: 40px; }
+        body { font-family: 'Segoe UI', sans-serif; background: #f8fafc; }
+        header { background: #fff; padding: 1rem; display: flex; justify-content: space-around; align-items: center; }
+        nav a { color: #475569; text-decoration: none; margin-left: 20px; font-weight: 600; }
+        .page-header { background: #1e293b; color: white; padding: 60px 20px; text-align: center; border-bottom: 5px solid #007bff; }
+        .container { width: 90%; max-width: 1100px; margin: 40px auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
+        .card { background: white; padding: 30px; border-radius: 10px; border-top: 5px solid #007bff; text-align: center; box-shadow: 0 4px 6px rgba(0,0,0,0.05); }
+        .price { font-size: 2rem; color: #007bff; font-weight: bold; margin: 15px 0; }
+        .btn { background: #007bff; color: white; padding: 10px 20px; border-radius: 5px; text-decoration: none; display: inline-block; }
+        footer { background: #1e293b; color: white; text-align: center; padding: 30px 0; }
+        .whatsapp-float { position: fixed; bottom: 20px; right: 20px; background: #25d366; color: white; padding: 12px 20px; border-radius: 50px; text-decoration: none; z-index: 10000; }
     </style>
 </head>
 <body>
-<header><img src="logo.png" alt="GASA TECH" style="height: 50px;"></header>
+<header><img src="logo.png" alt="GASA TECH" style="height: 50px;"><nav><a href="index.html">Home</a><a href="services.html">Services</a><a href="portfolio.html">Portfolio</a><a href="pricing.html" style="color:#007bff">Pricing</a><a href="contact.html">Contact</a></nav></header>
+<section class="page-header"><h1 class="animate">Pricing Packages</h1></section>
 <div class="container">
-    <h1>Privacy Policy</h1>
-    <p>In accordance with the <strong>Protection of Personal Information Act (POPIA)</strong> of South Africa, GASA TECH is committed to protecting your privacy.</p>
-    <br>
-    <h2>1. Data Collection</h2>
-    <p>We only collect information (Name, Email, Phone) that you voluntarily provide through our contact forms or WhatsApp link.</p>
-    <br>
-    <h2>2. Data Usage</h2>
-    <p>Your information is used solely to respond to your inquiries and provide technical services. We never sell your data to third parties.</p>
-    <br>
-    <h2>3. Your Rights</h2>
-    <p>You may request to view, update, or delete your personal information from our systems at any time by contacting us at gasatechptyltd@gmail.com.</p>
+    <div class="card animate delay-1"><h3>Basic</h3><div class="price">R3000</div><p>Up to 5 pages + .co.za domain</p><br><a href="contact.html" class="btn">Select</a></div>
+    <div class="card animate delay-2"><h3>Standard</h3><div class="price">R3500</div><p>Up to 8 pages + 1 Year Hosting</p><br><a href="contact.html" class="btn">Select</a></div>
+    <div class="card animate delay-1"><h3>Premium</h3><div class="price">R5000</div><p>Unlimited pages + IT Support</p><br><a href="contact.html" class="btn">Select</a></div>
 </div>
-<footer><p>© 2026 GASA TECH | <a href="index.html" style="color:white; text-decoration:none;">Back to Home</a></p></footer>
+<footer><p>© 2026 GASA TECH</p></footer>
+<a href="https://wa.me/27692401737" class="whatsapp-float" target="_blank">💬 WhatsApp Us</a>
 </body>
 </html>
