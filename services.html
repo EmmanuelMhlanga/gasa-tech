@@ -4,21 +4,43 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Services | GASA TECH</title>
-    <link rel="stylesheet" href="css/style.css">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Segoe UI', sans-serif; background-color: #f8fafc; color: #1e293b; line-height: 1.6; }
+        header { background: #fff; padding: 1rem 0; box-shadow: 0 2px 10px rgba(0,0,0,0.05); display: flex; justify-content: space-around; align-items: center; position: sticky; top: 0; z-index: 1000; }
+        nav a { color: #475569; text-decoration: none; margin-left: 20px; font-weight: 600; }
+        nav a:hover { color: #007bff; }
+        .page-header { background: #1e293b; color: white; padding: 60px 20px; text-align: center; border-bottom: 5px solid #007bff; }
+        .container { width: 90%; max-width: 1100px; margin: 40px auto; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; }
+        .card { background: white; padding: 30px; border-radius: 10px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); border-top: 5px solid #007bff; text-align: center; }
+        .icon { font-size: 3rem; margin-bottom: 15px; display: block; }
+        footer { background: #1e293b; color: white; text-align: center; padding: 30px 0; margin-top: 40px; }
+    </style>
 </head>
 <body>
 <header>
-    <div class="header-container">
-        <div class="logo"><img src="logo.png" alt="GASA TECH" style="height: 50px;"></div>
-        <nav><a href="index.html">Home</a><a href="services.html">Services</a><a href="portfolio.html">Portfolio</a><a href="pricing.html">Pricing</a><a href="about.html">About</a><a href="contact.html">Contact</a></nav>
-    </div>
+    <div class="logo"><img src="logo.png" alt="GASA TECH" style="height: 50px;"></div>
+    <nav><a href="index.html">Home</a><a href="services.html" style="color:#007bff">Services</a><a href="portfolio.html">Portfolio</a><a href="pricing.html">Pricing</a><a href="about.html">About</a><a href="contact.html">Contact</a></nav>
 </header>
-<section class="page-header"><h1 class="animate">Our Services</h1></section>
+<section class="page-header"><h1>Our Services</h1><p>Specialized Tech Solutions for Your Business</p></section>
 <div class="container">
     <div class="grid">
-        <div class="card animate delay-1"><h3>Web Development</h3><p>Modern and fast websites.</p></div>
-        <div class="card animate delay-2"><h3>IT Support</h3><p>Hardware and networking experts.</p></div>
-        <div class="card animate delay-3"><h3>UI/UX Design</h3><p>Clean and professional interfaces.</p></div>
+        <div class="card">
+            <span class="icon">💻</span>
+            <h3>Web Development</h3>
+            <p>Custom-built, responsive websites designed to showcase your brand and drive results.</p>
+        </div>
+        <div class="card">
+            <span class="icon">🔧</span>
+            <h3>Hardware Repairs</h3>
+            <p>Professional diagnostic and repair services for laptops, desktops, and office hardware.</p>
+        </div>
+        <div class="card">
+            <span class="icon">🛠️</span>
+            <h3>IT Support</h3>
+            <p>Reliable technical assistance to keep your business systems running smoothly 24/7.</p>
+        </div>
     </div>
 </div>
 <footer><p>© 2026 GASA TECH</p></footer>
