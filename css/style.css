@@ -1,34 +1,50 @@
 /* GLOBAL SETTINGS */
 * { margin: 0; padding: 0; box-sizing: border-box; }
-body { font-family: 'Inter', 'Segoe UI', sans-serif; line-height: 1.6; color: #333; background-color: #f8fafc; }
+body { font-family: 'Inter', 'Segoe UI', sans-serif; background-color: #f8fafc; color: #1e293b; }
 
 /* NAVIGATION */
 header { background: #ffffff; padding: 15px 0; box-shadow: 0 2px 10px rgba(0,0,0,0.05); position: sticky; top: 0; z-index: 1000; }
 .header-container { width: 90%; max-width: 1200px; margin: auto; display: flex; justify-content: space-between; align-items: center; }
-nav a { color: #475569; text-decoration: none; margin-left: 25px; font-weight: 600; font-size: 0.95rem; transition: 0.3s; }
+nav a { color: #475569; text-decoration: none; margin-left: 25px; font-weight: 600; transition: 0.3s; }
 nav a:hover { color: #007bff; }
 
-/* HERO SECTION (Index only) */
-.hero { background: #1e293b; color: white; padding: 100px 20px; text-align: center; }
-.hero h1 { font-size: 3rem; margin-bottom: 20px; }
+/* CONSISTENT BLUE HEADERS FOR ALL PAGES */
+.hero, .page-header { 
+    background: #1e293b; /* Dark Navy */
+    color: white; 
+    padding: 80px 20px; 
+    text-align: center; 
+    border-bottom: 4px solid #007bff; /* Bright Blue Accent */
+}
 
-/* PAGE HEADERS (Inner Pages) */
-.page-header { background: #f1f5f9; padding: 60px 20px; text-align: center; border-bottom: 1px solid #e2e8f0; }
-.page-header h1 { color: #1e293b; font-size: 2.5rem; }
-
-/* CONTENT WRAPPERS */
-.container { width: 90%; max-width: 1100px; margin: 50px auto; }
-
-/* GRID SYSTEM */
+/* CARDS & CONTAINERS */
+.container { width: 90%; max-width: 1100px; margin: 40px auto; }
 .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
-.card { background: white; padding: 40px; border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); border: 1px solid #e2e8f0; transition: 0.3s; text-align: center; }
-.card:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
-.icon { font-size: 2.5rem; margin-bottom: 15px; display: block; }
 
-/* BUTTONS */
-.btn { padding: 12px 28px; border-radius: 6px; text-decoration: none; display: inline-block; font-weight: bold; transition: 0.3s; border: none; cursor: pointer; }
-.primary { background: #007bff; color: white; }
-.primary:hover { background: #0056b3; }
+.card { 
+    background: white; 
+    padding: 40px; 
+    border-radius: 12px; 
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05); 
+    border-top: 4px solid #007bff; /* Every card now gets the Blue line */
+    text-align: center;
+    transition: 0.3s;
+}
+.card:hover { transform: translateY(-5px); }
+
+/* BUTTONS - FORCED BLUE */
+.btn, button { 
+    background: #007bff !important; 
+    color: white !important; 
+    padding: 12px 28px; 
+    border-radius: 6px; 
+    text-decoration: none; 
+    display: inline-block; 
+    font-weight: bold; 
+    border: none;
+    transition: 0.3s;
+}
+.btn:hover, button:hover { background: #0056b3 !important; }
 
 /* FOOTER */
-footer { background: #1e293b; color: #94a3b8; text-align: center; padding: 50px 0; margin-top: 50px; }
+footer { background: #1e293b; color: #94a3b8; text-align: center; padding: 40px 0; margin-top: 50px; }
