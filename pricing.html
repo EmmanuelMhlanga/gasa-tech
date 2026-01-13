@@ -6,67 +6,30 @@
     <title>Pricing | GASA TECH</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Segoe UI', sans-serif; background-color: #f8fafc; color: #1e293b; line-height: 1.6; }
-        header { background: #fff; padding: 1rem 0; box-shadow: 0 2px 10px rgba(0,0,0,0.05); display: flex; justify-content: space-around; align-items: center; position: sticky; top: 0; z-index: 1000; }
+        body { font-family: 'Segoe UI', sans-serif; background: #f8fafc; }
+        header { background: #fff; padding: 1rem; display: flex; justify-content: space-around; align-items: center; }
         nav a { color: #475569; text-decoration: none; margin-left: 20px; font-weight: 600; }
-        nav a:hover { color: #007bff; }
         .page-header { background: #1e293b; color: white; padding: 60px 20px; text-align: center; border-bottom: 5px solid #007bff; }
-        .container { width: 90%; max-width: 1100px; margin: 40px auto; }
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
-        .card { background: white; padding: 30px; border-radius: 10px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); border-top: 5px solid #007bff; text-align: center; }
-        .card h3 { margin-bottom: 15px; color: #1e293b; }
-        .price { font-size: 2rem; font-weight: bold; color: #007bff; margin: 15px 0; }
-        .card ul { list-style: none; text-align: left; margin-bottom: 20px; }
-        .card li { margin-bottom: 10px; font-size: 0.95rem; }
-        .btn { background: #007bff; color: white; padding: 12px 25px; border-radius: 5px; text-decoration: none; display: inline-block; font-weight: bold; }
-        footer { background: #1e293b; color: white; text-align: center; padding: 30px 0; margin-top: 40px; }
+        .container { width: 90%; max-width: 1100px; margin: 40px auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
+        .card { background: white; padding: 30px; border-radius: 10px; border-top: 5px solid #007bff; text-align: center; box-shadow: 0 4px 6px rgba(0,0,0,0.05); }
+        .price { font-size: 2rem; color: #007bff; font-weight: bold; margin: 15px 0; }
+        .btn { background: #007bff; color: white; padding: 10px 20px; border-radius: 5px; text-decoration: none; display: inline-block; }
+        footer { background: #1e293b; color: white; text-align: center; padding: 30px 0; }
+        .whatsapp-float { position: fixed; bottom: 20px; right: 20px; background: #25d366; color: white; padding: 12px 20px; border-radius: 50px; text-decoration: none; z-index: 10000; }
     </style>
 </head>
 <body>
 <header>
-    <div class="logo"><img src="logo.png" alt="GASA TECH" style="height: 50px;"></div>
-    <nav><a href="index.html">Home</a><a href="services.html">Services</a><a href="portfolio.html">Portfolio</a><a href="pricing.html" style="color:#007bff">Pricing</a><a href="about.html">About</a><a href="contact.html">Contact</a></nav>
+    <img src="logo.png" alt="GASA TECH" style="height: 50px;">
+    <nav><a href="index.html">Home</a><a href="services.html">Services</a><a href="portfolio.html">Portfolio</a><a href="pricing.html">Pricing</a><a href="contact.html">Contact</a></nav>
 </header>
-<section class="page-header"><h1>Our Pricing</h1><p>Professional packages for every business stage</p></section>
+<section class="page-header"><h1>Pricing</h1></section>
 <div class="container">
-    <div class="grid">
-        <div class="card">
-            <h3>Basic</h3>
-            <div class="price">R3000</div>
-            <ul>
-                <li>✅ Up to 5 pages</li>
-                <li>✅ Custom design</li>
-                <li>✅ Free .co.za domain</li>
-                <li>✅ Responsive design</li>
-            </ul>
-            <a href="contact.html" class="btn">Select</a>
-        </div>
-        <div class="card" style="transform: scale(1.05); border-color: #0056b3;">
-            <h3>Standard</h3>
-            <div class="price">R3500</div>
-            <ul>
-                <li>✅ Up to 8 pages</li>
-                <li>✅ Custom design</li>
-                <li>✅ Free .co.za domain</li>
-                <li>✅ One year hosting</li>
-                <li>✅ Photo gallery</li>
-            </ul>
-            <a href="contact.html" class="btn">Select</a>
-        </div>
-        <div class="card">
-            <h3>Premium</h3>
-            <div class="price">R5000</div>
-            <ul>
-                <li>✅ Unlimited pages</li>
-                <li>✅ Custom design</li>
-                <li>✅ Free .co.za domain</li>
-                <li>✅ Social media integration</li>
-                <li>✅ Full IT Support</li>
-            </ul>
-            <a href="contact.html" class="btn">Select</a>
-        </div>
-    </div>
+    <div class="card"><h3>Basic</h3><div class="price">R3000</div><p>Up to 5 pages + .co.za domain</p><br><a href="contact.html" class="btn">Select</a></div>
+    <div class="card"><h3>Standard</h3><div class="price">R3500</div><p>Up to 8 pages + 1 Year Hosting</p><br><a href="contact.html" class="btn">Select</a></div>
+    <div class="card"><h3>Premium</h3><div class="price">R5000</div><p>Unlimited pages + IT Support</p><br><a href="contact.html" class="btn">Select</a></div>
 </div>
 <footer><p>© 2026 GASA TECH</p></footer>
+<a href="https://wa.me/27123456789" class="whatsapp-float" target="_blank">💬 WhatsApp Us</a>
 </body>
 </html>
