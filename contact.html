@@ -4,6 +4,23 @@
   <meta charset="UTF-8">
   <title>Contact | GASA TECH</title>
   <link rel="stylesheet" href="css/style.css">
+  <style>
+    /* I added these styles so the form looks organized like your other pages */
+    form {
+      display: flex;
+      flex-direction: column;
+      max-width: 500px;
+      gap: 15px;
+      margin-top: 20px;
+    }
+    input, textarea {
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-family: inherit;
+    }
+    textarea { height: 120px; }
+  </style>
 </head>
 <body>
 
@@ -25,11 +42,14 @@
   <h1>Contact Us</h1>
   <p>Let’s discuss your next project.</p>
 
-  <form>
-    <input type="text" placeholder="Your Name" required>
-    <input type="email" placeholder="Your Email" required>
-    <textarea placeholder="Your Message"></textarea>
-    <button class="btn">Send Message</button>
+  <form action="https://formspree.io/f/your_id_here" method="POST">
+    <input type="text" name="name" placeholder="Your Name" required>
+    <input type="email" name="_replyto" placeholder="Your Email" required>
+    <textarea name="message" placeholder="Your Message" required></textarea>
+    
+    <input type="hidden" name="_next" value="https://emmanuelmhlanga.github.io/gasa-tech/contact.html">
+    
+    <button type="submit" class="btn">Send Message</button>
   </form>
 
   <p style="margin-top:30px">
@@ -44,3 +64,7 @@
 
 </body>
 </html>
+
+</body>
+</html>
+
