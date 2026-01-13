@@ -1,14 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio | GASA TECH</title>
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .page-header { background: #1e293b; color: white; padding: 80px 20px; text-align: center; border-bottom: 5px solid #007bff; }
+        .container { width: 90%; max-width: 1100px; margin: 50px auto; font-family: sans-serif; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; }
+        .card { background: white; padding: 30px; border-radius: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); border-top: 5px solid #007bff; text-align: center; transition: 0.3s; }
+        .card:hover { transform: translateY(-10px); }
+        .btn { background: #007bff; color: white; padding: 12px 25px; border-radius: 5px; text-decoration: none; display: inline-block; font-weight: bold; margin-top: 15px; }
+    </style>
+</head>
+<body>
+
+<header style="background: white; padding: 15px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); display: flex; justify-content: space-between; align-items: center;">
+    <img src="logo.png" alt="GASA TECH" style="height: 40px;">
+    <nav>
+        <a href="index.html" style="margin-left: 15px; text-decoration: none; color: #475569; font-weight: bold;">Home</a>
+        <a href="portfolio.html" style="margin-left: 15px; text-decoration: none; color: #007bff; font-weight: bold;">Portfolio</a>
+        <a href="pricing.html" style="margin-left: 15px; text-decoration: none; color: #475569; font-weight: bold;">Pricing</a>
+        <a href="contact.html" style="margin-left: 15px; text-decoration: none; color: #475569; font-weight: bold;">Contact</a>
+    </nav>
+</header>
+
+<section class="page-header">
+    <h1>Our Portfolio</h1>
+    <p>Success stories and digital transformations.</p>
+</section>
+
 <div class="container">
     <div class="grid">
-        <div class="card animate delay-1">
+        <div class="card">
             <h3>Iletha</h3>
-            <p>Corporate website with modern UI.</p><br>
-            <a href="https://iletha.com" class="btn" target="_blank">View Site</a>
+            <p>A professional corporate platform built for high-end service delivery.</p>
+            <a href="https://iletha.com" target="_blank" class="btn">View Project</a>
         </div>
-        <div class="card animate delay-2">
-            <h3>NeoBreed Marketing Solutions</h3>
-            <p>Business marketing website.</p><br>
-            <a href="https://neobreedmakertingsolutions.com" class="btn" target="_blank">View Site</a>
+        <div class="card">
+            <h3>NeoBreed Marketing</h3>
+            <p>Strategic marketing solution designed to scale business growth.</p>
+            <a href="https://neobreedmakertingsolutions.com" target="_blank" class="btn">View Project</a>
         </div>
     </div>
 </div>
+
+<footer style="background: #1e293b; color: white; text-align: center; padding: 30px; margin-top: 50px;">
+    <p>© 2026 GASA TECH</p>
+</footer>
+
+</body>
+</html>
