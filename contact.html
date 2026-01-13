@@ -4,27 +4,37 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact | GASA TECH</title>
-    <link rel="stylesheet" href="css/style.css">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Segoe UI', sans-serif; background-color: #f8fafc; color: #1e293b; }
+        header { background: #fff; padding: 1rem 0; box-shadow: 0 2px 10px rgba(0,0,0,0.05); display: flex; justify-content: space-around; align-items: center; }
+        nav a { color: #475569; text-decoration: none; margin-left: 20px; font-weight: 600; }
+        .page-header { background: #1e293b; color: white; padding: 60px 20px; text-align: center; border-bottom: 5px solid #007bff; }
+        .container { width: 90%; max-width: 600px; margin: 40px auto; }
+        .card { background: white; padding: 30px; border-radius: 10px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); border-top: 5px solid #007bff; }
+        input, textarea { width: 100%; padding: 12px; margin-bottom: 15px; border: 1px solid #ddd; border-radius: 5px; }
+        .btn { background: #007bff; color: white; padding: 12px 25px; border-radius: 5px; border: none; font-weight: bold; cursor: pointer; width: 100%; }
+        .info { margin-top: 25px; padding-top: 20px; border-top: 1px solid #eee; }
+        footer { background: #1e293b; color: white; text-align: center; padding: 20px 0; margin-top: 40px; }
+    </style>
 </head>
 <body>
 <header>
-    <div class="header-container">
-        <div class="logo"><img src="logo.png" alt="GASA TECH" style="height: 50px;"></div>
-        <nav><a href="index.html">Home</a><a href="services.html">Services</a><a href="portfolio.html">Portfolio</a><a href="pricing.html">Pricing</a><a href="about.html">About</a><a href="contact.html">Contact</a></nav>
-    </div>
+    <div class="logo"><img src="logo.png" alt="GASA TECH" style="height: 50px;"></div>
+    <nav><a href="index.html">Home</a><a href="services.html">Services</a><a href="portfolio.html">Portfolio</a><a href="pricing.html">Pricing</a><a href="contact.html" style="color:#007bff">Contact</a></nav>
 </header>
-<section class="page-header"><h1 class="animate">Contact Us</h1></section>
-<div class="container" style="max-width: 600px;">
-    <div class="card animate delay-1">
-        <form action="https://formspree.io/f/xnjjqryr" method="POST" style="display:flex; flex-direction:column; gap:15px; margin-bottom: 25px;">
-            <input type="text" name="name" placeholder="Your Name" required style="padding:12px; border:1px solid #ddd; border-radius:5px;">
-            <input type="email" name="email" placeholder="Your Email" required style="padding:12px; border:1px solid #ddd; border-radius:5px;">
-            <textarea name="message" placeholder="Message" required style="padding:12px; border:1px solid #ddd; border-radius:5px; height:100px;"></textarea>
-            <button type="submit" class="btn">Send Now</button>
+<section class="page-header"><h1>Get In Touch</h1></section>
+<div class="container">
+    <div class="card">
+        <form action="https://formspree.io/f/xnjjqryr" method="POST">
+            <input type="text" name="name" placeholder="Full Name" required>
+            <input type="email" name="email" placeholder="Email Address" required>
+            <textarea name="message" rows="5" placeholder="How can we help?" required></textarea>
+            <button type="submit" class="btn">Send Inquiry</button>
         </form>
-        <div style="border-top: 1px solid #eee; padding-top: 20px;">
-            <p>📧 gasatechptyltd@gmail.com</p>
-            <p>📷 Instagram: @gasatechptyltd</p>
+        <div class="info">
+            <p>📧 <strong>gasatechptyltd@gmail.com</strong></p>
+            <p>📱 <strong>Instagram: @gasatechptyltd</strong></p>
         </div>
     </div>
 </div>
