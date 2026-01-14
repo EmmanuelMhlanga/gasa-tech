@@ -3,39 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GASA TECH | Links</title>
+    <title>GASA TECH | Link Bio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        body { font-family: 'Segoe UI', sans-serif; background: #1e293b; color: white; display: flex; justify-content: center; align-items: center; min-height: 100vh; margin: 0; padding: 20px; }
-        .links-container { width: 100%; max-width: 400px; text-align: center; }
-        .logo { font-size: 2rem; font-weight: 800; margin-bottom: 10px; }
+        body { background: #0f172a; color: white; font-family: 'Inter', sans-serif; text-align: center; padding: 50px 20px; }
+        .logo { font-size: 2rem; font-weight: 900; margin-bottom: 10px; }
         .logo span { color: #007bff; }
-        .subtitle { color: #cbd5e1; margin-bottom: 30px; font-size: 0.9rem; }
-        .link-btn { 
-            display: block; 
-            background: white; 
-            color: #1e293b; 
-            padding: 16px; 
-            margin-bottom: 15px; 
-            border-radius: 12px; 
-            text-decoration: none; 
-            font-weight: 700; 
-            transition: 0.3s ease;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-        }
-        .link-btn:hover { transform: translateY(-3px); background: #f8fafc; }
-        .whatsapp { background: #25d366; color: white; border: none; }
+        .link-container { max-width: 500px; margin: 40px auto; }
+        .bio-link { display: block; background: white; color: #1e293b; text-decoration: none; padding: 20px; margin-bottom: 15px; border-radius: 15px; font-weight: bold; transition: 0.3s; box-shadow: 0 4px 15px rgba(0,0,0,0.2); }
+        .bio-link:hover { transform: scale(1.02); background: #007bff; color: white; }
     </style>
 </head>
 <body>
-<div class="links-container">
     <div class="logo">GASA <span>TECH</span></div>
-    <p class="subtitle">Engineering Digital Futures in Johannesburg</p>
-    
-    <a href="index.html" class="link-btn">Official Website</a>
-    <a href="portfolio.html" class="link-btn">View My Portfolio</a>
-    <a href="services.html" class="link-btn">Our Services</a>
-    <a href="hire-me.html" class="link-btn">Hire Me / Consult</a>
-    <a href="https://wa.me/27692401737" class="link-btn whatsapp">Chat on WhatsApp</a>
-</div>
+    <p>Engineering Digital Excellence</p>
+    <div class="link-container">
+        <a href="index.html" class="bio-link"><i class="fas fa-globe"></i> Visit Official Website</a>
+        <a href="portfolio.html" class="bio-link"><i class="fas fa-laptop-code"></i> View Portfolio</a>
+        <a href="https://wa.me/27692401737" class="bio-link" style="background:#25d366; color:white;"><i class="fab fa-whatsapp"></i> Chat on WhatsApp</a>
+        <a href="mailto:gasatechptyltd@gmail.com" class="bio-link"><i class="fas fa-envelope"></i> Email Us</a>
+    </div>
 </body>
 </html>
