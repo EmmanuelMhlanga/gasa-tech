@@ -3,43 +3,85 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GASA TECH | Engineering Digital Futures</title>
+    <title>GASA TECH | Digital Engineering</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Segoe UI', sans-serif; background: #f8fafc; color: #1e293b; display: flex; flex-direction: column; min-height: 100vh; }
-        header { background: #fff; padding: 1rem; display: flex; flex-direction: column; align-items: center; box-shadow: 0 2px 10px rgba(0,0,0,0.05); position: sticky; top: 0; z-index: 1000; }
-        nav { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin-top: 10px; }
-        nav a { color: #475569; text-decoration: none; font-weight: 600; font-size: 0.85rem; padding: 5px 8px; }
-        .main-content { flex: 1; }
-        .hero { background: #1e293b; color: white; padding: 80px 20px; text-align: center; }
-        .hero h1 { font-size: 2.5rem; margin-bottom: 20px; }
-        .hero p { font-size: 1.1rem; color: #cbd5e1; max-width: 600px; margin: 0 auto 30px; }
-        .btn { background: #007bff; color: white; padding: 15px 30px; border-radius: 8px; text-decoration: none; font-weight: bold; display: inline-block; }
-        footer { background: #1e293b; color: #cbd5e1; text-align: center; padding: 40px 20px; border-top: 4px solid #007bff; }
+        body { font-family: 'Inter', 'Segoe UI', sans-serif; background: #f8fafc; color: #1e293b; line-height: 1.6; }
+        
+        header { background: #fff; padding: 1.2rem; display: flex; flex-direction: column; align-items: center; box-shadow: 0 2px 10px rgba(0,0,0,0.05); position: sticky; top:0; z-index:1000; }
+        nav { display: flex; flex-wrap: wrap; justify-content: center; gap: 15px; margin-top: 15px; }
+        nav a { color: #475569; text-decoration: none; font-weight: 600; font-size: 0.9rem; transition: 0.3s; }
+        nav a:hover { color: #007bff; }
+
+        /* Animated Hero Section */
+        .hero { background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%); color: white; padding: 100px 20px; text-align: center; }
+        .hero h1 { font-size: 3rem; margin-bottom: 20px; animation: fadeInUp 0.8s ease-out; }
+        .hero p { font-size: 1.2rem; color: #cbd5e1; max-width: 700px; margin: 0 auto 30px; animation: fadeInUp 1s ease-out; }
+        
+        .btn { background: #007bff; color: white; padding: 16px 32px; border-radius: 8px; text-decoration: none; font-weight: bold; display: inline-block; transition: 0.3s; box-shadow: 0 4px 15px rgba(0,123,255,0.3); }
+        .btn:hover { background: #0056b3; transform: translateY(-2px); }
+
+        /* Feature Section with Icons */
+        .features { padding: 80px 20px; max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; }
+        .feature-card { background: white; padding: 40px; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); text-align: center; transition: 0.3s; }
+        .feature-card:hover { transform: translateY(-10px); }
+        .feature-card i { font-size: 2.5rem; color: #007bff; margin-bottom: 20px; }
+
+        footer { background: #0f172a; color: #94a3b8; text-align: center; padding: 60px 20px; border-top: 4px solid #007bff; }
+
         @media (min-width: 768px) {
             header { flex-direction: row; justify-content: space-around; }
-            nav { margin-top: 0; gap: 20px; }
-            .hero h1 { font-size: 3.5rem; }
+            nav { margin-top: 0; }
         }
     </style>
 </head>
 <body>
+
 <header>
-    <a href="index.html" style="text-decoration: none; color: #1e293b; font-size: 1.5rem; font-weight: 800;">GASA <span style="color: #007bff;">TECH</span></a>
+    <a href="index.html" style="text-decoration: none; color: #1e293b; font-size: 1.6rem; font-weight: 800; letter-spacing: -1px;">GASA <span style="color: #007bff;">TECH</span></a>
     <nav>
-        <a href="index.html" style="color: #007bff;">Home</a><a href="about.html">About</a><a href="services.html">Services</a><a href="portfolio.html">Portfolio</a><a href="hire-me.html">Hire Me</a><a href="contact.html">Contact</a>
+        <a href="index.html" style="color:#007bff">Home</a>
+        <a href="about.html">About</a>
+        <a href="services.html">Services</a>
+        <a href="portfolio.html">Portfolio</a>
+        <a href="hire-me.html">Hire Me</a>
+        <a href="contact.html">Contact</a>
     </nav>
 </header>
-<div class="main-content">
-    <section class="hero">
-        <h1>Digital Solutions for Tomorrow</h1>
-        <p>Specializing in Web Engineering & Mobile Apps in Northgate, Johannesburg.</p>
-        <a href="contact.html" class="btn">Start Your Project</a>
-    </section>
-</div>
+
+<section class="hero">
+    <h1>We Engineer the Future</h1>
+    <p>High-performance web applications and mobile experiences built with precision in Johannesburg.</p>
+    <a href="contact.html" class="btn">Get a Technical Quote</a>
+</section>
+
+<section class="features">
+    <div class="feature-card">
+        <i class="fas fa-code"></i>
+        <h3>Clean Code</h3>
+        <p>Built with modern standards ensuring your site is fast, secure, and scalable.</p>
+    </div>
+    <div class="feature-card">
+        <i class="fas fa-mobile-alt"></i>
+        <h3>Mobile First</h3>
+        <p>60% of web traffic is mobile. We ensure your business looks perfect on every screen.</p>
+    </div>
+    <div class="feature-card">
+        <i class="fas fa-rocket"></i>
+        <h3>Fast Launch</h3>
+        <p>Rapid engineering cycles to get your business online in record time.</p>
+    </div>
+</section>
+
 <footer>
     <p>© 2026 GASA TECH | Sandstone, Montrose Avenue, Northgate</p>
-    <p style="font-size: 0.8rem; margin-top: 10px; opacity: 0.7;">Engineering Digital Futures</p>
 </footer>
+
 </body>
 </html>
