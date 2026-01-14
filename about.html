@@ -3,35 +3,38 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Us | GASA TECH</title>
+    <title>About | GASA TECH</title>
     <style>
-        @keyframes fadeInUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
-        .animate { opacity: 0; animation: fadeInUp 0.8s ease-out forwards; }
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: 'Segoe UI', sans-serif; background: #f8fafc; color: #1e293b; line-height: 1.8; }
-        header { background: #fff; padding: 1rem; display: flex; justify-content: space-around; align-items: center; box-shadow: 0 2px 10px rgba(0,0,0,0.05); }
-        nav a { color: #475569; text-decoration: none; margin-left: 15px; font-weight: 600; font-size: 0.9rem; }
+        header { background: #fff; padding: 1rem; display: flex; flex-direction: column; align-items: center; box-shadow: 0 2px 10px rgba(0,0,0,0.05); position: sticky; top:0; z-index:1000; }
+        nav { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin-top: 10px; }
+        nav a { color: #475569; text-decoration: none; font-weight: 600; font-size: 0.85rem; padding: 5px; }
         .page-header { background: #1e293b; color: white; padding: 60px 20px; text-align: center; border-bottom: 5px solid #007bff; }
-        .content { max-width: 800px; margin: 50px auto; padding: 0 20px; }
-        .mission-box { background: #fff; padding: 40px; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); border-left: 5px solid #007bff; }
+        .content { max-width: 800px; margin: 40px auto; padding: 40px; background: white; border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); }
+        .mission-box { background: #f1f5f9; padding: 30px; border-radius: 8px; margin-top: 30px; border-left: 5px solid #007bff; }
         h2 { color: #1e293b; margin-bottom: 20px; }
-        footer { background: #1e293b; color: #cbd5e1; text-align: center; padding: 40px 20px; margin-top: 50px; }
+        footer { background: #1e293b; color: #cbd5e1; text-align: center; padding: 60px 20px; margin-top: 50px; }
+        @media (min-width: 768px) { header { flex-direction: row; justify-content: space-around; } nav { margin-top: 0; gap: 20px; } }
     </style>
 </head>
 <body>
 <header>
     <a href="index.html" style="text-decoration: none; color: #1e293b; font-size: 1.5rem; font-weight: 800; letter-spacing: -1px;">GASA <span style="color: #007bff;">TECH</span></a>
-    <nav><a href="index.html">Home</a><a href="about.html" style="color:#007bff">About</a><a href="services.html">Services</a><a href="portfolio.html">Portfolio</a><a href="pricing.html">Pricing</a><a href="contact.html">Contact</a></nav>
+    <nav>
+        <a href="index.html">Home</a><a href="about.html" style="color:#007bff">About</a><a href="services.html">Services</a><a href="portfolio.html">Portfolio</a><a href="contact.html">Contact</a>
+    </nav>
 </header>
-<section class="page-header"><h1 class="animate">Our Story</h1></section>
-<div class="content animate">
+<section class="page-header"><h1>Our Story</h1></section>
+<div class="content">
+    <h2>Engineering Digital Excellence</h2>
+    <p>Based in Northgate, Johannesburg, GASA TECH was founded to provide high-performance digital solutions for businesses ready to scale. We specialize in turning complex requirements into seamless web and mobile experiences.</p>
+    
     <div class="mission-box">
-        <h2>Engineering Excellence</h2>
-        <p>Based in <strong>Northgate, Johannesburg</strong>, GASA TECH is a specialized digital agency dedicated to high-performance web engineering and mobile application development.</p>
-        <p style="margin-top: 15px;">We believe that modern businesses deserve technology that works as hard as they do. From custom corporate platforms to robust e-commerce ecosystems, we provide the technical foundation for your growth.</p>
-        <p style="margin-top: 15px;">Our team operates out of Sandstone, Montrose Avenue, serving clients across South Africa with a focus on speed, security, and exceptional user experience.</p>
+        <h3>Our Mission</h3>
+        <p>To empower the South African economy by bridging the digital divide. We don't just build websites; we engineer tools that allow local enterprises to compete globally.</p>
     </div>
 </div>
-<footer><p>© 2026 GASA TECH | Built in Northgate, JHB</p></footer>
+<footer><p>© 2026 GASA TECH | Excellence in Digital Engineering</p></footer>
 </body>
 </html>
