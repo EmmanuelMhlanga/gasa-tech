@@ -7,43 +7,31 @@
     <style>
         @keyframes fadeInUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
         .animate { opacity: 0; animation: fadeInUp 0.8s ease-out forwards; }
-        .delay-1 { animation-delay: 0.2s; }
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: 'Segoe UI', sans-serif; background: #f8fafc; color: #1e293b; line-height: 1.8; }
-        header { background: #fff; padding: 1rem; box-shadow: 0 2px 10px rgba(0,0,0,0.05); display: flex; justify-content: space-around; align-items: center; position: sticky; top:0; z-index:1000; }
-        nav a { color: #475569; text-decoration: none; margin-left: 15px; font-weight: 600; font-size: 0.9rem;}
+        header { background: #fff; padding: 1rem; display: flex; justify-content: space-around; align-items: center; box-shadow: 0 2px 10px rgba(0,0,0,0.05); }
+        nav a { color: #475569; text-decoration: none; margin-left: 15px; font-weight: 600; font-size: 0.9rem; }
         .page-header { background: #1e293b; color: white; padding: 60px 20px; text-align: center; border-bottom: 5px solid #007bff; }
-        .container { width: 90%; max-width: 800px; margin: 50px auto; background: white; padding: 40px; border-radius: 10px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); }
-        h2 { color: #007bff; margin-bottom: 20px; }
-        footer { background: #1e293b; color: #cbd5e1; text-align: center; padding: 40px 20px; }
-        footer a { color: #fff; text-decoration: none; margin: 0 10px; }
-        .whatsapp-float { position: fixed; bottom: 20px; right: 20px; background: #25d366; color: white; padding: 12px 20px; border-radius: 50px; text-decoration: none; font-weight: bold; z-index: 10000; }
+        .content { max-width: 800px; margin: 50px auto; padding: 0 20px; }
+        .mission-box { background: #fff; padding: 40px; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); border-left: 5px solid #007bff; }
+        h2 { color: #1e293b; margin-bottom: 20px; }
+        footer { background: #1e293b; color: #cbd5e1; text-align: center; padding: 40px 20px; margin-top: 50px; }
     </style>
 </head>
 <body>
 <header>
-    <img src="logo.png" alt="GASA TECH" style="height: 45px;">
-    <nav>
-        <a href="index.html">Home</a>
-        <a href="about.html" style="color:#007bff">About</a>
-        <a href="services.html">Services</a>
-        <a href="portfolio.html">Portfolio</a>
-        <a href="pricing.html">Pricing</a>
-        <a href="contact.html">Contact</a>
-    </nav>
+    <a href="index.html" style="text-decoration: none; color: #1e293b; font-size: 1.5rem; font-weight: 800; letter-spacing: -1px;">GASA <span style="color: #007bff;">TECH</span></a>
+    <nav><a href="index.html">Home</a><a href="about.html" style="color:#007bff">About</a><a href="services.html">Services</a><a href="portfolio.html">Portfolio</a><a href="pricing.html">Pricing</a><a href="contact.html">Contact</a></nav>
 </header>
-<section class="page-header"><h1 class="animate">Our Mission</h1></section>
-<div class="container">
-    <div class="animate delay-1">
-        <h2>Built on Technical Excellence</h2>
-        <p>GASA TECH was founded in Northgate with a singular focus: Providing high-tier technology services that are accessible to local businesses. We believe that professional web design and reliable hardware support shouldn't be a luxury.</p>
-        <br>
-        <p>As a founder-led company, every project is handled with personal care and technical precision. We don't just fix computers or build websites; we build the digital foundation for your success.</p>
+<section class="page-header"><h1 class="animate">Our Story</h1></section>
+<div class="content animate">
+    <div class="mission-box">
+        <h2>Engineering Excellence</h2>
+        <p>Based in <strong>Northgate, Johannesburg</strong>, GASA TECH is a specialized digital agency dedicated to high-performance web engineering and mobile application development.</p>
+        <p style="margin-top: 15px;">We believe that modern businesses deserve technology that works as hard as they do. From custom corporate platforms to robust e-commerce ecosystems, we provide the technical foundation for your growth.</p>
+        <p style="margin-top: 15px;">Our team operates out of Sandstone, Montrose Avenue, serving clients across South Africa with a focus on speed, security, and exceptional user experience.</p>
     </div>
 </div>
-<footer>
-    <p>© 2026 GASA TECH | <a href="faq.html">FAQ</a> | <a href="privacy.html">Privacy</a></p>
-</footer>
-<a href="https://wa.me/27692401737" class="whatsapp-float" target="_blank">💬 WhatsApp Us</a>
+<footer><p>© 2026 GASA TECH | Built in Northgate, JHB</p></footer>
 </body>
 </html>
