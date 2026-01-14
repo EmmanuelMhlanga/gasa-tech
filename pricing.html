@@ -7,68 +7,65 @@
     <style>
         @keyframes fadeInUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
         .animate { opacity: 0; animation: fadeInUp 0.8s ease-out forwards; }
-        .delay-1 { animation-delay: 0.2s; }
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: 'Segoe UI', sans-serif; background: #f8fafc; color: #1e293b; }
-        header { background: #fff; padding: 1rem; display: flex; justify-content: space-around; align-items: center; box-shadow: 0 2px 10px rgba(0,0,0,0.05); }
-        nav a { color: #475569; text-decoration: none; margin-left: 15px; font-weight: 600; font-size: 0.9rem;}
-        .page-header { background: #1e293b; color: white; padding: 60px 20px; text-align: center; }
-        .container { width: 90%; max-width: 1100px; margin: 40px auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
-        .card { background: white; padding: 40px; border-radius: 15px; border-top: 8px solid #007bff; box-shadow: 0 10px 25px rgba(0,0,0,0.05); text-align: center; }
-        .price { font-size: 3rem; color: #1e293b; font-weight: 800; margin: 20px 0; }
-        .feature-img { font-size: 4rem; margin-bottom: 15px; }
-        .feature-list { list-style: none; text-align: left; margin: 20px 0; }
-        .feature-list li { margin-bottom: 10px; display: flex; align-items: center; gap: 10px; color: #64748b; }
-        .btn { background: #007bff; color: white; padding: 12px 25px; border-radius: 5px; text-decoration: none; font-weight: bold; width: 100%; display: block; }
-        footer { background: #1e293b; color: white; text-align: center; padding: 40px 0; }
-        .whatsapp-float { position: fixed; bottom: 20px; right: 20px; background: #25d366; color: white; padding: 12px 20px; border-radius: 50px; text-decoration: none; font-weight: bold; z-index: 10000; }
+        header { background: #fff; padding: 1rem; display: flex; justify-content: space-around; align-items: center; box-shadow: 0 2px 10px rgba(0,0,0,0.05); position: sticky; top:0; z-index:1000; }
+        nav a { color: #475569; text-decoration: none; margin-left: 15px; font-weight: 600; font-size: 0.9rem; }
+        .page-header { background: #1e293b; color: white; padding: 60px 20px; text-align: center; border-bottom: 5px solid #007bff; }
+        .container { width: 95%; max-width: 1100px; margin: 50px auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; }
+        .price-card { background: white; padding: 40px 30px; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); text-align: center; transition: 0.3s; border: 1px solid #e2e8f0; }
+        .price-card:hover { transform: translateY(-10px); border-color: #007bff; }
+        .price-card h2 { font-size: 1.5rem; margin-bottom: 10px; }
+        .cost { font-size: 2.5rem; font-weight: 800; color: #007bff; margin: 20px 0; }
+        .cost span { font-size: 1rem; color: #64748b; }
+        ul { list-style: none; margin-bottom: 30px; text-align: left; }
+        ul li { margin-bottom: 12px; font-size: 0.95rem; color: #475569; }
+        ul li::before { content: "✓ "; color: #25d366; font-weight: bold; }
+        .btn { display: block; background: #007bff; color: white; padding: 12px; border-radius: 8px; text-decoration: none; font-weight: bold; }
+        footer { background: #1e293b; color: #cbd5e1; text-align: center; padding: 40px 20px; margin-top: 50px; }
     </style>
 </head>
 <body>
 <header>
-    <img src="logo.png" alt="GASA TECH" style="height: 45px;">
-    <nav><a href="index.html">Home</a><a href="about.html">About</a><a href="services.html">Services</a><a href="portfolio.html">Portfolio</a><a href="pricing.html" style="color:#007bff">Pricing</a><a href="contact.html">Contact</a></nav>
+    <a href="index.html" style="text-decoration: none; color: #1e293b; font-size: 1.5rem; font-weight: 800; letter-spacing: -1px;">GASA <span style="color: #007bff;">TECH</span></a>
+    <nav><a href="index.html">Home</a><a href="services.html">Services</a><a href="portfolio.html">Portfolio</a><a href="pricing.html" style="color:#007bff">Pricing</a><a href="contact.html">Contact</a></nav>
 </header>
-<section class="page-header"><h1 class="animate">Investment Plans</h1></section>
+<section class="page-header"><h1 class="animate">Transparent Pricing</h1><p class="animate">Quality solutions for every business scale.</p></section>
 <div class="container">
-    <div class="card animate">
-        <div class="feature-img">🌐</div>
-        <h3>Basic Web</h3>
-        <div class="price">R3000</div>
-        <ul class="feature-list">
-            <li>✅ 5 Custom Pages</li>
-            <li>✅ .co.za Domain</li>
-            <li>✅ Mobile Responsive</li>
-            <li>✅ SEO Ready</li>
+    <div class="price-card animate">
+        <h2>Corporate</h2>
+        <div class="cost">R3000<span>/Once</span></div>
+        <ul>
+            <li>Professional 5-Page Site</li>
+            <li>SEO Optimization</li>
+            <li>Mobile Responsive</li>
+            <li>Contact Form Integration</li>
         </ul>
-        <a href="contact.html" class="btn">Select Plan</a>
+        <a href="contact.html" class="btn">Select Package</a>
     </div>
-    <div class="card animate delay-1">
-        <div class="feature-img">🏢</div>
-        <h3>Standard Biz</h3>
-        <div class="price">R3500</div>
-        <ul class="feature-list">
-            <li>✅ 8 Custom Pages</li>
-            <li>✅ 1 Year Hosting</li>
-            <li>✅ Business Emails</li>
-            <li>✅ Live Chat Integration</li>
+    <div class="price-card animate" style="border-top: 5px solid #007bff;">
+        <h2>E-Commerce</h2>
+        <div class="cost">R5000<span>/Once</span></div>
+        <ul>
+            <li>Full Online Store</li>
+            <li>Payment Gateway Setup</li>
+            <li>Inventory Management</li>
+            <li>Order Tracking System</li>
         </ul>
-        <a href="contact.html" class="btn">Select Plan</a>
+        <a href="contact.html" class="btn">Select Package</a>
     </div>
-    <div class="card animate delay-1">
-        <div class="feature-img">📱</div>
-        <h3>Premium / App</h3>
-        <div class="price">R5000+</div>
-        <ul class="feature-list">
-            <li>✅ Mobile App Design</li>
-            <li>✅ E-commerce Setup</li>
-            <li>✅ User Dashboards</li>
-            <li>✅ Priority Support</li>
+    <div class="price-card animate">
+        <h2>App Dev</h2>
+        <div class="cost">Custom<span>/Quote</span></div>
+        <ul>
+            <li>iOS & Android Apps</li>
+            <li>User Authentication</li>
+            <li>Cloud Database</li>
+            <li>API Integrations</li>
         </ul>
-        <a href="contact.html" class="btn">Select Plan</a>
+        <a href="contact.html" class="btn">Request Quote</a>
     </div>
 </div>
-<footer><p>© 2026 GASA TECH | Northgate</p></footer>
-<a href="https://wa.me/27692401737" class="whatsapp-float" target="_blank">💬 WhatsApp Us</a>
+<footer><p>© 2026 GASA TECH | Excellence in Digital Engineering</p></footer>
 </body>
 </html>
