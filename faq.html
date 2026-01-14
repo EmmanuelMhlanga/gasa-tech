@@ -5,79 +5,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FAQ | GASA TECH</title>
     <style>
-        @keyframes fadeInUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
-        .animate { opacity: 0; animation: fadeInUp 0.8s ease-out forwards; }
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Segoe UI', sans-serif; background: #f8fafc; color: #1e293b; line-height: 1.6; }
-        
-        /* Header & Nav */
-        header { background: #fff; padding: 1rem; display: flex; justify-content: space-around; align-items: center; box-shadow: 0 2px 10px rgba(0,0,0,0.05); position: sticky; top: 0; z-index: 1000; }
-        nav a { color: #475569; text-decoration: none; margin-left: 15px; font-weight: 600; font-size: 0.9rem; }
-        
-        /* Hero Section */
-        .page-header { background: #1e293b; color: white; padding: 60px 20px; text-align: center; border-bottom: 5px solid #007bff; }
-        
-        /* FAQ Content */
-        .container { width: 90%; max-width: 800px; margin: 50px auto; min-height: 500px; }
-        .faq-card { background: white; padding: 25px; border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); margin-bottom: 20px; border-left: 5px solid #007bff; }
-        .faq-card h3 { color: #1e293b; margin-bottom: 10px; font-size: 1.1rem; }
-        .faq-card p { color: #475569; font-size: 0.95rem; }
-
-        /* Footer */
-        footer { background: #1e293b; color: #cbd5e1; text-align: center; padding: 60px 20px; margin-top: 50px; }
-        footer a { color: #fff; text-decoration: none; margin: 0 10px; font-size: 0.85rem; }
+        body { font-family: 'Segoe UI', sans-serif; background: #f8fafc; }
+        header { background: #fff; padding: 1rem; display: flex; flex-direction: column; align-items: center; box-shadow: 0 2px 10px rgba(0,0,0,0.05); }
+        nav { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin-top: 10px; }
+        nav a { color: #475569; text-decoration: none; font-weight: 600; font-size: 0.85rem; padding: 5px; }
+        .container { width: 90%; max-width: 800px; margin: 50px auto; }
+        .faq-item { background: white; padding: 25px; border-radius: 10px; margin-bottom: 15px; box-shadow: 0 2px 5px rgba(0,0,0,0.05); }
+        .faq-item h3 { color: #007bff; margin-bottom: 10px; font-size: 1.1rem; }
+        @media (min-width: 768px) { header { flex-direction: row; justify-content: space-around; } nav { margin-top: 0; } }
     </style>
 </head>
 <body>
-
 <header>
-    <a href="index.html" style="text-decoration: none; color: #1e293b; font-size: 1.5rem; font-weight: 800; letter-spacing: -1px;">GASA <span style="color: #007bff;">TECH</span></a>
+    <a href="index.html" style="text-decoration: none; color: #1e293b; font-size: 1.5rem; font-weight: 800;">GASA <span style="color: #007bff;">TECH</span></a>
     <nav>
-        <a href="index.html">Home</a>
-        <a href="about.html">About</a>
-        <a href="services.html">Services</a>
-        <a href="portfolio.html">Portfolio</a>
-        <a href="pricing.html">Pricing</a>
-        <a href="faq.html" style="color:#007bff">FAQ</a>
-        <a href="contact.html">Contact</a>
+        <a href="index.html">Home</a><a href="about.html">About</a><a href="services.html">Services</a><a href="faq.html" style="color:#007bff">FAQ</a><a href="contact.html">Contact</a>
     </nav>
 </header>
-
-<section class="page-header">
-    <h1 class="animate">Frequently Asked Questions</h1>
-    <p class="animate">Quick answers about our engineering process.</p>
-</section>
-
 <div class="container">
-    <div class="faq-card animate">
-        <h3>How long does a website take to build?</h3>
-        <p>A standard corporate website typically takes 7-14 business days. Complex e-commerce platforms or custom apps may take longer depending on requirements.</p>
-    </div>
-
-    <div class="faq-card animate" style="animation-delay: 0.2s;">
-        <h3>Do you provide hosting and domains?</h3>
-        <p>We assist with the setup of your domain and hosting. We recommend reliable South African providers to ensure high speeds for local customers.</p>
-    </div>
-
-    <div class="faq-card animate" style="animation-delay: 0.4s;">
-        <h3>Will my website work on mobile phones?</h3>
-        <p>Absolutely. Every project GASA TECH delivers is "Mobile-First," meaning it is engineered to look and perform perfectly on smartphones, tablets, and desktops.</p>
-    </div>
-
-    <div class="faq-card animate" style="animation-delay: 0.6s;">
-        <h3>What is the payment structure?</h3>
-        <p>For most projects, we require a 50% deposit to begin engineering, with the remaining 50% due upon successful launch and hand-over.</p>
-    </div>
+    <h1 style="margin-bottom: 30px; text-align: center;">Frequently Asked Questions</h1>
+    <div class="faq-item"><h3>How long does a project take?</h3><p>A standard professional website takes 7-14 business days from deposit to launch.</p></div>
+    <div class="faq-item"><h3>What are your payment terms?</h3><p>We require a 50% deposit to commence work, with the balance due upon completion.</p></div>
 </div>
-
-<footer>
-    <p>© 2026 GASA TECH | Sandstone, Montrose Ave, Northgate</p>
-    <div style="margin-top: 15px;">
-        <a href="faq.html">FAQ</a> | 
-        <a href="privacy.html">Privacy Policy</a> | 
-        <a href="contact.html">Support</a>
-    </div>
-</footer>
-
 </body>
 </html>
