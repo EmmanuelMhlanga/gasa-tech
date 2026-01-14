@@ -4,40 +4,83 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Services | GASA TECH</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Segoe UI', sans-serif; background: #f8fafc; color: #1e293b; display: flex; flex-direction: column; min-height: 100vh; }
-        header { background: #fff; padding: 1rem; display: flex; flex-direction: column; align-items: center; box-shadow: 0 2px 10px rgba(0,0,0,0.05); position: sticky; top: 0; z-index: 1000; }
-        nav { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin-top: 10px; }
-        nav a { color: #475569; text-decoration: none; font-weight: 600; font-size: 0.85rem; padding: 5px; }
-        .main-content { flex: 1; }
-        .page-header { background: #1e293b; color: white; padding: 60px 20px; text-align: center; }
-        .container { width: 90%; max-width: 1000px; margin: 50px auto; }
-        .service-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
-        .service-box { background: white; padding: 30px; border-radius: 12px; border-top: 4px solid #007bff; box-shadow: 0 4px 6px rgba(0,0,0,0.05); }
-        footer { background: #1e293b; color: #cbd5e1; text-align: center; padding: 40px 20px; border-top: 4px solid #007bff; }
-        @media (min-width: 768px) { header { flex-direction: row; justify-content: space-around; } nav { margin-top: 0; } }
+        body { font-family: 'Inter', sans-serif; background: #f8fafc; }
+        header { background: #fff; padding: 1rem; display: flex; flex-direction: column; align-items: center; box-shadow: 0 2px 10px rgba(0,0,0,0.05); position: sticky; top:0; z-index:1000; }
+        nav { display: flex; flex-wrap: wrap; justify-content: center; gap: 15px; margin-top: 15px; }
+        nav a { color: #475569; text-decoration: none; font-weight: 600; font-size: 0.9rem; }
+        
+        .page-title { background: #1e293b; color: white; padding: 80px 20px; text-align: center; }
+        
+        .container { max-width: 1100px; margin: 60px auto; padding: 0 20px; }
+        
+        /* Modern Service Rows */
+        .service-row { display: flex; flex-direction: column; align-items: center; gap: 40px; margin-bottom: 100px; }
+        .service-text { flex: 1; }
+        .service-text h2 { font-size: 2rem; color: #1e293b; margin-bottom: 20px; }
+        .service-text p { font-size: 1.1rem; color: #64748b; margin-bottom: 20px; }
+        .service-image { flex: 1; background: #e2e8f0; width: 100%; min-height: 250px; border-radius: 20px; display: flex; align-items: center; justify-content: center; font-size: 4rem; color: #94a3b8; }
+
+        footer { background: #1e293b; color: #cbd5e1; text-align: center; padding: 40px 20px; }
+
+        @media (min-width: 768px) {
+            header { flex-direction: row; justify-content: space-around; }
+            nav { margin-top: 0; }
+            .service-row { flex-direction: row; text-align: left; }
+            .service-row:nth-child(even) { flex-direction: row-reverse; }
+        }
     </style>
 </head>
 <body>
+
 <header>
-    <a href="index.html" style="text-decoration: none; color: #1e293b; font-size: 1.5rem; font-weight: 800;">GASA <span style="color: #007bff;">TECH</span></a>
+    <a href="index.html" style="text-decoration: none; color: #1e293b; font-size: 1.6rem; font-weight: 800;">GASA <span style="color: #007bff;">TECH</span></a>
     <nav>
-        <a href="index.html">Home</a><a href="about.html">About</a><a href="services.html" style="color: #007bff;">Services</a><a href="portfolio.html">Portfolio</a><a href="hire-me.html">Hire Me</a><a href="contact.html">Contact</a>
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="services.html" style="color:#007bff">Services</a>
+        <a href="portfolio.html">Portfolio</a>
+        <a href="hire-me.html">Hire Me</a>
+        <a href="contact.html">Contact</a>
     </nav>
 </header>
-<div class="main-content">
-    <section class="page-header"><h1>Our Expertise</h1></section>
-    <div class="container">
-        <div class="service-grid">
-            <div class="service-box"><h3>Web Engineering</h3><p>Custom-built websites optimized for speed and POPIA compliance.</p></div>
-            <div class="service-box"><h3>Mobile Apps</h3><p>Cross-platform mobile applications for iOS and Android.</p></div>
-            <div class="service-box"><h3>Digital Strategy</h3><p>Engineering your digital roadmap for long-term business growth.</p></div>
+
+<section class="page-title">
+    <h1>Our Engineering Expertise</h1>
+    <p>We combine technical precision with business logic.</p>
+</section>
+
+<div class="container">
+    <div class="service-row">
+        <div class="service-text">
+            <h2>Web Development</h2>
+            <p>We build responsive, SEO-optimized websites that serve as high-converting business tools. Using clean HTML, CSS, and JavaScript, we ensure your brand stands out in the Northgate digital landscape.</p>
+            <ul style="list-style: none; color: #007bff; font-weight: bold;">
+                <li><i class="fas fa-check-circle"></i> Corporate Portals</li>
+                <li><i class="fas fa-check-circle"></i> E-Commerce Stores</li>
+            </ul>
         </div>
+        <div class="service-image"><i class="fas fa-laptop-code"></i></div>
+    </div>
+
+    <div class="service-row">
+        <div class="service-text">
+            <h2>App Engineering</h2>
+            <p>Scaling your business requires mobile accessibility. We develop cross-platform mobile apps that provide a seamless user experience for both iOS and Android customers.</p>
+            <ul style="list-style: none; color: #007bff; font-weight: bold;">
+                <li><i class="fas fa-check-circle"></i> iOS & Android</li>
+                <li><i class="fas fa-check-circle"></i> Cloud Integration</li>
+            </ul>
+        </div>
+        <div class="service-image"><i class="fas fa-mobile-alt"></i></div>
     </div>
 </div>
+
 <footer>
-    <p>© 2026 GASA TECH | Sandstone, Montrose Avenue, Northgate</p>
+    <p>© 2026 GASA TECH | Johannesburg</p>
 </footer>
+
 </body>
 </html>
