@@ -8,98 +8,88 @@
         @keyframes fadeInUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
         .animate { opacity: 0; animation: fadeInUp 0.8s ease-out forwards; }
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: #f8fafc; color: #1e293b; line-height: 1.6; }
+        body { font-family: 'Segoe UI', sans-serif; background: #f8fafc; color: #1e293b; line-height: 1.6; }
         
-        /* Navigation */
+        /* Nav */
         header { background: #fff; padding: 1rem; box-shadow: 0 2px 10px rgba(0,0,0,0.05); display: flex; justify-content: space-around; align-items: center; position: sticky; top:0; z-index:1000; }
-        header img { height: 45px; }
-        nav a { color: #475569; text-decoration: none; margin-left: 20px; font-weight: 600; font-size: 0.9rem; transition: 0.3s; }
-        nav a:hover { color: #007bff; }
+        nav a { color: #475569; text-decoration: none; margin-left: 20px; font-weight: 600; font-size: 0.9rem; }
 
-        /* Header Section */
-        .page-header { background: #1e293b; color: white; padding: 80px 20px; text-align: center; border-bottom: 5px solid #007bff; }
-        .page-header h1 { font-size: 2.5rem; margin-bottom: 10px; }
-        .page-header p { opacity: 0.9; font-size: 1.1rem; }
+        .page-header { background: #1e293b; color: white; padding: 70px 20px; text-align: center; border-bottom: 5px solid #007bff; }
 
-        /* Contact Grid */
-        .container { width: 90%; max-width: 1200px; margin: -50px auto 50px auto; display: grid; grid-template-columns: 1fr 1fr; gap: 30px; }
-        .card { background: white; padding: 40px; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
+        .container { width: 90%; max-width: 1150px; margin: -40px auto 50px auto; display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 30px; }
         
-        h3 { color: #1e293b; margin-bottom: 25px; font-size: 1.5rem; border-left: 4px solid #007bff; padding-left: 15px; }
-
-        /* Info Styling */
-        .info-item { display: flex; align-items: center; margin-bottom: 15px; color: #475569; text-decoration: none; transition: 0.2s; }
-        .info-item:hover { color: #007bff; }
-        .icon { font-size: 1.2rem; margin-right: 15px; width: 25px; text-align: center; }
+        /* Main Card */
+        .card { background: white; padding: 40px; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.08); display: flex; flex-direction: column; }
+        
+        .contact-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 30px; border-bottom: 1px solid #f1f5f9; padding-bottom: 20px; }
+        .direct-info p { font-weight: 600; color: #64748b; margin-bottom: 5px; font-size: 0.9rem; }
+        .direct-info a { color: #1e293b; text-decoration: none; font-size: 1.1rem; font-weight: bold; display: block; }
 
         /* Form Styling */
-        form { margin-top: 30px; }
-        input, textarea { width: 100%; padding: 15px; margin-bottom: 15px; border: 1px solid #e2e8f0; border-radius: 8px; background: #fdfdfd; font-size: 1rem; outline: none; transition: 0.3s; }
-        input:focus, textarea:focus { border-color: #007bff; box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.1); }
-        .submit-btn { background: #007bff; color: white; padding: 15px; border: none; border-radius: 8px; width: 100%; font-weight: bold; font-size: 1.1rem; cursor: pointer; transition: 0.3s; }
-        .submit-btn:hover { background: #0056b3; transform: translateY(-2px); }
+        input, textarea { width: 100%; padding: 14px; margin-bottom: 15px; border: 1px solid #e2e8f0; border-radius: 8px; font-size: 1rem; outline: none; transition: 0.3s; }
+        input:focus, textarea:focus { border-color: #007bff; }
+        .submit-btn { background: #007bff; color: white; padding: 16px; border: none; border-radius: 8px; width: 100%; font-weight: bold; font-size: 1rem; cursor: pointer; transition: 0.3s; }
+        .submit-btn:hover { background: #0056b3; }
+
+        /* Social Bar at Bottom */
+        .social-bar { margin-top: 30px; padding-top: 20px; border-top: 1px solid #f1f5f9; display: flex; justify-content: center; gap: 25px; }
+        .social-bar a { text-decoration: none; color: #64748b; font-size: 0.85rem; font-weight: 600; display: flex; align-items: center; gap: 8px; transition: 0.3s; }
+        .social-bar a:hover { color: #007bff; transform: translateY(-2px); }
 
         /* Map */
-        .map-box { border-radius: 15px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.1); height: 100%; min-height: 500px; border: 5px solid white; }
+        .map-box { border-radius: 15px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.08); min-height: 500px; border: 4px solid white; }
 
-        footer { background: #1e293b; color: #cbd5e1; text-align: center; padding: 40px 20px; }
-        .whatsapp-float { position: fixed; bottom: 30px; right: 30px; background: #25d366; color: white; padding: 15px 25px; border-radius: 50px; text-decoration: none; font-weight: bold; box-shadow: 0 5px 15px rgba(0,0,0,0.2); z-index: 1000; }
-
-        @media (max-width: 900px) { .container { grid-template-columns: 1fr; margin-top: 20px; } .map-box { min-height: 350px; } }
+        @media (max-width: 900px) { .container { grid-template-columns: 1fr; } .contact-header { flex-direction: column; gap: 20px; } }
     </style>
 </head>
 <body>
 
 <header>
-    <img src="logo.png" alt="GASA TECH">
+    <img src="logo.png" alt="GASA TECH" style="height: 40px;">
     <nav>
-        <a href="index.html">Home</a>
-        <a href="about.html">About</a>
-        <a href="services.html">Services</a>
-        <a href="portfolio.html">Portfolio</a>
-        <a href="pricing.html">Pricing</a>
-        <a href="faq.html">FAQ</a>
-        <a href="contact.html" style="color:#007bff">Contact</a>
+        <a href="index.html">Home</a><a href="about.html">About</a><a href="services.html">Services</a><a href="portfolio.html">Portfolio</a><a href="pricing.html">Pricing</a><a href="faq.html">FAQ</a><a href="contact.html" style="color:#007bff">Contact</a>
     </nav>
 </header>
 
 <section class="page-header">
-    <h1 class="animate">Let's Work Together</h1>
-    <p class="animate">Based in Sandstone, Montrose Avenue, Northgate</p>
+    <h1 class="animate">Contact Our Team</h1>
+    <p class="animate">Sandstone, Montrose Avenue, Northgate</p>
 </section>
 
 <div class="container">
     <div class="card animate">
-        <h3>Contact Details</h3>
-        <a href="mailto:gasatechptyltd@gmail.com" class="info-item"><span class="icon">📧</span> gasatechptyltd@gmail.com</a>
-        <a href="https://wa.me/27692401737" class="info-item"><span class="icon">📱</span> +27 69 240 1737</a>
-        
-        <h3 style="margin-top: 30px;">Social Media</h3>
-        <a href="https://instagram.com/gasatechptyltd" class="info-item"><span class="icon">📸</span> @gasatechptyltd</a>
-        <a href="https://facebook.com/gasatechptyltd" class="info-item"><span class="icon">📘</span> @gasatechptyltd</a>
-        <a href="https://tiktok.com/@gasatechptyltd" class="info-item"><span class="icon">🎵</span> @gasatechptyltd</a>
+        <div class="contact-header">
+            <div class="direct-info">
+                <p>EMAIL US</p>
+                <a href="mailto:gasatechptyltd@gmail.com">gasatechptyltd@gmail.com</a>
+            </div>
+            <div class="direct-info">
+                <p>WHATSAPP</p>
+                <a href="https://wa.me/27692401737">+27 69 240 1737</a>
+            </div>
+        </div>
 
         <form action="https://formspree.io/f/xnjjqryr" method="POST">
-            <input type="text" name="name" placeholder="Your Full Name" required>
-            <input type="email" name="email" placeholder="Your Email Address" required>
-            <textarea name="message" rows="5" placeholder="Tell us about your project requirements..." required></textarea>
-            <button type="submit" class="submit-btn">Send Message</button>
+            <input type="text" name="name" placeholder="Full Name" required>
+            <input type="email" name="email" placeholder="Email Address" required>
+            <textarea name="message" rows="4" placeholder="How can we help with your project?" required></textarea>
+            <button type="submit" class="submit-btn">Submit Inquiry</button>
         </form>
+
+        <div class="social-bar">
+            <a href="https://instagram.com/gasatechptyltd">📸 Instagram</a>
+            <a href="https://facebook.com/gasatechptyltd">📘 Facebook</a>
+            <a href="https://tiktok.com/@gasatechptyltd">🎵 TikTok</a>
+        </div>
     </div>
 
     <div class="map-box animate">
-        <iframe 
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3584.538573132034!2d27.948283576189564!3d-26.04859067717204!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1e9575d5f042e617%3A0x7d65609653a0606!2sMontrose%20Ave%2C%20Northgate%2C%20Randburg%2C%202162!5e0!3m2!1sen!2sza!4v1705230000000!5m2!1sen!2sza" 
-            width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy">
-        </iframe>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3584.068225575647!2d27.9395!3d-26.0625!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1e95741630c7936d%3A0xc067098e945c9913!2sMontrose%20Ave%2C%20Northgate%2C%20Randburg!5e0!3m2!1sen!2sza!4v1700000000000" 
+            width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
     </div>
 </div>
 
-<footer>
-    <p>© 2026 GASA TECH | Excellence in Digital Engineering</p>
-</footer>
-
-<a href="https://wa.me/27692401737" class="whatsapp-float" target="_blank">Chat on WhatsApp</a>
+<a href="https://wa.me/27692401737" style="position:fixed; bottom:20px; right:20px; background:#25d366; color:white; padding:12px 20px; border-radius:50px; text-decoration:none; font-weight:bold; box-shadow:0 4px 10px rgba(0,0,0,0.1);">WhatsApp Us</a>
 
 </body>
 </html>
