@@ -3,52 +3,61 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GASA TECH | Digital Engineering</title>
+    <title>GASA TECH | Engineering Digital Futures</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(30px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Inter', 'Segoe UI', sans-serif; background: #f8fafc; color: #1e293b; line-height: 1.6; }
+        @keyframes fadeInUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
         
-        header { background: #fff; padding: 1.2rem; display: flex; flex-direction: column; align-items: center; box-shadow: 0 2px 10px rgba(0,0,0,0.05); position: sticky; top:0; z-index:1000; }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', sans-serif; background: #f8fafc; color: #1e293b; line-height: 1.6; overflow-x: hidden; }
+        
+        /* Navigation */
+        header { background: #fff; padding: 1.2rem; display: flex; flex-direction: column; align-items: center; box-shadow: 0 2px 10px rgba(0,0,0,0.05); position: sticky; top:0; z-index: 1000; }
         nav { display: flex; flex-wrap: wrap; justify-content: center; gap: 15px; margin-top: 15px; }
         nav a { color: #475569; text-decoration: none; font-weight: 600; font-size: 0.9rem; transition: 0.3s; }
         nav a:hover { color: #007bff; }
 
-        /* Animated Hero Section */
-        .hero { background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%); color: white; padding: 100px 20px; text-align: center; }
-        .hero h1 { font-size: 3rem; margin-bottom: 20px; animation: fadeInUp 0.8s ease-out; }
-        .hero p { font-size: 1.2rem; color: #cbd5e1; max-width: 700px; margin: 0 auto 30px; animation: fadeInUp 1s ease-out; }
-        
-        .btn { background: #007bff; color: white; padding: 16px 32px; border-radius: 8px; text-decoration: none; font-weight: bold; display: inline-block; transition: 0.3s; box-shadow: 0 4px 15px rgba(0,123,255,0.3); }
-        .btn:hover { background: #0056b3; transform: translateY(-2px); }
+        /* Hero Section */
+        .hero { background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%); color: white; padding: 120px 20px; text-align: center; }
+        .hero h1 { font-size: 3.5rem; margin-bottom: 20px; animation: fadeInUp 0.8s ease-out; letter-spacing: -1px; }
+        .hero p { font-size: 1.2rem; color: #cbd5e1; max-width: 700px; margin: 0 auto 40px; animation: fadeInUp 1s ease-out; }
+        .btn { background: #007bff; color: white; padding: 18px 36px; border-radius: 10px; text-decoration: none; font-weight: bold; display: inline-block; transition: 0.3s; box-shadow: 0 4px 15px rgba(0,123,255,0.4); }
+        .btn:hover { background: #0056b3; transform: translateY(-3px); }
 
-        /* Feature Section with Icons */
-        .features { padding: 80px 20px; max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; }
+        /* Feature Section */
+        .features { padding: 100px 20px; max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; }
         .feature-card { background: white; padding: 40px; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); text-align: center; transition: 0.3s; }
-        .feature-card:hover { transform: translateY(-10px); }
-        .feature-card i { font-size: 2.5rem; color: #007bff; margin-bottom: 20px; }
+        .feature-card i { font-size: 3rem; color: #007bff; margin-bottom: 25px; }
+        .feature-card h3 { margin-bottom: 15px; font-size: 1.4rem; }
 
-        footer { background: #0f172a; color: #94a3b8; text-align: center; padding: 60px 20px; border-top: 4px solid #007bff; }
+        /* Testimonials Section */
+        .testimonials { background: #f1f5f9; padding: 100px 20px; }
+        .test-container { max-width: 1100px; margin: 0 auto; text-align: center; }
+        .test-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-top: 50px; }
+        .test-card { background: white; padding: 35px; border-radius: 20px; text-align: left; box-shadow: 0 4px 15px rgba(0,0,0,0.03); border-bottom: 5px solid #007bff; }
+
+        /* Footer */
+        footer { background: #0f172a; color: #94a3b8; padding: 80px 20px; text-align: center; }
+        .footer-links { margin: 20px 0; }
+        .footer-links a { color: #64748b; text-decoration: none; margin: 0 10px; font-size: 0.85rem; }
+        .footer-links a:hover { color: white; }
 
         @media (min-width: 768px) {
             header { flex-direction: row; justify-content: space-around; }
             nav { margin-top: 0; }
+            .hero h1 { font-size: 4.5rem; }
         }
     </style>
 </head>
 <body>
 
 <header>
-    <a href="index.html" style="text-decoration: none; color: #1e293b; font-size: 1.6rem; font-weight: 800; letter-spacing: -1px;">GASA <span style="color: #007bff;">TECH</span></a>
+    <a href="index.html" style="text-decoration: none; color: #1e293b; font-size: 1.7rem; font-weight: 900;">GASA <span style="color: #007bff;">TECH</span></a>
     <nav>
         <a href="index.html" style="color:#007bff">Home</a>
         <a href="about.html">About</a>
         <a href="services.html">Services</a>
+        <a href="process.html">Process</a>
         <a href="portfolio.html">Portfolio</a>
         <a href="hire-me.html">Hire Me</a>
         <a href="contact.html">Contact</a>
@@ -56,31 +65,56 @@
 </header>
 
 <section class="hero">
-    <h1>We Engineer the Future</h1>
-    <p>High-performance web applications and mobile experiences built with precision in Johannesburg.</p>
-    <a href="contact.html" class="btn">Get a Technical Quote</a>
+    <h1>Engineering Digital Excellence</h1>
+    <p>We build robust, high-performance web and mobile solutions tailored for the South African market.</p>
+    <a href="contact.html" class="btn">Start Your Project <i class="fas fa-arrow-right" style="margin-left:10px;"></i></a>
 </section>
 
 <section class="features">
     <div class="feature-card">
-        <i class="fas fa-code"></i>
-        <h3>Clean Code</h3>
-        <p>Built with modern standards ensuring your site is fast, secure, and scalable.</p>
+        <i class="fas fa-layer-group"></i>
+        <h3>Full-Stack Solutions</h3>
+        <p>From complex backend database architecture to sleek frontend user interfaces.</p>
     </div>
     <div class="feature-card">
-        <i class="fas fa-mobile-alt"></i>
-        <h3>Mobile First</h3>
-        <p>60% of web traffic is mobile. We ensure your business looks perfect on every screen.</p>
+        <i class="fas fa-shield-halved"></i>
+        <h3>POPIA Compliant</h3>
+        <p>Engineering with privacy and data security as a core foundation.</p>
     </div>
     <div class="feature-card">
-        <i class="fas fa-rocket"></i>
-        <h3>Fast Launch</h3>
-        <p>Rapid engineering cycles to get your business online in record time.</p>
+        <i class="fas fa-chart-line"></i>
+        <h3>Built for Scale</h3>
+        <p>Our code grows with your business, handling increased traffic with zero friction.</p>
+    </div>
+</section>
+
+<section class="testimonials">
+    <div class="test-container">
+        <h2>Trusted by Local Innovators</h2>
+        <div class="test-grid">
+            <div class="test-card">
+                <i class="fas fa-quote-left" style="color:#cbd5e1; font-size: 2rem; margin-bottom: 20px;"></i>
+                <p style="font-style: italic; margin-bottom: 20px;">"The technical depth GASA TECH brought to our project was unmatched. They didn't just build a site; they built a business asset."</p>
+                <strong>- ILETHA Management</strong>
+            </div>
+            <div class="test-card">
+                <i class="fas fa-quote-left" style="color:#cbd5e1; font-size: 2rem; margin-bottom: 20px;"></i>
+                <p style="font-style: italic; margin-bottom: 20px;">"Incredible speed and precision. The mobile app they engineered has completely changed how we engage with our clients."</p>
+                <strong>- NEOBREED Team</strong>
+            </div>
+        </div>
     </div>
 </section>
 
 <footer>
-    <p>© 2026 GASA TECH | Sandstone, Montrose Avenue, Northgate</p>
+    <div style="font-size: 1.8rem; font-weight: 900; color: white; margin-bottom: 10px;">GASA <span style="color: #007bff;">TECH</span></div>
+    <p>Sandstone, Montrose Avenue, Northgate, Johannesburg</p>
+    <div class="footer-links">
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="terms.html">Terms & Conditions</a>
+        <a href="faq.html">FAQ</a>
+    </div>
+    <p style="margin-top: 20px; font-size: 0.8rem; opacity: 0.5;">© 2026 GASA TECH (PTY) LTD. All Rights Reserved.</p>
 </footer>
 
 </body>
