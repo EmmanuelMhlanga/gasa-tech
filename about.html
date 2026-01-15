@@ -3,40 +3,111 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About | GASA TECH</title>
+    <title>About Us | GASA TECH</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Inter', sans-serif; background: #f8fafc; color: #1e293b; line-height: 1.8; }
+        body { font-family: 'Inter', sans-serif; background: #f8fafc; color: #1e293b; line-height: 1.6; }
+        
         header { background: #fff; padding: 1rem; display: flex; flex-direction: column; align-items: center; box-shadow: 0 2px 10px rgba(0,0,0,0.05); position: sticky; top: 0; z-index: 1000; }
         nav { display: flex; flex-wrap: wrap; justify-content: center; gap: 15px; margin-top: 15px; }
         nav a { color: #475569; text-decoration: none; font-weight: 600; font-size: 0.9rem; }
-        .page-header { background: #1e293b; color: white; padding: 80px 20px; text-align: center; }
-        .content { max-width: 900px; margin: 60px auto; padding: 0 20px; }
-        .box { background: white; padding: 40px; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); margin-bottom: 40px; border-left: 6px solid #007bff; }
-        h2 { font-size: 2rem; color: #1e293b; margin-bottom: 20px; }
-        footer { background: #1e293b; color: #cbd5e1; text-align: center; padding: 40px 20px; }
-        @media (min-width: 768px) { header { flex-direction: row; justify-content: space-around; } nav { margin-top: 0; } }
+        
+        .hero { background: #1e293b; color: white; padding: 100px 20px; text-align: center; }
+        .container { max-width: 900px; margin: 60px auto; padding: 0 20px; }
+        
+        .content-section { margin-bottom: 80px; }
+        h2 { color: #007bff; margin-bottom: 25px; font-size: 1.8rem; text-transform: uppercase; letter-spacing: 1px; }
+        p { font-size: 1.1rem; color: #475569; margin-bottom: 20px; }
+
+        /* Meet the Founder Styling */
+        .founder-card { 
+            display: flex; 
+            align-items: center; 
+            gap: 40px; 
+            background: white; 
+            padding: 40px; 
+            border-radius: 30px; 
+            box-shadow: 0 20px 40px rgba(0,0,0,0.05);
+            border: 1px solid #e2e8f0;
+        }
+        .founder-img { 
+            width: 220px; 
+            height: 220px; 
+            border-radius: 20px; 
+            background: #1e293b; 
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            overflow: hidden;
+            border: 5px solid #f1f5f9;
+        }
+        .founder-img i { font-size: 5rem; color: #007bff; }
+        .founder-img img { width: 100%; height: 100%; object-fit: cover; }
+
+        .founder-info h3 { font-size: 1.8rem; margin-bottom: 5px; color: #1e293b; }
+        .founder-info span { color: #007bff; font-weight: 700; text-transform: uppercase; font-size: 0.8rem; letter-spacing: 1px; }
+
+        /* Expertise Section */
+        .expertise-box { background: #0f172a; color: white; padding: 40px; border-radius: 25px; margin-top: 40px; }
+        .expertise-box h3 { color: #007bff; margin-bottom: 15px; }
+
+        footer { background: #1e293b; color: #cbd5e1; text-align: center; padding: 60px 20px; margin-top: 100px; }
+
+        @media (max-width: 768px) {
+            header { flex-direction: row; justify-content: space-around; }
+            .founder-card { flex-direction: column; text-align: center; }
+        }
     </style>
 </head>
 <body>
+
 <header>
     <a href="index.html" style="text-decoration: none; color: #1e293b; font-size: 1.6rem; font-weight: 800;">GASA <span style="color: #007bff;">TECH</span></a>
     <nav>
         <a href="index.html">Home</a><a href="about.html" style="color:#007bff">About</a><a href="services.html">Services</a><a href="portfolio.html">Portfolio</a><a href="hire-me.html">Hire Me</a><a href="contact.html">Contact</a>
     </nav>
 </header>
-<section class="page-header"><h1>The GASA TECH Story</h1></section>
-<div class="content">
-    <div class="box">
+
+<section class="hero">
+    <h1>The Engineering Standard</h1>
+    <p>Precision Digital Architecture based in Northgate, JHB.</p>
+</section>
+
+<div class="container">
+    <section class="content-section">
         <h2>Who We Are</h2>
-        <p>Founded in Northgate, Johannesburg, GASA TECH is a specialized digital engineering firm. We bridge the gap between complex software engineering and practical business applications.</p>
-    </div>
-    <div class="box" style="border-color: #25d366;">
-        <h2>Our Mission</h2>
-        <p>Our mission is to digitize South Africa’s private sector, ensuring that local businesses have the technical infrastructure to dominate their markets globally.</p>
-    </div>
+        <p>Founded in Northgate, Johannesburg, <strong>GASA TECH</strong> is a specialized digital engineering firm. We bridge the gap between complex software engineering and practical business applications. We don't just build websites; we build technical infrastructure.</p>
+    </section>
+
+    <section class="content-section">
+        <h2>Meet the Founder</h2>
+        <div class="founder-card">
+            <div class="founder-img">
+                <img src="emmanuel.jpg" alt="Emmanuel Mhlanga" onerror="this.style.display='none'">
+                <i class="fas fa-user-tie"></i> 
+            </div>
+            <div class="founder-info">
+                <span>Founder & Lead Architect</span>
+                <h3>Emmanuel Mhlanga</h3>
+                <p>Leading the technical strategy at GASA TECH, Emmanuel focuses on translating business goals into robust code. With a deep understanding of the South African digital landscape, he ensures every project is engineered for speed, security, and scale.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="content-section">
+        <div class="expertise-box">
+            <h3>What is Web Development at GASA TECH?</h3>
+            <p>To us, web development is more than just visual design; it is the <strong>engineering of a digital storefront</strong>. It involves building the frontend (what you see) and the backend (the logic and database) to create a seamless machine.</p>
+            <p>We focus on "Full-Stack" excellence—ensuring your site is fast, responsive on mobile devices, and optimized for search engines so your business remains visible and profitable.</p>
+        </div>
+    </section>
 </div>
-<footer><p>© 2026 GASA TECH | Johannesburg, South Africa</p></footer>
+
+<footer>
+    <p>© 2026 GASA TECH | Johannesburg, South Africa</p>
+</footer>
+
 </body>
 </html>
