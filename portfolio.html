@@ -9,35 +9,138 @@
         @keyframes fadeInUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: 'Inter', sans-serif; background: #f8fafc; color: #1e293b; line-height: 1.6; }
+        
         header { background: #fff; padding: 1rem; display: flex; flex-direction: column; align-items: center; box-shadow: 0 2px 10px rgba(0,0,0,0.05); position: sticky; top: 0; z-index: 1000; }
         nav { display: flex; flex-wrap: wrap; justify-content: center; gap: 15px; margin-top: 15px; }
         nav a { color: #475569; text-decoration: none; font-weight: 600; font-size: 0.9rem; }
+        
         .page-header { background: #1e293b; color: white; padding: 80px 20px; text-align: center; }
-        .container { max-width: 1200px; margin: 60px auto; padding: 0 20px; display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 30px; }
-        .project-card { background: white; border-radius: 20px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.05); transition: 0.3s; animation: fadeInUp 0.8s ease-out; }
+        .container { max-width: 1200px; margin: 60px auto; padding: 0 20px; display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 50px; }
+        
+        /* Laptop Mockup Styling */
+        .laptop-wrapper {
+            background: #334155;
+            padding: 10px;
+            border-radius: 15px 15px 0 0;
+            position: relative;
+            height: 220px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 4px solid #475569;
+            box-shadow: inset 0 0 20px rgba(0,0,0,0.5);
+        }
+        .laptop-screen {
+            background: #0f172a;
+            width: 95%;
+            height: 90%;
+            border-radius: 5px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: #3b82f6;
+            font-weight: 900;
+            font-size: 1.2rem;
+            border: 1px solid #1e293b;
+            padding: 10px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+        .laptop-base {
+            height: 12px;
+            background: #94a3b8;
+            border-radius: 0 0 20px 20px;
+            width: 105%;
+            margin-left: -2.5%;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .project-card { 
+            background: white; 
+            border-radius: 20px; 
+            overflow: visible; 
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05); 
+            transition: 0.3s; 
+            animation: fadeInUp 0.8s ease-out;
+            padding: 20px;
+        }
         .project-card:hover { transform: translateY(-10px); box-shadow: 0 20px 40px rgba(0,0,0,0.1); }
-        .project-img { height: 200px; background: #e2e8f0; display: flex; align-items: center; justify-content: center; font-size: 3rem; color: #94a3b8; border-bottom: 4px solid #007bff; }
-        .project-info { padding: 30px; }
-        .project-info h3 { margin-bottom: 10px; font-size: 1.5rem; color: #1e293b; }
-        .project-info p { color: #64748b; margin-bottom: 20px; }
-        .btn-view { color: #007bff; text-decoration: none; font-weight: 800; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px; }
-        footer { background: #1e293b; color: #cbd5e1; text-align: center; padding: 40px 20px; border-top: 4px solid #007bff; }
+        
+        .project-info { padding: 25px 10px; }
+        .project-info h3 { margin-bottom: 10px; font-size: 1.4rem; color: #1e293b; }
+        .project-info p { color: #64748b; margin-bottom: 20px; font-size: 0.95rem; min-height: 80px; }
+        
+        .btn-view { 
+            color: #007bff; 
+            text-decoration: none; 
+            font-weight: 800; 
+            font-size: 0.85rem; 
+            text-transform: uppercase; 
+            letter-spacing: 1px;
+            display: inline-flex;
+            align-items: center;
+        }
+        .btn-view i { margin-left: 8px; transition: 0.3s; }
+        .btn-view:hover i { transform: translateX(5px); }
+
+        footer { background: #1e293b; color: #cbd5e1; text-align: center; padding: 40px 20px; margin-top: 60px; }
         @media (min-width: 768px) { header { flex-direction: row; justify-content: space-around; } nav { margin-top: 0; } }
     </style>
 </head>
 <body>
+
 <header>
     <a href="index.html" style="text-decoration: none; color: #1e293b; font-size: 1.6rem; font-weight: 800;">GASA <span style="color: #007bff;">TECH</span></a>
     <nav>
         <a href="index.html">Home</a><a href="about.html">About</a><a href="services.html">Services</a><a href="portfolio.html" style="color:#007bff">Portfolio</a><a href="hire-me.html">Hire Me</a><a href="contact.html">Contact</a>
     </nav>
 </header>
-<section class="page-header"><h1>Our Engineering Legacy</h1><p>Proven digital results for South African brands.</p></section>
+
+<section class="page-header">
+    <h1>Engineering Legacy</h1>
+    <p>Premium Digital Infrastructure for Leading South African Brands</p>
+</section>
+
 <div class="container">
-    <div class="project-card"><div class="project-img"><i class="fas fa-building"></i></div><div class="project-info"><h3>ILETHA</h3><p>A corporate digital transformation optimizing internal workflows and public presence.</p><a href="#" class="btn-view">View Case Study →</a></div></div>
-    <div class="project-card"><div class="project-img"><i class="fas fa-seedling"></i></div><div class="project-info"><h3>NEOBREED</h3><p>An advanced marketing engine built to scale lead generation and customer acquisition.</p><a href="#" class="btn-view">View Case Study →</a></div></div>
-    <div class="project-card"><div class="project-img"><i class="fas fa-shopping-cart"></i></div><div class="project-info"><h3>VILE AMICO</h3><p>High-conversion E-commerce platform with seamless payment gateway integration.</p><a href="#" class="btn-view">View Case Study →</a></div></div>
+    <div class="project-card">
+        <div class="laptop-wrapper">
+            <div class="laptop-screen">ILETHA.COM</div>
+        </div>
+        <div class="laptop-base"></div>
+        <div class="project-info">
+            <h3>ILETHA</h3>
+            <p>Corporate digital transformation focused on data integrity and high-level professional branding for the private sector.</p>
+            <a href="https://iletha.com" target="_blank" class="btn-view">Launch Live Site <i class="fas fa-external-link-alt"></i></a>
+        </div>
+    </div>
+
+    <div class="project-card">
+        <div class="laptop-wrapper" style="background: #1e293b;">
+            <div class="laptop-screen" style="color: #60a5fa;">NEO BREED MARKETING</div>
+        </div>
+        <div class="laptop-base"></div>
+        <div class="project-info">
+            <h3>Neo Breed Marketing Solutions</h3>
+            <p>A high-performance lead generation engine engineered for maximum conversion rates and rapid speed optimization.</p>
+            <a href="https://neobreedmarketingsolutions.com" target="_blank" class="btn-view">Launch Live Site <i class="fas fa-external-link-alt"></i></a>
+        </div>
+    </div>
+
+    <div class="project-card">
+        <div class="laptop-wrapper" style="background: #0f172a;">
+            <div class="laptop-screen" style="color: #ffffff;">VILE AMICO</div>
+        </div>
+        <div class="laptop-base"></div>
+        <div class="project-info">
+            <h3>Vile Amico</h3>
+            <p>Full-scale E-commerce architecture featuring secure payment gateways and an intuitive mobile shopping experience.</p>
+            <a href="https://vileamico.co.za" target="_blank" class="btn-view">Launch Live Site <i class="fas fa-external-link-alt"></i></a>
+        </div>
+    </div>
 </div>
-<footer><p>© 2026 GASA TECH | Northgate, Johannesburg</p></footer>
+
+<footer><p>© 2026 GASA TECH | Sandstone, Northgate, JHB</p></footer>
+
 </body>
 </html>
