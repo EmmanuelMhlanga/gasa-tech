@@ -18,10 +18,14 @@
         .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin: 40px 0; text-align: left; }
         .point { background: #f1f5f9; padding: 20px; border-radius: 12px; }
         .point i { color: #007bff; margin-bottom: 10px; display: block; font-size: 1.5rem; }
-        .whatsapp-btn { background: #25d366; color: white; padding: 20px 40px; border-radius: 12px; text-decoration: none; font-weight: bold; display: inline-block; transition: 0.3s; }
+        
+        /* Fixed WhatsApp Button */
+        .whatsapp-btn { background: #25d366; color: white; padding: 20px 40px; border-radius: 12px; text-decoration: none; font-weight: bold; display: inline-block; transition: 0.3s; box-shadow: 0 10px 20px rgba(37, 211, 102, 0.2); }
         .whatsapp-btn:hover { background: #128c7e; transform: scale(1.05); }
+        
         footer { background: #1e293b; color: #cbd5e1; text-align: center; padding: 40px 20px; }
         @media (max-width: 600px) { .grid { grid-template-columns: 1fr; } }
+        @media (min-width: 768px) { header { flex-direction: row; justify-content: space-around; } nav { margin-top: 0; } }
     </style>
 </head>
 <body>
@@ -35,14 +39,17 @@
     <div class="hire-card">
         <span class="badge">AVAILABLE FOR Q1 2026</span>
         <h2>Consult with the Lead Engineer</h2>
-        <p>Direct access to world-class technical strategy and implementation.</p>
+        <p>Direct access to world-class technical strategy and implementation for your next big project.</p>
         <div class="grid">
-            <div class="point"><i class="fas fa-brain"></i><strong>Architecture</strong><p>Planning your app's foundation.</p></div>
-            <div class="point"><i class="fas fa-bolt"></i><strong>Performance</strong><p>Optimizing for extreme speed.</p></div>
+            <div class="point"><i class="fas fa-brain"></i><strong>Architecture</strong><p>Planning your app's foundation for massive scale.</p></div>
+            <div class="point"><i class="fas fa-bolt"></i><strong>Performance</strong><p>Optimizing code for extreme speed and security.</p></div>
         </div>
-        <a href="https://wa.me/27692401737" class="whatsapp-btn"><i class="fab fa-whatsapp"></i> Book a Project Call</a>
+        
+        <a href="https://wa.me/27691401737?text=Hi%20GASA%20TECH%2C%20I'd%20like%20to%20book%20a%20consultation%20call%20regarding%20a%20new%20project." class="whatsapp-btn">
+            <i class="fab fa-whatsapp"></i> Book a Project Call
+        </a>
     </div>
 </div>
-<footer><p>© 2026 GASA TECH | Johannesburg</p></footer>
+<footer><p>© 2026 GASA TECH | Johannesburg, South Africa</p></footer>
 </body>
 </html>
