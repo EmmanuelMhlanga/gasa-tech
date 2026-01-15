@@ -9,34 +9,44 @@
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: 'Inter', sans-serif; background: #f8fafc; color: #1e293b; line-height: 1.6; }
         
-        /* HEADER & NAV */
         header { background: #fff; padding: 1rem; display: flex; flex-direction: column; align-items: center; box-shadow: 0 2px 10px rgba(0,0,0,0.05); position: sticky; top:0; z-index:1000; }
         nav { display: flex; flex-wrap: wrap; justify-content: center; gap: 15px; margin-top: 15px; }
         nav a { color: #475569; text-decoration: none; font-weight: 600; font-size: 0.9rem; }
         
         .page-title { background: #1e293b; color: white; padding: 80px 20px; text-align: center; }
         
-        /* SERVICES SECTION */
         .container { max-width: 1100px; margin: 60px auto; padding: 0 20px; }
+        
+        /* Service Rows */
         .service-row { display: flex; flex-direction: column; align-items: center; gap: 60px; margin-bottom: 100px; }
         .service-text { flex: 1; }
         .service-text h2 { font-size: 2.2rem; color: #1e293b; margin-bottom: 20px; }
-        .service-text p { font-size: 1.1rem; color: #64748b; margin-bottom: 20px; }
-        .service-list { list-style: none; color: #007bff; font-weight: bold; margin-bottom: 20px;}
-        .service-list li { margin-bottom: 10px; display: flex; align-items: center; gap: 10px; }
-        .service-image { flex: 1; width: 100%; min-height: 280px; border-radius: 25px; background: #f1f5f9; display: flex; align-items: center; justify-content: center; border: 1px solid #e2e8f0; }
+        .service-text p { font-size: 1.1rem; color: #64748b; margin-bottom: 25px; }
+        .service-list { list-style: none; color: #007bff; font-weight: bold; font-size: 1rem; }
+        .service-list li { margin-bottom: 12px; display: flex; align-items: center; gap: 10px; }
+
+        .service-image { flex: 1; width: 100%; min-height: 300px; border-radius: 25px; display: flex; align-items: center; justify-content: center; background: #f1f5f9; border: 1px solid #e2e8f0; }
         .service-image i { font-size: 5rem; color: #cbd5e1; }
 
-        /* PRICING SECTION */
-        .pricing-section { background: #f1f5f9; padding: 80px 20px; text-align: center; }
-        .pricing-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; max-width: 1100px; margin: 40px auto 0; }
-        .price-card { background: white; padding: 40px; border-radius: 25px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); border: 1px solid #e2e8f0; }
-        .price-card.featured { border: 2px solid #007bff; transform: scale(1.05); position: relative; }
-        .price-card h3 { color: #64748b; font-size: 0.9rem; text-transform: uppercase; margin-bottom: 15px; }
-        .price-val { font-size: 3rem; font-weight: 800; color: #1e293b; margin-bottom: 20px; }
-        .btn-price { display: block; padding: 15px; border-radius: 12px; text-decoration: none; font-weight: bold; margin-top: 20px; }
+        /* Pricing Section */
+        .pricing-section { background: #f1f5f9; padding: 100px 20px; text-align: center; }
+        .pricing-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; max-width: 1200px; margin: 50px auto 0; }
+        
+        .price-card { background: white; padding: 40px; border-radius: 25px; border: 1px solid #e2e8f0; transition: 0.3s; position: relative; display: flex; flex-direction: column; }
+        .price-card:hover { transform: translateY(-10px); box-shadow: 0 20px 40px rgba(0,0,0,0.05); }
+        .price-card.featured { border: 2.5px solid #007bff; }
+        .badge { position: absolute; top: -15px; left: 50%; transform: translateX(-50%); background: #007bff; color: white; padding: 5px 20px; border-radius: 20px; font-size: 0.8rem; font-weight: bold; }
 
-        /* FOOTER */
+        .price-card h3 { color: #475569; text-transform: uppercase; letter-spacing: 1px; font-size: 0.9rem; margin-bottom: 10px; }
+        .price-card .price { font-size: 3rem; font-weight: 800; color: #1e293b; margin-bottom: 25px; }
+        .price-card ul { list-style: none; text-align: left; margin-bottom: 30px; flex-grow: 1; }
+        .price-card li { margin-bottom: 10px; color: #64748b; font-size: 0.95rem; display: flex; align-items: center; gap: 10px; }
+        .price-card li i { color: #25d366; }
+
+        .btn-order { background: #1e293b; color: white; padding: 15px; border-radius: 12px; text-decoration: none; font-weight: bold; transition: 0.3s; }
+        .btn-order:hover { background: #007bff; }
+        .featured .btn-order { background: #007bff; }
+
         footer { background: #1e293b; color: #cbd5e1; text-align: center; padding: 60px 20px; }
 
         @media (min-width: 768px) {
@@ -63,50 +73,90 @@
 
 <section class="page-title">
     <h1>Our Engineering Expertise</h1>
-    <p>Professional Digital Solutions for the South African Market</p>
+    <p>Scaling Businesses with High-Performance Digital Infrastructure</p>
 </section>
 
 <div class="container">
     <div class="service-row">
         <div class="service-text">
-            <h2>Web Development</h2>
-            <p>We engineer responsive, SEO-optimized websites designed to serve as high-performance business assets.</p>
+            <h2>Full-Stack Web Development</h2>
+            <p>We build more than just websites; we engineer high-speed digital storefronts optimized for the South African market. Every project includes desktop, tablet, and mobile responsiveness as standard.</p>
             <ul class="service-list">
-                <li><i class="fas fa-check-circle"></i> Corporate Portals</li>
-                <li><i class="fas fa-check-circle"></i> E-Commerce Systems</li>
+                <li><i class="fas fa-check-circle"></i> Custom UI/UX Engineering</li>
+                <li><i class="fas fa-check-circle"></i> Rapid Load Performance</li>
             </ul>
         </div>
-        <div class="service-image"><i class="fas fa-laptop-code"></i></div>
+        <div class="service-image"><i class="fas fa-code"></i></div>
     </div>
 
     <div class="service-row">
         <div class="service-text">
-            <h2>App Engineering</h2>
-            <p>Custom mobile applications built for iOS and Android with robust cloud backend architecture.</p>
+            <h2>Infrastructure & Hosting</h2>
+            <p>Reliability is key to business growth. We provide end-to-end management of your web infrastructure, including secure domain registration and high-uptime hosting solutions.</p>
             <ul class="service-list">
-                <li><i class="fas fa-check-circle"></i> Cross-Platform UI</li>
-                <li><i class="fas fa-check-circle"></i> Secure API Integration</li>
+                <li><i class="fas fa-check-circle"></i> Free .co.za Domain Registration</li>
+                <li><i class="fas fa-check-circle"></i> 1 Year Professional Hosting</li>
             </ul>
         </div>
-        <div class="service-image"><i class="fas fa-mobile-alt"></i></div>
+        <div class="service-image"><i class="fas fa-server"></i></div>
+    </div>
+
+    <div class="service-row">
+        <div class="service-text">
+            <h2>Search Engine Optimization</h2>
+            <p>Ensure your brand is visible where it matters. Our technical SEO services bridge the gap between your site and your future customers on Google.</p>
+            <ul class="service-list">
+                <li><i class="fas fa-check-circle"></i> Technical SEO Audits</li>
+                <li><i class="fas fa-check-circle"></i> Google Search Console Setup</li>
+            </ul>
+        </div>
+        <div class="service-image"><i class="fas fa-chart-line"></i></div>
     </div>
 </div>
 
 <section class="pricing-section">
-    <h2>Service Packages</h2>
+    <h2>Investment Plans</h2>
     <div class="pricing-grid">
+        
         <div class="price-card">
-            <h3>Lite</h3>
-            <div class="price-val">R2,499</div>
-            <p>Perfect for new startups.</p>
-            <a href="contact.html" class="btn-price" style="background:#f1f5f9; color:#1e293b;">Select Lite</a>
+            <h3>Basic Package</h3>
+            <div class="price">R3000</div>
+            <ul>
+                <li><i class="fas fa-check"></i> Up to 5 Pages</li>
+                <li><i class="fas fa-check"></i> Custom Modern Design</li>
+                <li><i class="fas fa-check"></i> Free .co.za Domain</li>
+                <li><i class="fas fa-check"></i> Desktop, Tablet & Mobile</li>
+            </ul>
+            <a href="contact.html" class="btn-order">Select Package</a>
         </div>
+
         <div class="price-card featured">
-            <h3 style="color:#007bff;">Pro Business</h3>
-            <div class="price-val">R5,999</div>
-            <p>Complete digital presence.</p>
-            <a href="contact.html" class="btn-price" style="background:#007bff; color:white;">Select Pro</a>
+            <span class="badge">RECOMMENDED</span>
+            <h3>Standard Package</h3>
+            <div class="price">R3500</div>
+            <ul>
+                <li><i class="fas fa-check"></i> Up to 8 Pages</li>
+                <li><i class="fas fa-check"></i> Professional Photo Gallery</li>
+                <li><i class="fas fa-check"></i> One Year Free Hosting</li>
+                <li><i class="fas fa-check"></i> Mobile Responsive Design</li>
+                <li><i class="fas fa-check"></i> Custom Assets</li>
+            </ul>
+            <a href="contact.html" class="btn-order">Select Package</a>
         </div>
+
+        <div class="price-card">
+            <h3>Premium Package</h3>
+            <div class="price">R4500</div>
+            <ul>
+                <li><i class="fas fa-check"></i> Unlimited Pages</li>
+                <li><i class="fas fa-check"></i> Social Media Integration</li>
+                <li><i class="fas fa-check"></i> E-commerce / Advanced Tools</li>
+                <li><i class="fas fa-check"></i> 1 Year Free Hosting</li>
+                <li><i class="fas fa-check"></i> Priority Support</li>
+            </ul>
+            <a href="contact.html" class="btn-order">Select Package</a>
+        </div>
+
     </div>
 </section>
 
