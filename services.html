@@ -1,127 +1,44 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Services | GASA TECH</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Inter', sans-serif; background: #f8fafc; color: #1e293b; line-height: 1.6; }
-        header { background: #fff; padding: 1rem; display: flex; flex-direction: column; align-items: center; box-shadow: 0 2px 10px rgba(0,0,0,0.05); position: sticky; top:0; z-index:1000; }
-        nav { display: flex; flex-wrap: wrap; justify-content: center; gap: 15px; margin-top: 15px; }
-        nav a { color: #475569; text-decoration: none; font-weight: 600; font-size: 0.9rem; }
+<section style="background: #f1f5f9; padding: 100px 20px;">
+    <div style="max-width: 1100px; margin: 0 auto; text-align: center;">
+        <h2 style="font-size: 2.5rem; color: #1e293b; margin-bottom: 15px;">Service Packages</h2>
+        <p style="color: #64748b; margin-bottom: 50px;">Transparent engineering rates for every stage of business.</p>
         
-        .page-title { background: #1e293b; color: white; padding: 80px 20px; text-align: center; }
-        
-        .container { max-width: 1100px; margin: 60px auto; padding: 0 20px; }
-        
-        .service-row { display: flex; flex-direction: column; align-items: center; gap: 60px; margin-bottom: 120px; }
-        .service-text { flex: 1; }
-        .service-text h2 { font-size: 2.2rem; color: #1e293b; margin-bottom: 20px; }
-        .service-text p { font-size: 1.1rem; color: #64748b; margin-bottom: 25px; }
-        .service-list { list-style: none; color: #007bff; font-weight: bold; font-size: 1rem; }
-        .service-list li { margin-bottom: 10px; display: flex; align-items: center; gap: 10px; }
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px;">
+            
+            <div style="background: white; padding: 40px; border-radius: 25px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); border: 1px solid #e2e8f0;">
+                <h3 style="color: #64748b; text-transform: uppercase; font-size: 0.9rem; letter-spacing: 1px;">Lite</h3>
+                <div style="font-size: 3rem; font-weight: 800; margin: 20px 0; color: #1e293b;">R2,499</div>
+                <ul style="list-style: none; text-align: left; margin-bottom: 30px; color: #475569;">
+                    <li style="margin-bottom: 12px;"><i class="fas fa-check" style="color: #25d366; margin-right: 10px;"></i> 1-Page Business Profile</li>
+                    <li style="margin-bottom: 12px;"><i class="fas fa-check" style="color: #25d366; margin-right: 10px;"></i> Contact Form Integration</li>
+                    <li style="margin-bottom: 12px;"><i class="fas fa-check" style="color: #25d366; margin-right: 10px;"></i> Mobile Responsive Design</li>
+                </ul>
+                <a href="contact.html" style="display: block; background: #f1f5f9; color: #1e293b; padding: 15px; border-radius: 12px; text-decoration: none; font-weight: bold;">Get Started</a>
+            </div>
 
-        /* Modern Image Styling */
-        .service-image { flex: 1; width: 100%; min-height: 300px; border-radius: 25px; overflow: hidden; display: flex; align-items: center; justify-content: center; background: #f1f5f9; box-shadow: 0 20px 40px rgba(0,0,0,0.05); border: 1px solid #e2e8f0; }
-        .service-image i { font-size: 5rem; color: #cbd5e1; }
-        .service-image img { width: 100%; height: 100%; object-fit: cover; }
+            <div style="background: white; padding: 40px; border-radius: 25px; box-shadow: 0 20px 40px rgba(0,123,255,0.1); border: 2px solid #007bff; position: relative; transform: scale(1.05);">
+                <span style="position: absolute; top: -15px; left: 50%; transform: translateX(-50%); background: #007bff; color: white; padding: 5px 20px; border-radius: 20px; font-size: 0.8rem; font-weight: bold;">MOST POPULAR</span>
+                <h3 style="color: #007bff; text-transform: uppercase; font-size: 0.9rem; letter-spacing: 1px;">Pro Business</h3>
+                <div style="font-size: 3rem; font-weight: 800; margin: 20px 0; color: #1e293b;">R5,999</div>
+                <ul style="list-style: none; text-align: left; margin-bottom: 30px; color: #475569;">
+                    <li style="margin-bottom: 12px;"><i class="fas fa-check" style="color: #25d366; margin-right: 10px;"></i> 5-Page Full Website</li>
+                    <li style="margin-bottom: 12px;"><i class="fas fa-check" style="color: #25d366; margin-right: 10px;"></i> SEO Optimization</li>
+                    <li style="margin-bottom: 12px;"><i class="fas fa-check" style="color: #25d366; margin-right: 10px;"></i> Google Search Console</li>
+                </ul>
+                <a href="contact.html" style="display: block; background: #007bff; color: white; padding: 15px; border-radius: 12px; text-decoration: none; font-weight: bold;">Select Pro</a>
+            </div>
 
-        footer { background: #1e293b; color: #cbd5e1; text-align: center; padding: 60px 20px; border-top: 4px solid #007bff; }
+            <div style="background: white; padding: 40px; border-radius: 25px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); border: 1px solid #e2e8f0;">
+                <h3 style="color: #64748b; text-transform: uppercase; font-size: 0.9rem; letter-spacing: 1px;">Custom App</h3>
+                <div style="font-size: 3rem; font-weight: 800; margin: 20px 0; color: #1e293b;">Custom</div>
+                <ul style="list-style: none; text-align: left; margin-bottom: 30px; color: #475569;">
+                    <li style="margin-bottom: 12px;"><i class="fas fa-check" style="color: #25d366; margin-right: 10px;"></i> E-Commerce / Web Apps</li>
+                    <li style="margin-bottom: 12px;"><i class="fas fa-check" style="color: #25d366; margin-right: 10px;"></i> Database Management</li>
+                    <li style="margin-bottom: 12px;"><i class="fas fa-check" style="color: #25d366; margin-right: 10px;"></i> Mobile App Deployment</li>
+                </ul>
+                <a href="https://wa.me/27691401737" style="display: block; background: #1e293b; color: white; padding: 15px; border-radius: 12px; text-decoration: none; font-weight: bold;">Consult Now</a>
+            </div>
 
-        @media (min-width: 768px) {
-            header { flex-direction: row; justify-content: space-around; }
-            nav { margin-top: 0; }
-            .service-row { flex-direction: row; text-align: left; }
-            .service-row:nth-child(even) { flex-direction: row-reverse; }
-        }
-    </style>
-</head>
-<body>
-
-<header>
-    <a href="index.html" style="text-decoration: none; color: #1e293b; font-size: 1.6rem; font-weight: 800;">GASA <span style="color: #007bff;">TECH</span></a>
-    <nav>
-        <a href="index.html">Home</a>
-        <a href="about.html">About</a>
-        <a href="services.html" style="color:#007bff">Services</a>
-        <a href="portfolio.html">Portfolio</a>
-        <a href="hire-me.html">Hire Me</a>
-        <a href="contact.html">Contact</a>
-    </nav>
-</header>
-
-<section class="page-title">
-    <h1>Our Engineering Expertise</h1>
-    <p>Professional Digital Solutions Tailored for South African Growth</p>
+        </div>
+    </div>
 </section>
-
-<div class="container">
-    <div class="service-row">
-        <div class="service-text">
-            <h2>Web Development</h2>
-            <p>We build high-performance, SEO-optimized websites that serve as powerful business tools. From corporate portals to complex web applications, we ensure your code is clean and scalable.</p>
-            <ul class="service-list">
-                <li><i class="fas fa-check-circle"></i> Custom Corporate Sites</li>
-                <li><i class="fas fa-check-circle"></i> E-Commerce Architecture</li>
-            </ul>
-        </div>
-        <div class="service-image"><i class="fas fa-laptop-code"></i></div>
-    </div>
-
-    <div class="service-row">
-        <div class="service-text">
-            <h2>App Engineering</h2>
-            <p>Take your business mobile. We develop cross-platform iOS and Android applications that provide seamless user experiences and robust cloud backend integration.</p>
-            <ul class="service-list">
-                <li><i class="fas fa-check-circle"></i> iOS & Android Deployment</li>
-                <li><i class="fas fa-check-circle"></i> Cloud API Integration</li>
-            </ul>
-        </div>
-        <div class="service-image"><i class="fas fa-mobile-alt"></i></div>
-    </div>
-
-    <div class="service-row">
-        <div class="service-text">
-            <h2>UI/UX Design</h2>
-            <p>User experience is at the heart of our engineering. We create intuitive, modern interfaces that reduce bounce rates and increase customer engagement.</p>
-            <ul class="service-list">
-                <li><i class="fas fa-check-circle"></i> Wireframing & Prototyping</li>
-                <li><i class="fas fa-check-circle"></i> User Journey Mapping</li>
-            </ul>
-        </div>
-        <div class="service-image"><i class="fas fa-bezier-curve"></i></div>
-    </div>
-
-    <div class="service-row">
-        <div class="service-text">
-            <h2>SEO & Strategy</h2>
-            <p>Being live isn't enough; you must be found. Our SEO engineering ensures your business dominates search results in the Johannesburg market and beyond.</p>
-            <ul class="service-list">
-                <li><i class="fas fa-check-circle"></i> Advanced Search Optimization</li>
-                <li><i class="fas fa-check-circle"></i> Conversion Rate Optimization</li>
-            </ul>
-        </div>
-        <div class="service-image"><i class="fas fa-chart-line"></i></div>
-    </div>
-
-    <div class="service-row">
-        <div class="service-text">
-            <h2>Maintenance & Security</h2>
-            <p>Technology evolves daily. We provide ongoing technical support, security patches, and performance monitoring to keep your digital assets running at 100%.</p>
-            <ul class="service-list">
-                <li><i class="fas fa-check-circle"></i> 24/7 Security Monitoring</li>
-                <li><i class="fas fa-check-circle"></i> Daily Backups & Updates</li>
-            </ul>
-        </div>
-        <div class="service-image"><i class="fas fa-shield-alt"></i></div>
-    </div>
-</div>
-
-<footer>
-    <p>© 2026 GASA TECH | Northgate, Johannesburg</p>
-</footer>
-
-</body>
-</html>
