@@ -3,25 +3,82 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GASA TECH | Link Bio</title>
+    <title>GASA TECH | Digital Business Card</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        body { background: #0f172a; color: white; font-family: 'Inter', sans-serif; text-align: center; padding: 50px 20px; }
-        .logo { font-size: 2rem; font-weight: 900; margin-bottom: 10px; }
+        body { 
+            background: #0f172a; 
+            color: white; 
+            font-family: 'Inter', sans-serif; 
+            text-align: center; 
+            padding: 60px 20px; 
+            display: flex; 
+            flex-direction: column; 
+            align-items: center; 
+            min-height: 100vh;
+        }
+        .logo { font-size: 2.5rem; font-weight: 900; margin-bottom: 5px; letter-spacing: -1px; }
         .logo span { color: #007bff; }
-        .link-container { max-width: 500px; margin: 40px auto; }
-        .bio-link { display: block; background: white; color: #1e293b; text-decoration: none; padding: 20px; margin-bottom: 15px; border-radius: 15px; font-weight: bold; transition: 0.3s; box-shadow: 0 4px 15px rgba(0,0,0,0.2); }
-        .bio-link:hover { transform: scale(1.02); background: #007bff; color: white; }
+        .tagline { color: #94a3b8; margin-bottom: 40px; font-weight: 500; letter-spacing: 1px; text-transform: uppercase; font-size: 0.8rem; }
+        
+        .link-container { width: 100%; max-width: 450px; }
+        
+        .bio-link { 
+            display: flex; 
+            align-items: center; 
+            justify-content: center;
+            background: rgba(255, 255, 255, 0.05); 
+            color: white; 
+            text-decoration: none; 
+            padding: 18px; 
+            margin-bottom: 15px; 
+            border-radius: 12px; 
+            font-weight: 600; 
+            transition: 0.3s; 
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .bio-link i { margin-right: 12px; font-size: 1.2rem; width: 25px; }
+        
+        .bio-link:hover { 
+            background: white; 
+            color: #0f172a; 
+            transform: translateY(-3px); 
+            box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+        }
+        
+        .whatsapp-special { 
+            background: #25d366 !important; 
+            color: white !important; 
+            border: none !important; 
+        }
+        .whatsapp-special:hover { 
+            background: #128c7e !important; 
+            box-shadow: 0 10px 20px rgba(37, 211, 102, 0.2) !important;
+        }
     </style>
 </head>
 <body>
     <div class="logo">GASA <span>TECH</span></div>
-    <p>Engineering Digital Excellence</p>
+    <p class="tagline">Engineering Digital Excellence</p>
+    
     <div class="link-container">
-        <a href="index.html" class="bio-link"><i class="fas fa-globe"></i> Visit Official Website</a>
-        <a href="portfolio.html" class="bio-link"><i class="fas fa-laptop-code"></i> View Portfolio</a>
-        <a href="https://wa.me/27692401737" class="bio-link" style="background:#25d366; color:white;"><i class="fab fa-whatsapp"></i> Chat on WhatsApp</a>
-        <a href="mailto:gasatechptyltd@gmail.com" class="bio-link"><i class="fas fa-envelope"></i> Email Us</a>
+        <a href="index.html" class="bio-link">
+            <i class="fas fa-globe"></i> Visit Official Website
+        </a>
+        
+        <a href="portfolio.html" class="bio-link">
+            <i class="fas fa-laptop-code"></i> View Engineering Portfolio
+        </a>
+        
+        <a href="https://wa.me/27691401737?text=Hi%20GASA%20TECH%2C%20I%20saw%20your%20link%20bio%20and%20would%20like%20to%20enquire%20about%20a%20project." class="bio-link whatsapp-special">
+            <i class="fab fa-whatsapp"></i> Chat on WhatsApp
+        </a>
+        
+        <a href="mailto:gasatechptyltd@gmail.com" class="bio-link">
+            <i class="fas fa-envelope"></i> Email Us Directly
+        </a>
     </div>
+
+    <p style="margin-top: 50px; color: #475569; font-size: 0.8rem;">© 2026 GASA TECH (PTY) LTD</p>
 </body>
 </html>
