@@ -10,14 +10,16 @@
         :root { --primary: #007bff; --dark: #121d31; --light: #ffffff; --card-bg: #1c2a42; }
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: 'Segoe UI', sans-serif; background: var(--dark); color: var(--light); display: flex; flex-direction: column; min-height: 100vh; }
-        header { display: flex; justify-content: space-between; align-items: center; padding: 20px 8%; background: rgba(18, 29, 49, 0.95); border-bottom: 1px solid rgba(255,255,255,0.1); }
+        header { display: flex; justify-content: space-between; align-items: center; padding: 20px 8%; background: rgba(18, 29, 49, 0.95); border-bottom: 1px solid rgba(255,255,255,0.1); position: sticky; top: 0; z-index: 1000; }
         .logo { font-size: 24px; font-weight: bold; text-decoration: none; color: var(--light); }
         .logo span { color: var(--primary); }
-        nav { display: flex; gap: 15px; }
+        nav { display: flex; gap: 15px; flex-wrap: wrap; }
         nav a { color: var(--light); text-decoration: none; font-size: 14px; }
         .container { max-width: 900px; margin: 60px auto; padding: 0 20px; flex: 1; }
-        .review-card { background: var(--card-bg); padding: 30px; border-radius: 15px; margin-bottom: 25px; border-left: 5px solid var(--primary); }
-        footer { background: #0b121f; padding: 40px 8%; text-align: center; }
+        .review-card { background: var(--card-bg); padding: 40px; border-radius: 15px; margin-bottom: 30px; border-left: 5px solid var(--primary); position: relative; }
+        .review-card i { position: absolute; top: 20px; right: 20px; font-size: 2rem; opacity: 0.1; }
+        .stars { color: #f1c40f; margin-bottom: 10px; }
+        footer { background: #0b121f; padding: 30px; text-align: center; }
     </style>
 </head>
 <body>
@@ -35,8 +37,19 @@
     </nav>
 </header>
 <div class="container">
-    <div class="review-card"><p>"GASA TECH transformed our digital presence. Their technical precision is unmatched."</p><strong>- Director, ILETHA</strong></div>
-    <div class="review-card"><p>"A seamless engineering experience from start to finish."</p><strong>- Lead, NEOBREED</strong></div>
+    <h1 style="text-align:center; margin-bottom:40px;">What Our Clients Say</h1>
+    <div class="review-card">
+        <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+        <p>"The technical precision GASA TECH brought to the ILETHA project was outstanding. They delivered a corporate infrastructure that is fast and secure."</p>
+        <strong style="display:block; margin-top:15px;">- Management, ILETHA</strong>
+        <i class="fas fa-quote-right"></i>
+    </div>
+    <div class="review-card">
+        <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+        <p>"Building the Neo Breed marketing hub required a deep understanding of lead generation. GASA TECH engineered a perfect solution for us."</p>
+        <strong style="display:block; margin-top:15px;">- Founder, Neo Breed</strong>
+        <i class="fas fa-quote-right"></i>
+    </div>
 </div>
 <footer><p>© 2026 GASA TECH (PTY) LTD</p></footer>
 </body>
