@@ -4,22 +4,35 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GASA TECH | Digital Business Card</title>
+    
+    <link rel="icon" type="image/png" href="https://img.icons8.com/fluency/48/laptop.png">
+    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
     <style>
+        :root {
+            --primary: #007bff;
+            --dark-bg: #0f172a;
+            --glass-bg: rgba(255, 255, 255, 0.05);
+            --glass-border: rgba(255, 255, 255, 0.1);
+        }
+
         body { 
-            background: #0f172a; 
+            background: var(--dark-bg); 
             color: white; 
-            font-family: 'Inter', sans-serif; 
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; 
             text-align: center; 
             padding: 60px 20px; 
             display: flex; 
             flex-direction: column; 
             align-items: center; 
             min-height: 100vh;
+            margin: 0;
         }
+
         .logo { font-size: 2.5rem; font-weight: 900; margin-bottom: 5px; letter-spacing: -1px; }
-        .logo span { color: #007bff; }
-        .tagline { color: #94a3b8; margin-bottom: 40px; font-weight: 500; letter-spacing: 1px; text-transform: uppercase; font-size: 0.8rem; }
+        .logo span { color: var(--primary); }
+        .tagline { color: #94a3b8; margin-bottom: 40px; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; font-size: 0.75rem; }
         
         .link-container { width: 100%; max-width: 450px; }
         
@@ -27,23 +40,25 @@
             display: flex; 
             align-items: center; 
             justify-content: center;
-            background: rgba(255, 255, 255, 0.05); 
+            background: var(--glass-bg); 
             color: white; 
             text-decoration: none; 
-            padding: 18px; 
-            margin-bottom: 15px; 
-            border-radius: 12px; 
+            padding: 20px; 
+            margin-bottom: 16px; 
+            border-radius: 15px; 
             font-weight: 600; 
-            transition: 0.3s; 
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); 
+            border: 1px solid var(--glass-border);
+            backdrop-filter: blur(10px);
         }
-        .bio-link i { margin-right: 12px; font-size: 1.2rem; width: 25px; }
+        
+        .bio-link i { margin-right: 15px; font-size: 1.3rem; width: 25px; }
         
         .bio-link:hover { 
             background: white; 
-            color: #0f172a; 
-            transform: translateY(-3px); 
-            box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+            color: var(--dark-bg); 
+            transform: translateY(-4px); 
+            box-shadow: 0 15px 30px rgba(0,0,0,0.4);
         }
         
         .whatsapp-special { 
@@ -51,10 +66,14 @@
             color: white !important; 
             border: none !important; 
         }
+        
         .whatsapp-special:hover { 
-            background: #128c7e !important; 
-            box-shadow: 0 10px 20px rgba(37, 211, 102, 0.2) !important;
+            background: #1eb954 !important; 
+            box-shadow: 0 15px 30px rgba(37, 211, 102, 0.3) !important;
+            color: white !important;
         }
+
+        .footer-text { margin-top: auto; padding-top: 50px; color: #475569; font-size: 0.8rem; letter-spacing: 0.5px; }
     </style>
 </head>
 <body>
@@ -63,11 +82,15 @@
     
     <div class="link-container">
         <a href="index.html" class="bio-link">
-            <i class="fas fa-globe"></i> Visit Official Website
+            <i class="fas fa-globe"></i> Official Website
+        </a>
+        
+        <a href="services.html" class="bio-link">
+            <i class="fas fa-server"></i> Services & Pricing
         </a>
         
         <a href="portfolio.html" class="bio-link">
-            <i class="fas fa-laptop-code"></i> View Engineering Portfolio
+            <i class="fas fa-laptop-code"></i> Engineering Portfolio
         </a>
         
         <a href="https://wa.me/27691401737?text=Hi%20GASA%20TECH%2C%20I%20saw%20your%20link%20bio%20and%20would%20like%20to%20enquire%20about%20a%20project." class="bio-link whatsapp-special">
@@ -79,6 +102,6 @@
         </a>
     </div>
 
-    <p style="margin-top: 50px; color: #475569; font-size: 0.8rem;">© 2026 GASA TECH (PTY) LTD</p>
+    <p class="footer-text">© 2026 GASA TECH (PTY) LTD | Johannesburg</p>
 </body>
 </html>
