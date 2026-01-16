@@ -1,4 +1,5 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://emmanuelmhlanga.github.io/gasa-tech/sitemap.xml
+# Sitemap location for search engines
+Sitemap: https://gasatech.co.za/sitemap.xml
