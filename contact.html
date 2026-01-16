@@ -4,41 +4,35 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact | GASA TECH</title>
-    <link rel="icon" type="image/png" href="https://img.icons8.com/fluency/48/laptop.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        :root { --primary: #007bff; --dark: #121d31; --light: #ffffff; --card-bg: #1c2a42; }
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Segoe UI', sans-serif; background: var(--dark); color: var(--light); display: flex; flex-direction: column; min-height: 100vh; }
+        :root { --primary: #007bff; --dark: #121d31; }
+        body { font-family: 'Segoe UI', sans-serif; background: var(--dark); color: white; }
         header { display: flex; justify-content: space-between; align-items: center; padding: 20px 8%; background: rgba(18, 29, 49, 0.95); border-bottom: 1px solid rgba(255,255,255,0.1); }
-        .logo { font-size: 24px; font-weight: bold; text-decoration: none; color: var(--light); }
+        .logo { font-size: 24px; font-weight: bold; text-decoration: none; color: white; }
         .logo span { color: var(--primary); }
         nav { display: flex; gap: 15px; flex-wrap: wrap; }
-        nav a { color: var(--light); text-decoration: none; font-size: 14px; }
-        .container { max-width: 600px; margin: 60px auto; padding: 40px; background: var(--card-bg); border-radius: 15px; flex: 1; border: 1px solid rgba(255,255,255,0.05); }
-        input, textarea { width: 100%; padding: 12px; margin-bottom: 15px; border-radius: 5px; border: none; background: #233452; color: white; }
-        .btn { background: var(--primary); color: white; width: 100%; padding: 12px; border: none; border-radius: 5px; font-weight: bold; cursor: pointer; }
-        footer { background: #0b121f; padding: 30px; text-align: center; }
+        nav a { color: white; text-decoration: none; font-size: 14px; }
+
+        .contact-box { max-width: 500px; margin: 80px auto; padding: 40px; background: rgba(255,255,255,0.05); backdrop-filter: blur(10px); border-radius: 20px; border: 1px solid rgba(255,255,255,0.1); animation: float 4s ease-in-out infinite; }
+        @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-15px); } }
+        
+        input, textarea { width: 100%; padding: 15px; margin-bottom: 15px; background: #233452; border: none; color: white; border-radius: 10px; }
+        .btn { width: 100%; padding: 15px; background: var(--primary); border: none; color: white; font-weight: bold; cursor: pointer; border-radius: 10px; transition: 0.3s; }
+        .btn:hover { background: white; color: var(--primary); }
     </style>
 </head>
 <body>
 <header>
     <a href="index.html" class="logo">GASA <span>TECH</span></a>
     <nav>
-        <a href="index.html">Home</a>
-        <a href="about.html">About</a>
-        <a href="services.html">Services</a>
-        <a href="pricing.html">Pricing</a>
-        <a href="portfolio.html">Portfolio</a>
-        <a href="process.html">Process</a>
-        <a href="testimonials.html">Reviews</a>
-        <a href="contact.html" style="color:var(--primary)">Contact</a>
+        <a href="index.html">Home</a> <a href="about.html">About</a> <a href="services.html">Services</a> <a href="pricing.html">Pricing</a>
+        <a href="portfolio.html">Portfolio</a> <a href="process.html">Process</a> <a href="testimonials.html">Reviews</a> <a href="contact.html" style="color:var(--primary)">Contact</a>
     </nav>
 </header>
-<div class="container">
-    <h2>Enquire Now</h2>
-    <form><input type="text" placeholder="Name"><input type="email" placeholder="Email"><textarea rows="4" placeholder="How can we help?"></textarea><button type="submit" class="btn">Submit</button></form>
+<div class="contact-box">
+    <h2 style="margin-bottom:20px;">Let's Build It</h2>
+    <form><input type="text" placeholder="Name"><input type="email" placeholder="Email"><textarea rows="4" placeholder="Message"></textarea><button class="btn">Launch Inquiry</button></form>
 </div>
-<footer><p>© 2026 GASA TECH (PTY) LTD</p></footer>
 </body>
 </html>
