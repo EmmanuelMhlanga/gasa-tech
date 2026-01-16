@@ -4,32 +4,120 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Terms of Service | GASA TECH</title>
+    
+    <link rel="icon" type="image/png" href="https://img.icons8.com/fluency/48/laptop.png">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
     <style>
-        body { font-family: 'Segoe UI', sans-serif; line-height: 1.6; color: #333; max-width: 800px; margin: 40px auto; padding: 20px; background: #f8fafc; }
-        .legal-card { background: white; padding: 40px; border-radius: 15px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
-        h1 { color: #1e293b; border-bottom: 3px solid #007bff; padding-bottom: 10px; }
-        h2 { color: #1e293b; margin-top: 25px; font-size: 1.1rem; text-transform: uppercase; }
-        p, li { color: #475569; font-size: 0.95rem; }
+        :root {
+            --primary: #007bff;
+            --dark: #121d31;
+            --light: #ffffff;
+            --footer-bg: #0b121f;
+            --card-bg: #1c2a42;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body { 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+            background: var(--dark); 
+            color: var(--light); 
+            line-height: 1.8;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 10%;
+            background: rgba(18, 29, 49, 0.95);
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+        .logo { font-size: 24px; font-weight: bold; color: var(--light); text-decoration: none; }
+        .logo span { color: var(--primary); }
+
+        .container { 
+            max-width: 900px; 
+            margin: 60px auto; 
+            padding: 40px; 
+            background: var(--card-bg);
+            border-radius: 20px;
+            border: 1px solid rgba(255,255,255,0.05);
+            flex: 1;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+
+        h1 { font-size: 2.5rem; color: var(--primary); margin-bottom: 10px; }
+        .last-updated { opacity: 0.6; font-size: 0.9rem; margin-bottom: 30px; display: block; }
+        
+        h2 { margin-top: 35px; margin-bottom: 15px; color: var(--light); font-size: 1.2rem; text-transform: uppercase; letter-spacing: 1px; border-left: 4px solid var(--primary); padding-left: 15px; }
+        p, li { opacity: 0.85; margin-bottom: 20px; font-size: 0.95rem; }
+
+        .btn-back {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            margin-top: 40px;
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+        .btn-back:hover { color: var(--light); transform: translateX(-5px); }
+
+        footer {
+            background: var(--footer-bg);
+            padding: 30px 10%;
+            text-align: center;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            font-size: 0.9rem;
+            opacity: 0.7;
+        }
+
+        @media (max-width: 600px) {
+            .container { margin: 20px; padding: 25px; }
+            h1 { font-size: 1.8rem; }
+        }
     </style>
 </head>
 <body>
-    <div class="legal-card">
-        <h1>Terms & Conditions</h1>
-        <p>Effective Date: January 2026</p>
 
-        <h2>1. Project Deposits</h2>
-        <p>A non-refundable deposit of 50% is required before any engineering work commences. This secures your place in our development cycle.</p>
+<header>
+    <a href="index.html" class="logo">GASA <span>TECH</span></a>
+</header>
 
-        <h2>2. Scope of Work</h2>
-        <p>Only the services outlined in the initial project quote are included. Additional features requested during development will be billed at our standard hourly rate.</p>
+<div class="container">
+    <h1>Terms & Conditions</h1>
+    <span class="last-updated">Last Revised: January 16, 2026</span>
+    
+    <p>By engaging with <strong>GASA TECH (PTY) LTD</strong> for digital engineering and development services, you agree to the following professional terms and conditions.</p>
+    
+    <h2>1. Project Deposits</h2>
+    <p>A non-refundable deposit of 50% is required before any engineering work, discovery, or architecture phases commence. This deposit secures your allocation in our current development sprint.</p>
+    
+    <h2>2. Scope & Iterations</h2>
+    <p>The project scope is strictly limited to the technical requirements outlined in the signed proposal. Requests for additional features outside of this scope will be subject to a secondary quote or billed at our standard development rate.</p>
+    
+    <h2>3. Intellectual Property</h2>
+    <p>Upon final payment, GASA TECH grants the client ownership of the final front-end digital asset. However, GASA TECH retains ownership of proprietary backend code, scripts, and internal logic developed during the project unless otherwise agreed in writing.</p>
+    
+    <h2>4. Payment & Deployment</h2>
+    <p>The final balance is due immediately upon project completion. Digital assets will only be deployed to the live domain (Production Environment) once full payment has been cleared.</p>
+    
+    <h2>5. Governing Law</h2>
+    <p>These terms are governed by and construed in accordance with the laws of the Republic of South Africa.</p>
+    
+    <a href="index.html" class="btn-back"><i class="fas fa-arrow-left"></i> Return to GASA TECH</a>
+</div>
 
-        <h2>3. Payment & Launch</h2>
-        <p>The remaining 50% balance is due upon project completion. Websites and apps will only be moved to "Live" status once full payment is cleared.</p>
+<footer>
+    &copy; 2026 GASA TECH (PTY) LTD | Registered in South Africa
+</footer>
 
-        <h2>4. Governing Law</h2>
-        <p>These terms are governed by the laws of the Republic of South Africa.</p>
-
-        <a href="index.html" style="display:inline-block; margin-top:30px; color:#007bff; text-decoration:none; font-weight:bold;">← Return to GASA TECH</a>
-    </div>
 </body>
 </html>
