@@ -4,22 +4,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portfolio | GASA TECH</title>
-    <link rel="icon" type="image/png" href="https://img.icons8.com/fluency/48/laptop.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         :root { --primary: #007bff; --dark: #121d31; --light: #ffffff; --card-bg: #1c2a42; }
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: 'Segoe UI', sans-serif; background: var(--dark); color: var(--light); display: flex; flex-direction: column; min-height: 100vh; }
-        header { display: flex; justify-content: space-between; align-items: center; padding: 20px 8%; background: rgba(18, 29, 49, 0.95); position: sticky; top: 0; z-index: 1000; border-bottom: 1px solid rgba(255,255,255,0.1); }
+        header { display: flex; justify-content: space-between; align-items: center; padding: 20px 8%; background: rgba(18, 29, 49, 0.95); border-bottom: 1px solid rgba(255,255,255,0.1); position: sticky; top: 0; z-index: 1000; }
         .logo { font-size: 24px; font-weight: bold; text-decoration: none; color: var(--light); }
         .logo span { color: var(--primary); }
         nav { display: flex; gap: 15px; flex-wrap: wrap; }
         nav a { color: var(--light); text-decoration: none; font-size: 14px; }
-        .container { max-width: 1200px; margin: 60px auto; padding: 0 20px; display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 40px; flex: 1; }
-        .project-card { background: var(--card-bg); border-radius: 15px; padding: 20px; border: 1px solid rgba(255,255,255,0.05); text-align: center; }
-        .laptop-mockup { background: #334155; height: 180px; border-radius: 10px 10px 0 0; display: flex; align-items: center; justify-content: center; font-weight: bold; color: var(--primary); border: 4px solid #475569; }
-        .laptop-base { height: 8px; background: #94a3b8; border-radius: 0 0 15px 15px; width: 105%; margin-left: -2.5%; }
-        h3 { margin-top: 15px; }
+        .container { max-width: 1200px; margin: 60px auto; padding: 0 20px; display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 30px; flex: 1; }
+        .project-card { background: var(--card-bg); border-radius: 15px; padding: 25px; border: 1px solid rgba(255,255,255,0.05); text-align: center; transition: 0.3s; }
+        .project-card:hover { transform: translateY(-10px); border-color: var(--primary); }
+        .laptop { background: #334155; height: 180px; border-radius: 10px 10px 0 0; display: flex; align-items: center; justify-content: center; font-weight: bold; border: 4px solid #475569; position: relative; overflow: hidden; }
+        .laptop::after { content: ""; position: absolute; width: 100%; height: 10px; background: #94a3b8; bottom: -12px; border-radius: 0 0 15px 15px; }
+        .btn-visit { display: inline-block; margin-top: 25px; color: var(--primary); text-decoration: none; font-weight: bold; border: 1px solid var(--primary); padding: 8px 20px; border-radius: 5px; transition: 0.3s; }
+        .btn-visit:hover { background: var(--primary); color: white; }
         footer { background: #0b121f; padding: 30px; text-align: center; }
     </style>
 </head>
@@ -27,20 +28,26 @@
 <header>
     <a href="index.html" class="logo">GASA <span>TECH</span></a>
     <nav>
-        <a href="index.html">Home</a>
-        <a href="about.html">About</a>
-        <a href="services.html">Services</a>
-        <a href="pricing.html">Pricing</a>
-        <a href="portfolio.html" style="color:var(--primary)">Portfolio</a>
-        <a href="process.html">Process</a>
-        <a href="testimonials.html">Reviews</a>
-        <a href="contact.html">Contact</a>
+        <a href="index.html">Home</a> <a href="about.html">About</a> <a href="services.html">Services</a> <a href="pricing.html">Pricing</a>
+        <a href="portfolio.html" style="color:var(--primary)">Portfolio</a> <a href="process.html">Process</a> <a href="testimonials.html">Reviews</a> <a href="contact.html">Contact</a>
     </nav>
 </header>
 <div class="container">
-    <div class="project-card"><div class="laptop-mockup">ILETHA.COM</div><div class="laptop-base"></div><h3>ILETHA</h3><p style="color:#94a3b8; font-size:0.8rem;">Corporate Web Infrastructure</p></div>
-    <div class="project-card"><div class="laptop-mockup">NEOBREED</div><div class="laptop-base"></div><h3>Neo Breed</h3><p style="color:#94a3b8; font-size:0.8rem;">Marketing Automation Hub</p></div>
-    <div class="project-card"><div class="laptop-mockup">SDR.CO.ZA</div><div class="laptop-base"></div><h3>Secure Debt Recovery</h3><p style="color:#94a3b8; font-size:0.8rem;">FinTech Portal</p></div>
+    <div class="project-card">
+        <div class="laptop">NEOBREED</div>
+        <h3>Neo Breed Marketing Solutions</h3>
+        <a href="https://neobreedmarketingsolutions.com" target="_blank" class="btn-visit">Visit Site</a>
+    </div>
+    <div class="project-card">
+        <div class="laptop">ILETHA</div>
+        <h3>Iletha</h3>
+        <a href="https://iletha.com" target="_blank" class="btn-visit">Visit Site</a>
+    </div>
+    <div class="project-card">
+        <div class="laptop">VILE AMICO</div>
+        <h3>Vile Amico</h3>
+        <a href="https://vileamico.co.za" target="_blank" class="btn-visit">Visit Site</a>
+    </div>
 </div>
 <footer><p>© 2026 GASA TECH (PTY) LTD</p></footer>
 </body>
