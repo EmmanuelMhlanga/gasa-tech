@@ -16,10 +16,9 @@
         nav { display: flex; gap: 15px; flex-wrap: wrap; }
         nav a { color: var(--light); text-decoration: none; font-size: 14px; }
         .container { max-width: 600px; margin: 60px auto; padding: 40px; background: var(--card-bg); border-radius: 15px; flex: 1; border: 1px solid rgba(255,255,255,0.05); }
-        input, textarea { width: 100%; padding: 12px; margin-bottom: 20px; border-radius: 5px; border: none; background: #233452; color: white; }
-        .btn { background: var(--primary); color: white; width: 100%; padding: 15px; border: none; border-radius: 5px; font-weight: bold; cursor: pointer; transition: 0.3s; }
-        .btn:hover { background: #0056b3; }
-        footer { background: #0b121f; padding: 40px 8%; text-align: center; }
+        input, textarea { width: 100%; padding: 12px; margin-bottom: 15px; border-radius: 5px; border: none; background: #233452; color: white; }
+        .btn { background: var(--primary); color: white; width: 100%; padding: 12px; border: none; border-radius: 5px; font-weight: bold; cursor: pointer; }
+        footer { background: #0b121f; padding: 30px; text-align: center; }
     </style>
 </head>
 <body>
@@ -37,14 +36,8 @@
     </nav>
 </header>
 <div class="container">
-    <h2>Project Enquiry</h2>
-    <p style="margin-bottom: 25px; opacity: 0.7;">Fill out the form below to start your engineering journey.</p>
-    <form>
-        <input type="text" placeholder="Full Name" required>
-        <input type="email" placeholder="Email Address" required>
-        <textarea rows="5" placeholder="Project Description & Requirements" required></textarea>
-        <button type="submit" class="btn">Send Request</button>
-    </form>
+    <h2>Enquire Now</h2>
+    <form><input type="text" placeholder="Name"><input type="email" placeholder="Email"><textarea rows="4" placeholder="How can we help?"></textarea><button type="submit" class="btn">Submit</button></form>
 </div>
 <footer><p>© 2026 GASA TECH (PTY) LTD</p></footer>
 </body>
