@@ -10,23 +10,22 @@
         :root { --primary: #007bff; --dark: #121d31; --light: #ffffff; --card-bg: #1c2a42; }
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: 'Segoe UI', sans-serif; background: var(--dark); color: var(--light); display: flex; flex-direction: column; min-height: 100vh; }
-        
         header { display: flex; justify-content: space-between; align-items: center; padding: 20px 8%; background: rgba(18, 29, 49, 0.95); border-bottom: 1px solid rgba(255,255,255,0.1); }
         .logo { font-size: 24px; font-weight: bold; text-decoration: none; color: var(--light); }
         .logo span { color: var(--primary); }
-        nav { display: flex; gap: 15px; }
+        nav { display: flex; gap: 15px; flex-wrap: wrap; }
         nav a { color: var(--light); text-decoration: none; font-size: 14px; }
-
-        .container { max-width: 1000px; margin: 60px auto; padding: 0 20px; display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; flex: 1; }
-        .price-card { background: var(--card-bg); padding: 40px; border-radius: 15px; text-align: center; border: 1px solid rgba(255,255,255,0.1); transition: 0.3s; }
-        .price-card:hover { border-color: var(--primary); transform: translateY(-5px); }
-        .cost { font-size: 3rem; font-weight: bold; color: var(--primary); margin: 20px 0; }
-
-        footer { background: #0b121f; padding: 40px 8%; text-align: center; }
+        .container { max-width: 1200px; margin: 60px auto; padding: 0 20px; display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; flex: 1; }
+        .price-card { background: var(--card-bg); padding: 30px; border-radius: 15px; text-align: center; border: 1px solid rgba(255,255,255,0.1); position: relative; }
+        .price-card.popular { border: 2px solid #2ecc71; }
+        .cost { font-size: 2.5rem; font-weight: bold; color: var(--primary); margin: 15px 0; }
+        ul { list-style: none; margin: 20px 0; text-align: left; font-size: 0.9rem; color: #cbd5e1; }
+        ul li { margin-bottom: 10px; border-bottom: 1px solid rgba(255,255,255,0.05); padding-bottom: 5px; }
+        .btn { background: var(--primary); color: white; text-decoration: none; padding: 10px; display: block; border-radius: 5px; font-weight: bold; }
+        footer { background: #0b121f; padding: 30px; text-align: center; }
     </style>
 </head>
 <body>
-
 <header>
     <a href="index.html" class="logo">GASA <span>TECH</span></a>
     <nav>
@@ -40,23 +39,45 @@
         <a href="contact.html">Contact</a>
     </nav>
 </header>
-
 <div class="container">
     <div class="price-card">
-        <h3>Launch</h3>
-        <div class="cost">R 3,500</div>
-        <p>One-page high-speed solution.</p>
-        <a href="contact.html" style="display:block; margin-top:20px; color:var(--primary); font-weight:bold; text-decoration:none;">Enquire Now →</a>
+        <h3>Basic Package</h3>
+        <div class="cost">R3000</div>
+        <ul>
+            <li>Up to 5 Pages</li>
+            <li>Custom Design</li>
+            <li>Free .co.za Domain</li>
+            <li>Desktop, Tablet & Mobile Responsive</li>
+        </ul>
+        <a href="contact.html" class="btn">Enquire</a>
     </div>
-    <div class="price-card" style="border-color: var(--primary);">
-        <h3 style="color:var(--primary)">Professional</h3>
-        <div class="cost">R 7,500</div>
-        <p>Full multi-page CMS ecosystem.</p>
-        <a href="contact.html" style="display:block; margin-top:20px; color:var(--primary); font-weight:bold; text-decoration:none;">Enquire Now →</a>
+    <div class="price-card popular">
+        <h3 style="color:#2ecc71">Standard Package</h3>
+        <div class="cost">R3500</div>
+        <ul>
+            <li>Up to 8 Pages</li>
+            <li>Custom Design</li>
+            <li>Free .co.za Domain</li>
+            <li>Photo Gallery</li>
+            <li>One Year Hosting</li>
+            <li>Mobile Responsive</li>
+        </ul>
+        <a href="contact.html" class="btn" style="background:#2ecc71">Enquire</a>
+    </div>
+    <div class="price-card">
+        <h3 style="color:#e67e22">Premium Package</h3>
+        <div class="cost">R4500</div>
+        <ul>
+            <li>Unlimited Pages</li>
+            <li>Social Media Integration</li>
+            <li>Free .co.za Domain</li>
+            <li>Custom Design</li>
+            <li>One Year Hosting</li>
+            <li>Mobile Responsive</li>
+        </ul>
+        <a href="contact.html" class="btn" style="background:#e67e22">Enquire</a>
     </div>
 </div>
-
 <footer><p>© 2026 GASA TECH (PTY) LTD</p></footer>
-
 </body>
 </html>
