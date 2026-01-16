@@ -3,152 +3,97 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GASA TECH | Engineering Digital Futures</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <title>GASA TECH | Engineering Digital Excellence</title>
+    
+    <link rel="icon" type="image/png" href="https://img.icons8.com/fluency/48/gear.png">
+
     <style>
-        @keyframes fadeInUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
-        
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Inter', sans-serif; background: #f8fafc; color: #1e293b; line-height: 1.6; overflow-x: hidden; }
-        
-        /* Navigation */
-        header { background: #fff; padding: 1.2rem; display: flex; flex-direction: column; align-items: center; box-shadow: 0 2px 10px rgba(0,0,0,0.05); position: sticky; top:0; z-index: 1000; }
-        nav { display: flex; flex-wrap: wrap; justify-content: center; gap: 15px; margin-top: 15px; }
-        nav a { color: #475569; text-decoration: none; font-weight: 600; font-size: 0.9rem; transition: 0.3s; }
-        nav a:hover { color: #007bff; }
-
-        /* Hero Section */
-        .hero { background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%); color: white; padding: 120px 20px; text-align: center; }
-        .hero h1 { font-size: 3.5rem; margin-bottom: 20px; animation: fadeInUp 0.8s ease-out; letter-spacing: -1px; }
-        .hero p { font-size: 1.2rem; color: #cbd5e1; max-width: 700px; margin: 0 auto 40px; animation: fadeInUp 1s ease-out; }
-        .btn { background: #007bff; color: white; padding: 18px 36px; border-radius: 10px; text-decoration: none; font-weight: bold; display: inline-block; transition: 0.3s; box-shadow: 0 4px 15px rgba(0,123,255,0.4); }
-        .btn:hover { background: #0056b3; transform: translateY(-3px); }
-
-        /* Feature Section */
-        .features { padding: 100px 20px; max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; }
-        .feature-card { background: white; padding: 40px; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); text-align: center; transition: 0.3s; }
-        .feature-card i { font-size: 3rem; color: #007bff; margin-bottom: 25px; }
-        
-        /* Integrated Calculator Demo */
-        .calc-demo { background: #1e293b; color: white; padding: 20px; border-radius: 15px; margin-top: 20px; text-align: left; }
-        #calc-display { width: 100%; background: #0f172a; border: none; color: #25d366; text-align: right; padding: 10px; font-size: 1.5rem; margin-bottom: 10px; border-radius: 5px; }
-        .calc-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 5px; }
-        .calc-grid button { padding: 10px; border: none; background: #334155; color: white; cursor: pointer; border-radius: 5px; }
-        .calc-grid button:hover { background: #475569; }
-
-        /* Testimonials Section */
-        .testimonials { background: #f1f5f9; padding: 100px 20px; }
-        .test-container { max-width: 1100px; margin: 0 auto; text-align: center; }
-        .test-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-top: 50px; }
-        .test-card { background: white; padding: 35px; border-radius: 20px; text-align: left; box-shadow: 0 4px 15px rgba(0,0,0,0.03); border-bottom: 5px solid #007bff; }
-
-        /* Footer */
-        footer { background: #0f172a; color: #94a3b8; padding: 80px 20px; text-align: center; }
-        .footer-links { margin: 20px 0; }
-        .footer-links a { color: #64748b; text-decoration: none; margin: 0 10px; font-size: 0.85rem; }
-        .footer-links a:hover { color: white; }
-
-        @media (min-width: 768px) {
-            header { flex-direction: row; justify-content: space-around; }
-            nav { margin-top: 0; }
-            .hero h1 { font-size: 4.5rem; }
+        :root {
+            --primary: #007bff;
+            --dark: #121d31;
+            --light: #ffffff;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            background-color: var(--dark);
+            color: var(--light);
+            line-height: 1.6;
+        }
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 10%;
+            background: rgba(18, 29, 49, 0.95);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: var(--light);
+        }
+        .logo span { color: var(--primary); }
+        nav a {
+            color: var(--light);
+            text-decoration: none;
+            margin-left: 20px;
+            font-size: 14px;
+        }
+        .hero {
+            height: 80vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0 20px;
+        }
+        .hero h1 {
+            font-size: clamp(2.5rem, 8vw, 4.5rem);
+            margin-bottom: 20px;
+        }
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 600px;
+            opacity: 0.9;
+            margin-bottom: 30px;
+        }
+        .btn {
+            background: var(--primary);
+            color: white;
+            padding: 15px 35px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: 0.3s;
+            box-shadow: 0 4px 15px rgba(0, 123, 255, 0.3);
+        }
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(0, 123, 255, 0.5);
         }
     </style>
 </head>
 <body>
 
-<header>
-    <a href="index.html" style="text-decoration: none; color: #1e293b; font-size: 1.7rem; font-weight: 900;">GASA <span style="color: #007bff;">TECH</span></a>
-    <nav>
-        <a href="index.html" style="color:#007bff">Home</a>
-        <a href="about.html">About</a>
-        <a href="services.html">Services</a>
-        <a href="process.html">Process</a>
-        <a href="portfolio.html">Portfolio</a>
-        <a href="hire-me.html">Hire Me</a>
-        <a href="contact.html">Contact</a>
-    </nav>
-</header>
+    <header>
+        <div class="logo">GASA <span>TECH</span></div>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="services.html">Services</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+    </header>
 
-<section class="hero">
-    <h1>Engineering Digital Excellence</h1>
-    <p>We build robust, high-performance web and mobile solutions tailored for the South African market.</p>
-    <a href="contact.html" class="btn">Start Your Project <i class="fas fa-arrow-right" style="margin-left:10px;"></i></a>
-</section>
-
-<section class="features">
-    <div class="feature-card">
-        <i class="fas fa-layer-group"></i>
-        <h3>Full-Stack Solutions</h3>
-        <p>From complex backend database architecture to sleek frontend user interfaces.</p>
-        
-        <div class="calc-demo">
-            <p style="font-size: 0.7rem; color: #94a3b8; margin-bottom: 5px;">LIVE DEMO: PROJECT ALPHA CALCULATOR</p>
-            <input type="text" id="calc-display" readonly placeholder="0">
-            <div class="calc-grid">
-                <button onclick="appendToCalc('7')">7</button>
-                <button onclick="appendToCalc('8')">8</button>
-                <button onclick="appendToCalc('9')">9</button>
-                <button style="background:#007bff" onclick="appendToCalc('/')">/</button>
-                <button onclick="appendToCalc('4')">4</button>
-                <button onclick="appendToCalc('5')">5</button>
-                <button onclick="appendToCalc('6')">6</button>
-                <button style="background:#007bff" onclick="appendToCalc('*')">×</button>
-                <button onclick="calculateResult()" style="grid-column: span 2; background:#25d366">=</button>
-                <button onclick="clearCalc()" style="grid-column: span 2; background:#ef4444">AC</button>
-            </div>
-        </div>
-    </div>
-    <div class="feature-card">
-        <i class="fas fa-shield-halved"></i>
-        <h3>POPIA Compliant</h3>
-        <p>Engineering with privacy and data security as a core foundation.</p>
-    </div>
-    <div class="feature-card">
-        <i class="fas fa-chart-line"></i>
-        <h3>Built for Scale</h3>
-        <p>Our code grows with your business, handling increased traffic with zero friction.</p>
-    </div>
-</section>
-
-<section class="testimonials">
-    <div class="test-container">
-        <h2>Trusted by Local Innovators</h2>
-        <div class="test-grid">
-            <div class="test-card">
-                <i class="fas fa-quote-left" style="color:#cbd5e1; font-size: 2rem; margin-bottom: 20px;"></i>
-                <p style="font-style: italic; margin-bottom: 20px;">"The technical depth GASA TECH brought to our project was unmatched. They didn't just build a site; they built a business asset."</p>
-                <strong>- ILETHA Management</strong>
-            </div>
-            <div class="test-card">
-                <i class="fas fa-quote-left" style="color:#cbd5e1; font-size: 2rem; margin-bottom: 20px;"></i>
-                <p style="font-style: italic; margin-bottom: 20px;">"Incredible speed and precision. The mobile app they engineered has completely changed how we engage with our clients."</p>
-                <strong>- NEOBREED Team</strong>
-            </div>
-        </div>
-    </div>
-</section>
-
-<footer>
-    <div style="font-size: 1.8rem; font-weight: 900; color: white; margin-bottom: 10px;">GASA <span style="color: #007bff;">TECH</span></div>
-    <p>Sandstone, Montrose Avenue, Northgate, Johannesburg</p>
-    <div class="footer-links">
-        <a href="privacy.html">Privacy Policy</a>
-        <a href="terms.html">Terms & Conditions</a>
-        <a href="faq.html">FAQ</a>
-    </div>
-    <p style="margin-top: 20px; font-size: 0.8rem; opacity: 0.5;">© 2026 GASA TECH (PTY) LTD. All Rights Reserved.</p>
-</footer>
-
-<script>
-    const calcDisplay = document.getElementById('calc-display');
-    function appendToCalc(v) { calcDisplay.value += v; }
-    function clearCalc() { calcDisplay.value = ''; }
-    function calculateResult() {
-        try { calcDisplay.value = eval(calcDisplay.value); }
-        catch { calcDisplay.value = 'Error'; }
-    }
-</script>
+    <section class="hero">
+        <h1>Engineering Digital Excellence</h1>
+        <p>We build robust, high-performance web and mobile solutions tailored for the South African market.</p>
+        <a href="contact.html" class="btn">Start Your Project →</a>
+    </section>
 
 </body>
 </html>
