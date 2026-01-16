@@ -1,5 +1,4 @@
 User-agent: *
 Allow: /
 
-# Sitemap location for search engines
-Sitemap: https://gasatech.co.za/sitemap.xml
+Sitemap: https://yourdomain.com/sitemap.xml
