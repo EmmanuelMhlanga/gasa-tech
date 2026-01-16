@@ -6,23 +6,31 @@
     <title>Contact | GASA TECH</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        :root { --primary: #007bff; --dark: #121d31; }
-        body { font-family: 'Segoe UI', sans-serif; background: var(--dark); color: white; }
-        header { display: flex; justify-content: space-between; align-items: center; padding: 20px 8%; background: rgba(18, 29, 49, 0.95); border-bottom: 1px solid rgba(255,255,255,0.1); }
+        :root { --primary: #007bff; --dark: #0b121f; }
+        body { font-family: 'Segoe UI', sans-serif; background: var(--dark); color: white; margin: 0; overflow-x: hidden; display: flex; flex-direction: column; min-height: 100vh; }
+        
+        header { display: flex; justify-content: space-between; align-items: center; padding: 20px 8%; background: #0b121f; border-bottom: 1px solid rgba(255,255,255,0.1); position: relative; z-index: 10; }
         .logo { font-size: 24px; font-weight: bold; text-decoration: none; color: white; }
         .logo span { color: var(--primary); }
-        nav { display: flex; gap: 15px; flex-wrap: wrap; }
+        nav { display: flex; gap: 15px; }
         nav a { color: white; text-decoration: none; font-size: 14px; }
 
-        .contact-box { max-width: 500px; margin: 80px auto; padding: 40px; background: rgba(255,255,255,0.05); backdrop-filter: blur(10px); border-radius: 20px; border: 1px solid rgba(255,255,255,0.1); animation: float 4s ease-in-out infinite; }
-        @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-15px); } }
+        .glow-bg { position: absolute; width: 400px; height: 400px; background: radial-gradient(circle, rgba(0,123,255,0.2) 0%, transparent 70%); top: 50%; left: 50%; transform: translate(-50%, -50%); animation: moveGlow 10s infinite alternate; z-index: 1; }
+        @keyframes moveGlow { from { left: 30%; top: 40%; } to { left: 70%; top: 60%; } }
+
+        .contact-section { flex: 1; display: flex; align-items: center; justify-content: center; position: relative; z-index: 5; padding: 50px 20px; }
+        .glass-card { background: rgba(255, 255, 255, 0.03); backdrop-filter: blur(15px); border: 1px solid rgba(255, 255, 255, 0.1); padding: 50px; border-radius: 30px; width: 100%; max-width: 550px; text-align: center; box-shadow: 0 25px 50px rgba(0,0,0,0.5); }
         
-        input, textarea { width: 100%; padding: 15px; margin-bottom: 15px; background: #233452; border: none; color: white; border-radius: 10px; }
-        .btn { width: 100%; padding: 15px; background: var(--primary); border: none; color: white; font-weight: bold; cursor: pointer; border-radius: 10px; transition: 0.3s; }
-        .btn:hover { background: white; color: var(--primary); }
+        input, textarea { width: 100%; padding: 15px; margin-bottom: 20px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; color: white; transition: 0.3s; }
+        input:focus { border-color: var(--primary); outline: none; background: rgba(255,255,255,0.08); }
+        .submit-btn { width: 100%; padding: 18px; background: var(--primary); border: none; color: white; border-radius: 12px; font-weight: 700; cursor: pointer; transition: 0.3s; text-transform: uppercase; letter-spacing: 1px; }
+        .submit-btn:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0, 123, 255, 0.4); }
+
+        footer { background: #070b14; padding: 40px 8%; text-align: center; position: relative; z-index: 10; }
     </style>
 </head>
 <body>
+<div class="glow-bg"></div>
 <header>
     <a href="index.html" class="logo">GASA <span>TECH</span></a>
     <nav>
@@ -30,9 +38,20 @@
         <a href="portfolio.html">Portfolio</a> <a href="process.html">Process</a> <a href="testimonials.html">Reviews</a> <a href="contact.html" style="color:var(--primary)">Contact</a>
     </nav>
 </header>
-<div class="contact-box">
-    <h2 style="margin-bottom:20px;">Let's Build It</h2>
-    <form><input type="text" placeholder="Name"><input type="email" placeholder="Email"><textarea rows="4" placeholder="Message"></textarea><button class="btn">Launch Inquiry</button></form>
+
+<div class="contact-section">
+    <div class="glass-card">
+        <h2 style="font-size: 2rem; margin-bottom: 10px;">Let's Ignite Your Project</h2>
+        <p style="color: #94a3b8; margin-bottom: 30px;">Reach out for a high-performance digital consultation.</p>
+        <form>
+            <input type="text" placeholder="Full Name">
+            <input type="email" placeholder="Email Address">
+            <textarea rows="4" placeholder="How can we help?"></textarea>
+            <button class="submit-btn">Send Message</button>
+        </form>
+    </div>
 </div>
+
+<footer><p>© 2026 GASA TECH (PTY) LTD</p></footer>
 </body>
 </html>
