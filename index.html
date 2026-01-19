@@ -10,33 +10,55 @@
         :root { --primary: #007bff; --dark: #070b14; --glass: rgba(255, 255, 255, 0.03); }
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; }
         body { background: var(--dark); color: white; overflow-x: hidden; }
-        header { display: flex; justify-content: space-between; align-items: center; padding: 25px 8%; position: fixed; width: 100%; top: 0; z-index: 1000; background: rgba(7, 11, 20, 0.85); backdrop-filter: blur(15px); border-bottom: 1px solid rgba(255,255,255,0.05); }
+        
+        header { 
+            display: flex; justify-content: space-between; align-items: center; 
+            padding: 25px 8%; position: fixed; width: 100%; top: 0; z-index: 1000; 
+            background: rgba(7, 11, 20, 0.85); backdrop-filter: blur(15px); 
+            border-bottom: 1px solid rgba(255,255,255,0.05); 
+        }
         .logo { font-size: 24px; font-weight: 800; text-decoration: none; color: white; display: flex; align-items: center; gap: 10px; }
         .logo span { color: var(--primary); }
         nav a { color: white; text-decoration: none; font-size: 13px; margin-left: 25px; opacity: 0.7; text-transform: uppercase; letter-spacing: 1px; transition: 0.3s; }
         nav a:hover, nav a.active { opacity: 1; color: var(--primary); }
-        .hero { height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; background: radial-gradient(circle at center, #111d35 0%, #070b14 100%); padding: 0 5%; }
+
+        .hero { 
+            height: 100vh; display: flex; flex-direction: column; justify-content: center; 
+            align-items: center; text-align: center; 
+            background: radial-gradient(circle at center, #111d35 0%, #070b14 100%); padding: 0 5%; 
+        }
         .hero h1 { font-size: clamp(2.5rem, 10vw, 5.5rem); font-weight: 800; text-transform: uppercase; line-height: 0.85; margin-bottom: 25px; animation: fadeInUp 1s ease; }
         .hero h1 span { color: var(--primary); display: block; font-weight: 200; font-size: 0.45em; letter-spacing: 12px; margin-top: 15px; }
+        .hero p { color:#94a3b8; margin-bottom:40px; max-width:650px; line-height: 1.6; font-size: 1.1rem; }
+        
         .btn-legacy { padding: 18px 45px; border: 2px solid var(--primary); color: white; text-decoration: none; border-radius: 50px; font-weight: bold; text-transform: uppercase; transition: 0.4s; letter-spacing: 2px; }
         .btn-legacy:hover { background: var(--primary); box-shadow: 0 0 40px rgba(0, 123, 255, 0.5); }
-        footer { padding: 60px 8%; text-align: center; border-top: 1px solid rgba(255,255,255,0.05); color: #475569; }
+
+        footer { padding: 60px 8%; text-align: center; border-top: 1px solid rgba(255,255,255,0.05); color: #475569; background: #04070d; }
         @keyframes fadeInUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
     </style>
 </head>
 <body>
     <header>
         <a href="index.html" class="logo"><img src="https://img.icons8.com/fluency/48/laptop.png" width="30"> GASA <span>TECH</span></a>
-        <nav><a href="index.html" class="active">Home</a><a href="about.html">About</a><a href="services.html">Services</a><a href="portfolio.html">Portfolio</a><a href="pricing.html">Pricing</a><a href="contact.html">Contact</a></nav>
+        <nav>
+            <a href="index.html" class="active">Home</a>
+            <a href="about.html">About</a>
+            <a href="services.html">Services</a>
+            <a href="portfolio.html">Portfolio</a>
+            <a href="pricing.html">Pricing</a>
+            <a href="contact.html">Contact</a>
+        </nav>
     </header>
+
     <section class="hero">
         <h1>ENGINEERING<span>SOUTH AFRICA'S LEGACY</span></h1>
-        <p style="color:#94a3b8; margin-bottom:40px; max-width:600px;">Founded in 2024 to bridge the gap between complex code and elite user experiences.</p>
+        <p>Founded in 2024 to bridge the gap between complex software architecture and elite user experiences. We don't just build websites; we engineer digital infrastructure.</p>
         <a href="portfolio.html" class="btn-legacy">View Our Legacy</a>
     </section>
+
     <footer>
         <p>© 2026 GASA TECH (PTY) LTD | Engineering Excellence</p>
-        <div style="margin-top:15px;"><a href="#" style="color:#475569; margin:0 10px; text-decoration:none;">Privacy</a><a href="#" style="color:#475569; margin:0 10px; text-decoration:none;">Terms</a></div>
     </footer>
 </body>
 </html>
