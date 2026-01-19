@@ -7,38 +7,210 @@
     <link rel="icon" type="image/png" href="https://img.icons8.com/fluency/48/laptop.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        :root { --primary: #007bff; --dark: #0b121f; --card: #1c2a42; --light: #ffffff; }
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Segoe UI', sans-serif; background: var(--dark); color: var(--light); display: flex; flex-direction: column; min-height: 100vh; }
-        header { display: flex; justify-content: space-between; align-items: center; padding: 20px 8%; background: rgba(11, 18, 31, 0.98); border-bottom: 1px solid rgba(255,255,255,0.1); position: sticky; top: 0; z-index: 1000; }
+        :root { 
+            --primary: #007bff; 
+            --dark: #070b14; 
+            --card-bg: rgba(255, 255, 255, 0.03);
+            --text-muted: #94a3b8;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; }
+        
+        body { 
+            background: radial-gradient(circle at top, #111d35 0%, #070b14 100%);
+            color: white; 
+            line-height: 1.6;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        /* HEADER SYNC */
+        header { 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+            padding: 20px 8%; 
+            background: rgba(7, 11, 20, 0.9); 
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+            position: sticky; 
+            top: 0; 
+            z-index: 1000; 
+        }
         .logo { font-size: 24px; font-weight: bold; text-decoration: none; color: white; }
         .logo span { color: var(--primary); }
-        nav { display: flex; gap: 15px; flex-wrap: wrap; }
-        nav a { color: white; text-decoration: none; font-size: 14px; transition: 0.3s; }
-        nav a:hover { color: var(--primary); }
-        .container { max-width: 1200px; margin: 80px auto; padding: 0 20px; display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 40px; flex: 1; }
-        .project-card { background: var(--card); border-radius: 20px; overflow: hidden; border: 1px solid rgba(255,255,255,0.05); transition: 0.5s; text-align: center; }
-        .project-card:hover { transform: translateY(-15px); border-color: var(--primary); box-shadow: 0 20px 40px rgba(0, 123, 255, 0.2); }
-        .preview-box { height: 180px; background: linear-gradient(45deg, #1e3a8a, #3b82f6); display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 1.2rem; }
-        .card-info { padding: 25px; }
-        .btn-visit { display: inline-block; margin-top: 15px; padding: 10px 25px; border: 2px solid var(--primary); color: white; text-decoration: none; border-radius: 30px; font-weight: 600; transition: 0.3s; }
-        .btn-visit:hover { background: var(--primary); }
-        footer { background: #070b14; padding: 40px; text-align: center; border-top: 1px solid rgba(255,255,255,0.1); }
+        nav { display: flex; gap: 15px; }
+        nav a { color: white; text-decoration: none; font-size: 14px; transition: 0.3s; opacity: 0.8; }
+        nav a:hover { opacity: 1; color: var(--primary); }
+
+        /* PORTFOLIO SECTION */
+        .portfolio-hero {
+            padding: 100px 8% 40px;
+            text-align: center;
+        }
+
+        .headline {
+            font-size: clamp(2.5rem, 8vw, 4rem);
+            font-weight: 800;
+            text-transform: uppercase;
+            line-height: 1;
+            margin-bottom: 20px;
+        }
+        .headline span {
+            color: var(--text-muted);
+            font-weight: 200;
+            display: block;
+            font-size: 0.4em;
+            letter-spacing: 10px;
+        }
+
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 40px;
+            padding: 40px 8% 100px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        /* CLICKABLE CARD STYLE */
+        .project-card {
+            position: relative;
+            height: 450px;
+            background: var(--card-bg);
+            border-radius: 30px;
+            border: 1px solid rgba(255,255,255,0.1);
+            overflow: hidden;
+            text-decoration: none;
+            color: white;
+            transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+        }
+
+        .project-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: linear-gradient(180deg, rgba(7,11,20,0) 0%, rgba(7,11,20,0.9) 100%);
+            z-index: 1;
+            transition: 0.5s;
+        }
+
+        .project-card:hover {
+            transform: translateY(-15px);
+            border-color: var(--primary);
+            box-shadow: 0 30px 60px rgba(0,0,0,0.6);
+        }
+
+        .project-card:hover::before {
+            background: linear-gradient(180deg, rgba(0,123,255,0.1) 0%, rgba(7,11,20,1) 100%);
+        }
+
+        .project-content {
+            position: relative;
+            z-index: 2;
+            padding: 40px;
+            transition: 0.5s;
+        }
+
+        .project-card:hover .project-content {
+            padding-bottom: 50px;
+        }
+
+        .company-name {
+            font-size: 2rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+            letter-spacing: 2px;
+        }
+
+        .project-desc {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            margin-bottom: 25px;
+            opacity: 0.8;
+        }
+
+        .view-btn {
+            display: inline-block;
+            padding: 12px 30px;
+            border: 2px solid var(--primary);
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: 0.4s;
+        }
+
+        .project-card:hover .view-btn {
+            background: var(--primary);
+            box-shadow: 0 0 20px rgba(0, 123, 255, 0.5);
+        }
+
+        /* FOOTER SYNC */
+        footer { 
+            padding: 60px 8%; 
+            text-align: center; 
+            border-top: 1px solid rgba(255,255,255,0.05); 
+            background: #04070d;
+        }
     </style>
 </head>
 <body>
+
 <header>
     <a href="index.html" class="logo">GASA <span>TECH</span></a>
     <nav>
-        <a href="index.html">Home</a> <a href="about.html">About</a> <a href="services.html">Services</a> <a href="pricing.html">Pricing</a>
-        <a href="portfolio.html" style="color:var(--primary)">Portfolio</a> <a href="process.html">Process</a> <a href="testimonials.html">Reviews</a> <a href="contact.html">Contact</a>
+        <a href="index.html">Home</a> 
+        <a href="about.html">About</a> 
+        <a href="services.html">Services</a> 
+        <a href="pricing.html">Pricing</a>
+        <a href="portfolio.html" style="color:var(--primary); opacity:1;">Portfolio</a> 
+        <a href="process.html">Process</a> 
+        <a href="testimonials.html">Reviews</a> 
+        <a href="contact.html">Contact</a>
     </nav>
 </header>
-<div class="container">
-    <div class="project-card"><div class="preview-box">NEOBREED</div><div class="card-info"><h3>Neo Breed Marketing Solutions</h3><a href="https://neobreedmarketingsolutions.com" target="_blank" class="btn-visit">Open Site</a></div></div>
-    <div class="project-card"><div class="preview-box" style="background: linear-gradient(45deg, #065f46, #10b981);">ILETHA</div><div class="card-info"><h3>Iletha</h3><a href="https://iletha.com" target="_blank" class="btn-visit">Open Site</a></div></div>
-    <div class="project-card"><div class="preview-box" style="background: linear-gradient(45deg, #7c3aed, #db2777);">VILE AMICO</div><div class="card-info"><h3>Vile Amico</h3><a href="https://vileamico.co.za" target="_blank" class="btn-visit">Open Site</a></div></div>
+
+<section class="portfolio-hero">
+    <h1 class="headline">OUR<span>ENGINEERED</span>LEGACY</h1>
+    <p style="color: var(--text-muted);">Proven digital infrastructure for industry leaders.</p>
+</section>
+
+<div class="portfolio-grid">
+    <a href="https://neobreed.co.za" class="project-card" target="_blank">
+        <div class="project-content">
+            <div class="company-name">NeoBreed</div>
+            <p class="project-desc">Advanced Marketing Solutions Ecosystem. Engineered for high-conversion and brand authority.</p>
+            <div class="view-btn">Launch Site</div>
+        </div>
+    </a>
+
+    <a href="https://iletha.co.za" class="project-card" target="_blank">
+        <div class="project-content">
+            <div class="company-name">Iletha</div>
+            <p class="project-desc">Logistics & Supply Chain Infrastructure. Built for speed, reliability, and real-time responsiveness.</p>
+            <div class="view-btn">Launch Site</div>
+        </div>
+    </a>
+
+    <a href="https://vileamico.co.za" class="project-card" target="_blank">
+        <div class="project-content">
+            <div class="company-name">Vile Amico</div>
+            <p class="project-desc">Premium Corporate Identity & Business Solutions. A high-tier digital presence for enterprise growth.</p>
+            <div class="view-btn">Launch Site</div>
+        </div>
+    </a>
 </div>
-<footer><p>© 2026 GASA TECH (PTY) LTD | Johannesburg, RSA</p></footer>
+
+<footer>
+    <p>© 2026 GASA TECH (PTY) LTD | Engineering Excellence</p>
+</footer>
+
 </body>
 </html>
