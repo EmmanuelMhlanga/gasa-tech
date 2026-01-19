@@ -1,9 +1,65 @@
-<section style="padding: 150px 8% 100px;">
-    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px;">
-        <a href="https://neobreed.co.za" class="portfolio-card" style="text-decoration: none; background: linear-gradient(135deg, #007bff 0%, #001a33 100%); border-radius: 30px; padding: 60px; text-align: center; color: white; transition: 0.4s; display: block;">
-            <h2 style="font-size: 2.5rem; text-transform: uppercase;">NeoBreed</h2>
-            <p>Marketing Solutions.</p>
-            <div style="margin-top: 20px; padding: 10px 30px; border: 2px solid white; border-radius: 50px; display: inline-block;">Open Project</div>
-        </a>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio | GASA TECH</title>
+    <link rel="icon" type="image/png" href="https://img.icons8.com/fluency/48/laptop.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root { --primary: #007bff; --dark: #070b14; --glass: rgba(255, 255, 255, 0.03); }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; }
+        body { background: var(--dark); color: white; }
+        header { display: flex; justify-content: space-between; align-items: center; padding: 25px 8%; background: rgba(7, 11, 20, 0.85); backdrop-filter: blur(15px); border-bottom: 1px solid rgba(255,255,255,0.05); }
+        .logo { font-size: 24px; font-weight: 800; text-decoration: none; color: white; display: flex; align-items: center; gap: 10px; }
+        .logo span { color: var(--primary); }
+        nav a { color: white; text-decoration: none; font-size: 13px; margin-left: 25px; opacity: 0.7; text-transform: uppercase; }
+
+        .portfolio-section { padding: 100px 8%; }
+        .portfolio-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 40px; }
+        .project-card { 
+            background: var(--glass); border-radius: 30px; padding: 60px; text-align: center; 
+            border: 1px solid rgba(255,255,255,0.1); text-decoration: none; color: white; transition: 0.5s; 
+            display: flex; flex-direction: column; justify-content: center; min-height: 400px;
+        }
+        .project-card:hover { transform: translateY(-15px); border-color: var(--primary); box-shadow: 0 20px 50px rgba(0,0,0,0.5); }
+        .project-card h2 { font-size: 2.5rem; text-transform: uppercase; margin-bottom: 15px; }
+        .project-card p { color: #94a3b8; margin-bottom: 30px; }
+        .view-btn { padding: 12px 30px; border: 2px solid var(--primary); border-radius: 50px; font-weight: bold; display: inline-block; align-self: center; }
+        .project-card:hover .view-btn { background: var(--primary); }
+        
+        footer { padding: 60px; text-align: center; border-top: 1px solid rgba(255,255,255,0.05); color: #475569; }
+    </style>
+</head>
+<body>
+    <header>
+        <a href="index.html" class="logo"><img src="https://img.icons8.com/fluency/48/laptop.png" width="30"> GASA <span>TECH</span></a>
+        <nav>
+            <a href="index.html">Home</a><a href="about.html">About</a><a href="services.html">Services</a><a href="portfolio.html" style="color:var(--primary); opacity:1;">Portfolio</a><a href="pricing.html">Pricing</a><a href="contact.html">Contact</a>
+        </nav>
+    </header>
+
+    <section class="portfolio-section">
+        <h1 style="text-align: center; margin-bottom: 60px; text-transform: uppercase; font-size: 3rem;">Our Legacy</h1>
+        <div class="portfolio-grid">
+            <a href="https://neobreed.co.za" class="project-card" target="_blank" style="background: linear-gradient(135deg, rgba(0,123,255,0.1), transparent);">
+                <h2>NeoBreed</h2>
+                <p>Advanced Marketing Solutions Ecosystem.</p>
+                <div class="view-btn">Launch Project</div>
+            </a>
+            <a href="https://iletha.co.za" class="project-card" target="_blank" style="background: linear-gradient(135deg, rgba(40,167,69,0.1), transparent);">
+                <h2>Iletha</h2>
+                <p>Logistics & Supply Chain Infrastructure.</p>
+                <div class="view-btn">Launch Project</div>
+            </a>
+            <a href="https://vileamico.co.za" class="project-card" target="_blank" style="background: linear-gradient(135deg, rgba(220,53,69,0.1), transparent);">
+                <h2>Vile Amico</h2>
+                <p>Premium Corporate Business Solutions.</p>
+                <div class="view-btn">Launch Project</div>
+            </a>
         </div>
-</section>
+    </section>
+
+    <footer><p>© 2026 GASA TECH (PTY) LTD</p></footer>
+</body>
+</html>
