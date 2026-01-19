@@ -3,37 +3,129 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About | GASA TECH</title>
+    <title>About | GASA TECH Engineering</title>
     <link rel="icon" type="image/png" href="https://img.icons8.com/fluency/48/laptop.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         :root { --primary: #007bff; --dark: #070b14; --glass: rgba(255, 255, 255, 0.03); }
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; }
-        body { background: var(--dark); color: white; }
-        header { display: flex; justify-content: space-between; align-items: center; padding: 25px 8%; background: rgba(7, 11, 20, 0.85); backdrop-filter: blur(15px); border-bottom: 1px solid rgba(255,255,255,0.05); }
+        
+        body { 
+            background: var(--dark); 
+            color: white; 
+            overflow-x: hidden;
+            background: radial-gradient(circle at center, #111d35 0%, #070b14 100%);
+        }
+
+        /* Header Architecture */
+        header { 
+            display: flex; justify-content: space-between; align-items: center; 
+            padding: 25px 8%; position: fixed; width: 100%; top: 0; z-index: 1000; 
+            background: rgba(7, 11, 20, 0.85); backdrop-filter: blur(15px); 
+            border-bottom: 1px solid rgba(255,255,255,0.05); 
+        }
         .logo { font-size: 24px; font-weight: 800; text-decoration: none; color: white; display: flex; align-items: center; gap: 10px; }
         .logo span { color: var(--primary); }
         nav a { color: white; text-decoration: none; font-size: 13px; margin-left: 25px; opacity: 0.7; text-transform: uppercase; transition: 0.3s; }
-        nav a:hover { opacity: 1; color: var(--primary); }
-        
-        .about-section { padding: 120px 8%; text-align: center; min-height: 80vh; display: flex; flex-direction: column; justify-content: center; }
-        .about-card { 
-            max-width: 900px; margin: 0 auto; background: var(--glass); 
-            padding: 60px; border-radius: 40px; border: 1px solid rgba(255,255,255,0.1); 
-            backdrop-filter: blur(10px); animation: fadeInUp 1s ease;
+        nav a:hover, nav a.active { opacity: 1; color: var(--primary); }
+
+        /* Main About Section */
+        .about-container {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0 8%;
         }
-        .about-card h1 { font-size: 3rem; text-transform: uppercase; margin-bottom: 30px; letter-spacing: 2px; }
-        .about-card p { font-size: 1.2rem; color: #94a3b8; line-height: 1.8; margin-bottom: 25px; }
-        footer { padding: 40px; text-align: center; border-top: 1px solid rgba(255,255,255,0.05); color: #475569; }
-        @keyframes fadeInUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+
+        /* Animated Glow Border Card */
+        .glow-card {
+            position: relative;
+            width: 100%;
+            max-width: 950px;
+            background: rgba(255, 255, 255, 0.02);
+            padding: 80px 60px;
+            border-radius: 40px;
+            backdrop-filter: blur(20px);
+            text-align: center;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            animation: cardEntrance 1.2s ease-out;
+        }
+
+        /* The Moving Glow Beam Effect */
+        .glow-card::before {
+            content: "";
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: linear-gradient(90deg, transparent, var(--primary), transparent);
+            width: 50%;
+            height: 2px;
+            animation: moveBeam 4s linear infinite;
+        }
+
+        @keyframes moveBeam {
+            0% { left: -50%; top: 0; }
+            25% { left: 100%; top: 0; }
+            50% { left: 100%; top: 100%; }
+            75% { left: -50%; top: 100%; }
+            100% { left: -50%; top: 0; }
+        }
+
+        .glow-card h1 { 
+            font-size: clamp(2rem, 6vw, 4.5rem); 
+            text-transform: uppercase; 
+            letter-spacing: 5px; 
+            margin-bottom: 30px; 
+            font-weight: 800;
+        }
+
+        .about-text {
+            font-size: 1.25rem;
+            line-height: 1.8;
+            color: #cbd5e1;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .about-text strong { color: var(--primary); }
+
+        .mission-line {
+            margin-top: 40px;
+            padding-top: 40px;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            font-style: italic;
+            color: #94a3b8;
+        }
+
+        /* Footer Integration */
+        footer { 
+            position: absolute; bottom: 0; width: 100%;
+            padding: 40px 8%; text-align: center; 
+            border-top: 1px solid rgba(255,255,255,0.05); 
+            color: #475569; 
+        }
+
+        @keyframes cardEntrance {
+            from { opacity: 0; transform: scale(0.95) translateY(30px); }
+            to { opacity: 1; transform: scale(1) translateY(0); }
+        }
+
+        @media (max-width: 768px) {
+            .glow-card { padding: 40px 20px; }
+            .about-text { font-size: 1rem; }
+        }
     </style>
 </head>
 <body>
+
     <header>
-        <a href="index.html" class="logo"><img src="https://img.icons8.com/fluency/48/laptop.png" width="30"> GASA <span>TECH</span></a>
+        <a href="index.html" class="logo">
+            <img src="https://img.icons8.com/fluency/48/laptop.png" width="30"> GASA <span>TECH</span>
+        </a>
         <nav>
             <a href="index.html">Home</a>
-            <a href="about.html" style="color:var(--primary); opacity:1;">About</a>
+            <a href="about.html" class="active">About</a>
             <a href="services.html">Services</a>
             <a href="portfolio.html">Portfolio</a>
             <a href="pricing.html">Pricing</a>
@@ -41,14 +133,23 @@
         </nav>
     </header>
 
-    <section class="about-section">
-        <div class="about-card">
+    <section class="about-container">
+        <div class="glow-card">
             <h1>Engineering Excellence</h1>
-            <p>Based in Northgate, Johannesburg, <strong>GASA TECH (PTY) LTD</strong> specializes in building robust infrastructure for businesses that refuse to settle for "average".</p>
-            <p>Our mission is to provide world-class software, web architecture, and SEO systems that drive actual revenue and create lasting digital legacies.</p>
+            
+            <p class="about-text">
+                Based in Northgate, Johannesburg, <strong>GASA TECH (PTY) LTD</strong> specializes in building robust infrastructure for businesses that refuse to settle for "average".
+            </p>
+
+            <p class="about-text mission-line">
+                Our mission is to provide world-class software, web architecture, and SEO systems that drive actual revenue and create lasting digital legacies.
+            </p>
         </div>
     </section>
 
-    <footer><p>© 2026 GASA TECH (PTY) LTD</p></footer>
+    <footer>
+        <p>© 2026 GASA TECH (PTY) LTD | Johannesburg, RSA</p>
+    </footer>
+
 </body>
 </html>
