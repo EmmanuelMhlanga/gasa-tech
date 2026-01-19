@@ -4,69 +4,30 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact | GASA TECH</title>
-    <link rel="icon" type="image/png" href="https://img.icons8.com/fluency/48/laptop.png">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        :root { --primary: #007bff; --dark: #070b14; --glass: rgba(255, 255, 255, 0.03); }
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; }
-        body { background: radial-gradient(circle at center, #111d35 0%, #070b14 100%); color: white; min-height: 100vh; display: flex; flex-direction: column; }
-
-        /* HEADER SYNC */
-        header { display: flex; justify-content: space-between; align-items: center; padding: 25px 8%; position: sticky; top: 0; z-index: 1000; background: rgba(7, 11, 20, 0.85); backdrop-filter: blur(10px); }
-        .logo { font-size: 24px; font-weight: 800; text-decoration: none; color: white; }
-        .logo span { color: var(--primary); }
-        nav a { color: white; text-decoration: none; font-size: 14px; margin-left: 20px; opacity: 0.8; transition: 0.3s; }
-        nav a:hover { opacity: 1; color: var(--primary); }
-
-        /* CONTACT SECTION */
-        .contact-section { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 60px 8%; }
-        .headline { font-size: clamp(2rem, 8vw, 4rem); font-weight: 800; text-transform: uppercase; line-height: 0.9; text-align: center; margin-bottom: 50px; }
-        .headline span { display: block; font-weight: 200; font-size: 0.4em; letter-spacing: 10px; color: #94a3b8; }
-
-        .glass-form { background: var(--glass); backdrop-filter: blur(20px); border: 1px solid rgba(255,255,255,0.1); border-radius: 30px; padding: 60px; width: 100%; max-width: 600px; box-shadow: 0 40px 100px rgba(0,0,0,0.5); }
-        .input-group { margin-bottom: 25px; }
-        .input-group label { display: block; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 2px; color: var(--primary); font-weight: 700; margin-bottom: 8px; }
-        input, textarea { width: 100%; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; padding: 15px; color: white; transition: 0.3s; }
-        input:focus, textarea:focus { outline: none; border-color: var(--primary); background: rgba(255,255,255,0.1); }
-
-        .btn-send { width: 100%; padding: 18px; border: 2px solid var(--primary); background: transparent; color: white; font-weight: 800; text-transform: uppercase; letter-spacing: 2px; border-radius: 50px; cursor: pointer; transition: 0.4s; }
-        .btn-send:hover { background: var(--primary); box-shadow: 0 0 30px rgba(0, 123, 255, 0.4); transform: scale(1.02); }
-
-        footer { padding: 40px 8%; text-align: center; border-top: 1px solid rgba(255,255,255,0.05); color: #475569; font-size: 0.8rem; }
+        :root { --primary: #007bff; --dark: #070b14; }
+        body { background: var(--dark); color: white; font-family: sans-serif; display: flex; flex-direction: column; min-height: 100vh; }
+        header { display: flex; justify-content: space-between; padding: 25px 8%; background: rgba(7, 11, 20, 0.85); backdrop-filter: blur(15px); }
+        nav a { color: white; text-decoration: none; font-size: 13px; margin-left: 25px; opacity: 0.7; text-transform: uppercase; }
+        .form-container { flex: 1; display: flex; align-items: center; justify-content: center; padding: 60px 8%; }
+        form { background: rgba(255,255,255,0.03); padding: 60px; border-radius: 40px; border: 1px solid rgba(255,255,255,0.1); width: 100%; max-width: 600px; text-align: center; }
+        input, textarea { width: 100%; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); padding: 15px; border-radius: 15px; color: white; margin-bottom: 20px; }
+        .btn-send { width: 100%; padding: 18px; background: var(--primary); border: none; color: white; font-weight: 800; border-radius: 50px; cursor: pointer; text-transform: uppercase; letter-spacing: 2px; }
     </style>
 </head>
 <body>
-
-<header>
-    <a href="index.html" class="logo">GASA <span>TECH</span></a>
-    <nav>
-        <a href="index.html">Home</a> <a href="about.html">About</a> <a href="services.html">Services</a> <a href="pricing.html">Pricing</a>
-        <a href="portfolio.html">Portfolio</a> <a href="process.html">Process</a> <a href="testimonials.html">Reviews</a> <a href="contact.html" style="color:var(--primary); opacity:1;">Contact</a>
-    </nav>
-</header>
-
-<section class="contact-section">
-    <h1 class="headline">SECURE<span>YOUR DIGITAL</span>LEGACY</h1>
-    <form class="glass-form">
-        <div class="input-group">
-            <label>Full Name</label>
-            <input type="text" placeholder="e.g. Neo Breed">
-        </div>
-        <div class="input-group">
-            <label>Business Email</label>
-            <input type="email" placeholder="name@company.co.za">
-        </div>
-        <div class="input-group">
-            <label>Your Requirement</label>
-            <textarea rows="4" placeholder="Briefly describe your project goals..."></textarea>
-        </div>
-        <button type="submit" class="btn-send">Initiate Inquiry</button>
-    </form>
-</section>
-
-<footer>
-    <p>© 2026 GASA TECH (PTY) LTD | Engineering Excellence</p>
-</footer>
-
+    <header>
+        <a href="index.html" style="color:white; font-weight:bold; text-decoration:none; font-size:24px;">GASA <span style="color:var(--primary)">TECH</span></a>
+        <nav><a href="index.html">Home</a><a href="about.html">About</a><a href="services.html">Services</a><a href="portfolio.html">Portfolio</a><a href="pricing.html">Pricing</a><a href="contact.html" style="color:var(--primary)">Contact</a></nav>
+    </header>
+    <div class="form-container">
+        <form>
+            <h1 style="margin-bottom:30px;">SECURE YOUR LEGACY</h1>
+            <input type="text" placeholder="Full Name">
+            <input type="email" placeholder="Business Email">
+            <textarea rows="4" placeholder="Your Requirement"></textarea>
+            <button class="btn-send">Initiate Inquiry</button>
+        </form>
+    </div>
 </body>
 </html>
