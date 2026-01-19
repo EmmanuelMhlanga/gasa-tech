@@ -1,30 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio | GASA TECH</title>
-    <style>
-        :root { --primary: #007bff; --dark: #070b14; --glass: rgba(255, 255, 255, 0.03); }
-        body { background: var(--dark); color: white; font-family: sans-serif; }
-        header { display: flex; justify-content: space-between; align-items: center; padding: 25px 8%; background: rgba(7, 11, 20, 0.85); backdrop-filter: blur(15px); }
-        nav a { color: white; text-decoration: none; font-size: 13px; margin-left: 25px; opacity: 0.7; text-transform: uppercase; }
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 40px; padding: 80px 8%; }
-        .card { background: var(--glass); border-radius: 30px; padding: 60px; text-align: center; border: 1px solid rgba(255,255,255,0.1); text-decoration: none; color: white; transition: 0.4s; }
-        .card:hover { border-color: var(--primary); transform: translateY(-10px); background: rgba(0,123,255,0.05); }
-        .card h2 { font-size: 2.2rem; text-transform: uppercase; margin-bottom: 15px; }
-        .view-btn { display: inline-block; margin-top: 25px; padding: 12px 35px; border: 2px solid var(--primary); border-radius: 50px; font-weight: bold; }
-    </style>
-</head>
-<body>
-    <header>
-        <a href="index.html" style="color:white; font-weight:bold; text-decoration:none; font-size:24px;">GASA <span style="color:var(--primary)">TECH</span></a>
-        <nav><a href="index.html">Home</a><a href="about.html">About</a><a href="services.html">Services</a><a href="portfolio.html" style="color:var(--primary)">Portfolio</a><a href="pricing.html">Pricing</a><a href="contact.html">Contact</a></nav>
-    </header>
-    <div class="grid">
-        <a href="https://neobreed.co.za" class="card" target="_blank"><h2>NeoBreed</h2><p>Marketing Solutions.</p><div class="view-btn">Launch Site</div></a>
-        <a href="https://iletha.co.za" class="card" target="_blank"><h2>Iletha</h2><p>Logistics Systems.</p><div class="view-btn">Launch Site</div></a>
-        <a href="https://vileamico.co.za" class="card" target="_blank"><h2>Vile Amico</h2><p>Corporate Identity.</p><div class="view-btn">Launch Site</div></a>
-    </div>
-</body>
-</html>
+<section style="padding: 150px 8% 100px;">
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px;">
+        <a href="https://neobreed.co.za" class="portfolio-card" style="text-decoration: none; background: linear-gradient(135deg, #007bff 0%, #001a33 100%); border-radius: 30px; padding: 60px; text-align: center; color: white; transition: 0.4s; display: block;">
+            <h2 style="font-size: 2.5rem; text-transform: uppercase;">NeoBreed</h2>
+            <p>Marketing Solutions.</p>
+            <div style="margin-top: 20px; padding: 10px 30px; border: 2px solid white; border-radius: 50px; display: inline-block;">Open Project</div>
+        </a>
+        </div>
+</section>
