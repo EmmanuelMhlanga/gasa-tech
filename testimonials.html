@@ -7,32 +7,211 @@
     <link rel="icon" type="image/png" href="https://img.icons8.com/fluency/48/laptop.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        :root { --primary: #007bff; --dark: #0b121f; }
-        body { font-family: 'Segoe UI', sans-serif; background: var(--dark); color: white; display: flex; flex-direction: column; min-height: 100vh; }
-        header { display: flex; justify-content: space-between; align-items: center; padding: 20px 8%; background: #0b121f; border-bottom: 1px solid rgba(255,255,255,0.1); }
+        :root { 
+            --primary: #007bff; 
+            --dark: #0b121f; 
+            --card-bg: #161f2e; 
+            --text-muted: #94a3b8;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; }
+        
+        body { 
+            background-color: var(--dark); 
+            color: white; 
+            overflow-x: hidden;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        /* HEADER SYNC */
+        header { 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+            padding: 20px 8%; 
+            background: rgba(11, 18, 31, 0.95); 
+            border-bottom: 1px solid rgba(255,255,255,0.1); 
+            position: sticky; 
+            top: 0; 
+            z-index: 1000; 
+        }
         .logo { font-size: 24px; font-weight: bold; text-decoration: none; color: white; }
         .logo span { color: var(--primary); }
-        nav { display: flex; gap: 15px; }
-        nav a { color: white; text-decoration: none; font-size: 14px; }
-        .container { max-width: 900px; margin: 60px auto; padding: 0 20px; flex: 1; }
-        .review-card { background: #1c2a42; padding: 30px; border-radius: 15px; margin-bottom: 25px; border-left: 5px solid #2ecc71; }
-        .stars { color: #f1c40f; margin-bottom: 10px; }
-        footer { background: #070b14; padding: 40px; text-align: center; }
+        nav { display: flex; gap: 15px; flex-wrap: wrap; }
+        nav a { color: white; text-decoration: none; font-size: 14px; transition: 0.3s; }
+        nav a:hover { color: var(--primary); }
+
+        /* MAIN CONTENT */
+        .reviews-section {
+            padding: 80px 8%;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        .headline {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 60px;
+            text-align: left;
+            line-height: 1.1;
+            text-transform: uppercase;
+        }
+        .headline span {
+            color: var(--text-muted);
+            font-weight: 300;
+            display: block;
+        }
+
+        /* ANIMATED STACKED CARDS */
+        .card-stack {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            height: 350px;
+            margin-top: 20px;
+        }
+
+        .review-card {
+            position: absolute;
+            width: 100%;
+            background: var(--card-bg);
+            padding: 40px;
+            border-radius: 20px;
+            border: 1px solid rgba(255,255,255,0.1);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+            transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+            cursor: pointer;
+        }
+
+        /* Page Opening Animation Effect */
+        .review-card:nth-child(1) { transform: translateY(0) scale(1); z-index: 4; }
+        .review-card:nth-child(2) { transform: translateY(20px) scale(0.95); z-index: 3; opacity: 0.8; }
+        .review-card:nth-child(3) { transform: translateY(40px) scale(0.9); z-index: 2; opacity: 0.6; }
+        .review-card:nth-child(4) { transform: translateY(60px) scale(0.85); z-index: 1; opacity: 0.4; }
+
+        .card-stack:hover .review-card:nth-child(1) { transform: translateY(-150px) rotate(-5deg); opacity: 0; }
+        .card-stack:hover .review-card:nth-child(2) { transform: translateY(0) scale(1); opacity: 1; z-index: 4; }
+        .card-stack:hover .review-card:nth-child(3) { transform: translateY(20px) scale(0.95); opacity: 0.8; }
+        .card-stack:hover .review-card:nth-child(4) { transform: translateY(40px) scale(0.9); opacity: 0.6; }
+
+        .quote-icon {
+            color: var(--primary);
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+
+        .review-text {
+            font-size: 1.1rem;
+            margin-bottom: 30px;
+            color: #e2e8f0;
+            line-height: 1.6;
+        }
+
+        .client-profile {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .client-info h4 {
+            font-size: 1.1rem;
+            color: white;
+        }
+
+        .client-info p {
+            font-size: 0.85rem;
+            color: var(--primary);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* FOOTER SYNC */
+        footer { 
+            background: #070b14; 
+            padding: 40px; 
+            text-align: center; 
+            border-top: 1px solid rgba(255,255,255,0.1); 
+        }
+
+        @media (max-width: 768px) {
+            .headline { font-size: 2.5rem; }
+            .card-stack { height: 400px; }
+        }
     </style>
 </head>
 <body>
+
 <header>
     <a href="index.html" class="logo">GASA <span>TECH</span></a>
     <nav>
-        <a href="index.html">Home</a> <a href="about.html">About</a> <a href="services.html">Services</a> <a href="pricing.html">Pricing</a>
-        <a href="portfolio.html">Portfolio</a> <a href="process.html">Process</a> <a href="testimonials.html" style="color:var(--primary)">Reviews</a> <a href="contact.html">Contact</a>
+        <a href="index.html">Home</a> 
+        <a href="about.html">About</a> 
+        <a href="services.html">Services</a> 
+        <a href="pricing.html">Pricing</a>
+        <a href="portfolio.html">Portfolio</a> 
+        <a href="process.html">Process</a> 
+        <a href="testimonials.html" style="color:var(--primary)">Reviews</a> 
+        <a href="contact.html">Contact</a>
     </nav>
 </header>
-<div class="container">
-    <div class="review-card"><div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div><p>"Streamlined our entire workflow. Fast and professional."</p><strong>- Management, Vile Amico</strong></div>
-    <div class="review-card"><div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div><p>"Neo Breed's performance has doubled since the launch."</p><strong>- Director, Neo Breed Marketing</strong></div>
-    <div class="review-card"><div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div><p>"Technically superior solutions for South African business."</p><strong>- Thabo M.</strong></div>
-</div>
-<footer><p>© 2026 GASA TECH (PTY) LTD</p></footer>
+
+<section class="reviews-section">
+    <h1 class="headline">CUSTOMER<span>REVIEWS ABOUT</span>OUR WORK</h1>
+
+    <div class="card-stack">
+        <div class="review-card">
+            <div class="quote-icon"><i class="fas fa-quote-left"></i></div>
+            <p class="review-text">"GASA TECH transformed our digital infrastructure. The speed and precision of their engineering surpassed all expectations."</p>
+            <div class="client-profile">
+                <div class="client-info">
+                    <h4>Vile Amico CEO</h4>
+                    <p>Business Solutions</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="review-card">
+            <div class="quote-icon"><i class="fas fa-quote-left"></i></div>
+            <p class="review-text">"The most professional team in Johannesburg. They didn't just build a website; they built a marketing engine for Neo Breed."</p>
+            <div class="client-profile">
+                <div class="client-info">
+                    <h4>Neo Breed CEO</h4>
+                    <p>Marketing Agency</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="review-card">
+            <div class="quote-icon"><i class="fas fa-quote-left"></i></div>
+            <p class="review-text">"Outstanding service. The technical support and attention to detail during our project launch were second to none."</p>
+            <div class="client-profile">
+                <div class="client-info">
+                    <h4>Sipho M.</h4>
+                    <p>Private Client</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="review-card">
+            <div class="quote-icon"><i class="fas fa-quote-left"></i></div>
+            <p class="review-text">"Fast, secure, and aesthetically brilliant. I highly recommend GASA TECH for any high-tier development work."</p>
+            <div class="client-profile">
+                <div class="client-info">
+                    <h4>Tebogo L.</h4>
+                    <p>Entrepreneur</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<footer>
+    <p>© 2026 GASA TECH (PTY) LTD | Johannesburg, South Africa</p>
+</footer>
+
 </body>
 </html>
