@@ -7,77 +7,239 @@
     <link rel="icon" type="image/png" href="https://img.icons8.com/fluency/48/laptop.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        :root { --primary: #007bff; --dark: #121d31; --light: #ffffff; --card-bg: #1c2a42; }
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Segoe UI', sans-serif; background: var(--dark); color: var(--light); display: flex; flex-direction: column; min-height: 100vh; }
-        header { display: flex; justify-content: space-between; align-items: center; padding: 20px 8%; background: rgba(18, 29, 49, 0.95); border-bottom: 1px solid rgba(255,255,255,0.1); }
-        .logo { font-size: 24px; font-weight: bold; text-decoration: none; color: var(--light); }
+        :root { 
+            --primary: #007bff; 
+            --dark: #070b14; 
+            --card-bg: rgba(255, 255, 255, 0.03);
+            --text-muted: #94a3b8;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; }
+        
+        body { 
+            background: radial-gradient(circle at top, #111d35 0%, #070b14 100%);
+            color: white; 
+            line-height: 1.6;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        /* HEADER SYNC */
+        header { 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+            padding: 20px 8%; 
+            background: rgba(7, 11, 20, 0.9); 
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+            position: sticky; 
+            top: 0; 
+            z-index: 1000; 
+        }
+        .logo { font-size: 24px; font-weight: bold; text-decoration: none; color: white; }
         .logo span { color: var(--primary); }
-        nav { display: flex; gap: 15px; flex-wrap: wrap; }
-        nav a { color: var(--light); text-decoration: none; font-size: 14px; }
-        .container { max-width: 1200px; margin: 60px auto; padding: 0 20px; display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; flex: 1; }
-        .price-card { background: var(--card-bg); padding: 30px; border-radius: 15px; text-align: center; border: 1px solid rgba(255,255,255,0.1); position: relative; }
-        .price-card.popular { border: 2px solid #2ecc71; }
-        .cost { font-size: 2.5rem; font-weight: bold; color: var(--primary); margin: 15px 0; }
-        ul { list-style: none; margin: 20px 0; text-align: left; font-size: 0.9rem; color: #cbd5e1; }
-        ul li { margin-bottom: 10px; border-bottom: 1px solid rgba(255,255,255,0.05); padding-bottom: 5px; }
-        .btn { background: var(--primary); color: white; text-decoration: none; padding: 10px; display: block; border-radius: 5px; font-weight: bold; }
-        footer { background: #0b121f; padding: 30px; text-align: center; }
+        nav { display: flex; gap: 15px; }
+        nav a { color: white; text-decoration: none; font-size: 14px; transition: 0.3s; opacity: 0.8; }
+        nav a:hover { opacity: 1; color: var(--primary); }
+
+        /* PRICING SECTION */
+        .pricing-hero {
+            padding: 80px 8% 40px;
+            text-align: center;
+        }
+
+        .headline {
+            font-size: clamp(2.5rem, 8vw, 4rem);
+            font-weight: 800;
+            text-transform: uppercase;
+            line-height: 1;
+            margin-bottom: 20px;
+        }
+        .headline span {
+            color: var(--text-muted);
+            font-weight: 200;
+            display: block;
+            font-size: 0.4em;
+            letter-spacing: 8px;
+        }
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            padding: 40px 8% 100px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .price-card {
+            background: var(--card-bg);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 30px;
+            padding: 50px 40px;
+            transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+            position: relative;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .price-card:hover {
+            transform: translateY(-15px);
+            border-color: var(--primary);
+            background: rgba(255, 255, 255, 0.05);
+            box-shadow: 0 25px 50px rgba(0,0,0,0.4);
+        }
+
+        .price-card.featured {
+            border-color: rgba(0, 123, 255, 0.5);
+            background: linear-gradient(180deg, rgba(0,123,255,0.05) 0%, rgba(7,11,20,0) 100%);
+        }
+
+        .tier-name {
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            color: var(--primary);
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .amount {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 30px;
+        }
+        .amount span { font-size: 1rem; color: var(--text-muted); font-weight: 400; }
+
+        .feature-list {
+            list-style: none;
+            margin-bottom: 40px;
+            flex-grow: 1;
+        }
+
+        .feature-list li {
+            padding: 12px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+            font-size: 0.95rem;
+            color: #cbd5e1;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .feature-list li i { color: var(--primary); font-size: 0.8rem; }
+
+        .btn-price {
+            width: 100%;
+            padding: 18px;
+            border-radius: 50px;
+            border: 2px solid var(--primary);
+            background: transparent;
+            color: white;
+            font-weight: 800;
+            text-transform: uppercase;
+            text-decoration: none;
+            text-align: center;
+            transition: 0.3s;
+            letter-spacing: 1px;
+        }
+
+        .price-card:hover .btn-price {
+            background: var(--primary);
+            box-shadow: 0 0 20px rgba(0, 123, 255, 0.4);
+        }
+
+        /* FOOTER SYNC */
+        footer { 
+            padding: 60px 8%; 
+            text-align: center; 
+            border-top: 1px solid rgba(255,255,255,0.05); 
+            background: #04070d;
+        }
+        .footer-links { margin-top: 20px; }
+        .footer-links a { color: var(--text-muted); text-decoration: none; margin: 0 15px; font-size: 0.85rem; }
+
+        @media (max-width: 768px) {
+            .headline { font-size: 2.5rem; }
+        }
     </style>
 </head>
 <body>
+
 <header>
     <a href="index.html" class="logo">GASA <span>TECH</span></a>
     <nav>
-        <a href="index.html">Home</a>
-        <a href="about.html">About</a>
-        <a href="services.html">Services</a>
-        <a href="pricing.html" style="color:var(--primary)">Pricing</a>
-        <a href="portfolio.html">Portfolio</a>
-        <a href="process.html">Process</a>
-        <a href="testimonials.html">Reviews</a>
+        <a href="index.html">Home</a> 
+        <a href="about.html">About</a> 
+        <a href="services.html">Services</a> 
+        <a href="pricing.html" style="color:var(--primary); opacity:1;">Pricing</a>
+        <a href="portfolio.html">Portfolio</a> 
+        <a href="process.html">Process</a> 
+        <a href="testimonials.html">Reviews</a> 
         <a href="contact.html">Contact</a>
     </nav>
 </header>
-<div class="container">
+
+<section class="pricing-hero">
+    <h1 class="headline">INVEST<span>IN YOUR</span>LEGACY</h1>
+    <p style="color: var(--text-muted);">Transparent engineering costs for high-performance digital infrastructure.</p>
+</section>
+
+<div class="pricing-grid">
     <div class="price-card">
-        <h3>Basic Package</h3>
-        <div class="cost">R3000</div>
-        <ul>
-            <li>Up to 5 Pages</li>
-            <li>Custom Design</li>
-            <li>Free .co.za Domain</li>
-            <li>Desktop, Tablet & Mobile Responsive</li>
+        <div class="tier-name">Entry Level</div>
+        <div class="amount">R3000<span>/Once</span></div>
+        <ul class="feature-list">
+            <li><i class="fas fa-check"></i> Up to 5 Engineering Pages</li>
+            <li><i class="fas fa-check"></i> Custom UI Design</li>
+            <li><i class="fas fa-check"></i> Free .co.za Domain</li>
+            <li><i class="fas fa-check"></i> Desktop & Tablet Responsive</li>
+            <li><i class="fas fa-check"></i> High-Speed Mobile Optimization</li>
         </ul>
-        <a href="contact.html" class="btn">Enquire</a>
+        <a href="contact.html" class="btn-price">Select Basic</a>
     </div>
-    <div class="price-card popular">
-        <h3 style="color:#2ecc71">Standard Package</h3>
-        <div class="cost">R3500</div>
-        <ul>
-            <li>Up to 8 Pages</li>
-            <li>Custom Design</li>
-            <li>Free .co.za Domain</li>
-            <li>Photo Gallery</li>
-            <li>One Year Hosting</li>
-            <li>Mobile Responsive</li>
+
+    <div class="price-card featured">
+        <div class="tier-name">Most Popular</div>
+        <div class="amount">R3500<span>/Once</span></div>
+        <ul class="feature-list">
+            <li><i class="fas fa-check"></i> Up to 8 Engineering Pages</li>
+            <li><i class="fas fa-check"></i> Premium Custom Design</li>
+            <li><i class="fas fa-check"></i> Free .co.za Domain</li>
+            <li><i class="fas fa-check"></i> Dynamic Photo Gallery</li>
+            <li><i class="fas fa-check"></i> Full Multi-Device Responsive</li>
+            <li><i class="fas fa-check"></i> 1 Year Professional Hosting</li>
         </ul>
-        <a href="contact.html" class="btn" style="background:#2ecc71">Enquire</a>
+        <a href="contact.html" class="btn-price">Select Standard</a>
     </div>
+
     <div class="price-card">
-        <h3 style="color:#e67e22">Premium Package</h3>
-        <div class="cost">R4500</div>
-        <ul>
-            <li>Unlimited Pages</li>
-            <li>Social Media Integration</li>
-            <li>Free .co.za Domain</li>
-            <li>Custom Design</li>
-            <li>One Year Hosting</li>
-            <li>Mobile Responsive</li>
+        <div class="tier-name">Elite Ecosystem</div>
+        <div class="amount">R4500<span>/Once</span></div>
+        <ul class="feature-list">
+            <li><i class="fas fa-check"></i> Unlimited Engineering Pages</li>
+            <li><i class="fas fa-check"></i> Elite Custom Design</li>
+            <li><i class="fas fa-check"></i> Free .co.za Domain</li>
+            <li><i class="fas fa-check"></i> Social Media Integration</li>
+            <li><i class="fas fa-check"></i> Advanced Backend Integration</li>
+            <li><i class="fas fa-check"></i> Elite Responsive Architecture</li>
+            <li><i class="fas fa-check"></i> 1 Year Premium Hosting</li>
         </ul>
-        <a href="contact.html" class="btn" style="background:#e67e22">Enquire</a>
+        <a href="contact.html" class="btn-price">Select Premium</a>
     </div>
 </div>
-<footer><p>© 2026 GASA TECH (PTY) LTD</p></footer>
+
+<footer>
+    <p>© 2026 GASA TECH (PTY) LTD | Engineering Excellence</p>
+    <div class="footer-links">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Service</a>
+        <a href="#">Digital Card</a>
+    </div>
+</footer>
+
 </body>
 </html>
