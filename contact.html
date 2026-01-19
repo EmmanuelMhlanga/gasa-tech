@@ -7,35 +7,66 @@
     <link rel="icon" type="image/png" href="https://img.icons8.com/fluency/48/laptop.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        :root { --primary: #007bff; --dark: #0b121f; }
-        body { font-family: 'Segoe UI', sans-serif; background: var(--dark); color: white; display: flex; flex-direction: column; min-height: 100vh; overflow-x: hidden; }
-        header { display: flex; justify-content: space-between; align-items: center; padding: 20px 8%; background: #0b121f; border-bottom: 1px solid rgba(255,255,255,0.1); position: relative; z-index: 10; }
-        .logo { font-size: 24px; font-weight: bold; text-decoration: none; color: white; }
+        :root { --primary: #007bff; --dark: #070b14; --glass: rgba(255, 255, 255, 0.03); }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; }
+        body { background: radial-gradient(circle at center, #111d35 0%, #070b14 100%); color: white; min-height: 100vh; display: flex; flex-direction: column; }
+
+        /* HEADER SYNC */
+        header { display: flex; justify-content: space-between; align-items: center; padding: 25px 8%; position: sticky; top: 0; z-index: 1000; background: rgba(7, 11, 20, 0.85); backdrop-filter: blur(10px); }
+        .logo { font-size: 24px; font-weight: 800; text-decoration: none; color: white; }
         .logo span { color: var(--primary); }
-        nav { display: flex; gap: 15px; }
-        nav a { color: white; text-decoration: none; font-size: 14px; }
-        .glow { position: absolute; width: 400px; height: 400px; background: radial-gradient(circle, rgba(0,123,255,0.15) 0%, transparent 70%); top: 50%; left: 50%; transform: translate(-50%, -50%); animation: move 8s infinite alternate; z-index: 1; }
-        @keyframes move { from { left: 30%; } to { left: 70%; } }
-        .card { background: rgba(255,255,255,0.03); backdrop-filter: blur(10px); padding: 50px; border-radius: 25px; border: 1px solid rgba(255,255,255,0.1); width: 100%; max-width: 500px; margin: auto; position: relative; z-index: 5; }
-        input, textarea { width: 100%; padding: 15px; margin-bottom: 15px; background: #233452; border: none; border-radius: 10px; color: white; }
-        .btn { width: 100%; padding: 15px; background: var(--primary); border: none; color: white; border-radius: 10px; font-weight: bold; cursor: pointer; transition: 0.3s; }
-        .btn:hover { transform: translateY(-3px); box-shadow: 0 10px 20px rgba(0,123,255,0.3); }
-        footer { background: #070b14; padding: 40px; text-align: center; position: relative; z-index: 10; }
+        nav a { color: white; text-decoration: none; font-size: 14px; margin-left: 20px; opacity: 0.8; transition: 0.3s; }
+        nav a:hover { opacity: 1; color: var(--primary); }
+
+        /* CONTACT SECTION */
+        .contact-section { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 60px 8%; }
+        .headline { font-size: clamp(2rem, 8vw, 4rem); font-weight: 800; text-transform: uppercase; line-height: 0.9; text-align: center; margin-bottom: 50px; }
+        .headline span { display: block; font-weight: 200; font-size: 0.4em; letter-spacing: 10px; color: #94a3b8; }
+
+        .glass-form { background: var(--glass); backdrop-filter: blur(20px); border: 1px solid rgba(255,255,255,0.1); border-radius: 30px; padding: 60px; width: 100%; max-width: 600px; box-shadow: 0 40px 100px rgba(0,0,0,0.5); }
+        .input-group { margin-bottom: 25px; }
+        .input-group label { display: block; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 2px; color: var(--primary); font-weight: 700; margin-bottom: 8px; }
+        input, textarea { width: 100%; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; padding: 15px; color: white; transition: 0.3s; }
+        input:focus, textarea:focus { outline: none; border-color: var(--primary); background: rgba(255,255,255,0.1); }
+
+        .btn-send { width: 100%; padding: 18px; border: 2px solid var(--primary); background: transparent; color: white; font-weight: 800; text-transform: uppercase; letter-spacing: 2px; border-radius: 50px; cursor: pointer; transition: 0.4s; }
+        .btn-send:hover { background: var(--primary); box-shadow: 0 0 30px rgba(0, 123, 255, 0.4); transform: scale(1.02); }
+
+        footer { padding: 40px 8%; text-align: center; border-top: 1px solid rgba(255,255,255,0.05); color: #475569; font-size: 0.8rem; }
     </style>
 </head>
 <body>
+
 <header>
     <a href="index.html" class="logo">GASA <span>TECH</span></a>
     <nav>
         <a href="index.html">Home</a> <a href="about.html">About</a> <a href="services.html">Services</a> <a href="pricing.html">Pricing</a>
-        <a href="portfolio.html">Portfolio</a> <a href="process.html">Process</a> <a href="testimonials.html">Reviews</a> <a href="contact.html" style="color:var(--primary)">Contact</a>
+        <a href="portfolio.html">Portfolio</a> <a href="process.html">Process</a> <a href="testimonials.html">Reviews</a> <a href="contact.html" style="color:var(--primary); opacity:1;">Contact</a>
     </nav>
 </header>
-<div class="glow"></div>
-<div class="card">
-    <h2 style="margin-bottom:20px;">Get Started</h2>
-    <form><input type="text" placeholder="Name"><input type="email" placeholder="Email"><textarea rows="4" placeholder="Message"></textarea><button class="btn">Send Inquiry</button></form>
-</div>
-<footer><p>© 2026 GASA TECH (PTY) LTD</p></footer>
+
+<section class="contact-section">
+    <h1 class="headline">SECURE<span>YOUR DIGITAL</span>LEGACY</h1>
+    <form class="glass-form">
+        <div class="input-group">
+            <label>Full Name</label>
+            <input type="text" placeholder="e.g. Neo Breed">
+        </div>
+        <div class="input-group">
+            <label>Business Email</label>
+            <input type="email" placeholder="name@company.co.za">
+        </div>
+        <div class="input-group">
+            <label>Your Requirement</label>
+            <textarea rows="4" placeholder="Briefly describe your project goals..."></textarea>
+        </div>
+        <button type="submit" class="btn-send">Initiate Inquiry</button>
+    </form>
+</section>
+
+<footer>
+    <p>© 2026 GASA TECH (PTY) LTD | Engineering Excellence</p>
+</footer>
+
 </body>
 </html>
