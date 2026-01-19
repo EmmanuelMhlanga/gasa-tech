@@ -4,28 +4,60 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pricing | GASA TECH</title>
+    <link rel="icon" type="image/png" href="https://img.icons8.com/fluency/48/laptop.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        :root { --primary: #007bff; --dark: #070b14; }
-        body { background: var(--dark); color: white; font-family: sans-serif; text-align: center; }
-        header { display: flex; justify-content: space-between; padding: 25px 8%; background: rgba(7, 11, 20, 0.85); backdrop-filter: blur(15px); }
+        :root { --primary: #007bff; --dark: #070b14; --glass: rgba(255, 255, 255, 0.03); }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; }
+        body { background: var(--dark); color: white; }
+        header { display: flex; justify-content: space-between; align-items: center; padding: 25px 8%; background: rgba(7, 11, 20, 0.85); backdrop-filter: blur(15px); border-bottom: 1px solid rgba(255,255,255,0.05); }
+        .logo { font-size: 24px; font-weight: 800; text-decoration: none; color: white; display: flex; align-items: center; gap: 10px; }
+        .logo span { color: var(--primary); }
         nav a { color: white; text-decoration: none; font-size: 13px; margin-left: 25px; opacity: 0.7; text-transform: uppercase; }
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; padding: 80px 8%; }
-        .card { background: rgba(255,255,255,0.03); padding: 50px; border-radius: 30px; border: 1px solid rgba(255,255,255,0.1); }
-        .card h2 { color: var(--primary); font-size: 2rem; margin-bottom: 20px; }
-        .price { font-size: 3rem; font-weight: 800; margin-bottom: 20px; }
-        .features { list-style: none; color: #94a3b8; text-align: left; margin-bottom: 30px; }
-        .features li { margin-bottom: 10px; border-bottom: 1px solid rgba(255,255,255,0.05); padding-bottom: 10px; }
+
+        .pricing-section { padding: 100px 8%; text-align: center; }
+        .pricing-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-top: 60px; }
+        .price-card { background: var(--glass); padding: 50px; border-radius: 30px; border: 1px solid rgba(255,255,255,0.1); position: relative; }
+        .featured { border-color: var(--primary); transform: scale(1.05); z-index: 2; background: rgba(0,123,255,0.05); }
+        .price-card h2 { color: var(--primary); margin-bottom: 15px; text-transform: uppercase; }
+        .price { font-size: 3.5rem; font-weight: 800; margin-bottom: 25px; }
+        .features { list-style: none; text-align: left; margin: 30px 0; color: #94a3b8; }
+        .features li { margin-bottom: 15px; border-bottom: 1px solid rgba(255,255,255,0.05); padding-bottom: 10px; }
+        .btn-price { display: block; padding: 15px; background: var(--primary); color: white; text-decoration: none; border-radius: 50px; font-weight: bold; }
+        
+        footer { padding: 40px; text-align: center; border-top: 1px solid rgba(255,255,255,0.05); color: #475569; }
     </style>
 </head>
 <body>
     <header>
-        <a href="index.html" style="color:white; font-weight:bold; text-decoration:none; font-size:24px;">GASA <span style="color:var(--primary)">TECH</span></a>
-        <nav><a href="index.html">Home</a><a href="about.html">About</a><a href="services.html">Services</a><a href="portfolio.html">Portfolio</a><a href="pricing.html" style="color:var(--primary)">Pricing</a><a href="contact.html">Contact</a></nav>
+        <a href="index.html" class="logo"><img src="https://img.icons8.com/fluency/48/laptop.png" width="30"> GASA <span>TECH</span></a>
+        <nav>
+            <a href="index.html">Home</a><a href="about.html">About</a><a href="services.html">Services</a><a href="portfolio.html">Portfolio</a><a href="pricing.html" style="color:var(--primary); opacity:1;">Pricing</a><a href="contact.html">Contact</a>
+        </nav>
     </header>
-    <div class="grid">
-        <div class="card"><h2>Basic</h2><div class="price">R3000</div><ul class="features"><li>Up to 5 Pages</li><li>Responsive Design</li></ul></div>
-        <div class="card" style="border-color:var(--primary)"><h2>Standard</h2><div class="price">R3500</div><ul class="features"><li>Up to 8 Pages</li><li>1 Year Hosting</li></ul></div>
-        <div class="card"><h2>Premium</h2><div class="price">R4500</div><ul class="features"><li>Unlimited Pages</li><li>Full Integration</li></ul></div>
-    </div>
+
+    <section class="pricing-section">
+        <h1 style="font-size: 3rem; text-transform: uppercase;">Investment Tiers</h1>
+        <div class="pricing-grid">
+            <div class="price-card">
+                <h2>Basic</h2><div class="price">R3000</div>
+                <ul class="features"><li>Up to 5 Pages</li><li>Custom Modern Design</li><li>Mobile Responsive</li><li>Basic SEO Setup</li></ul>
+                <a href="contact.html" class="btn-price">Get Started</a>
+            </div>
+            <div class="price-card featured">
+                <div style="position: absolute; top: -15px; left: 50%; transform: translateX(-50%); background: var(--primary); padding: 5px 20px; border-radius: 20px; font-size: 0.8rem; font-weight: bold;">MOST POPULAR</div>
+                <h2>Standard</h2><div class="price">R3500</div>
+                <ul class="features"><li>Up to 8 Pages</li><li>Premium Hosting (1yr)</li><li>Standard SEO Systems</li><li>Business Email Setup</li></ul>
+                <a href="contact.html" class="btn-price">Get Started</a>
+            </div>
+            <div class="price-card">
+                <h2>Premium</h2><div class="price">R4500</div>
+                <ul class="features"><li>Unlimited Pages</li><li>Social Media Integration</li><li>Advanced SEO Architecture</li><li>E-commerce Ready</li></ul>
+                <a href="contact.html" class="btn-price">Get Started</a>
+            </div>
+        </div>
+    </section>
+
+    <footer><p>© 2026 GASA TECH (PTY) LTD</p></footer>
 </body>
 </html>
