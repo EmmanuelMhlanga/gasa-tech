@@ -1,29 +1,69 @@
-<section style="padding: 120px 8% 50px; text-align: center;">
-    <h2 style="letter-spacing: 10px; color: var(--primary); text-transform: uppercase; font-size: 0.8rem; margin-bottom: 20px;">What We Do</h2>
-    <h1 style="font-size: 3rem; text-transform: uppercase; margin-bottom: 60px;">Expert At</h1>
-    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 25px;">
-        <div class="service-card" style="background: var(--glass); padding: 40px; border-radius: 25px; border: 1px solid rgba(255,255,255,0.05); transition: 0.4s;">
-            <i class="fas fa-code fa-3x" style="color: var(--primary); margin-bottom: 20px;"></i>
-            <h3>Web Engineering</h3>
-            <p style="color: #94a3b8; font-size: 0.9rem;">High-performance frameworks designed for speed.</p>
-        </div>
-        </div>
-</section>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Services | GASA TECH</title>
+    <link rel="icon" type="image/png" href="https://img.icons8.com/fluency/48/laptop.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root { --primary: #007bff; --dark: #070b14; --glass: rgba(255, 255, 255, 0.03); }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; }
+        body { background: var(--dark); color: white; }
+        header { display: flex; justify-content: space-between; align-items: center; padding: 25px 8%; background: rgba(7, 11, 20, 0.85); backdrop-filter: blur(15px); border-bottom: 1px solid rgba(255,255,255,0.05); }
+        .logo { font-size: 24px; font-weight: 800; text-decoration: none; color: white; display: flex; align-items: center; gap: 10px; }
+        .logo span { color: var(--primary); }
+        nav a { color: white; text-decoration: none; font-size: 13px; margin-left: 25px; opacity: 0.7; text-transform: uppercase; }
+        
+        .services-section { padding: 100px 8%; text-align: center; }
+        .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; margin-top: 50px; }
+        .service-card { background: var(--glass); padding: 40px; border-radius: 25px; border: 1px solid rgba(255,255,255,0.05); transition: 0.4s; }
+        .service-card:hover { transform: translateY(-10px); border-color: var(--primary); }
+        .service-card i { font-size: 3rem; color: var(--primary); margin-bottom: 20px; }
+        
+        .pipeline-section { padding: 100px 8%; background: rgba(0,0,0,0.2); }
+        .timeline { max-width: 800px; margin: 0 auto; border-left: 2px solid var(--primary); position: relative; }
+        .step { position: relative; padding: 0 0 60px 50px; opacity: 0; transform: translateX(30px); transition: 1s ease; }
+        .step.visible { opacity: 1; transform: translateX(0); }
+        .step::after { content: ''; position: absolute; left: -11px; top: 0; width: 20px; height: 20px; background: var(--dark); border: 3px solid var(--primary); border-radius: 50%; }
+        
+        footer { padding: 40px; text-align: center; border-top: 1px solid rgba(255,255,255,0.05); color: #475569; }
+    </style>
+</head>
+<body>
+    <header>
+        <a href="index.html" class="logo"><img src="https://img.icons8.com/fluency/48/laptop.png" width="30"> GASA <span>TECH</span></a>
+        <nav>
+            <a href="index.html">Home</a><a href="about.html">About</a><a href="services.html" style="color:var(--primary); opacity:1;">Services</a><a href="portfolio.html">Portfolio</a><a href="pricing.html">Pricing</a><a href="contact.html">Contact</a>
+        </nav>
+    </header>
 
-<section style="padding: 100px 8%; background: rgba(0,0,0,0.2);">
-    <h1 style="text-align: center; margin-bottom: 80px; text-transform: uppercase;">Engineering Pipeline</h1>
-    <div id="pipeline" style="max-width: 800px; margin: 0 auto; border-left: 2px solid var(--primary); position: relative;">
-        <div class="step" style="padding: 0 0 50px 40px; position: relative; opacity: 0; transform: translateX(20px); transition: 0.8s;">
-            <div style="position: absolute; left: -11px; top: 0; width: 20px; height: 20px; background: var(--dark); border: 3px solid var(--primary); border-radius: 50%;"></div>
-            <h3 style="color: var(--primary);">01. Discovery</h3>
-            <p style="color: #94a3b8;">Auditing goals and technical requirements.</p>
+    <section class="services-section">
+        <h1 style="font-size: 3rem; text-transform: uppercase;">Expert At</h1>
+        <div class="services-grid">
+            <div class="service-card"><i class="fas fa-code"></i><h3>Web Engineering</h3><p>Scalable, high-performance ecosystems.</p></div>
+            <div class="service-card"><i class="fas fa-layer-group"></i><h3>UI/UX Design</h3><p>Intuitive, professional user interfaces.</p></div>
+            <div class="service-card"><i class="fas fa-shopping-cart"></i><h3>E-Commerce</h3><p>Retail experiences built for conversion.</p></div>
+            <div class="service-card"><i class="fas fa-search-dollar"></i><h3>SEO Systems</h3><p>Architected for search engine dominance.</p></div>
         </div>
-        </div>
-</section>
+    </section>
 
-<script>
-    const observer = new IntersectionObserver(entries => {
-        entries.forEach(entry => { if(entry.isIntersecting) { entry.target.style.opacity = 1; entry.target.style.transform = "translateX(0)"; } });
-    }, {threshold: 0.5});
-    document.querySelectorAll('.step').forEach(s => observer.observe(s));
-</script>
+    <section class="pipeline-section">
+        <h1 style="text-align: center; margin-bottom: 60px; text-transform: uppercase;">Engineering Pipeline</h1>
+        <div class="timeline">
+            <div class="step"><h3>01. Discovery</h3><p>Auditing business goals and technical requirements.</p></div>
+            <div class="step"><h3>02. Engineering</h3><p>Developing the core high-performance framework.</p></div>
+            <div class="step"><h3>03. Optimization</h3><p>Refining speed, security, and responsive performance.</p></div>
+            <div class="step"><h3>04. Launch</h3><p>Seamless migration to live servers with technical support.</p></div>
+        </div>
+    </section>
+
+    <script>
+        const obs = new IntersectionObserver(els => {
+            els.forEach(el => { if(el.isIntersecting) el.target.classList.add('visible'); });
+        }, {threshold: 0.2});
+        document.querySelectorAll('.step').forEach(s => obs.observe(s));
+    </script>
+    <footer><p>© 2026 GASA TECH (PTY) LTD</p></footer>
+</body>
+</html>
