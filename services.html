@@ -1,37 +1,29 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Services | GASA TECH</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <style>
-        :root { --primary: #007bff; --dark: #070b14; --glass: rgba(255, 255, 255, 0.03); }
-        body { background: var(--dark); color: white; font-family: sans-serif; }
-        header { display: flex; justify-content: space-between; align-items: center; padding: 25px 8%; background: rgba(7, 11, 20, 0.85); backdrop-filter: blur(15px); }
-        nav a { color: white; text-decoration: none; font-size: 13px; margin-left: 25px; opacity: 0.7; text-transform: uppercase; }
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; padding: 80px 8%; }
-        .card { background: var(--glass); padding: 40px; border-radius: 25px; border: 1px solid rgba(255,255,255,0.05); text-align: center; }
-        .card i { color: var(--primary); font-size: 3rem; margin-bottom: 20px; }
-        .pipeline { padding: 100px 8%; max-width: 800px; margin: 0 auto; border-left: 2px solid var(--primary); }
-        .step { position: relative; padding-left: 40px; margin-bottom: 60px; }
-        .step::before { content: ''; position: absolute; left: -11px; top: 0; width: 20px; height: 20px; background: var(--dark); border: 3px solid var(--primary); border-radius: 50%; }
-    </style>
-</head>
-<body>
-    <header>
-        <a href="index.html" style="color:white; font-weight:bold; text-decoration:none; font-size:24px;">GASA <span style="color:var(--primary)">TECH</span></a>
-        <nav><a href="index.html">Home</a><a href="about.html">About</a><a href="services.html" style="color:var(--primary)">Services</a><a href="portfolio.html">Portfolio</a><a href="pricing.html">Pricing</a><a href="contact.html">Contact</a></nav>
-    </header>
-    <div class="grid">
-        <div class="card"><i class="fas fa-terminal"></i><h3>Web Dev</h3><p>Elite architecture.</p></div>
-        <div class="card"><i class="fas fa-search-dollar"></i><h3>SEO</h3><p>Search dominance.</p></div>
-    </div>
-    <div class="pipeline">
-        <h2 style="margin-bottom:40px; text-transform:uppercase;">The Engineering Pipeline</h2>
-        <div class="step"><h3>01. Discovery</h3><p>Auditing business goals.</p></div>
-        <div class="step"><h3>02. Engineering</h3><p>Framework development.</p></div>
-        <div class="step"><h3>03. Launch</h3><p>Migration & Optimization.</p></div>
-    </div>
-</body>
-</html>
+<section style="padding: 120px 8% 50px; text-align: center;">
+    <h2 style="letter-spacing: 10px; color: var(--primary); text-transform: uppercase; font-size: 0.8rem; margin-bottom: 20px;">What We Do</h2>
+    <h1 style="font-size: 3rem; text-transform: uppercase; margin-bottom: 60px;">Expert At</h1>
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 25px;">
+        <div class="service-card" style="background: var(--glass); padding: 40px; border-radius: 25px; border: 1px solid rgba(255,255,255,0.05); transition: 0.4s;">
+            <i class="fas fa-code fa-3x" style="color: var(--primary); margin-bottom: 20px;"></i>
+            <h3>Web Engineering</h3>
+            <p style="color: #94a3b8; font-size: 0.9rem;">High-performance frameworks designed for speed.</p>
+        </div>
+        </div>
+</section>
+
+<section style="padding: 100px 8%; background: rgba(0,0,0,0.2);">
+    <h1 style="text-align: center; margin-bottom: 80px; text-transform: uppercase;">Engineering Pipeline</h1>
+    <div id="pipeline" style="max-width: 800px; margin: 0 auto; border-left: 2px solid var(--primary); position: relative;">
+        <div class="step" style="padding: 0 0 50px 40px; position: relative; opacity: 0; transform: translateX(20px); transition: 0.8s;">
+            <div style="position: absolute; left: -11px; top: 0; width: 20px; height: 20px; background: var(--dark); border: 3px solid var(--primary); border-radius: 50%;"></div>
+            <h3 style="color: var(--primary);">01. Discovery</h3>
+            <p style="color: #94a3b8;">Auditing goals and technical requirements.</p>
+        </div>
+        </div>
+</section>
+
+<script>
+    const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => { if(entry.isIntersecting) { entry.target.style.opacity = 1; entry.target.style.transform = "translateX(0)"; } });
+    }, {threshold: 0.5});
+    document.querySelectorAll('.step').forEach(s => observer.observe(s));
+</script>
