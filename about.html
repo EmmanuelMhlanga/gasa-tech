@@ -1,7 +1,54 @@
-<section style="padding: 150px 8% 100px; text-align: center;">
-    <h1 style="font-size: clamp(2rem, 8vw, 4rem); text-transform: uppercase; margin-bottom: 40px;">Engineering <span>Excellence</span></h1>
-    <div style="max-width: 900px; margin: 0 auto; background: var(--glass); padding: 60px; border-radius: 40px; border: 1px solid rgba(255,255,255,0.1); backdrop-filter: blur(10px); animation: fadeInUp 1.2s ease;">
-        <p style="font-size: 1.2rem; color: #94a3b8; line-height: 1.8; margin-bottom: 25px;">Based in Northgate, Johannesburg, <strong>GASA TECH (PTY) LTD</strong> specializes in building robust infrastructure for businesses that refuse to settle for "average".</p>
-        <p style="font-size: 1.2rem; color: #94a3b8; line-height: 1.8;">Our mission is to provide world-class software, web architecture, and SEO systems that drive actual revenue.</p>
-    </div>
-</section>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About | GASA TECH</title>
+    <link rel="icon" type="image/png" href="https://img.icons8.com/fluency/48/laptop.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root { --primary: #007bff; --dark: #070b14; --glass: rgba(255, 255, 255, 0.03); }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; }
+        body { background: var(--dark); color: white; }
+        header { display: flex; justify-content: space-between; align-items: center; padding: 25px 8%; background: rgba(7, 11, 20, 0.85); backdrop-filter: blur(15px); border-bottom: 1px solid rgba(255,255,255,0.05); }
+        .logo { font-size: 24px; font-weight: 800; text-decoration: none; color: white; display: flex; align-items: center; gap: 10px; }
+        .logo span { color: var(--primary); }
+        nav a { color: white; text-decoration: none; font-size: 13px; margin-left: 25px; opacity: 0.7; text-transform: uppercase; transition: 0.3s; }
+        nav a:hover { opacity: 1; color: var(--primary); }
+        
+        .about-section { padding: 120px 8%; text-align: center; min-height: 80vh; display: flex; flex-direction: column; justify-content: center; }
+        .about-card { 
+            max-width: 900px; margin: 0 auto; background: var(--glass); 
+            padding: 60px; border-radius: 40px; border: 1px solid rgba(255,255,255,0.1); 
+            backdrop-filter: blur(10px); animation: fadeInUp 1s ease;
+        }
+        .about-card h1 { font-size: 3rem; text-transform: uppercase; margin-bottom: 30px; letter-spacing: 2px; }
+        .about-card p { font-size: 1.2rem; color: #94a3b8; line-height: 1.8; margin-bottom: 25px; }
+        footer { padding: 40px; text-align: center; border-top: 1px solid rgba(255,255,255,0.05); color: #475569; }
+        @keyframes fadeInUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+    </style>
+</head>
+<body>
+    <header>
+        <a href="index.html" class="logo"><img src="https://img.icons8.com/fluency/48/laptop.png" width="30"> GASA <span>TECH</span></a>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="about.html" style="color:var(--primary); opacity:1;">About</a>
+            <a href="services.html">Services</a>
+            <a href="portfolio.html">Portfolio</a>
+            <a href="pricing.html">Pricing</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+    </header>
+
+    <section class="about-section">
+        <div class="about-card">
+            <h1>Engineering Excellence</h1>
+            <p>Based in Northgate, Johannesburg, <strong>GASA TECH (PTY) LTD</strong> specializes in building robust infrastructure for businesses that refuse to settle for "average".</p>
+            <p>Our mission is to provide world-class software, web architecture, and SEO systems that drive actual revenue and create lasting digital legacies.</p>
+        </div>
+    </section>
+
+    <footer><p>© 2026 GASA TECH (PTY) LTD</p></footer>
+</body>
+</html>
