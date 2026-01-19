@@ -19,19 +19,19 @@
         body { 
             background-color: var(--dark); 
             color: white; 
-            overflow: hidden; /* Prevents scrollbars during card slide */
+            overflow-x: hidden;
             display: flex;
             flex-direction: column;
             min-height: 100vh;
         }
 
-        /* HEADER SYNC */
+        /* HEADER */
         header { 
             display: flex; 
             justify-content: space-between; 
             align-items: center; 
             padding: 20px 8%; 
-            background: rgba(11, 18, 31, 0.95); 
+            background: rgba(11, 18, 31, 0.98); 
             border-bottom: 1px solid rgba(255,255,255,0.1); 
             position: sticky; 
             top: 0; 
@@ -43,23 +43,21 @@
         nav a { color: white; text-decoration: none; font-size: 14px; transition: 0.3s; }
         nav a:hover { color: var(--primary); }
 
-        /* MAIN CONTENT */
+        /* CONTENT AREA */
         .reviews-section {
-            padding: 60px 8%;
+            padding: 80px 8%;
             flex: 1;
             display: flex;
             flex-direction: column;
             align-items: flex-start;
-            position: relative;
         }
 
         .headline {
             font-size: 3.5rem;
             font-weight: 700;
-            margin-bottom: 40px;
-            text-align: left;
-            line-height: 1.1;
+            margin-bottom: 50px;
             text-transform: uppercase;
+            line-height: 1.1;
         }
         .headline span {
             color: var(--text-muted);
@@ -67,7 +65,7 @@
             display: block;
         }
 
-        /* INFINITE STACK CONTAINER */
+        /* STACKED CARDS ANIMATION */
         .card-stack {
             position: relative;
             width: 100%;
@@ -81,85 +79,39 @@
             width: 100%;
             height: 100%;
             background: var(--card-bg);
-            padding: 45px;
+            padding: 40px;
             border-radius: 25px;
             border: 1px solid rgba(255,255,255,0.1);
-            box-shadow: 0 30px 60px rgba(0,0,0,0.6);
+            box-shadow: 0 30px 60px rgba(0,0,0,0.5);
             transition: transform 0.6s cubic-bezier(0.23, 1, 0.32, 1), opacity 0.6s ease;
             cursor: pointer;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-            user-select: none;
         }
 
-        /* Stack Positioning Logic */
-        /* Top Card */
+        /* Stacked visual effect */
         .review-card:nth-last-child(1) { transform: translateY(0) scale(1); z-index: 10; opacity: 1; }
-        /* Middle Card */
-        .review-card:nth-last-child(2) { transform: translateY(25px) scale(0.94); z-index: 9; opacity: 0.8; }
-        /* Bottom Card */
-        .review-card:nth-last-child(3) { transform: translateY(50px) scale(0.88); z-index: 8; opacity: 0.5; }
-        /* Hidden Cards */
-        .review-card:nth-last-child(n+4) { transform: translateY(75px) scale(0.8); z-index: 7; opacity: 0; }
+        .review-card:nth-last-child(2) { transform: translateY(20px) scale(0.95); z-index: 9; opacity: 0.8; }
+        .review-card:nth-last-child(3) { transform: translateY(40px) scale(0.9); z-index: 8; opacity: 0.6; }
+        .review-card:nth-last-child(n+4) { transform: translateY(60px) scale(0.85); z-index: 7; opacity: 0; }
 
-        .quote-icon {
-            color: var(--primary);
-            font-size: 2.5rem;
-            margin-bottom: 15px;
-        }
+        .quote-icon { color: var(--primary); font-size: 2.5rem; margin-bottom: 10px; }
+        .review-text { font-size: 1.1rem; line-height: 1.6; color: #f8fafc; font-style: italic; }
+        
+        .client-info { margin-top: 20px; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.1); }
+        .client-info h4 { font-size: 1.2rem; margin-bottom: 2px; }
+        .client-info p { font-size: 0.8rem; color: var(--primary); text-transform: uppercase; font-weight: bold; letter-spacing: 1.5px; }
 
-        .review-text {
-            font-size: 1.15rem;
-            color: #e2e8f0;
-            line-height: 1.6;
-            font-style: italic;
-        }
+        .hint { margin-top: 80px; color: var(--text-muted); font-size: 0.9rem; }
 
-        .client-info {
-            margin-top: 20px;
-            border-top: 1px solid rgba(255,255,255,0.1);
-            padding-top: 20px;
-        }
-
-        .client-info h4 {
-            font-size: 1.2rem;
-            color: white;
-            margin-bottom: 4px;
-        }
-
-        .client-info p {
-            font-size: 0.85rem;
-            color: var(--primary);
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            font-weight: 600;
-        }
-
-        /* Instruction Hint */
-        .hint {
-            margin-top: 80px;
-            color: var(--text-muted);
-            font-size: 0.9rem;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        /* FOOTER SYNC */
+        /* FOOTER */
         footer { 
             background: #070b14; 
-            padding: 40px; 
+            padding: 40px 8%; 
             text-align: center; 
             border-top: 1px solid rgba(255,255,255,0.1); 
-            position: relative;
-            z-index: 20;
-        }
-
-        @media (max-width: 768px) {
-            .headline { font-size: 2.5rem; }
-            .card-stack { height: 420px; max-width: 100%; }
-            body { overflow-y: auto; }
+            margin-top: auto;
         }
     </style>
 </head>
@@ -208,32 +160,25 @@
         </div>
     </div>
 
-    <div class="hint">
-        <i class="fas fa-mouse-pointer"></i> <span>Click the top card to flip through reviews</span>
-    </div>
+    <p class="hint"><i class="fas fa-mouse-pointer"></i> Click card to view next review</p>
 </section>
 
 <footer>
-    <p>© 2026 GASA TECH (PTY) LTD | Johannesburg, South Africa</p>
+    <p>© 2026 GASA TECH (PTY) LTD | Northgate, Johannesburg</p>
 </footer>
 
 <script>
     function flipCard(card) {
         const stack = document.getElementById('reviewStack');
-        
-        // Only allow clicking the top-most card
-        if (card !== stack.lastElementChild) return;
+        if (card !== stack.lastElementChild) return; // Only flip the top card
 
-        // Animate out to the right (page flip feel)
-        card.style.transform = "translateX(150%) rotate(15deg)";
+        // Animate the "page opening" flip
+        card.style.transform = "translateX(160%) rotate(20deg)";
         card.style.opacity = "0";
 
         setTimeout(() => {
-            // Move card to the beginning of the DOM (making it the bottom card)
-            stack.prepend(card);
-            
-            // Reset position instantly while it's hidden at the bottom
-            card.style.transform = "";
+            stack.prepend(card); // Move to back of stack
+            card.style.transform = ""; // Reset for visual stacking
             card.style.opacity = "";
         }, 600);
     }
