@@ -4,29 +4,54 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact | GASA TECH</title>
+    <link rel="icon" type="image/png" href="https://img.icons8.com/fluency/48/laptop.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        :root { --primary: #007bff; --dark: #070b14; }
-        body { background: var(--dark); color: white; font-family: sans-serif; display: flex; flex-direction: column; min-height: 100vh; }
-        header { display: flex; justify-content: space-between; padding: 25px 8%; background: rgba(7, 11, 20, 0.85); backdrop-filter: blur(15px); }
+        :root { --primary: #007bff; --dark: #070b14; --glass: rgba(255, 255, 255, 0.03); }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; }
+        body { background: var(--dark); color: white; height: 100vh; display: flex; flex-direction: column; overflow: hidden; }
+        header { display: flex; justify-content: space-between; align-items: center; padding: 25px 8%; background: rgba(7, 11, 20, 0.85); backdrop-filter: blur(15px); border-bottom: 1px solid rgba(255,255,255,0.05); }
+        .logo { font-size: 24px; font-weight: 800; text-decoration: none; color: white; display: flex; align-items: center; gap: 10px; }
+        .logo span { color: var(--primary); }
         nav a { color: white; text-decoration: none; font-size: 13px; margin-left: 25px; opacity: 0.7; text-transform: uppercase; }
-        .form-container { flex: 1; display: flex; align-items: center; justify-content: center; padding: 60px 8%; }
-        form { background: rgba(255,255,255,0.03); padding: 60px; border-radius: 40px; border: 1px solid rgba(255,255,255,0.1); width: 100%; max-width: 600px; text-align: center; }
-        input, textarea { width: 100%; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); padding: 15px; border-radius: 15px; color: white; margin-bottom: 20px; }
-        .btn-send { width: 100%; padding: 18px; background: var(--primary); border: none; color: white; font-weight: 800; border-radius: 50px; cursor: pointer; text-transform: uppercase; letter-spacing: 2px; }
+
+        .contact-container { flex: 1; display: flex; align-items: center; justify-content: center; padding: 40px 8%; }
+        .glass-form { 
+            background: var(--glass); padding: 60px; border-radius: 40px; border: 1px solid rgba(255,255,255,0.1); 
+            width: 100%; max-width: 600px; text-align: center; backdrop-filter: blur(20px);
+            animation: slideUp 0.8s ease-out;
+        }
+        .glass-form h1 { font-size: 2.5rem; margin-bottom: 30px; text-transform: uppercase; }
+        input, textarea { 
+            width: 100%; padding: 15px; margin-bottom: 20px; background: rgba(255,255,255,0.05); 
+            border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; color: white; font-size: 1rem;
+        }
+        input:focus, textarea:focus { outline: none; border-color: var(--primary); background: rgba(255,255,255,0.08); }
+        .btn-send { 
+            width: 100%; padding: 18px; background: var(--primary); border: none; color: white; 
+            font-weight: 800; border-radius: 50px; cursor: pointer; text-transform: uppercase; 
+            letter-spacing: 2px; transition: 0.4s;
+        }
+        .btn-send:hover { transform: scale(1.02); box-shadow: 0 0 25px rgba(0,123,255,0.4); }
+        
+        @keyframes slideUp { from { opacity: 0; transform: translateY(50px); } to { opacity: 1; transform: translateY(0); } }
     </style>
 </head>
 <body>
     <header>
-        <a href="index.html" style="color:white; font-weight:bold; text-decoration:none; font-size:24px;">GASA <span style="color:var(--primary)">TECH</span></a>
-        <nav><a href="index.html">Home</a><a href="about.html">About</a><a href="services.html">Services</a><a href="portfolio.html">Portfolio</a><a href="pricing.html">Pricing</a><a href="contact.html" style="color:var(--primary)">Contact</a></nav>
+        <a href="index.html" class="logo"><img src="https://img.icons8.com/fluency/48/laptop.png" width="30"> GASA <span>TECH</span></a>
+        <nav>
+            <a href="index.html">Home</a><a href="about.html">About</a><a href="services.html">Services</a><a href="portfolio.html">Portfolio</a><a href="pricing.html">Pricing</a><a href="contact.html" style="color:var(--primary); opacity:1;">Contact</a>
+        </nav>
     </header>
-    <div class="form-container">
-        <form>
-            <h1 style="margin-bottom:30px;">SECURE YOUR LEGACY</h1>
-            <input type="text" placeholder="Full Name">
-            <input type="email" placeholder="Business Email">
-            <textarea rows="4" placeholder="Your Requirement"></textarea>
-            <button class="btn-send">Initiate Inquiry</button>
+
+    <div class="contact-container">
+        <form class="glass-form">
+            <h1>Initiate Inquiry</h1>
+            <input type="text" placeholder="Full Name" required>
+            <input type="email" placeholder="Business Email" required>
+            <textarea rows="4" placeholder="How can we build your legacy?" required></textarea>
+            <button class="btn-send">Send Message</button>
         </form>
     </div>
 </body>
