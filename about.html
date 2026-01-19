@@ -13,7 +13,7 @@
         body { 
             background: var(--dark); 
             color: white; 
-            overflow-x: hidden;
+            overflow: hidden;
             background: radial-gradient(circle at center, #111d35 0%, #070b14 100%);
         }
 
@@ -29,8 +29,8 @@
         nav a { color: white; text-decoration: none; font-size: 13px; margin-left: 25px; opacity: 0.7; text-transform: uppercase; transition: 0.3s; }
         nav a:hover, nav a.active { opacity: 1; color: var(--primary); }
 
-        /* Main About Section */
-        .about-container {
+        /* Main Container */
+        .about-wrapper {
             height: 100vh;
             display: flex;
             align-items: center;
@@ -42,78 +42,68 @@
         .glow-card {
             position: relative;
             width: 100%;
-            max-width: 950px;
+            max-width: 900px;
             background: rgba(255, 255, 255, 0.02);
             padding: 80px 60px;
             border-radius: 40px;
-            backdrop-filter: blur(20px);
+            backdrop-filter: blur(25px);
             text-align: center;
-            overflow: hidden;
             border: 1px solid rgba(255, 255, 255, 0.1);
-            animation: cardEntrance 1.2s ease-out;
+            animation: cardEntrance 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
         }
 
-        /* The Moving Glow Beam Effect */
-        .glow-card::before {
+        /* Moving Beam Effect */
+        .glow-card::after {
             content: "";
             position: absolute;
-            top: 0; left: 0; width: 100%; height: 100%;
+            top: -1px; left: -1px; right: -1px; bottom: -1px;
+            border-radius: 40px;
+            padding: 2px;
             background: linear-gradient(90deg, transparent, var(--primary), transparent);
-            width: 50%;
-            height: 2px;
-            animation: moveBeam 4s linear infinite;
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: destination-out;
+            mask-composite: exclude;
+            animation: rotateBeam 4s linear infinite;
         }
 
-        @keyframes moveBeam {
-            0% { left: -50%; top: 0; }
-            25% { left: 100%; top: 0; }
-            50% { left: 100%; top: 100%; }
-            75% { left: -50%; top: 100%; }
-            100% { left: -50%; top: 0; }
+        @keyframes rotateBeam {
+            0% { clip-path: inset(0 0 95% 0); }
+            25% { clip-path: inset(0 0 0 95%); }
+            50% { clip-path: inset(95% 0 0 0); }
+            75% { clip-path: inset(0 95% 0 0); }
+            100% { clip-path: inset(0 0 95% 0); }
         }
 
         .glow-card h1 { 
-            font-size: clamp(2rem, 6vw, 4.5rem); 
+            font-size: clamp(2rem, 5vw, 3.5rem); 
             text-transform: uppercase; 
-            letter-spacing: 5px; 
-            margin-bottom: 30px; 
-            font-weight: 800;
+            letter-spacing: 8px; 
+            margin-bottom: 40px; 
+            color: white;
         }
 
         .about-text {
-            font-size: 1.25rem;
+            font-size: 1.3rem;
             line-height: 1.8;
-            color: #cbd5e1;
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .about-text strong { color: var(--primary); }
-
-        .mission-line {
-            margin-top: 40px;
-            padding-top: 40px;
-            border-top: 1px solid rgba(255, 255, 255, 0.05);
-            font-style: italic;
             color: #94a3b8;
+            margin-bottom: 30px;
         }
 
-        /* Footer Integration */
+        .about-text strong { color: white; font-weight: 600; }
+        .highlight { color: var(--primary); font-weight: 700; }
+
         footer { 
             position: absolute; bottom: 0; width: 100%;
-            padding: 40px 8%; text-align: center; 
-            border-top: 1px solid rgba(255,255,255,0.05); 
-            color: #475569; 
+            padding: 30px 8%; text-align: center; 
+            color: #475569; font-size: 0.9rem;
+            border-top: 1px solid rgba(255,255,255,0.05);
         }
 
         @keyframes cardEntrance {
-            from { opacity: 0; transform: scale(0.95) translateY(30px); }
-            to { opacity: 1; transform: scale(1) translateY(0); }
-        }
-
-        @media (max-width: 768px) {
-            .glow-card { padding: 40px 20px; }
-            .about-text { font-size: 1rem; }
+            from { opacity: 0; transform: translateY(40px); }
+            to { opacity: 1; transform: translateY(0); }
         }
     </style>
 </head>
@@ -133,22 +123,22 @@
         </nav>
     </header>
 
-    <section class="about-container">
+    <main class="about-wrapper">
         <div class="glow-card">
             <h1>Engineering Excellence</h1>
             
             <p class="about-text">
-                Based in Northgate, Johannesburg, <strong>GASA TECH (PTY) LTD</strong> specializes in building robust infrastructure for businesses that refuse to settle for "average".
+                <strong>GASA TECH (PTY) LTD</strong> specializes in architecting <span class="highlight">robust digital infrastructure</span> for enterprises that refuse to settle for "average". We bridge the gap between complex software engineering and elite user experiences.
             </p>
 
-            <p class="about-text mission-line">
-                Our mission is to provide world-class software, web architecture, and SEO systems that drive actual revenue and create lasting digital legacies.
+            <p class="about-text" style="font-size: 1.1rem; border-top: 1px solid rgba(255,255,255,0.05); padding-top: 30px;">
+                Our mission is to deploy world-class web architecture and high-performance systems designed to drive <span class="highlight">measurable revenue</span> and build lasting digital legacies.
             </p>
         </div>
-    </section>
+    </main>
 
     <footer>
-        <p>© 2026 GASA TECH (PTY) LTD | Johannesburg, RSA</p>
+        <p>© 2026 GASA TECH (PTY) LTD | Engineering Excellence</p>
     </footer>
 
 </body>
