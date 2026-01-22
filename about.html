@@ -4,7 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About | GASA TECH</title>
+
+    <link rel="icon" type="image/png" href="https://img.icons8.com/fluency/48/laptop.png">
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
     <style>
         :root { 
             --primary: #007bff; 
@@ -23,7 +27,7 @@
             flex-direction: column;
         }
 
-        /* --- HEADER WITH WORKING LAPTOP ICON --- */
+        /* --- HEADER --- */
         header { 
             display: flex; justify-content: space-between; align-items: center; 
             padding: 20px 8%; position: fixed; width: 100%; top: 0; z-index: 1000; 
@@ -37,12 +41,9 @@
             color: white; 
             display: flex;
             align-items: center;
-            gap: 12px; /* Space between laptop and text */
+            gap: 12px;
         }
-        .logo i { 
-            color: var(--primary); /* Makes the laptop blue */
-            font-size: 1.4rem;
-        }
+        .logo i { color: var(--primary); font-size: 1.4rem; }
         .logo span { color: var(--primary); }
         
         nav a { color: white; text-decoration: none; font-size: 12px; margin-left: 20px; opacity: 0.6; text-transform: uppercase; letter-spacing: 1px; transition: 0.3s; }
@@ -51,7 +52,7 @@
         .menu-toggle { display: none; flex-direction: column; gap: 5px; cursor: pointer; }
         .menu-toggle span { width: 25px; height: 2px; background: white; transition: 0.3s; }
 
-        /* --- CONTENT --- */
+        /* --- CONTENT CARD --- */
         .content-wrapper {
             flex: 1;
             display: flex;
@@ -72,7 +73,7 @@
             border: 1px solid rgba(255, 255, 255, 0.1);
         }
 
-        /* Glowing Animation Border */
+        /* Animated Glowing Border */
         .about-card::after {
             content: "";
             position: absolute;
@@ -110,7 +111,6 @@
             align-items: center;
             gap: 10px;
         }
-        footer i { font-size: 0.9rem; }
 
         @media (max-width: 850px) {
             .menu-toggle { display: flex; }
