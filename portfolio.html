@@ -41,7 +41,7 @@
         .menu-toggle { display: none; flex-direction: column; gap: 5px; cursor: pointer; z-index: 1100; }
         .menu-toggle span { width: 25px; height: 2px; background: white; transition: 0.3s; }
 
-        /* --- PORTFOLIO CONTENT --- */
+        /* --- PORTFOLIO GRID --- */
         .content-wrapper {
             flex: 1;
             padding: 140px 8% 80px 8%;
@@ -61,18 +61,17 @@
             max-width: 1200px;
         }
 
-        /* Animated Card */
         .project-card {
             position: relative;
             background: var(--card-glass);
-            padding: 40px;
+            padding: 45px 40px;
             border-radius: 24px;
             backdrop-filter: blur(20px);
             border: 1px solid rgba(255, 255, 255, 0.1);
             transition: 0.4s ease;
             text-decoration: none;
             color: white;
-            display: block;
+            text-align: center;
         }
 
         .project-card:hover { transform: translateY(-10px); }
@@ -88,7 +87,6 @@
             -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
             mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
             -webkit-mask-composite: xor;
-            mask-composite: exclude;
             animation: moveBeam 4s linear infinite;
         }
 
@@ -100,14 +98,22 @@
             100% { clip-path: inset(0 0 98% 0); }
         }
 
-        .project-card h3 { color: var(--primary); font-size: 1.5rem; margin-bottom: 10px; letter-spacing: 1px; }
-        .project-card p { color: #cbd5e1; line-height: 1.6; font-size: 0.95rem; margin-bottom: 15px; }
-        .visit-link { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 2px; color: var(--primary); font-weight: 700; display: flex; align-items: center; gap: 8px; }
+        /* Industry Specific Icons */
+        .project-card i.industry-icon {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 25px;
+            display: block;
+        }
+
+        .project-card h3 { color: white; font-size: 1.4rem; margin-bottom: 12px; letter-spacing: 1px; }
+        .project-card p { color: #cbd5e1; line-height: 1.6; font-size: 0.95rem; margin-bottom: 20px; }
+        .visit-link { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 2px; color: var(--primary); font-weight: 700; }
 
         /* --- FOOTER --- */
         footer { padding: 40px; text-align: center; font-size: 0.8rem; color: #475569; }
 
-        /* --- MOBILE LOGIC --- */
+        /* --- MOBILE NAV --- */
         @media (max-width: 850px) {
             .menu-toggle { display: flex; }
             nav {
@@ -120,7 +126,7 @@
             nav a { margin: 15px 0; font-size: 1.4rem; }
             .mobile-btn {
                 margin-top: 25px; padding: 12px 35px; background: var(--primary);
-                color: white !important; border-radius: 50px; font-weight: 700;
+                color: white !important; border-radius: 50px;
             }
             .menu-toggle.is-active span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
             .menu-toggle.is-active span:nth-child(2) { opacity: 0; }
@@ -155,27 +161,31 @@
 
         <div class="portfolio-grid">
             <a href="https://neobreedmarketingsolutions.com" target="_blank" class="project-card">
+                <i class="fas fa-bullhorn industry-icon"></i>
                 <h3>Neobreed Marketing Solutions</h3>
-                <p>Architecting high-performance digital marketing ecosystems.</p>
-                <div class="visit-link">Visit Site <i class="fas fa-external-link-alt"></i></div>
+                <p>Architecting performance-driven digital marketing ecosystems.</p>
+                <div class="visit-link">Visit Site <i class="fas fa-arrow-right"></i></div>
             </a>
 
             <a href="https://vilemaico.co.za" target="_blank" class="project-card">
+                <i class="fas fa-photo-video industry-icon"></i>
                 <h3>Vile Amico</h3>
-                <p>Custom infrastructure and brand-focused web systems.</p>
-                <div class="visit-link">Visit Site <i class="fas fa-external-link-alt"></i></div>
+                <p>Custom media infrastructure and brand-focused web systems.</p>
+                <div class="visit-link">Visit Site <i class="fas fa-arrow-right"></i></div>
             </a>
 
-            <a href="https://braiblock.com" target="_blank" class="project-card">
-                <h3>Brai Block</h3>
-                <p>Deploying robust software engineering for secure platforms.</p>
-                <div class="visit-link">Visit Site <i class="fas fa-external-link-alt"></i></div>
+            <a href="https://braaiblock.com" target="_blank" class="project-card">
+                <i class="fas fa-drumstick-bite industry-icon"></i>
+                <h3>Braai Block</h3>
+                <p>Deploying robust software engineering for high-traffic food platforms.</p>
+                <div class="visit-link">Visit Site <i class="fas fa-arrow-right"></i></div>
             </a>
 
             <a href="https://iletha.com" target="_blank" class="project-card">
+                <i class="fas fa-building industry-icon"></i>
                 <h3>Iletha</h3>
-                <p>Building world-class web architecture and delivery systems.</p>
-                <div class="visit-link">Visit Site <i class="fas fa-external-link-alt"></i></div>
+                <p>Building world-class web architecture for corporate delivery systems.</p>
+                <div class="visit-link">Visit Site <i class="fas fa-arrow-right"></i></div>
             </a>
         </div>
     </main>
