@@ -7,63 +7,208 @@
     <link rel="icon" type="image/png" href="https://img.icons8.com/fluency/48/laptop.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        :root { --primary: #007bff; --dark: #070b14; --glass: rgba(255, 255, 255, 0.03); }
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; }
-        body { background: var(--dark); color: white; }
-        header { display: flex; justify-content: space-between; align-items: center; padding: 25px 8%; background: rgba(7, 11, 20, 0.85); backdrop-filter: blur(15px); border-bottom: 1px solid rgba(255,255,255,0.05); }
+        :root { 
+            --primary: #007bff; 
+            --dark: #070b14; 
+            --glass: rgba(255, 255, 255, 0.03); 
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
+        
+        body { 
+            background: var(--dark); 
+            color: white; 
+            background: radial-gradient(circle at center, #0f172a 0%, #070b14 100%);
+            overflow-x: hidden;
+        }
+
+        /* --- HEADER --- */
+        header { 
+            display: flex; justify-content: space-between; align-items: center; 
+            padding: 20px 8%; position: fixed; width: 100%; top: 0; z-index: 1000; 
+            background: rgba(7, 11, 20, 0.85); backdrop-filter: blur(15px); 
+            border-bottom: 1px solid rgba(255,255,255,0.05); 
+        }
         .logo { font-size: 24px; font-weight: 800; text-decoration: none; color: white; display: flex; align-items: center; gap: 10px; }
         .logo span { color: var(--primary); }
-        nav a { color: white; text-decoration: none; font-size: 13px; margin-left: 25px; opacity: 0.7; text-transform: uppercase; }
-        
-        .services-section { padding: 100px 8%; text-align: center; }
+        nav a { color: white; text-decoration: none; font-size: 12px; margin-left: 25px; opacity: 0.7; text-transform: uppercase; letter-spacing: 1px; transition: 0.3s; }
+        nav a:hover, nav a.active { opacity: 1; color: var(--primary); }
+
+        .menu-toggle { display: none; flex-direction: column; gap: 5px; cursor: pointer; }
+        .menu-toggle span { width: 25px; height: 2px; background: white; transition: 0.3s; }
+
+        /* --- SHARED ANIMATED BEAM STYLE --- */
+        .animated-card {
+            position: relative;
+            background: var(--glass);
+            border-radius: 25px;
+            border: 1px solid rgba(255,255,255,0.05);
+            overflow: hidden;
+        }
+
+        .animated-card::after {
+            content: "";
+            position: absolute;
+            inset: -1px;
+            border-radius: 25px;
+            padding: 2px; 
+            background: linear-gradient(90deg, transparent, var(--primary), transparent);
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            animation: moveBeam 4s linear infinite;
+        }
+
+        @keyframes moveBeam {
+            0% { clip-path: inset(0 0 98% 0); }
+            25% { clip-path: inset(0 0 0 98%); }
+            50% { clip-path: inset(98% 0 0 0); }
+            75% { clip-path: inset(0 98% 0 0); }
+            100% { clip-path: inset(0 0 98% 0); }
+        }
+
+        /* --- SERVICES SECTION --- */
+        .services-section { padding: 140px 8% 80px 8%; text-align: center; }
         .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; margin-top: 50px; }
-        .service-card { background: var(--glass); padding: 40px; border-radius: 25px; border: 1px solid rgba(255,255,255,0.05); transition: 0.4s; }
-        .service-card:hover { transform: translateY(-10px); border-color: var(--primary); }
-        .service-card i { font-size: 3rem; color: var(--primary); margin-bottom: 20px; }
         
+        .service-card { padding: 40px; transition: 0.4s; }
+        .service-card:hover { transform: translateY(-10px); }
+        .service-card i { font-size: 2.5rem; color: var(--primary); margin-bottom: 20px; }
+        .service-card h3 { margin-bottom: 15px; letter-spacing: 1px; }
+        .service-card p { color: #94a3b8; font-size: 0.9rem; line-height: 1.6; }
+
+        /* --- PIPELINE SECTION --- */
         .pipeline-section { padding: 100px 8%; background: rgba(0,0,0,0.2); }
-        .timeline { max-width: 800px; margin: 0 auto; border-left: 2px solid var(--primary); position: relative; }
-        .step { position: relative; padding: 0 0 60px 50px; opacity: 0; transform: translateX(30px); transition: 1s ease; }
-        .step.visible { opacity: 1; transform: translateX(0); }
-        .step::after { content: ''; position: absolute; left: -11px; top: 0; width: 20px; height: 20px; background: var(--dark); border: 3px solid var(--primary); border-radius: 50%; }
+        .timeline { max-width: 800px; margin: 0 auto; position: relative; }
         
-        footer { padding: 40px; text-align: center; border-top: 1px solid rgba(255,255,255,0.05); color: #475569; }
+        .step { 
+            position: relative; 
+            padding: 40px; 
+            margin-bottom: 30px; 
+            opacity: 0; 
+            transform: translateX(50px); 
+            transition: 1s cubic-bezier(0.16, 1, 0.3, 1); 
+        }
+        .step.visible { opacity: 1; transform: translateX(0); }
+        
+        .step h3 { color: var(--primary); margin-bottom: 10px; display: flex; align-items: center; gap: 15px; }
+        .step h3 span { font-size: 0.8rem; background: rgba(0, 123, 255, 0.1); padding: 4px 12px; border-radius: 50px; }
+
+        /* --- FOOTER --- */
+        footer { padding: 40px; text-align: center; border-top: 1px solid rgba(255,255,255,0.05); color: #475569; font-size: 0.8rem; }
+
+        /* --- MOBILE NAV --- */
+        @media (max-width: 850px) {
+            .menu-toggle { display: flex; }
+            nav {
+                position: fixed; top: 0; right: -100%; width: 75%; height: 100vh;
+                background: rgba(7, 11, 20, 0.98); backdrop-filter: blur(25px);
+                display: flex; flex-direction: column; align-items: center; justify-content: center;
+                transition: 0.5s;
+            }
+            nav.active { right: 0; }
+            nav a { margin: 15px 0; font-size: 1.5rem; }
+        }
     </style>
 </head>
 <body>
+
     <header>
-        <a href="index.html" class="logo"><img src="https://img.icons8.com/fluency/48/laptop.png" width="30"> GASA <span>TECH</span></a>
-        <nav>
-            <a href="index.html">Home</a><a href="about.html">About</a><a href="services.html" style="color:var(--primary); opacity:1;">Services</a><a href="portfolio.html">Portfolio</a><a href="pricing.html">Pricing</a><a href="contact.html">Contact</a>
+        <a href="index.html" class="logo">
+            <img src="https://img.icons8.com/fluency/48/laptop.png" width="30"> GASA <span>TECH</span>
+        </a>
+        <div class="menu-toggle" id="mobile-menu">
+            <span></span><span></span><span></span>
+        </div>
+        <nav id="nav-list">
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="services.html" class="active" style="color:var(--primary); opacity:1;">Services</a>
+            <a href="portfolio.html">Portfolio</a>
+            <a href="pricing.html">Pricing</a>
+            <a href="contact.html">Contact</a>
         </nav>
     </header>
 
     <section class="services-section">
-        <h1 style="font-size: 3rem; text-transform: uppercase;">Expert At</h1>
+        <h1 style="font-size: clamp(2rem, 5vw, 3rem); text-transform: uppercase; letter-spacing: 4px;">Expert Capabilities</h1>
         <div class="services-grid">
-            <div class="service-card"><i class="fas fa-code"></i><h3>Web Engineering</h3><p>Scalable, high-performance ecosystems.</p></div>
-            <div class="service-card"><i class="fas fa-layer-group"></i><h3>UI/UX Design</h3><p>Intuitive, professional user interfaces.</p></div>
-            <div class="service-card"><i class="fas fa-shopping-cart"></i><h3>E-Commerce</h3><p>Retail experiences built for conversion.</p></div>
-            <div class="service-card"><i class="fas fa-search-dollar"></i><h3>SEO Systems</h3><p>Architected for search engine dominance.</p></div>
+            <div class="service-card animated-card">
+                <i class="fas fa-code"></i>
+                <h3>Web Engineering</h3>
+                <p>Developing high-performance, scalable ecosystems designed for complex business logic.</p>
+            </div>
+            <div class="service-card animated-card">
+                <i class="fas fa-layer-group"></i>
+                <h3>UI/UX Architecture</h3>
+                <p>Designing intuitive, professional interfaces that prioritize user retention and conversion.</p>
+            </div>
+            <div class="service-card animated-card">
+                <i class="fas fa-database"></i>
+                <h3>Backend Systems</h3>
+                <p>Secure, robust database structures and API integrations for seamless data flow.</p>
+            </div>
+            <div class="service-card animated-card">
+                <i class="fas fa-shopping-cart"></i>
+                <h3>E-Commerce</h3>
+                <p>Custom retail solutions built to handle high-volume traffic and secure transactions.</p>
+            </div>
+            <div class="service-card animated-card">
+                <i class="fas fa-shield-alt"></i>
+                <h3>Cyber Security</h3>
+                <p>Hardening your digital assets with advanced SSL, encryption, and protection protocols.</p>
+            </div>
+            <div class="service-card animated-card">
+                <i class="fas fa-search-dollar"></i>
+                <h3>SEO Optimization</h3>
+                <p>Deep technical SEO built into the source code for maximum visibility and organic growth.</p>
+            </div>
         </div>
     </section>
 
     <section class="pipeline-section">
-        <h1 style="text-align: center; margin-bottom: 60px; text-transform: uppercase;">Engineering Pipeline</h1>
+        <h1 style="text-align: center; margin-bottom: 60px; text-transform: uppercase; letter-spacing: 4px;">Engineering Pipeline</h1>
         <div class="timeline">
-            <div class="step"><h3>01. Discovery</h3><p>Auditing business goals and technical requirements.</p></div>
-            <div class="step"><h3>02. Engineering</h3><p>Developing the core high-performance framework.</p></div>
-            <div class="step"><h3>03. Optimization</h3><p>Refining speed, security, and responsive performance.</p></div>
-            <div class="step"><h3>04. Launch</h3><p>Seamless migration to live servers with technical support.</p></div>
+            <div class="step animated-card">
+                <h3><span>01</span> Discovery</h3>
+                <p>We begin by auditing your business goals, target audience, and specific technical requirements to create a blueprint for success.</p>
+            </div>
+            <div class="step animated-card">
+                <h3><span>02</span> Engineering</h3>
+                <p>Our developers build the core framework using clean, efficient code to ensure the highest performance and stability.</p>
+            </div>
+            <div class="step animated-card">
+                <h3><span>03</span> Optimization</h3>
+                <p>We rigorously refine the system for speed, mobile responsiveness, and security before moving into the final stages.</p>
+            </div>
+            <div class="step animated-card">
+                <h3><span>04</span> Deployment</h3>
+                <p>A seamless launch onto live servers followed by dedicated technical support to ensure your long-term success.</p>
+            </div>
         </div>
     </section>
 
+    <footer>
+        <p>© 2026 GASA TECH (PTY) LTD | Engineering Excellence</p>
+    </footer>
+
     <script>
+        // Intersection Observer for the Pipeline steps
         const obs = new IntersectionObserver(els => {
-            els.forEach(el => { if(el.isIntersecting) el.target.classList.add('visible'); });
-        }, {threshold: 0.2});
+            els.forEach(el => { 
+                if(el.isIntersecting) el.target.classList.add('visible'); 
+            });
+        }, {threshold: 0.1});
+        
         document.querySelectorAll('.step').forEach(s => obs.observe(s));
+
+        // Mobile Menu Toggle
+        const menu = document.querySelector('#mobile-menu');
+        const navList = document.querySelector('#nav-list');
+        menu.addEventListener('click', () => {
+            navList.classList.toggle('active');
+        });
     </script>
-    <footer><p>© 2026 GASA TECH (PTY) LTD</p></footer>
 </body>
 </html>
