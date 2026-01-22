@@ -40,31 +40,32 @@
         .menu-toggle { display: none; flex-direction: column; gap: 5px; cursor: pointer; }
         .menu-toggle span { width: 25px; height: 2px; background: white; transition: 0.3s; }
 
-        /* --- PRICING CONTENT --- */
+        /* --- CONTENT WRAPPER --- */
         .content-wrapper {
             flex: 1;
-            padding: 140px 8% 80px 8%;
+            padding: 140px 5% 80px 5%;
             display: flex;
             flex-direction: column;
             align-items: center;
         }
 
-        .pricing-header { text-align: center; margin-bottom: 60px; }
-        .pricing-header h1 { font-size: clamp(2rem, 5vw, 3rem); letter-spacing: 4px; text-transform: uppercase; }
+        .pricing-header { text-align: center; margin-bottom: 60px; max-width: 800px; }
+        .pricing-header h1 { font-size: clamp(2.2rem, 5vw, 3.5rem); letter-spacing: 4px; text-transform: uppercase; margin-bottom: 15px; }
+        .pricing-header p { color: #94a3b8; line-height: 1.6; }
 
+        /* --- PRICING GRID --- */
         .pricing-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
             width: 100%;
-            max-width: 1200px;
+            max-width: 1300px;
         }
 
-        /* --- ANIMATED PRICING CARD --- */
         .pricing-card {
             position: relative;
             background: var(--glass);
-            padding: 50px 30px;
+            padding: 40px 25px;
             border-radius: 25px;
             backdrop-filter: blur(20px);
             border: 1px solid rgba(255, 255, 255, 0.1);
@@ -76,6 +77,7 @@
 
         .pricing-card:hover { transform: translateY(-10px); }
 
+        /* Animated Moving Beam */
         .pricing-card::after {
             content: "";
             position: absolute;
@@ -97,38 +99,37 @@
             100% { clip-path: inset(0 0 98% 0); }
         }
 
-        .tier-name { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 2px; color: var(--primary); font-weight: 700; margin-bottom: 15px; }
-        .price { font-size: 3rem; font-weight: 800; margin-bottom: 25px; }
-        .price span { font-size: 1rem; color: #94a3b8; }
+        .tier-title { font-size: 1.4rem; font-weight: 700; color: var(--primary); margin-bottom: 10px; }
+        .price { font-size: 2.5rem; font-weight: 800; margin-bottom: 25px; }
+        
+        .feature-list { list-style: none; text-align: left; margin-bottom: 30px; flex-grow: 1; }
+        .feature-list li { margin-bottom: 12px; font-size: 0.9rem; color: #cbd5e1; display: flex; align-items: flex-start; gap: 10px; }
+        .feature-list i { color: var(--primary); margin-top: 3px; }
 
-        .feature-list { list-style: none; text-align: left; margin-bottom: 35px; flex-grow: 1; }
-        .feature-list li { margin-bottom: 15px; font-size: 0.9rem; color: #cbd5e1; display: flex; align-items: center; gap: 12px; }
-        .feature-list i { color: var(--primary); font-size: 0.8rem; }
-
-        .cta-btn {
-            background: var(--primary);
+        .choose-btn {
+            background: rgba(255,255,255,0.1);
             color: white;
             text-decoration: none;
-            padding: 15px;
-            border-radius: 12px;
+            padding: 12px;
+            border-radius: 50px;
             font-weight: 700;
             text-transform: uppercase;
             letter-spacing: 1px;
             transition: 0.3s;
+            border: 1px solid rgba(255,255,255,0.2);
         }
-        .cta-btn:hover { opacity: 0.9; box-shadow: 0 10px 20px rgba(0, 123, 255, 0.2); }
+        .choose-btn:hover { background: var(--primary); border-color: var(--primary); }
 
         /* --- FOOTER --- */
         footer { padding: 40px; text-align: center; font-size: 0.8rem; color: #475569; border-top: 1px solid rgba(255,255,255,0.05); }
 
-        /* --- MOBILE NAV --- */
         @media (max-width: 850px) {
             .menu-toggle { display: flex; }
             nav {
                 position: fixed; top: 0; right: -100%; width: 80%; height: 100vh;
                 background: rgba(7, 11, 20, 0.98); backdrop-filter: blur(25px);
                 display: flex; flex-direction: column; align-items: center; justify-content: center;
-                transition: 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+                transition: 0.5s;
             }
             nav.active { right: 0; }
             nav a { margin: 15px 0; font-size: 1.5rem; }
@@ -149,51 +150,67 @@
             <a href="about.html">About</a>
             <a href="services.html">Services</a>
             <a href="portfolio.html">Portfolio</a>
-            <a href="pricing.html" class="active" style="color:var(--primary); opacity:1;">Pricing</a>
+            <a href="pricing.html" class="active">Pricing</a>
             <a href="contact.html">Contact</a>
         </nav>
     </header>
 
     <main class="content-wrapper">
         <div class="pricing-header">
-            <h1>Investment Tiers</h1>
+            <h1>PRICING PLANS</h1>
+            <p>We offer flexible pricing to suit your needs, whether you're just starting out or scaling up. Choose the plan that's right for you.</p>
         </div>
 
         <div class="pricing-grid">
             <div class="pricing-card">
-                <div class="tier-name">Startup Core</div>
-                <div class="price">R8,500 <span>/once</span></div>
+                <div class="tier-title">Basic Plan</div>
+                <div class="price">R3 000</div>
                 <ul class="feature-list">
-                    <li><i class="fas fa-check"></i> High-Performance Web Architecture</li>
-                    <li><i class="fas fa-check"></i> Mobile Responsive Engineering</li>
-                    <li><i class="fas fa-check"></i> Basic SEO Optimization</li>
-                    <li><i class="fas fa-check"></i> 1 Month Technical Support</li>
+                    <li><i class="fas fa-check-circle"></i> 5GB storage</li>
+                    <li><i class="fas fa-check-circle"></i> 1 user</li>
+                    <li><i class="fas fa-check-circle"></i> Email support</li>
+                    <li><i class="fas fa-check-circle"></i> Basic analytics</li>
+                    <li><i class="fas fa-info-circle"></i> Great for freelancers or small personal projects</li>
                 </ul>
-                <a href="contact.html" class="cta-btn">Choose Core</a>
+                <a href="contact.html" class="choose-btn">CHOOSE</a>
             </div>
 
             <div class="pricing-card">
-                <div class="tier-name">Business Elite</div>
-                <div class="price">R15,000 <span>/once</span></div>
+                <div class="tier-title">Standard Plan</div>
+                <div class="price">R3 500</div>
                 <ul class="feature-list">
-                    <li><i class="fas fa-check"></i> Custom E-Commerce Ecosystem</li>
-                    <li><i class="fas fa-check"></i> Advanced UI/UX Design</li>
-                    <li><i class="fas fa-check"></i> API & Database Integration</li>
-                    <li><i class="fas fa-check"></i> 3 Months Technical Support</li>
+                    <li><i class="fas fa-check-circle"></i> 20GB storage</li>
+                    <li><i class="fas fa-check-circle"></i> 5 users</li>
+                    <li><i class="fas fa-check-circle"></i> Priority email support</li>
+                    <li><i class="fas fa-check-circle"></i> Advanced analytics</li>
+                    <li><i class="fas fa-info-circle"></i> Ideal for growing teams or small businesses</li>
                 </ul>
-                <a href="contact.html" class="cta-btn">Choose Elite</a>
+                <a href="contact.html" class="choose-btn">CHOOSE</a>
             </div>
 
             <div class="pricing-card">
-                <div class="tier-name">Enterprise</div>
-                <div class="price">Custom <span>/quote</span></div>
+                <div class="tier-title">Premium Plan</div>
+                <div class="price">R4 500</div>
                 <ul class="feature-list">
-                    <li><i class="fas fa-check"></i> Bespoke Software Engineering</li>
-                    <li><i class="fas fa-check"></i> Cyber Security Hardening</li>
-                    <li><i class="fas fa-check"></i> Scalable Cloud Infrastructure</li>
-                    <li><i class="fas fa-check"></i> Dedicated Account Engineer</li>
+                    <li><i class="fas fa-check-circle"></i> 100GB storage</li>
+                    <li><i class="fas fa-check-circle"></i> Unlimited users</li>
+                    <li><i class="fas fa-check-circle"></i> 24/7 support</li>
+                    <li><i class="fas fa-check-circle"></i> Advanced features and integrations</li>
+                    <li><i class="fas fa-info-circle"></i> Perfect for large teams or enterprises</li>
                 </ul>
-                <a href="contact.html" class="cta-btn">Get Quote</a>
+                <a href="contact.html" class="choose-btn">CHOOSE</a>
+            </div>
+
+            <div class="pricing-card">
+                <div class="tier-title">Custom Plan</div>
+                <div class="price" style="font-size: 1.8rem;">Contact Us</div>
+                <ul class="feature-list">
+                    <li><i class="fas fa-check-circle"></i> Custom storage and users</li>
+                    <li><i class="fas fa-check-circle"></i> Dedicated account manager</li>
+                    <li><i class="fas fa-check-circle"></i> Tailored solutions</li>
+                    <li><i class="fas fa-info-circle"></i> Ideal for large organizations with specific needs</li>
+                </ul>
+                <a href="contact.html" class="choose-btn">CHOOSE</a>
             </div>
         </div>
     </main>
