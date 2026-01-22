@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About | GASA TECH</title>
-    <link rel="icon" type="image/png" href="logo.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         :root { 
@@ -13,35 +12,40 @@
             --card-glass: rgba(255, 255, 255, 0.03);
         }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', 'Segoe UI', sans-serif; }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
         
         body { 
             background: var(--dark-bg); 
             color: white; 
-            overflow-x: hidden;
             background: radial-gradient(circle at center, #0f172a 0%, #070b14 100%);
             min-height: 100vh;
             display: flex;
             flex-direction: column;
         }
 
-        /* --- NAVIGATION --- */
+        /* --- HEADER WITHOUT ICON --- */
         header { 
             display: flex; justify-content: space-between; align-items: center; 
             padding: 20px 8%; position: fixed; width: 100%; top: 0; z-index: 1000; 
             background: rgba(7, 11, 20, 0.8); backdrop-filter: blur(12px); 
             border-bottom: 1px solid rgba(255,255,255,0.05); 
         }
-        .logo { font-size: 22px; font-weight: 800; text-decoration: none; color: white; display: flex; align-items: center; gap: 10px; }
+        .logo { 
+            font-size: 22px; 
+            font-weight: 800; 
+            text-decoration: none; 
+            color: white; 
+            letter-spacing: 1px;
+        }
         .logo span { color: var(--primary); }
         
         nav a { color: white; text-decoration: none; font-size: 12px; margin-left: 20px; opacity: 0.6; text-transform: uppercase; letter-spacing: 1px; transition: 0.3s; }
         nav a:hover, nav a.active { opacity: 1; color: var(--primary); }
 
-        .menu-toggle { display: none; flex-direction: column; gap: 5px; cursor: pointer; z-index: 1100; }
+        .menu-toggle { display: none; flex-direction: column; gap: 5px; cursor: pointer; }
         .menu-toggle span { width: 25px; height: 2px; background: white; transition: 0.3s; }
 
-        /* --- MAIN CONTENT --- */
+        /* --- CONTENT --- */
         .content-wrapper {
             flex: 1;
             display: flex;
@@ -60,10 +64,9 @@
             backdrop-filter: blur(20px);
             text-align: center;
             border: 1px solid rgba(255, 255, 255, 0.1);
-            animation: fadeIn 1s ease-out;
         }
 
-        /* Animated Glowing Border */
+        /* Glowing Animation Border */
         .about-card::after {
             content: "";
             position: absolute;
@@ -93,7 +96,6 @@
         /* --- FOOTER --- */
         footer { padding: 25px; text-align: center; font-size: 0.8rem; color: #475569; }
 
-        /* --- RESPONSIVE LOGIC --- */
         @media (max-width: 850px) {
             .menu-toggle { display: flex; }
             nav {
@@ -103,26 +105,21 @@
                 transition: 0.5s cubic-bezier(0.16, 1, 0.3, 1);
             }
             nav.active { right: 0; }
-            nav a { margin: 15px 0; font-size: 1.4rem; }
+            nav a { margin: 15px 0; font-size: 1.5rem; }
             .mobile-btn {
                 margin-top: 20px; padding: 12px 30px; background: var(--primary);
                 color: white !important; border-radius: 50px; font-weight: 700;
-                box-shadow: 0 0 15px rgba(0, 123, 255, 0.4); opacity: 1 !important;
             }
             .menu-toggle.is-active span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
             .menu-toggle.is-active span:nth-child(2) { opacity: 0; }
             .menu-toggle.is-active span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
         }
-
-        @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
     </style>
 </head>
 <body>
 
     <header>
-        <a href="index.html" class="logo">
-            <img src="logo.png" width="30" alt="GASA Logo"> GASA <span>TECH</span>
-        </a>
+        <a href="index.html" class="logo">GASA <span>TECH</span></a>
         <div class="menu-toggle" id="mobile-menu">
             <span></span><span></span><span></span>
         </div>
@@ -149,7 +146,7 @@
     </main>
 
     <footer>
-        <p>© 2026 GASA TECH (PTY) LTD | Johannesburg, RSA</p>
+        <p>© 2026 GASA TECH (PTY) LTD | Engineering Excellence</p>
     </footer>
 
     <script>
