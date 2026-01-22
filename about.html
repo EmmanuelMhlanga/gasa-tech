@@ -3,107 +3,129 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About | GASA TECH Engineering</title>
-    <link rel="icon" type="image/png" href="https://img.icons8.com/fluency/48/laptop.png">
+    <title>About | GASA TECH</title>
+    <link rel="icon" type="image/png" href="logo.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        :root { --primary: #007bff; --dark: #070b14; --glass: rgba(255, 255, 255, 0.03); }
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; }
+        :root { 
+            --primary: #007bff; 
+            --dark-bg: #070b14; 
+            --card-glass: rgba(255, 255, 255, 0.03);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', 'Segoe UI', sans-serif; }
         
         body { 
-            background: var(--dark); 
+            background: var(--dark-bg); 
             color: white; 
-            overflow: hidden;
-            background: radial-gradient(circle at center, #111d35 0%, #070b14 100%);
+            overflow-x: hidden;
+            background: radial-gradient(circle at center, #0f172a 0%, #070b14 100%);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
         }
 
-        /* Header Architecture */
+        /* Nav Architecture */
         header { 
             display: flex; justify-content: space-between; align-items: center; 
-            padding: 25px 8%; position: fixed; width: 100%; top: 0; z-index: 1000; 
-            background: rgba(7, 11, 20, 0.85); backdrop-filter: blur(15px); 
+            padding: 20px 8%; position: fixed; width: 100%; top: 0; z-index: 1000; 
+            background: rgba(7, 11, 20, 0.8); backdrop-filter: blur(12px); 
             border-bottom: 1px solid rgba(255,255,255,0.05); 
         }
-        .logo { font-size: 24px; font-weight: 800; text-decoration: none; color: white; display: flex; align-items: center; gap: 10px; }
+        .logo { font-size: 22px; font-weight: 800; text-decoration: none; color: white; display: flex; align-items: center; gap: 10px; }
         .logo span { color: var(--primary); }
-        nav a { color: white; text-decoration: none; font-size: 13px; margin-left: 25px; opacity: 0.7; text-transform: uppercase; transition: 0.3s; }
+        nav a { color: white; text-decoration: none; font-size: 12px; margin-left: 20px; opacity: 0.6; text-transform: uppercase; letter-spacing: 1px; transition: 0.3s; }
         nav a:hover, nav a.active { opacity: 1; color: var(--primary); }
 
-        /* Main Container */
-        .about-wrapper {
-            height: 100vh;
+        /* Main Section - Fixes the "Cut Off" issue */
+        .content-wrapper {
+            flex: 1;
             display: flex;
             align-items: center;
             justify-content: center;
-            padding: 0 8%;
+            padding: 100px 5% 60px 5%; /* Top padding accounts for fixed header */
         }
 
-        /* Animated Glow Border Card */
-        .glow-card {
+        /* The Elite Glass Card */
+        .about-card {
             position: relative;
             width: 100%;
             max-width: 900px;
-            background: rgba(255, 255, 255, 0.02);
-            padding: 80px 60px;
-            border-radius: 40px;
-            backdrop-filter: blur(25px);
+            background: var(--card-glass);
+            padding: 60px 40px;
+            border-radius: 24px;
+            backdrop-filter: blur(20px);
             text-align: center;
             border: 1px solid rgba(255, 255, 255, 0.1);
-            animation: cardEntrance 1.2s cubic-bezier(0.16, 1, 0.3, 1);
             box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+            animation: fadeIn 1s ease-out;
         }
 
-        /* Moving Beam Effect */
-        .glow-card::after {
+        /* Animated Border Beam */
+        .about-card::before {
             content: "";
             position: absolute;
-            top: -1px; left: -1px; right: -1px; bottom: -1px;
-            border-radius: 40px;
-            padding: 2px;
+            inset: -1px;
+            border-radius: 24px;
+            padding: 2px; 
             background: linear-gradient(90deg, transparent, var(--primary), transparent);
             -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
             mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-            -webkit-mask-composite: destination-out;
+            -webkit-mask-composite: xor;
             mask-composite: exclude;
-            animation: rotateBeam 4s linear infinite;
+            animation: moveBeam 4s linear infinite;
         }
 
-        @keyframes rotateBeam {
-            0% { clip-path: inset(0 0 95% 0); }
-            25% { clip-path: inset(0 0 0 95%); }
-            50% { clip-path: inset(95% 0 0 0); }
-            75% { clip-path: inset(0 95% 0 0); }
-            100% { clip-path: inset(0 0 95% 0); }
+        @keyframes moveBeam {
+            0% { clip-path: inset(0 0 98% 0); }
+            25% { clip-path: inset(0 0 0 98%); }
+            50% { clip-path: inset(98% 0 0 0); }
+            75% { clip-path: inset(0 98% 0 0); }
+            100% { clip-path: inset(0 0 98% 0); }
         }
 
-        .glow-card h1 { 
+        h1 { 
             font-size: clamp(2rem, 5vw, 3.5rem); 
             text-transform: uppercase; 
-            letter-spacing: 8px; 
-            margin-bottom: 40px; 
-            color: white;
+            letter-spacing: 6px; 
+            margin-bottom: 30px; 
+            line-height: 1.1;
         }
 
-        .about-text {
-            font-size: 1.3rem;
+        .summary-text {
+            font-size: clamp(1rem, 2vw, 1.2rem);
             line-height: 1.8;
-            color: #94a3b8;
-            margin-bottom: 30px;
+            color: #cbd5e1;
+            max-width: 750px;
+            margin: 0 auto 25px auto;
         }
 
-        .about-text strong { color: white; font-weight: 600; }
+        .summary-text strong { color: white; font-weight: 600; }
         .highlight { color: var(--primary); font-weight: 700; }
 
-        footer { 
-            position: absolute; bottom: 0; width: 100%;
-            padding: 30px 8%; text-align: center; 
-            color: #475569; font-size: 0.9rem;
-            border-top: 1px solid rgba(255,255,255,0.05);
+        .mission-box {
+            margin-top: 30px;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
         }
 
-        @keyframes cardEntrance {
-            from { opacity: 0; transform: translateY(40px); }
+        footer { 
+            padding: 25px; 
+            text-align: center; 
+            font-size: 0.8rem; 
+            color: #475569; 
+            background: rgba(7, 11, 20, 0.5);
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
             to { opacity: 1; transform: translateY(0); }
+        }
+
+        @media (max-width: 768px) {
+            .about-card { padding: 40px 20px; }
+            header { padding: 15px 5%; }
+            nav { display: none; } /* Consider a mobile burger menu later */
         }
     </style>
 </head>
@@ -111,7 +133,7 @@
 
     <header>
         <a href="index.html" class="logo">
-            <img src="https://img.icons8.com/fluency/48/laptop.png" width="30"> GASA <span>TECH</span>
+            <img src="logo.png" width="30" alt="GASA Logo"> GASA <span>TECH</span>
         </a>
         <nav>
             <a href="index.html">Home</a>
@@ -123,18 +145,20 @@
         </nav>
     </header>
 
-    <main class="about-wrapper">
-        <div class="glow-card">
-            <h1>Engineering Excellence</h1>
+    <main class="content-wrapper">
+        <section class="about-card">
+            <h1>Engineering<br>Excellence</h1>
             
-            <p class="about-text">
+            <p class="summary-text">
                 <strong>GASA TECH (PTY) LTD</strong> specializes in architecting <span class="highlight">robust digital infrastructure</span> for enterprises that refuse to settle for "average". We bridge the gap between complex software engineering and elite user experiences.
             </p>
 
-            <p class="about-text" style="font-size: 1.1rem; border-top: 1px solid rgba(255,255,255,0.05); padding-top: 30px;">
-                Our mission is to deploy world-class web architecture and high-performance systems designed to drive <span class="highlight">measurable revenue</span> and build lasting digital legacies.
-            </p>
-        </div>
+            <div class="mission-box">
+                <p class="summary-text" style="font-size: 1.1rem; opacity: 0.9;">
+                    Our mission is to deploy world-class web architecture and high-performance systems designed to drive <span class="highlight">measurable revenue</span> and build lasting digital legacies.
+                </p>
+            </div>
+        </section>
     </main>
 
     <footer>
