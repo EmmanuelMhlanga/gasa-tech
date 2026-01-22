@@ -23,7 +23,7 @@
             flex-direction: column;
         }
 
-        /* --- HEADER WITHOUT ICON --- */
+        /* --- HEADER WITH WORKING LAPTOP ICON --- */
         header { 
             display: flex; justify-content: space-between; align-items: center; 
             padding: 20px 8%; position: fixed; width: 100%; top: 0; z-index: 1000; 
@@ -35,7 +35,13 @@
             font-weight: 800; 
             text-decoration: none; 
             color: white; 
-            letter-spacing: 1px;
+            display: flex;
+            align-items: center;
+            gap: 12px; /* Space between laptop and text */
+        }
+        .logo i { 
+            color: var(--primary); /* Makes the laptop blue */
+            font-size: 1.4rem;
         }
         .logo span { color: var(--primary); }
         
@@ -94,7 +100,17 @@
         .highlight { color: var(--primary); font-weight: 700; }
 
         /* --- FOOTER --- */
-        footer { padding: 25px; text-align: center; font-size: 0.8rem; color: #475569; }
+        footer { 
+            padding: 25px; 
+            text-align: center; 
+            font-size: 0.8rem; 
+            color: #475569; 
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+        }
+        footer i { font-size: 0.9rem; }
 
         @media (max-width: 850px) {
             .menu-toggle { display: flex; }
@@ -105,7 +121,7 @@
                 transition: 0.5s cubic-bezier(0.16, 1, 0.3, 1);
             }
             nav.active { right: 0; }
-            nav a { margin: 15px 0; font-size: 1.5rem; }
+            nav a { margin: 15px 0; font-size: 1.4rem; }
             .mobile-btn {
                 margin-top: 20px; padding: 12px 30px; background: var(--primary);
                 color: white !important; border-radius: 50px; font-weight: 700;
@@ -119,7 +135,10 @@
 <body>
 
     <header>
-        <a href="index.html" class="logo">GASA <span>TECH</span></a>
+        <a href="index.html" class="logo">
+            <i class="fas fa-laptop-code"></i>
+            GASA <span>TECH</span>
+        </a>
         <div class="menu-toggle" id="mobile-menu">
             <span></span><span></span><span></span>
         </div>
@@ -146,6 +165,7 @@
     </main>
 
     <footer>
+        <i class="fas fa-laptop-code"></i>
         <p>© 2026 GASA TECH (PTY) LTD | Engineering Excellence</p>
     </footer>
 
