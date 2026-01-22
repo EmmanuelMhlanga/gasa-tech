@@ -7,60 +7,178 @@
     <link rel="icon" type="image/png" href="https://img.icons8.com/fluency/48/laptop.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        :root { --primary: #007bff; --dark-bg: #070b14; --card-glass: rgba(255, 255, 255, 0.03); }
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
-        body { background: var(--dark-bg); color: white; background: radial-gradient(circle at center, #0f172a 0%, #070b14 100%); min-height: 100vh; display: flex; flex-direction: column; }
+        :root { 
+            --primary: #007bff; 
+            --dark-bg: #070b14; 
+            --card-glass: rgba(255, 255, 255, 0.03);
+        }
 
-        header { display: flex; justify-content: space-between; align-items: center; padding: 20px 8%; position: fixed; width: 100%; top: 0; z-index: 1000; background: rgba(7, 11, 20, 0.8); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(255,255,255,0.05); }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
+        
+        body { 
+            background: var(--dark-bg); 
+            color: white; 
+            background: radial-gradient(circle at center, #0f172a 0%, #070b14 100%);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* --- NAVIGATION --- */
+        header { 
+            display: flex; justify-content: space-between; align-items: center; 
+            padding: 20px 8%; position: fixed; width: 100%; top: 0; z-index: 1000; 
+            background: rgba(7, 11, 20, 0.8); backdrop-filter: blur(12px); 
+            border-bottom: 1px solid rgba(255,255,255,0.05); 
+        }
         .logo { font-size: 22px; font-weight: 800; text-decoration: none; color: white; display: flex; align-items: center; gap: 12px; }
         .logo i { color: var(--primary); font-size: 1.4rem; }
         .logo span { color: var(--primary); }
+        
         nav a { color: white; text-decoration: none; font-size: 12px; margin-left: 20px; opacity: 0.6; text-transform: uppercase; letter-spacing: 1px; transition: 0.3s; }
         nav a:hover, nav a.active { opacity: 1; color: var(--primary); }
-        .menu-toggle { display: none; flex-direction: column; gap: 5px; cursor: pointer; }
+
+        .menu-toggle { display: none; flex-direction: column; gap: 5px; cursor: pointer; z-index: 1100; }
         .menu-toggle span { width: 25px; height: 2px; background: white; transition: 0.3s; }
 
-        .content-wrapper { flex: 1; padding: 120px 8% 60px 8%; display: flex; flex-direction: column; align-items: center; }
-        .portfolio-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; width: 100%; max-width: 1100px; }
-        .project-card { background: var(--card-glass); border-radius: 20px; border: 1px solid rgba(255,255,255,0.1); overflow: hidden; transition: 0.4s; padding: 30px; }
-        .project-card:hover { border-color: var(--primary); transform: translateY(-5px); }
-        .project-card h3 { color: var(--primary); margin-bottom: 10px; }
-        
-        footer { padding: 25px; text-align: center; font-size: 0.8rem; color: #475569; }
+        /* --- PORTFOLIO CONTENT --- */
+        .content-wrapper {
+            flex: 1;
+            padding: 140px 8% 80px 8%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
 
+        .portfolio-header { text-align: center; margin-bottom: 60px; }
+        .portfolio-header h1 { font-size: 2.5rem; letter-spacing: 5px; text-transform: uppercase; margin-bottom: 15px; }
+
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 40px;
+            width: 100%;
+            max-width: 1200px;
+        }
+
+        /* Restored Animated Card */
+        .project-card {
+            position: relative;
+            background: var(--card-glass);
+            padding: 40px;
+            border-radius: 24px;
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: 0.4s ease;
+        }
+
+        .project-card:hover { transform: translateY(-10px); }
+
+        /* Restored Animated Border Beam */
+        .project-card::after {
+            content: "";
+            position: absolute;
+            inset: -1px;
+            border-radius: 24px;
+            padding: 2px; 
+            background: linear-gradient(90deg, transparent, var(--primary), transparent);
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            animation: moveBeam 4s linear infinite;
+            opacity: 0.5;
+        }
+
+        @keyframes moveBeam {
+            0% { clip-path: inset(0 0 98% 0); }
+            25% { clip-path: inset(0 0 0 98%); }
+            50% { clip-path: inset(98% 0 0 0); }
+            75% { clip-path: inset(0 98% 0 0); }
+            100% { clip-path: inset(0 0 98% 0); }
+        }
+
+        .project-card h3 { color: var(--primary); font-size: 1.5rem; margin-bottom: 15px; letter-spacing: 1px; }
+        .project-card p { color: #cbd5e1; line-height: 1.6; font-size: 0.95rem; }
+
+        /* --- FOOTER --- */
+        footer { padding: 40px; text-align: center; font-size: 0.8rem; color: #475569; }
+
+        /* --- MOBILE LOGIC --- */
         @media (max-width: 850px) {
             .menu-toggle { display: flex; }
-            nav { position: fixed; top: 0; right: -100%; width: 75%; height: 100vh; background: rgba(7, 11, 20, 0.98); backdrop-filter: blur(25px); display: flex; flex-direction: column; align-items: center; justify-content: center; transition: 0.5s; }
+            nav {
+                position: fixed; top: 0; right: -100%; width: 80%; height: 100vh;
+                background: rgba(7, 11, 20, 0.98); backdrop-filter: blur(25px);
+                display: flex; flex-direction: column; align-items: center; justify-content: center;
+                transition: 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+            }
             nav.active { right: 0; }
             nav a { margin: 15px 0; font-size: 1.4rem; }
-            .mobile-btn { margin-top: 20px; padding: 12px 30px; background: var(--primary); color: white !important; border-radius: 50px; }
+            .mobile-btn {
+                margin-top: 25px; padding: 12px 35px; background: var(--primary);
+                color: white !important; border-radius: 50px; font-weight: 700;
+            }
+            .menu-toggle.is-active span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+            .menu-toggle.is-active span:nth-child(2) { opacity: 0; }
+            .menu-toggle.is-active span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
         }
     </style>
 </head>
 <body>
+
     <header>
-        <a href="index.html" class="logo"><i class="fas fa-laptop-code"></i>GASA <span>TECH</span></a>
-        <div class="menu-toggle" id="mobile-menu"><span></span><span></span><span></span></div>
+        <a href="index.html" class="logo">
+            <i class="fas fa-laptop-code"></i>
+            GASA <span>TECH</span>
+        </a>
+        <div class="menu-toggle" id="mobile-menu">
+            <span></span><span></span><span></span>
+        </div>
         <nav id="nav-list">
-            <a href="index.html">Home</a><a href="about.html">About</a><a href="services.html">Services</a><a href="portfolio.html" class="active">Portfolio</a><a href="pricing.html">Pricing</a><a href="contact.html" class="mobile-btn">Contact Us</a>
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="services.html">Services</a>
+            <a href="portfolio.html" class="active">Portfolio</a>
+            <a href="pricing.html">Pricing</a>
+            <a href="contact.html" class="mobile-btn">Contact Us</a>
         </nav>
     </header>
 
     <main class="content-wrapper">
-        <h1 style="margin-bottom: 40px; letter-spacing: 3px;">SELECTED WORKS</h1>
+        <div class="portfolio-header">
+            <h1>Our Engineering Legacy</h1>
+        </div>
+
         <div class="portfolio-grid">
-            <div class="project-card"><h3>01. Enterprise Core</h3><p>Custom infrastructure for multi-national logistics.</p></div>
-            <div class="project-card"><h3>02. Secure Gateway</h3><p>High-performance financial transaction API architecture.</p></div>
-            <div class="project-card"><h3>03. Data Shield</h3><p>Proprietary security layers for government cloud systems.</p></div>
+            <div class="project-card">
+                <h3>01. Enterprise Core</h3>
+                <p>Architected custom server-side infrastructure for a multi-national logistics provider, reducing latency by 40%.</p>
+            </div>
+
+            <div class="project-card">
+                <h3>02. Secure Gateway</h3>
+                <p>Deployed high-performance financial transaction API architecture with end-to-end encryption for elite FinTech startups.</p>
+            </div>
+
+            <div class="project-card">
+                <h3>03. Data Shield</h3>
+                <p>Designed proprietary security layers and digital infrastructure for cloud-based government systems.</p>
+            </div>
         </div>
     </main>
 
-    <footer><p>© 2026 GASA TECH (PTY) LTD | Engineering Excellence</p></footer>
+    <footer>
+        <p>© 2026 GASA TECH (PTY) LTD | Engineering Excellence</p>
+    </footer>
 
     <script>
         const menu = document.querySelector('#mobile-menu');
         const navList = document.querySelector('#nav-list');
-        menu.addEventListener('click', () => { navList.classList.toggle('active'); menu.classList.toggle('is-active'); });
+        menu.addEventListener('click', () => {
+            navList.classList.toggle('active');
+            menu.classList.toggle('is-active');
+        });
     </script>
 </body>
 </html>
