@@ -25,7 +25,7 @@
             flex-direction: column;
         }
 
-        /* Nav Architecture */
+        /* --- NAVIGATION --- */
         header { 
             display: flex; justify-content: space-between; align-items: center; 
             padding: 20px 8%; position: fixed; width: 100%; top: 0; z-index: 1000; 
@@ -34,19 +34,22 @@
         }
         .logo { font-size: 22px; font-weight: 800; text-decoration: none; color: white; display: flex; align-items: center; gap: 10px; }
         .logo span { color: var(--primary); }
+        
         nav a { color: white; text-decoration: none; font-size: 12px; margin-left: 20px; opacity: 0.6; text-transform: uppercase; letter-spacing: 1px; transition: 0.3s; }
         nav a:hover, nav a.active { opacity: 1; color: var(--primary); }
 
-        /* Main Section - Fixes the "Cut Off" issue */
+        .menu-toggle { display: none; flex-direction: column; gap: 5px; cursor: pointer; z-index: 1100; }
+        .menu-toggle span { width: 25px; height: 2px; background: white; transition: 0.3s; }
+
+        /* --- MAIN CONTENT --- */
         .content-wrapper {
             flex: 1;
             display: flex;
             align-items: center;
             justify-content: center;
-            padding: 100px 5% 60px 5%; /* Top padding accounts for fixed header */
+            padding: 120px 5% 60px 5%;
         }
 
-        /* The Elite Glass Card */
         .about-card {
             position: relative;
             width: 100%;
@@ -57,12 +60,11 @@
             backdrop-filter: blur(20px);
             text-align: center;
             border: 1px solid rgba(255, 255, 255, 0.1);
-            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
             animation: fadeIn 1s ease-out;
         }
 
-        /* Animated Border Beam */
-        .about-card::before {
+        /* Animated Glowing Border */
+        .about-card::after {
             content: "";
             position: absolute;
             inset: -1px;
@@ -84,49 +86,35 @@
             100% { clip-path: inset(0 0 98% 0); }
         }
 
-        h1 { 
-            font-size: clamp(2rem, 5vw, 3.5rem); 
-            text-transform: uppercase; 
-            letter-spacing: 6px; 
-            margin-bottom: 30px; 
-            line-height: 1.1;
-        }
-
-        .summary-text {
-            font-size: clamp(1rem, 2vw, 1.2rem);
-            line-height: 1.8;
-            color: #cbd5e1;
-            max-width: 750px;
-            margin: 0 auto 25px auto;
-        }
-
-        .summary-text strong { color: white; font-weight: 600; }
+        h1 { font-size: clamp(2.2rem, 5vw, 3.8rem); text-transform: uppercase; letter-spacing: 6px; margin-bottom: 30px; }
+        .summary-text { font-size: clamp(1rem, 2vw, 1.25rem); line-height: 1.8; color: #cbd5e1; max-width: 750px; margin: 0 auto 25px auto; }
         .highlight { color: var(--primary); font-weight: 700; }
 
-        .mission-box {
-            margin-top: 30px;
-            padding-top: 30px;
-            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        /* --- FOOTER --- */
+        footer { padding: 25px; text-align: center; font-size: 0.8rem; color: #475569; }
+
+        /* --- RESPONSIVE LOGIC --- */
+        @media (max-width: 850px) {
+            .menu-toggle { display: flex; }
+            nav {
+                position: fixed; top: 0; right: -100%; width: 75%; height: 100vh;
+                background: rgba(7, 11, 20, 0.98); backdrop-filter: blur(25px);
+                display: flex; flex-direction: column; align-items: center; justify-content: center;
+                transition: 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+            }
+            nav.active { right: 0; }
+            nav a { margin: 15px 0; font-size: 1.4rem; }
+            .mobile-btn {
+                margin-top: 20px; padding: 12px 30px; background: var(--primary);
+                color: white !important; border-radius: 50px; font-weight: 700;
+                box-shadow: 0 0 15px rgba(0, 123, 255, 0.4); opacity: 1 !important;
+            }
+            .menu-toggle.is-active span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+            .menu-toggle.is-active span:nth-child(2) { opacity: 0; }
+            .menu-toggle.is-active span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
         }
 
-        footer { 
-            padding: 25px; 
-            text-align: center; 
-            font-size: 0.8rem; 
-            color: #475569; 
-            background: rgba(7, 11, 20, 0.5);
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        @media (max-width: 768px) {
-            .about-card { padding: 40px 20px; }
-            header { padding: 15px 5%; }
-            nav { display: none; } /* Consider a mobile burger menu later */
-        }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
     </style>
 </head>
 <body>
@@ -135,35 +123,42 @@
         <a href="index.html" class="logo">
             <img src="logo.png" width="30" alt="GASA Logo"> GASA <span>TECH</span>
         </a>
-        <nav>
+        <div class="menu-toggle" id="mobile-menu">
+            <span></span><span></span><span></span>
+        </div>
+        <nav id="nav-list">
             <a href="index.html">Home</a>
             <a href="about.html" class="active">About</a>
             <a href="services.html">Services</a>
             <a href="portfolio.html">Portfolio</a>
             <a href="pricing.html">Pricing</a>
-            <a href="contact.html">Contact</a>
+            <a href="contact.html" class="mobile-btn">Contact Us</a>
         </nav>
     </header>
 
     <main class="content-wrapper">
         <section class="about-card">
-            <h1>Engineering<br>Excellence</h1>
-            
+            <h1>Engineering Excellence</h1>
             <p class="summary-text">
                 <strong>GASA TECH (PTY) LTD</strong> specializes in architecting <span class="highlight">robust digital infrastructure</span> for enterprises that refuse to settle for "average". We bridge the gap between complex software engineering and elite user experiences.
             </p>
-
-            <div class="mission-box">
-                <p class="summary-text" style="font-size: 1.1rem; opacity: 0.9;">
-                    Our mission is to deploy world-class web architecture and high-performance systems designed to drive <span class="highlight">measurable revenue</span> and build lasting digital legacies.
-                </p>
-            </div>
+            <p class="summary-text" style="border-top: 1px solid rgba(255,255,255,0.05); padding-top: 25px; opacity: 0.9;">
+                Our mission is to deploy world-class web architecture and high-performance systems designed to drive <span class="highlight">measurable revenue</span> and build lasting digital legacies.
+            </p>
         </section>
     </main>
 
     <footer>
-        <p>© 2026 GASA TECH (PTY) LTD | Engineering Excellence</p>
+        <p>© 2026 GASA TECH (PTY) LTD | Johannesburg, RSA</p>
     </footer>
 
+    <script>
+        const menu = document.querySelector('#mobile-menu');
+        const navList = document.querySelector('#nav-list');
+        menu.addEventListener('click', () => {
+            navList.classList.toggle('active');
+            menu.classList.toggle('is-active');
+        });
+    </script>
 </body>
 </html>
