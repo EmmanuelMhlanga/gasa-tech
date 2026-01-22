@@ -7,83 +7,140 @@
     <link rel="icon" type="image/png" href="https://img.icons8.com/fluency/48/laptop.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        :root { --primary: #007bff; --dark: #070b14; --glass: rgba(255, 255, 255, 0.03); }
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; }
+        :root { 
+            --primary: #007bff; 
+            --dark-bg: #070b14; 
+            --card-glass: rgba(255, 255, 255, 0.03);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
         
         body { 
-            background: var(--dark); 
+            background: var(--dark-bg); 
             color: white; 
-            min-height: 100vh; 
-            display: flex; 
-            flex-direction: column; 
+            background: radial-gradient(circle at center, #0f172a 0%, #070b14 100%);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
         }
 
+        /* --- NAVIGATION --- */
         header { 
             display: flex; justify-content: space-between; align-items: center; 
-            padding: 25px 8%; background: rgba(7, 11, 20, 0.85); 
-            backdrop-filter: blur(15px); border-bottom: 1px solid rgba(255,255,255,0.05); 
+            padding: 20px 8%; position: fixed; width: 100%; top: 0; z-index: 1000; 
+            background: rgba(7, 11, 20, 0.8); backdrop-filter: blur(12px); 
+            border-bottom: 1px solid rgba(255,255,255,0.05); 
         }
-        .logo { font-size: 24px; font-weight: 800; text-decoration: none; color: white; display: flex; align-items: center; gap: 10px; }
+        .logo { font-size: 22px; font-weight: 800; text-decoration: none; color: white; display: flex; align-items: center; gap: 12px; }
+        .logo i { color: var(--primary); font-size: 1.4rem; }
         .logo span { color: var(--primary); }
-        nav a { color: white; text-decoration: none; font-size: 13px; margin-left: 25px; opacity: 0.7; text-transform: uppercase; }
-
-        /* Main Content Area */
-        .contact-wrapper { 
-            flex: 1; 
-            display: flex; 
-            align-items: center; 
-            justify-content: center; 
-            padding: 80px 8%; 
-        }
-
-        .glass-form { 
-            background: var(--glass); padding: 60px; border-radius: 40px; 
-            border: 1px solid rgba(255,255,255,0.1); 
-            width: 100%; max-width: 600px; text-align: center; 
-            backdrop-filter: blur(20px);
-            animation: slideUp 0.8s ease-out;
-            box-shadow: 0 20px 50px rgba(0,0,0,0.3);
-        }
-
-        .glass-form h1 { font-size: 2.5rem; margin-bottom: 30px; text-transform: uppercase; letter-spacing: 2px; }
         
-        input, textarea { 
-            width: 100%; padding: 15px; margin-bottom: 20px; 
-            background: rgba(255,255,255,0.05); 
-            border: 1px solid rgba(255,255,255,0.1); 
-            border-radius: 12px; color: white; font-size: 1rem;
+        nav a { color: white; text-decoration: none; font-size: 12px; margin-left: 20px; opacity: 0.6; text-transform: uppercase; letter-spacing: 1px; transition: 0.3s; }
+        nav a:hover, nav a.active { opacity: 1; color: var(--primary); }
+
+        .menu-toggle { display: none; flex-direction: column; gap: 5px; cursor: pointer; z-index: 1100; }
+        .menu-toggle span { width: 25px; height: 2px; background: white; transition: 0.3s; }
+
+        /* --- CONTACT SECTION --- */
+        .content-wrapper {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 120px 5% 60px 5%;
+        }
+
+        .contact-card {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            background: var(--card-glass);
+            padding: 50px 40px;
+            border-radius: 24px;
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            text-align: center;
+        }
+
+        /* Animated Border Beam */
+        .contact-card::after {
+            content: "";
+            position: absolute;
+            inset: -1px;
+            border-radius: 24px;
+            padding: 2px; 
+            background: linear-gradient(90deg, transparent, var(--primary), transparent);
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            animation: moveBeam 4s linear infinite;
+        }
+
+        @keyframes moveBeam {
+            0% { clip-path: inset(0 0 98% 0); }
+            25% { clip-path: inset(0 0 0 98%); }
+            50% { clip-path: inset(98% 0 0 0); }
+            75% { clip-path: inset(0 98% 0 0); }
+            100% { clip-path: inset(0 0 98% 0); }
+        }
+
+        h1 { font-size: 2rem; letter-spacing: 4px; text-transform: uppercase; margin-bottom: 30px; }
+
+        /* --- FORM STYLING --- */
+        .form-group { margin-bottom: 20px; text-align: left; }
+        label { display: block; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 8px; color: #94a3b8; }
+        
+        input, textarea {
+            width: 100%;
+            padding: 15px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            color: white;
+            font-size: 1rem;
             transition: 0.3s;
         }
 
-        input:focus, textarea:focus { outline: none; border-color: var(--primary); background: rgba(255,255,255,0.08); }
+        input:focus, textarea:focus {
+            outline: none;
+            border-color: var(--primary);
+            background: rgba(255, 255, 255, 0.1);
+        }
 
-        .btn-send { 
-            width: 100%; padding: 18px; background: var(--primary); 
-            border: none; color: white; font-weight: 800; 
-            border-radius: 50px; cursor: pointer; 
-            text-transform: uppercase; letter-spacing: 2px; 
+        .submit-btn {
+            width: 100%;
+            padding: 16px;
+            background: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            cursor: pointer;
             transition: 0.4s;
+            margin-top: 10px;
         }
 
-        .btn-send:hover { transform: scale(1.02); box-shadow: 0 0 25px rgba(0,123,255,0.4); }
-
-        /* Restored Footer */
-        footer { 
-            padding: 40px 8%; 
-            text-align: center; 
-            border-top: 1px solid rgba(255,255,255,0.05); 
-            color: #475569; 
-            background: rgba(4, 7, 13, 0.5);
+        .submit-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 123, 255, 0.3);
         }
 
-        @keyframes slideUp { 
-            from { opacity: 0; transform: translateY(50px); } 
-            to { opacity: 1; transform: translateY(0); } 
-        }
+        /* --- FOOTER --- */
+        footer { padding: 30px; text-align: center; font-size: 0.8rem; color: #475569; }
 
-        @media (max-width: 768px) {
-            .glass-form { padding: 40px 20px; }
-            header { padding: 20px 5%; }
+        /* --- MOBILE NAV --- */
+        @media (max-width: 850px) {
+            .menu-toggle { display: flex; }
+            nav {
+                position: fixed; top: 0; right: -100%; width: 80%; height: 100vh;
+                background: rgba(7, 11, 20, 0.98); backdrop-filter: blur(25px);
+                display: flex; flex-direction: column; align-items: center; justify-content: center;
+                transition: 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+            }
+            nav.active { right: 0; }
+            nav a { margin: 15px 0; font-size: 1.4rem; }
         }
     </style>
 </head>
@@ -91,35 +148,54 @@
 
     <header>
         <a href="index.html" class="logo">
-            <img src="https://img.icons8.com/fluency/48/laptop.png" width="30" alt="GASA Laptop Icon"> 
+            <i class="fas fa-laptop-code"></i>
             GASA <span>TECH</span>
         </a>
-        <nav>
+        <div class="menu-toggle" id="mobile-menu">
+            <span></span><span></span><span></span>
+        </div>
+        <nav id="nav-list">
             <a href="index.html">Home</a>
             <a href="about.html">About</a>
             <a href="services.html">Services</a>
             <a href="portfolio.html">Portfolio</a>
             <a href="pricing.html">Pricing</a>
-            <a href="contact.html" style="color:var(--primary); opacity:1;">Contact</a>
+            <a href="contact.html" class="active">Contact Us</a>
         </nav>
     </header>
 
-    <div class="contact-wrapper">
-        <form class="glass-form" action="https://formspree.io/f/your-id" method="POST">
-            <h1>Initiate Inquiry</h1>
-            <p style="color: #94a3b8; margin-bottom: 30px;">Let's discuss how we can engineer your digital legacy.</p>
-            
-            <input type="text" name="name" placeholder="Full Name" required>
-            <input type="email" name="email" placeholder="Business Email" required>
-            <textarea name="message" rows="4" placeholder="Briefly describe your requirements..." required></textarea>
-            
-            <button type="submit" class="btn-send">Send Message</button>
-        </form>
-    </div>
+    <main class="content-wrapper">
+        <div class="contact-card">
+            <h1>Inquiry Form</h1>
+            <form>
+                <div class="form-group">
+                    <label>Company Name</label>
+                    <input type="text" placeholder="Enter your business name">
+                </div>
+                <div class="form-group">
+                    <label>Contact Email</label>
+                    <input type="email" placeholder="email@example.com">
+                </div>
+                <div class="form-group">
+                    <label>Project Details</label>
+                    <textarea rows="4" placeholder="How can GASA TECH assist you?"></textarea>
+                </div>
+                <button type="submit" class="submit-btn">Send Inquiry</button>
+            </form>
+        </div>
+    </main>
 
     <footer>
         <p>© 2026 GASA TECH (PTY) LTD | Engineering Excellence</p>
     </footer>
 
+    <script>
+        const menu = document.querySelector('#mobile-menu');
+        const navList = document.querySelector('#nav-list');
+        menu.addEventListener('click', () => {
+            navList.classList.toggle('active');
+            menu.classList.toggle('is-active');
+        });
+    </script>
 </body>
 </html>
