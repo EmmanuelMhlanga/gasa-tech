@@ -61,7 +61,7 @@
             max-width: 1200px;
         }
 
-        /* Restored Animated Card */
+        /* Animated Card */
         .project-card {
             position: relative;
             background: var(--card-glass);
@@ -70,11 +70,14 @@
             backdrop-filter: blur(20px);
             border: 1px solid rgba(255, 255, 255, 0.1);
             transition: 0.4s ease;
+            text-decoration: none;
+            color: white;
+            display: block;
         }
 
         .project-card:hover { transform: translateY(-10px); }
 
-        /* Restored Animated Border Beam */
+        /* Animated Border Beam */
         .project-card::after {
             content: "";
             position: absolute;
@@ -87,7 +90,6 @@
             -webkit-mask-composite: xor;
             mask-composite: exclude;
             animation: moveBeam 4s linear infinite;
-            opacity: 0.5;
         }
 
         @keyframes moveBeam {
@@ -98,8 +100,9 @@
             100% { clip-path: inset(0 0 98% 0); }
         }
 
-        .project-card h3 { color: var(--primary); font-size: 1.5rem; margin-bottom: 15px; letter-spacing: 1px; }
-        .project-card p { color: #cbd5e1; line-height: 1.6; font-size: 0.95rem; }
+        .project-card h3 { color: var(--primary); font-size: 1.5rem; margin-bottom: 10px; letter-spacing: 1px; }
+        .project-card p { color: #cbd5e1; line-height: 1.6; font-size: 0.95rem; margin-bottom: 15px; }
+        .visit-link { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 2px; color: var(--primary); font-weight: 700; display: flex; align-items: center; gap: 8px; }
 
         /* --- FOOTER --- */
         footer { padding: 40px; text-align: center; font-size: 0.8rem; color: #475569; }
@@ -151,20 +154,29 @@
         </div>
 
         <div class="portfolio-grid">
-            <div class="project-card">
-                <h3>01. Enterprise Core</h3>
-                <p>Architected custom server-side infrastructure for a multi-national logistics provider, reducing latency by 40%.</p>
-            </div>
+            <a href="https://neobreedmarketingsolutions.com" target="_blank" class="project-card">
+                <h3>Neobreed Marketing Solutions</h3>
+                <p>Architecting high-performance digital marketing ecosystems.</p>
+                <div class="visit-link">Visit Site <i class="fas fa-external-link-alt"></i></div>
+            </a>
 
-            <div class="project-card">
-                <h3>02. Secure Gateway</h3>
-                <p>Deployed high-performance financial transaction API architecture with end-to-end encryption for elite FinTech startups.</p>
-            </div>
+            <a href="https://vilemaico.co.za" target="_blank" class="project-card">
+                <h3>Vile Amico</h3>
+                <p>Custom infrastructure and brand-focused web systems.</p>
+                <div class="visit-link">Visit Site <i class="fas fa-external-link-alt"></i></div>
+            </a>
 
-            <div class="project-card">
-                <h3>03. Data Shield</h3>
-                <p>Designed proprietary security layers and digital infrastructure for cloud-based government systems.</p>
-            </div>
+            <a href="https://braiblock.com" target="_blank" class="project-card">
+                <h3>Brai Block</h3>
+                <p>Deploying robust software engineering for secure platforms.</p>
+                <div class="visit-link">Visit Site <i class="fas fa-external-link-alt"></i></div>
+            </a>
+
+            <a href="https://iletha.com" target="_blank" class="project-card">
+                <h3>Iletha</h3>
+                <p>Building world-class web architecture and delivery systems.</p>
+                <div class="visit-link">Visit Site <i class="fas fa-external-link-alt"></i></div>
+            </a>
         </div>
     </main>
 
