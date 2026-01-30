@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GASA TECH | Engineering Excellence</title>
+    <title>Home | GASA TECH</title>
     <link rel="icon" type="image/png" href="https://img.icons8.com/fluency/48/laptop.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         :root { 
             --primary: #007bff; 
             --dark-bg: #070b14; 
-            --card-glass: rgba(255, 255, 255, 0.03);
+            --accent-glow: rgba(0, 123, 255, 0.4);
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
@@ -19,37 +19,34 @@
             background: var(--dark-bg); 
             color: white; 
             background: radial-gradient(circle at center, #0f172a 0%, #070b14 100%);
-            min-height: 100vh;
+            height: 100vh;
             display: flex;
             flex-direction: column;
-            overflow-x: hidden;
+            overflow: hidden;
         }
 
         /* --- BACKGROUND PARTICLES --- */
         .particles { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 0; pointer-events: none; }
 
-        /* --- HEADER --- */
+        /* --- HEADER (Clean & No Extra Lines) --- */
         header { 
             display: flex; justify-content: space-between; align-items: center; 
-            padding: 20px 8%; position: fixed; width: 100%; top: 0; z-index: 1000; 
-            background: rgba(7, 11, 20, 0.85); backdrop-filter: blur(15px); 
+            padding: 25px 8%; position: fixed; width: 100%; top: 0; z-index: 1000; 
+            background: rgba(7, 11, 20, 0.5); backdrop-filter: blur(15px); 
             border-bottom: 1px solid rgba(255,255,255,0.05); 
         }
         
-        /* LOGO SECTION - No lines here */
         .logo { font-size: 24px; font-weight: 800; text-decoration: none; color: white; display: flex; align-items: center; gap: 12px; }
-        .logo i { color: var(--primary); }
+        .logo i { color: var(--primary); text-shadow: 0 0 10px var(--primary); }
         .logo span { color: var(--primary); }
 
-        /* NAVIGATION */
         nav { display: flex; align-items: center; }
-        nav a { color: white; text-decoration: none; font-size: 11px; margin-left: 25px; opacity: 0.6; text-transform: uppercase; letter-spacing: 1px; transition: 0.3s; }
+        nav a { color: white; text-decoration: none; font-size: 11px; margin-left: 30px; opacity: 0.6; text-transform: uppercase; letter-spacing: 2px; transition: 0.3s; }
         nav a:hover, nav a.active { opacity: 1; color: var(--primary); }
 
-        /* MENU TOGGLE - Hidden on Desktop */
         .menu-toggle { display: none; cursor: pointer; color: white; font-size: 1.5rem; }
 
-        /* --- HERO SECTION --- */
+        /* --- HERO SECTION (High Tech) --- */
         .hero {
             flex: 1;
             display: flex;
@@ -57,34 +54,105 @@
             align-items: center;
             justify-content: center;
             text-align: center;
-            padding: 0 8%;
             z-index: 1;
+            position: relative;
         }
 
-        .hero h1 { font-size: clamp(2.5rem, 8vw, 5rem); letter-spacing: 15px; text-transform: uppercase; margin-bottom: 20px; font-weight: 900; }
-        .hero p { color: #94a3b8; font-size: 1.1rem; max-width: 600px; margin-bottom: 40px; letter-spacing: 2px; text-transform: uppercase; }
+        /* The glowing tech-circle behind the text */
+        .hero::before {
+            content: '';
+            position: absolute;
+            width: 400px;
+            height: 400px;
+            background: var(--primary);
+            filter: blur(150px);
+            opacity: 0.15;
+            z-index: -1;
+        }
 
-        .cta-group { display: flex; gap: 20px; }
+        .hero h1 { 
+            font-size: clamp(3rem, 12vw, 7rem); 
+            letter-spacing: 15px; 
+            text-transform: uppercase; 
+            font-weight: 900;
+            margin-bottom: 10px;
+            line-height: 1;
+        }
+
+        .hero h2 {
+            font-size: 0.9rem;
+            letter-spacing: 12px;
+            color: var(--primary);
+            text-transform: uppercase;
+            margin-bottom: 50px;
+            font-weight: 400;
+            opacity: 0.8;
+        }
+
+        /* --- BUTTONS WITH MOVING BEAMS --- */
+        .cta-group { display: flex; gap: 30px; }
+        
+        .btn-box {
+            position: relative;
+            padding: 2px;
+            border-radius: 8px;
+            overflow: hidden;
+            display: inline-block;
+        }
+
+        /* Animated border beam for the main button */
+        .btn-box::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(90deg, transparent, var(--primary), transparent);
+            animation: moveBeam 3s linear infinite;
+        }
+
+        @keyframes moveBeam {
+            0% { clip-path: inset(0 0 95% 0); }
+            25% { clip-path: inset(0 0 0 95%); }
+            50% { clip-path: inset(95% 0 0 0); }
+            75% { clip-path: inset(0 95% 0 0); }
+            100% { clip-path: inset(0 0 95% 0); }
+        }
+
         .btn {
-            padding: 15px 35px; border-radius: 50px; text-decoration: none; font-weight: 800; 
-            text-transform: uppercase; letter-spacing: 2px; font-size: 0.8rem; transition: 0.4s;
+            position: relative;
+            z-index: 2;
+            background: #070b14;
+            padding: 18px 45px; 
+            border-radius: 6px; 
+            text-decoration: none; 
+            font-weight: 800; 
+            text-transform: uppercase; 
+            letter-spacing: 3px; 
+            font-size: 0.7rem; 
+            transition: 0.4s;
+            display: block;
+            color: white;
         }
-        .btn-primary { background: var(--primary); color: white; }
-        .btn-secondary { border: 1px solid rgba(255,255,255,0.1); color: white; backdrop-filter: blur(10px); }
-        .btn:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0, 123, 255, 0.3); }
 
-        footer { padding: 40px; text-align: center; font-size: 0.8rem; color: #475569; z-index: 1; }
+        .btn:hover { background: var(--primary); box-shadow: 0 0 30px var(--accent-glow); }
 
-        /* --- MOBILE STYLES --- */
+        .btn-outline {
+            background: transparent;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+        .btn-outline:hover { background: rgba(255,255,255,0.05); color: white; border-color: white; }
+
+        footer { padding: 40px; text-align: center; font-size: 0.7rem; color: #475569; letter-spacing: 3px; z-index: 1; text-transform: uppercase; }
+
         @media (max-width: 850px) {
-            .menu-toggle { display: block; } /* Only show lines on mobile */
+            .menu-toggle { display: block; }
             nav {
-                position: fixed; top: 0; right: -100%; width: 80%; height: 100vh;
+                position: fixed; top: 0; right: -100%; width: 100%; height: 100vh;
                 background: var(--dark-bg); flex-direction: column; justify-content: center;
-                transition: 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+                transition: 0.4s;
             }
             nav.active { right: 0; }
-            nav a { margin: 20px 0; font-size: 1.5rem; }
+            nav a { margin: 20px 0; font-size: 1.2rem; }
+            .cta-group { flex-direction: column; gap: 15px; }
         }
     </style>
 </head>
@@ -94,7 +162,7 @@
 
     <header>
         <a href="index.html" class="logo">
-            <i class="fas fa-laptop-code"></i> GASA <span>TECH</span>
+            <i class="fas fa-microchip"></i> GASA <span>TECH</span>
         </a>
         
         <div class="menu-toggle" id="mobile-menu">
@@ -104,7 +172,6 @@
         <nav id="nav-list">
             <a href="index.html" class="active">Home</a>
             <a href="about.html">About</a>
-            <a href="services.html">Services</a>
             <a href="portfolio.html">Portfolio</a>
             <a href="pricing.html">Pricing</a>
             <a href="contact.html">Contact</a>
@@ -113,39 +180,43 @@
 
     <main class="hero">
         <h1>GASA TECH</h1>
-        <p>Architecting the future of digital engineering.</p>
+        <h2>Digital Engineering Agency</h2>
+        
         <div class="cta-group">
-            <a href="portfolio.html" class="btn btn-primary">View Legacy</a>
-            <a href="contact.html" class="btn btn-secondary">Initialize Project</a>
+            <div class="btn-box">
+                <a href="portfolio.html" class="btn">View Systems</a>
+            </div>
+            <a href="contact.html" class="btn btn-outline">Initialize Contact</a>
         </div>
     </main>
 
     <footer>
-        <p>© 2026 GASA TECH (PTY) LTD | Engineering Excellence</p>
+        <p>© 2026 GASA TECH | South Africa</p>
     </footer>
 
     <script>
-        // Particle Background
+        // Enhanced Particle Engine
         const canvas = document.getElementById('particleCanvas');
         const ctx = canvas.getContext('2d');
         let particles = [];
         function init() {
             canvas.width = window.innerWidth; canvas.height = window.innerHeight;
-            for(let i=0; i<60; i++) {
+            for(let i=0; i<80; i++) {
                 particles.push({
                     x: Math.random() * canvas.width,
                     y: Math.random() * canvas.height,
                     size: Math.random() * 2,
-                    speed: Math.random() * 0.5 + 0.1
+                    speed: Math.random() * 0.3 + 0.1,
+                    opacity: Math.random()
                 });
             }
         }
         function animate() {
             ctx.clearRect(0,0,canvas.width, canvas.height);
-            ctx.fillStyle = 'rgba(0, 123, 255, 0.3)';
             particles.forEach(p => {
                 p.y -= p.speed;
                 if(p.y < 0) p.y = canvas.height;
+                ctx.fillStyle = `rgba(0, 123, 255, ${p.opacity})`;
                 ctx.beginPath(); ctx.arc(p.x, p.y, p.size, 0, Math.PI*2); ctx.fill();
             });
             requestAnimationFrame(animate);
@@ -153,7 +224,6 @@
         window.addEventListener('resize', () => { canvas.width = window.innerWidth; canvas.height = window.innerHeight; });
         init(); animate();
 
-        // Mobile Nav
         const menu = document.querySelector('#mobile-menu');
         const navList = document.querySelector('#nav-list');
         menu.addEventListener('click', () => {
