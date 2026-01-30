@@ -11,6 +11,7 @@
             --primary: #007bff; 
             --dark-bg: #070b14; 
             --card-glass: rgba(255, 255, 255, 0.03);
+            --accent-glow: rgba(0, 123, 255, 0.15);
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
@@ -22,6 +23,15 @@
             min-height: 100vh;
             display: flex;
             flex-direction: column;
+            overflow-x: hidden;
+        }
+
+        /* --- FLOATING PARTICLES --- */
+        .particles {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            z-index: 0;
+            pointer-events: none;
         }
 
         /* --- NAVIGATION --- */
@@ -32,109 +42,116 @@
             border-bottom: 1px solid rgba(255,255,255,0.05); 
         }
         .logo { font-size: 22px; font-weight: 800; text-decoration: none; color: white; display: flex; align-items: center; gap: 12px; }
-        .logo i { color: var(--primary); font-size: 1.4rem; }
+        .logo i { color: var(--primary); }
         .logo span { color: var(--primary); }
-        
-        nav a { color: white; text-decoration: none; font-size: 12px; margin-left: 20px; opacity: 0.6; text-transform: uppercase; letter-spacing: 1px; transition: 0.3s; }
+        nav a { color: white; text-decoration: none; font-size: 11px; margin-left: 20px; opacity: 0.6; text-transform: uppercase; letter-spacing: 1px; transition: 0.3s; }
         nav a:hover, nav a.active { opacity: 1; color: var(--primary); }
 
-        .menu-toggle { display: none; flex-direction: column; gap: 5px; cursor: pointer; z-index: 1100; }
-        .menu-toggle span { width: 25px; height: 2px; background: white; transition: 0.3s; }
-
-        /* --- PORTFOLIO GRID --- */
+        /* --- PORTFOLIO HEADER --- */
         .content-wrapper {
             flex: 1;
             padding: 140px 8% 80px 8%;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
+            z-index: 1;
         }
 
-        .portfolio-header { text-align: center; margin-bottom: 60px; }
-        .portfolio-header h1 { font-size: 2.5rem; letter-spacing: 5px; text-transform: uppercase; margin-bottom: 15px; }
+        .portfolio-header { text-align: center; margin-bottom: 80px; }
+        .portfolio-header h1 { font-size: clamp(2rem, 5vw, 3rem); letter-spacing: 8px; text-transform: uppercase; margin-bottom: 15px; }
+        .portfolio-header p { color: #94a3b8; letter-spacing: 2px; text-transform: uppercase; font-size: 0.8rem; }
 
+        /* --- PORTFOLIO GRID --- */
         .portfolio-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 40px;
+            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+            gap: 30px;
             width: 100%;
-            max-width: 1200px;
+            max-width: 1300px;
+            margin: 0 auto;
         }
 
         .project-card {
             position: relative;
             background: var(--card-glass);
-            padding: 45px 40px;
+            padding: 40px;
             border-radius: 24px;
             backdrop-filter: blur(20px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            transition: 0.4s ease;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: 0.5s cubic-bezier(0.23, 1, 0.32, 1);
             text-decoration: none;
-            color: white;
-            text-align: center;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
         }
 
-        .project-card:hover { transform: translateY(-10px); }
+        .project-card:hover {
+            transform: translateY(-15px) scale(1.02);
+            background: rgba(255, 255, 255, 0.07);
+            border-color: var(--primary);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+        }
 
-        /* Animated Border Beam */
-        .project-card::after {
+        /* Beam Effect on Hover */
+        .project-card::before {
             content: "";
             position: absolute;
-            inset: -1px;
-            border-radius: 24px;
-            padding: 2px; 
+            top: 0; left: -100%; width: 100%; height: 2px;
             background: linear-gradient(90deg, transparent, var(--primary), transparent);
-            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-            mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-            -webkit-mask-composite: xor;
-            animation: moveBeam 4s linear infinite;
+            transition: 0.5s;
         }
+        .project-card:hover::before { left: 100%; }
 
-        @keyframes moveBeam {
-            0% { clip-path: inset(0 0 98% 0); }
-            25% { clip-path: inset(0 0 0 98%); }
-            50% { clip-path: inset(98% 0 0 0); }
-            75% { clip-path: inset(0 98% 0 0); }
-            100% { clip-path: inset(0 0 98% 0); }
-        }
-
-        /* Industry Specific Icons */
-        .project-card i.industry-icon {
-            font-size: 2.5rem;
+        .industry-icon {
+            font-size: 2.2rem;
             color: var(--primary);
-            margin-bottom: 25px;
-            display: block;
+            margin-bottom: 20px;
+            filter: drop-shadow(0 0 10px var(--accent-glow));
         }
 
-        .project-card h3 { color: white; font-size: 1.4rem; margin-bottom: 12px; letter-spacing: 1px; }
-        .project-card p { color: #cbd5e1; line-height: 1.6; font-size: 0.95rem; margin-bottom: 20px; }
-        .visit-link { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 2px; color: var(--primary); font-weight: 700; }
+        .project-card h3 { color: white; font-size: 1.5rem; margin-bottom: 12px; }
+        .project-card p { color: #94a3b8; line-height: 1.6; font-size: 0.9rem; margin-bottom: 25px; }
+
+        /* Tech Badges */
+        .tech-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 20px; }
+        .tech-tags span {
+            font-size: 10px;
+            background: rgba(0, 123, 255, 0.1);
+            color: var(--primary);
+            padding: 4px 10px;
+            border-radius: 4px;
+            text-transform: uppercase;
+            font-weight: 700;
+        }
+
+        .visit-link { 
+            font-size: 0.75rem; 
+            text-transform: uppercase; 
+            letter-spacing: 2px; 
+            color: var(--primary); 
+            font-weight: 800;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
 
         /* --- FOOTER --- */
-        footer { padding: 40px; text-align: center; font-size: 0.8rem; color: #475569; }
+        footer { padding: 60px 40px 30px 40px; text-align: center; font-size: 0.8rem; color: #475569; }
 
-        /* --- MOBILE NAV --- */
         @media (max-width: 850px) {
-            .menu-toggle { display: flex; }
+            header { padding: 15px 5%; }
+            .portfolio-grid { grid-template-columns: 1fr; }
             nav {
                 position: fixed; top: 0; right: -100%; width: 80%; height: 100vh;
-                background: rgba(7, 11, 20, 0.98); backdrop-filter: blur(25px);
-                display: flex; flex-direction: column; align-items: center; justify-content: center;
-                transition: 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+                background: var(--dark-bg); display: flex; flex-direction: column; 
+                align-items: center; justify-content: center; transition: 0.5s;
             }
             nav.active { right: 0; }
-            nav a { margin: 15px 0; font-size: 1.4rem; }
-            .mobile-btn {
-                margin-top: 25px; padding: 12px 35px; background: var(--primary);
-                color: white !important; border-radius: 50px;
-            }
-            .menu-toggle.is-active span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
-            .menu-toggle.is-active span:nth-child(2) { opacity: 0; }
-            .menu-toggle.is-active span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+            nav a { margin: 15px 0; font-size: 1.2rem; }
         }
     </style>
 </head>
 <body>
+
+    <canvas id="particleCanvas" class="particles"></canvas>
 
     <header>
         <a href="index.html" class="logo">
@@ -142,7 +159,7 @@
             GASA <span>TECH</span>
         </a>
         <div class="menu-toggle" id="mobile-menu">
-            <span></span><span></span><span></span>
+            <i class="fas fa-bars" style="font-size: 1.5rem;"></i>
         </div>
         <nav id="nav-list">
             <a href="index.html">Home</a>
@@ -150,42 +167,65 @@
             <a href="services.html">Services</a>
             <a href="portfolio.html" class="active">Portfolio</a>
             <a href="pricing.html">Pricing</a>
-            <a href="contact.html" class="mobile-btn">Contact Us</a>
+            <a href="contact.html">Contact</a>
         </nav>
     </header>
 
     <main class="content-wrapper">
         <div class="portfolio-header">
-            <h1>Our Engineering Legacy</h1>
+            <p>Showcasing Deployment Excellence</p>
+            <h1>Engineering Legacy</h1>
         </div>
 
         <div class="portfolio-grid">
             <a href="https://neobreedmarketingsolutions.com" target="_blank" class="project-card">
-                <i class="fas fa-bullhorn industry-icon"></i>
-                <h3>Neobreed Marketing Solutions</h3>
-                <p>Architecting performance-driven digital marketing ecosystems.</p>
-                <div class="visit-link">Visit Site <i class="fas fa-arrow-right"></i></div>
+                <div>
+                    <i class="fas fa-bullhorn industry-icon"></i>
+                    <div class="tech-tags"><span>Marketing</span><span>SEO</span><span>Analytics</span></div>
+                    <h3>Neobreed Solutions</h3>
+                    <p>Performance-driven digital marketing ecosystem with deep data integration.</p>
+                </div>
+                <div class="visit-link">Launch System <i class="fas fa-external-link-alt"></i></div>
             </a>
 
             <a href="https://vilemaico.co.za" target="_blank" class="project-card">
-                <i class="fas fa-photo-video industry-icon"></i>
-                <h3>Vile Amico</h3>
-                <p>Custom media infrastructure and brand-focused web systems.</p>
-                <div class="visit-link">Visit Site <i class="fas fa-arrow-right"></i></div>
+                <div>
+                    <i class="fas fa-video industry-icon"></i>
+                    <div class="tech-tags"><span>Media</span><span>UI Architecture</span><span>Cloud</span></div>
+                    <h3>Vile Amico</h3>
+                    <p>High-fidelity media infrastructure and brand-focused web delivery systems.</p>
+                </div>
+                <div class="visit-link">Launch System <i class="fas fa-external-link-alt"></i></div>
             </a>
 
             <a href="https://braaiblock.com" target="_blank" class="project-card">
-                <i class="fas fa-drumstick-bite industry-icon"></i>
-                <h3>Braai Block</h3>
-                <p>Deploying robust software engineering for high-traffic food platforms.</p>
-                <div class="visit-link">Visit Site <i class="fas fa-arrow-right"></i></div>
+                <div>
+                    <i class="fas fa-fire industry-icon"></i>
+                    <div class="tech-tags"><span>E-Commerce</span><span>High Traffic</span></div>
+                    <h3>Braai Block</h3>
+                    <p>Robust software engineering for high-volume consumer food platforms.</p>
+                </div>
+                <div class="visit-link">Launch System <i class="fas fa-external-link-alt"></i></div>
             </a>
 
             <a href="https://iletha.com" target="_blank" class="project-card">
-                <i class="fas fa-building industry-icon"></i>
-                <h3>Iletha</h3>
-                <p>Building world-class web architecture for corporate delivery systems.</p>
-                <div class="visit-link">Visit Site <i class="fas fa-arrow-right"></i></div>
+                <div>
+                    <i class="fas fa-shipping-fast industry-icon"></i>
+                    <div class="tech-tags"><span>Logistics</span><span>Corporate</span></div>
+                    <h3>Iletha</h3>
+                    <p>Corporate-grade web architecture for streamlined delivery management.</p>
+                </div>
+                <div class="visit-link">Launch System <i class="fas fa-external-link-alt"></i></div>
+            </a>
+
+            <a href="index.html" class="project-card">
+                <div>
+                    <i class="fas fa-calculator industry-icon"></i>
+                    <div class="tech-tags"><span>Logic</span><span>Tooling</span><span>JS</span></div>
+                    <h3>GasaCalc Utility</h3>
+                    <p>Precision calculation engine developed for complex algorithmic computations.</p>
+                </div>
+                <div class="visit-link">Internal Tool <i class="fas fa-arrow-right"></i></div>
             </a>
         </div>
     </main>
@@ -195,11 +235,46 @@
     </footer>
 
     <script>
+        // Particle Background Logic
+        const canvas = document.getElementById('particleCanvas');
+        const ctx = canvas.getContext('2d');
+        let particles = [];
+
+        function init() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+            for(let i=0; i<60; i++) {
+                particles.push({
+                    x: Math.random() * canvas.width,
+                    y: Math.random() * canvas.height,
+                    size: Math.random() * 2,
+                    speed: Math.random() * 0.5 + 0.1
+                });
+            }
+        }
+
+        function animate() {
+            ctx.clearRect(0,0,canvas.width, canvas.height);
+            ctx.fillStyle = 'rgba(0, 123, 255, 0.3)';
+            particles.forEach(p => {
+                p.y -= p.speed;
+                if(p.y < 0) p.y = canvas.height;
+                ctx.beginPath();
+                ctx.arc(p.x, p.y, p.size, 0, Math.PI*2);
+                ctx.fill();
+            });
+            requestAnimationFrame(animate);
+        }
+
+        window.addEventListener('resize', () => { canvas.width = window.innerWidth; canvas.height = window.innerHeight; });
+        init();
+        animate();
+
+        // Mobile Nav
         const menu = document.querySelector('#mobile-menu');
         const navList = document.querySelector('#nav-list');
         menu.addEventListener('click', () => {
             navList.classList.toggle('active');
-            menu.classList.toggle('is-active');
         });
     </script>
 </body>
