@@ -25,10 +25,8 @@
             overflow: hidden;
         }
 
-        /* --- BACKGROUND PARTICLES --- */
         .particles { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 0; pointer-events: none; }
 
-        /* --- HEADER (Clean & No Extra Lines) --- */
         header { 
             display: flex; justify-content: space-between; align-items: center; 
             padding: 25px 8%; position: fixed; width: 100%; top: 0; z-index: 1000; 
@@ -46,7 +44,6 @@
 
         .menu-toggle { display: none; cursor: pointer; color: white; font-size: 1.5rem; }
 
-        /* --- HERO SECTION (High Tech) --- */
         .hero {
             flex: 1;
             display: flex;
@@ -58,7 +55,6 @@
             position: relative;
         }
 
-        /* The glowing tech-circle behind the text */
         .hero::before {
             content: '';
             position: absolute;
@@ -89,7 +85,6 @@
             opacity: 0.8;
         }
 
-        /* --- BUTTONS WITH MOVING BEAMS --- */
         .cta-group { display: flex; gap: 30px; }
         
         .btn-box {
@@ -100,7 +95,6 @@
             display: inline-block;
         }
 
-        /* Animated border beam for the main button */
         .btn-box::after {
             content: "";
             position: absolute;
@@ -151,7 +145,7 @@
                 transition: 0.4s;
             }
             nav.active { right: 0; }
-            nav a { margin: 20px 0; font-size: 1.2rem; }
+            nav a { margin: 20px 0; font-size: 1.2rem; margin-left: 0; }
             .cta-group { flex-direction: column; gap: 15px; }
         }
     </style>
@@ -172,6 +166,7 @@
         <nav id="nav-list">
             <a href="index.html" class="active">Home</a>
             <a href="about.html">About</a>
+            <a href="services.html">Services</a>
             <a href="portfolio.html">Portfolio</a>
             <a href="pricing.html">Pricing</a>
             <a href="contact.html">Contact</a>
@@ -195,7 +190,6 @@
     </footer>
 
     <script>
-        // Enhanced Particle Engine
         const canvas = document.getElementById('particleCanvas');
         const ctx = canvas.getContext('2d');
         let particles = [];
