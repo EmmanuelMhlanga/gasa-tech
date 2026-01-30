@@ -3,19 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About | GASA TECH Engineering</title>
+    <title>GASA TECH | Engineering Excellence</title>
     <link rel="icon" type="image/png" href="https://img.icons8.com/fluency/48/laptop.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <style>
         :root { 
             --primary: #007bff; 
             --dark-bg: #070b14; 
             --card-glass: rgba(255, 255, 255, 0.03);
-            --neon-glow: 0 0 15px rgba(0, 123, 255, 0.2);
         }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; scroll-behavior: smooth; }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
         
         body { 
             background: var(--dark-bg); 
@@ -37,16 +35,25 @@
             background: rgba(7, 11, 20, 0.85); backdrop-filter: blur(15px); 
             border-bottom: 1px solid rgba(255,255,255,0.05); 
         }
-        .logo { font-size: 22px; font-weight: 800; text-decoration: none; color: white; display: flex; align-items: center; gap: 12px; }
+        
+        /* LOGO SECTION - No lines here */
+        .logo { font-size: 24px; font-weight: 800; text-decoration: none; color: white; display: flex; align-items: center; gap: 12px; }
         .logo i { color: var(--primary); }
         .logo span { color: var(--primary); }
-        nav a { color: white; text-decoration: none; font-size: 11px; margin-left: 20px; opacity: 0.6; text-transform: uppercase; letter-spacing: 1px; transition: 0.3s; }
+
+        /* NAVIGATION */
+        nav { display: flex; align-items: center; }
+        nav a { color: white; text-decoration: none; font-size: 11px; margin-left: 25px; opacity: 0.6; text-transform: uppercase; letter-spacing: 1px; transition: 0.3s; }
         nav a:hover, nav a.active { opacity: 1; color: var(--primary); }
 
+        /* MENU TOGGLE - Hidden on Desktop */
+        .menu-toggle { display: none; cursor: pointer; color: white; font-size: 1.5rem; }
+
         /* --- HERO SECTION --- */
-        .about-hero {
-            height: 80vh;
+        .hero {
+            flex: 1;
             display: flex;
+            flex-direction: column;
             align-items: center;
             justify-content: center;
             text-align: center;
@@ -54,86 +61,30 @@
             z-index: 1;
         }
 
-        .hero-content h1 { font-size: clamp(2rem, 6vw, 4rem); letter-spacing: 10px; text-transform: uppercase; margin-bottom: 20px; }
-        .hero-content p { font-size: 1.1rem; color: #94a3b8; max-width: 800px; margin: 0 auto; line-height: 1.8; letter-spacing: 1px; }
+        .hero h1 { font-size: clamp(2.5rem, 8vw, 5rem); letter-spacing: 15px; text-transform: uppercase; margin-bottom: 20px; font-weight: 900; }
+        .hero p { color: #94a3b8; font-size: 1.1rem; max-width: 600px; margin-bottom: 40px; letter-spacing: 2px; text-transform: uppercase; }
 
-        /* --- STATS SECTION --- */
-        .stats-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 30px;
-            padding: 100px 8%;
-            z-index: 1;
+        .cta-group { display: flex; gap: 20px; }
+        .btn {
+            padding: 15px 35px; border-radius: 50px; text-decoration: none; font-weight: 800; 
+            text-transform: uppercase; letter-spacing: 2px; font-size: 0.8rem; transition: 0.4s;
         }
-        .stat-card {
-            position: relative;
-            text-align: center;
-            padding: 40px;
-            border-radius: 20px;
-            background: var(--card-glass);
-            border: 1px solid rgba(255,255,255,0.05);
-            backdrop-filter: blur(10px);
-            overflow: hidden;
-        }
-        .stat-card h3 { font-size: 3rem; color: var(--primary); margin-bottom: 10px; font-weight: 900; }
-        .stat-card p { opacity: 0.7; text-transform: uppercase; letter-spacing: 2px; font-size: 0.75rem; }
+        .btn-primary { background: var(--primary); color: white; }
+        .btn-secondary { border: 1px solid rgba(255,255,255,0.1); color: white; backdrop-filter: blur(10px); }
+        .btn:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0, 123, 255, 0.3); }
 
-        /* Moving Beam Effect */
-        .animated-card::after {
-            content: "";
-            position: absolute;
-            inset: -1px;
-            border-radius: 20px;
-            padding: 2px; 
-            background: linear-gradient(90deg, transparent, var(--primary), transparent);
-            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-            mask-composite: exclude;
-            animation: moveBeam 4s linear infinite;
-        }
+        footer { padding: 40px; text-align: center; font-size: 0.8rem; color: #475569; z-index: 1; }
 
-        @keyframes moveBeam {
-            0% { clip-path: inset(0 0 98% 0); }
-            25% { clip-path: inset(0 0 0 98%); }
-            50% { clip-path: inset(98% 0 0 0); }
-            75% { clip-path: inset(0 98% 0 0); }
-            100% { clip-path: inset(0 0 98% 0); }
-        }
-
-        /* --- CORE PILLARS --- */
-        .pillars { padding: 100px 8%; z-index: 1; }
-        .section-title { text-align: center; margin-bottom: 60px; }
-        .section-title h2 { font-size: 2rem; letter-spacing: 8px; text-transform: uppercase; margin-bottom: 15px; }
-        .section-title div { width: 60px; height: 2px; background: var(--primary); margin: 0 auto; }
-
-        .pillar-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-        }
-        .pillar-card {
-            background: var(--card-glass);
-            padding: 50px 40px;
-            border-radius: 24px;
-            border: 1px solid rgba(255,255,255,0.05);
-            transition: 0.5s;
-            backdrop-filter: blur(10px);
-        }
-        .pillar-card:hover { transform: translateY(-10px); border-color: var(--primary); background: rgba(255,255,255,0.06); }
-        .pillar-card i { font-size: 2.2rem; color: var(--primary); margin-bottom: 25px; }
-        .pillar-card h4 { font-size: 1.3rem; margin-bottom: 15px; text-transform: uppercase; letter-spacing: 1px; }
-        .pillar-card p { color: #94a3b8; line-height: 1.7; font-size: 0.95rem; }
-
-        /* --- FOOTER --- */
-        footer { padding: 40px; text-align: center; font-size: 0.8rem; color: #475569; border-top: 1px solid rgba(255,255,255,0.05); z-index: 1; }
-
+        /* --- MOBILE STYLES --- */
         @media (max-width: 850px) {
+            .menu-toggle { display: block; } /* Only show lines on mobile */
             nav {
                 position: fixed; top: 0; right: -100%; width: 80%; height: 100vh;
-                background: var(--dark-bg); display: flex; flex-direction: column; 
-                align-items: center; justify-content: center; transition: 0.5s;
+                background: var(--dark-bg); flex-direction: column; justify-content: center;
+                transition: 0.5s cubic-bezier(0.23, 1, 0.32, 1);
             }
             nav.active { right: 0; }
-            nav a { margin: 15px 0; font-size: 1.2rem; }
+            nav a { margin: 20px 0; font-size: 1.5rem; }
         }
     </style>
 </head>
@@ -145,12 +96,14 @@
         <a href="index.html" class="logo">
             <i class="fas fa-laptop-code"></i> GASA <span>TECH</span>
         </a>
+        
         <div class="menu-toggle" id="mobile-menu">
-            <i class="fas fa-bars" style="font-size: 1.5rem;"></i>
+            <i class="fas fa-bars"></i>
         </div>
+
         <nav id="nav-list">
-            <a href="index.html">Home</a>
-            <a href="about.html" class="active">About</a>
+            <a href="index.html" class="active">Home</a>
+            <a href="about.html">About</a>
             <a href="services.html">Services</a>
             <a href="portfolio.html">Portfolio</a>
             <a href="pricing.html">Pricing</a>
@@ -158,67 +111,21 @@
         </nav>
     </header>
 
-    <main>
-        <section class="about-hero">
-            <div class="hero-content">
-                <h1 data-aos="fade-up">GASA <span style="color:var(--primary)">TECH</span></h1>
-                <p data-aos="fade-up" data-aos-delay="200">
-                    We engineer digital resilience. GASA TECH is a specialized agency dedicated to architecting high-performance ecosystems for the modern enterprise.
-                </p>
-            </div>
-        </section>
-
-        <section class="stats-container">
-            <div class="stat-card animated-card" data-aos="fade-up">
-                <h3>99.9%</h3>
-                <p>Uptime Engineering</p>
-            </div>
-            <div class="stat-card animated-card" data-aos="fade-up" data-aos-delay="100">
-                <h3>10ms</h3>
-                <p>Avg Latency</p>
-            </div>
-            <div class="stat-card animated-card" data-aos="fade-up" data-aos-delay="200">
-                <h3>50+</h3>
-                <p>Cloud Deployments</p>
-            </div>
-        </section>
-
-        <section class="pillars">
-            <div class="section-title" data-aos="fade-down">
-                <h2>Engineering DNA</h2>
-                <div></div>
-            </div>
-
-            <div class="pillar-grid">
-                <div class="pillar-card" data-aos="fade-right">
-                    <i class="fas fa-shield-alt"></i>
-                    <h4>Secure Infrastructure</h4>
-                    <p>Security isn't a feature; it's our foundation. We implement elite-level encryption and secure API gateways in every build.</p>
-                </div>
-                <div class="pillar-card" data-aos="fade-up">
-                    <i class="fas fa-bolt"></i>
-                    <h4>Speed Optimization</h4>
-                    <p>Performance is revenue. We specialize in reducing Time to Interactive (TTI) and optimizing Web Vitals for maximum SEO impact.</p>
-                </div>
-                <div class="pillar-card" data-aos="fade-left">
-                    <i class="fas fa-cloud"></i>
-                    <h4>Cloud Native</h4>
-                    <p>Building for the future using serverless architectures and distributed systems that scale effortlessly with your growth.</p>
-                </div>
-            </div>
-        </section>
+    <main class="hero">
+        <h1>GASA TECH</h1>
+        <p>Architecting the future of digital engineering.</p>
+        <div class="cta-group">
+            <a href="portfolio.html" class="btn btn-primary">View Legacy</a>
+            <a href="contact.html" class="btn btn-secondary">Initialize Project</a>
+        </div>
     </main>
 
     <footer>
         <p>© 2026 GASA TECH (PTY) LTD | Engineering Excellence</p>
     </footer>
 
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
-        // AOS
-        AOS.init({ duration: 1000, once: true });
-
-        // Particle Background Logic
+        // Particle Background
         const canvas = document.getElementById('particleCanvas');
         const ctx = canvas.getContext('2d');
         let particles = [];
