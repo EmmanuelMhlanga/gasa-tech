@@ -11,6 +11,7 @@
             --primary: #007bff; 
             --dark: #070b14; 
             --glass: rgba(255, 255, 255, 0.03); 
+            --accent-glow: rgba(0, 123, 255, 0.15);
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
@@ -22,7 +23,11 @@
             min-height: 100vh;
             display: flex;
             flex-direction: column;
+            overflow-x: hidden;
         }
+
+        /* --- BACKGROUND PARTICLES --- */
+        .particles { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 0; pointer-events: none; }
 
         /* --- NAVIGATION --- */
         header { 
@@ -32,31 +37,29 @@
             border-bottom: 1px solid rgba(255,255,255,0.05); 
         }
         .logo { font-size: 24px; font-weight: 800; text-decoration: none; color: white; display: flex; align-items: center; gap: 10px; }
+        .logo i { color: var(--primary); }
         .logo span { color: var(--primary); }
-        
-        nav a { color: white; text-decoration: none; font-size: 12px; margin-left: 25px; opacity: 0.7; text-transform: uppercase; letter-spacing: 1px; transition: 0.3s; }
+        nav a { color: white; text-decoration: none; font-size: 11px; margin-left: 25px; opacity: 0.7; text-transform: uppercase; letter-spacing: 1px; transition: 0.3s; }
         nav a:hover, nav a.active { opacity: 1; color: var(--primary); }
-
-        .menu-toggle { display: none; flex-direction: column; gap: 5px; cursor: pointer; }
-        .menu-toggle span { width: 25px; height: 2px; background: white; transition: 0.3s; }
 
         /* --- CONTENT WRAPPER --- */
         .content-wrapper {
             flex: 1;
             padding: 140px 5% 80px 5%;
+            z-index: 1;
             display: flex;
             flex-direction: column;
             align-items: center;
         }
 
-        .pricing-header { text-align: center; margin-bottom: 60px; max-width: 800px; }
-        .pricing-header h1 { font-size: clamp(2.2rem, 5vw, 3.5rem); letter-spacing: 4px; text-transform: uppercase; margin-bottom: 15px; }
-        .pricing-header p { color: #94a3b8; line-height: 1.6; }
+        .pricing-header { text-align: center; margin-bottom: 40px; max-width: 800px; }
+        .pricing-header h1 { font-size: clamp(2.2rem, 5vw, 3rem); letter-spacing: 8px; text-transform: uppercase; margin-bottom: 15px; }
+        .pricing-header p { color: #94a3b8; text-transform: uppercase; font-size: 0.8rem; letter-spacing: 2px; }
 
         /* --- PRICING GRID --- */
         .pricing-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 25px;
             width: 100%;
             max-width: 1300px;
@@ -65,19 +68,34 @@
         .pricing-card {
             position: relative;
             background: var(--glass);
-            padding: 40px 25px;
+            padding: 50px 30px;
             border-radius: 25px;
             backdrop-filter: blur(20px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.05);
             text-align: center;
-            transition: 0.4s ease;
+            transition: 0.5s cubic-bezier(0.23, 1, 0.32, 1);
             display: flex;
             flex-direction: column;
+            overflow: hidden;
         }
 
-        .pricing-card:hover { transform: translateY(-10px); }
+        .pricing-card:hover { transform: translateY(-15px); border-color: var(--primary); background: rgba(255, 255, 255, 0.06); }
 
-        /* Animated Moving Beam */
+        /* Highlight Ribbon */
+        .popular-badge {
+            position: absolute;
+            top: 20px; right: -35px;
+            background: var(--primary);
+            color: white;
+            padding: 5px 40px;
+            transform: rotate(45deg);
+            font-size: 10px;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Moving Beam Animation */
         .pricing-card::after {
             content: "";
             position: absolute;
@@ -86,8 +104,7 @@
             padding: 2px; 
             background: linear-gradient(90deg, transparent, var(--primary), transparent);
             -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-            mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-            -webkit-mask-composite: xor;
+            mask-composite: exclude;
             animation: moveBeam 4s linear infinite;
         }
 
@@ -99,51 +116,54 @@
             100% { clip-path: inset(0 0 98% 0); }
         }
 
-        .tier-title { font-size: 1.4rem; font-weight: 700; color: var(--primary); margin-bottom: 10px; }
-        .price { font-size: 2.5rem; font-weight: 800; margin-bottom: 25px; }
+        .tier-title { font-size: 0.9rem; font-weight: 800; color: var(--primary); text-transform: uppercase; letter-spacing: 2px; margin-bottom: 20px; }
+        .price { font-size: 3rem; font-weight: 900; margin-bottom: 30px; }
+        .price span { font-size: 1rem; color: #64748b; font-weight: 400; }
         
-        .feature-list { list-style: none; text-align: left; margin-bottom: 30px; flex-grow: 1; }
-        .feature-list li { margin-bottom: 12px; font-size: 0.9rem; color: #cbd5e1; display: flex; align-items: flex-start; gap: 10px; }
-        .feature-list i { color: var(--primary); margin-top: 3px; }
+        .feature-list { list-style: none; text-align: left; margin-bottom: 40px; flex-grow: 1; }
+        .feature-list li { margin-bottom: 15px; font-size: 0.9rem; color: #cbd5e1; display: flex; align-items: center; gap: 12px; }
+        .feature-list i { color: var(--primary); font-size: 0.8rem; }
 
         .choose-btn {
-            background: rgba(255,255,255,0.1);
+            background: transparent;
             color: white;
             text-decoration: none;
-            padding: 12px;
-            border-radius: 50px;
-            font-weight: 700;
+            padding: 15px;
+            border-radius: 12px;
+            font-weight: 800;
             text-transform: uppercase;
-            letter-spacing: 1px;
+            letter-spacing: 2px;
             transition: 0.3s;
-            border: 1px solid rgba(255,255,255,0.2);
+            border: 1px solid rgba(255,255,255,0.1);
         }
-        .choose-btn:hover { background: var(--primary); border-color: var(--primary); }
+        .choose-btn:hover { background: var(--primary); border-color: var(--primary); box-shadow: 0 10px 20px rgba(0, 123, 255, 0.3); }
+
+        .highlight-btn { background: var(--primary); border-color: var(--primary); }
 
         /* --- FOOTER --- */
-        footer { padding: 40px; text-align: center; font-size: 0.8rem; color: #475569; border-top: 1px solid rgba(255,255,255,0.05); }
+        footer { padding: 40px; text-align: center; font-size: 0.8rem; color: #475569; border-top: 1px solid rgba(255,255,255,0.05); z-index: 1; }
 
         @media (max-width: 850px) {
-            .menu-toggle { display: flex; }
+            .pricing-grid { grid-template-columns: 1fr; }
             nav {
                 position: fixed; top: 0; right: -100%; width: 80%; height: 100vh;
-                background: rgba(7, 11, 20, 0.98); backdrop-filter: blur(25px);
-                display: flex; flex-direction: column; align-items: center; justify-content: center;
-                transition: 0.5s;
+                background: var(--dark); display: flex; flex-direction: column; 
+                align-items: center; justify-content: center; transition: 0.5s;
             }
             nav.active { right: 0; }
-            nav a { margin: 15px 0; font-size: 1.5rem; }
         }
     </style>
 </head>
 <body>
 
+    <canvas id="particleCanvas" class="particles"></canvas>
+
     <header>
         <a href="index.html" class="logo">
-            <img src="https://img.icons8.com/fluency/48/laptop.png" width="30"> GASA <span>TECH</span>
+            <i class="fas fa-laptop-code"></i> GASA <span>TECH</span>
         </a>
         <div class="menu-toggle" id="mobile-menu">
-            <span></span><span></span><span></span>
+            <i class="fas fa-bars"></i>
         </div>
         <nav id="nav-list">
             <a href="index.html">Home</a>
@@ -157,60 +177,62 @@
 
     <main class="content-wrapper">
         <div class="pricing-header">
-            <h1>PRICING PLANS</h1>
-            <p>We offer flexible pricing to suit your needs, whether you're just starting out or scaling up. Choose the plan that's right for you.</p>
+            <p>Select Deployment Tier</p>
+            <h1>Pricing Architecture</h1>
         </div>
 
         <div class="pricing-grid">
             <div class="pricing-card">
-                <div class="tier-title">Basic Plan</div>
-                <div class="price">R3 000</div>
+                <div class="tier-title">Startup</div>
+                <div class="price">R3 000<span>/project</span></div>
                 <ul class="feature-list">
-                    <li><i class="fas fa-check-circle"></i> 5GB storage</li>
-                    <li><i class="fas fa-check-circle"></i> 1 user</li>
-                    <li><i class="fas fa-check-circle"></i> Email support</li>
-                    <li><i class="fas fa-check-circle"></i> Basic analytics</li>
-                    <li><i class="fas fa-info-circle"></i> Great for freelancers or small personal projects</li>
+                    <li><i class="fas fa-check"></i> 1 Dedicated Landing Page</li>
+                    <li><i class="fas fa-check"></i> Standard SEO Injection</li>
+                    <li><i class="fas fa-check"></i> SSL Security Setup</li>
+                    <li><i class="fas fa-check"></i> Mobile Responsive Build</li>
+                    <li><i class="fas fa-check"></i> Basic Analytics Integration</li>
                 </ul>
-                <a href="contact.html" class="choose-btn">CHOOSE</a>
+                <a href="contact.html" class="choose-btn">Initialize</a>
+            </div>
+
+            <div class="pricing-card" style="border-color: rgba(0, 123, 255, 0.3);">
+                <div class="popular-badge">Popular</div>
+                <div class="tier-title">Standard</div>
+                <div class="price">R3 500<span>/project</span></div>
+                <ul class="feature-list">
+                    <li><i class="fas fa-check"></i> Multi-Page Ecosystem</li>
+                    <li><i class="fas fa-check"></i> Advanced UI Architecture</li>
+                    <li><i class="fas fa-check"></i> API Integration (1)</li>
+                    <li><i class="fas fa-check"></i> Technical SEO Suite</li>
+                    <li><i class="fas fa-check"></i> Content Management Setup</li>
+                </ul>
+                <a href="contact.html" class="choose-btn highlight-btn">Initialize</a>
             </div>
 
             <div class="pricing-card">
-                <div class="tier-title">Standard Plan</div>
-                <div class="price">R3 500</div>
+                <div class="tier-title">Premium</div>
+                <div class="price">R4 500<span>/project</span></div>
                 <ul class="feature-list">
-                    <li><i class="fas fa-check-circle"></i> 20GB storage</li>
-                    <li><i class="fas fa-check-circle"></i> 5 users</li>
-                    <li><i class="fas fa-check-circle"></i> Priority email support</li>
-                    <li><i class="fas fa-check-circle"></i> Advanced analytics</li>
-                    <li><i class="fas fa-info-circle"></i> Ideal for growing teams or small businesses</li>
+                    <li><i class="fas fa-check"></i> Full Stack Web Application</li>
+                    <li><i class="fas fa-check"></i> Database Integration</li>
+                    <li><i class="fas fa-check"></i> Custom Admin Dashboard</li>
+                    <li><i class="fas fa-check"></i> E-Commerce Capabilities</li>
+                    <li><i class="fas fa-check"></i> Priority Technical Support</li>
                 </ul>
-                <a href="contact.html" class="choose-btn">CHOOSE</a>
+                <a href="contact.html" class="choose-btn">Initialize</a>
             </div>
 
             <div class="pricing-card">
-                <div class="tier-title">Premium Plan</div>
-                <div class="price">R4 500</div>
+                <div class="tier-title">Enterprise</div>
+                <div class="price">Custom</div>
                 <ul class="feature-list">
-                    <li><i class="fas fa-check-circle"></i> 100GB storage</li>
-                    <li><i class="fas fa-check-circle"></i> Unlimited users</li>
-                    <li><i class="fas fa-check-circle"></i> 24/7 support</li>
-                    <li><i class="fas fa-check-circle"></i> Advanced features and integrations</li>
-                    <li><i class="fas fa-info-circle"></i> Perfect for large teams or enterprises</li>
+                    <li><i class="fas fa-check"></i> Full Cloud Infrastructure</li>
+                    <li><i class="fas fa-check"></i> Unlimited Scaling</li>
+                    <li><i class="fas fa-check"></i> Dedicated Engineering Team</li>
+                    <li><i class="fas fa-check"></i> Custom API Development</li>
+                    <li><i class="fas fa-check"></i> Security Hardening Audit</li>
                 </ul>
-                <a href="contact.html" class="choose-btn">CHOOSE</a>
-            </div>
-
-            <div class="pricing-card">
-                <div class="tier-title">Custom Plan</div>
-                <div class="price" style="font-size: 1.8rem;">Contact Us</div>
-                <ul class="feature-list">
-                    <li><i class="fas fa-check-circle"></i> Custom storage and users</li>
-                    <li><i class="fas fa-check-circle"></i> Dedicated account manager</li>
-                    <li><i class="fas fa-check-circle"></i> Tailored solutions</li>
-                    <li><i class="fas fa-info-circle"></i> Ideal for large organizations with specific needs</li>
-                </ul>
-                <a href="contact.html" class="choose-btn">CHOOSE</a>
+                <a href="contact.html" class="choose-btn">Consult Now</a>
             </div>
         </div>
     </main>
@@ -220,6 +242,35 @@
     </footer>
 
     <script>
+        // Particle Background Logic
+        const canvas = document.getElementById('particleCanvas');
+        const ctx = canvas.getContext('2d');
+        let particles = [];
+        function init() {
+            canvas.width = window.innerWidth; canvas.height = window.innerHeight;
+            for(let i=0; i<60; i++) {
+                particles.push({
+                    x: Math.random() * canvas.width,
+                    y: Math.random() * canvas.height,
+                    size: Math.random() * 2,
+                    speed: Math.random() * 0.5 + 0.1
+                });
+            }
+        }
+        function animate() {
+            ctx.clearRect(0,0,canvas.width, canvas.height);
+            ctx.fillStyle = 'rgba(0, 123, 255, 0.3)';
+            particles.forEach(p => {
+                p.y -= p.speed;
+                if(p.y < 0) p.y = canvas.height;
+                ctx.beginPath(); ctx.arc(p.x, p.y, p.size, 0, Math.PI*2); ctx.fill();
+            });
+            requestAnimationFrame(animate);
+        }
+        window.addEventListener('resize', () => { canvas.width = window.innerWidth; canvas.height = window.innerHeight; });
+        init(); animate();
+
+        // Mobile Nav
         const menu = document.querySelector('#mobile-menu');
         const navList = document.querySelector('#nav-list');
         menu.addEventListener('click', () => {
