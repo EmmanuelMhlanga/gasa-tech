@@ -3,167 +3,49 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pricing | GASA TECH</title>
+    <title>Pricing Architecture | GASA TECH</title>
     <link rel="icon" type="image/png" href="https://img.icons8.com/fluency/48/laptop.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
     <style>
-        :root { 
-            --primary: #007bff; 
-            --dark: #070b14; 
-            --glass: rgba(255, 255, 255, 0.03); 
-            --accent-glow: rgba(0, 123, 255, 0.15);
-        }
-
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
-        
-        body { 
-            background: var(--dark); 
-            color: white; 
-            background: radial-gradient(circle at center, #0f172a 0%, #070b14 100%);
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            overflow-x: hidden;
-        }
-
-        /* --- BACKGROUND PARTICLES --- */
-        .particles { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 0; pointer-events: none; }
-
-        /* --- NAVIGATION --- */
-        header { 
-            display: flex; justify-content: space-between; align-items: center; 
-            padding: 20px 8%; position: fixed; width: 100%; top: 0; z-index: 1000; 
-            background: rgba(7, 11, 20, 0.85); backdrop-filter: blur(15px); 
-            border-bottom: 1px solid rgba(255,255,255,0.05); 
-        }
-        .logo { font-size: 24px; font-weight: 800; text-decoration: none; color: white; display: flex; align-items: center; gap: 10px; }
-        .logo i { color: var(--primary); }
-        .logo span { color: var(--primary); }
-        nav a { color: white; text-decoration: none; font-size: 11px; margin-left: 25px; opacity: 0.7; text-transform: uppercase; letter-spacing: 1px; transition: 0.3s; }
-        nav a:hover, nav a.active { opacity: 1; color: var(--primary); }
-
-        /* --- CONTENT WRAPPER --- */
-        .content-wrapper {
-            flex: 1;
-            padding: 140px 5% 80px 5%;
-            z-index: 1;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-
-        .pricing-header { text-align: center; margin-bottom: 40px; max-width: 800px; }
-        .pricing-header h1 { font-size: clamp(2.2rem, 5vw, 3rem); letter-spacing: 8px; text-transform: uppercase; margin-bottom: 15px; }
-        .pricing-header p { color: #94a3b8; text-transform: uppercase; font-size: 0.8rem; letter-spacing: 2px; }
-
-        /* --- PRICING GRID --- */
-        .pricing-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 25px;
-            width: 100%;
-            max-width: 1300px;
-        }
-
-        .pricing-card {
-            position: relative;
-            background: var(--glass);
-            padding: 50px 30px;
-            border-radius: 25px;
-            backdrop-filter: blur(20px);
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            text-align: center;
-            transition: 0.5s cubic-bezier(0.23, 1, 0.32, 1);
-            display: flex;
-            flex-direction: column;
-            overflow: hidden;
-        }
-
-        .pricing-card:hover { transform: translateY(-15px); border-color: var(--primary); background: rgba(255, 255, 255, 0.06); }
-
-        /* Highlight Ribbon */
-        .popular-badge {
-            position: absolute;
-            top: 20px; right: -35px;
-            background: var(--primary);
-            color: white;
-            padding: 5px 40px;
-            transform: rotate(45deg);
-            font-size: 10px;
-            font-weight: 900;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        /* Moving Beam Animation */
-        .pricing-card::after {
-            content: "";
-            position: absolute;
-            inset: -1px;
-            border-radius: 25px;
-            padding: 2px; 
-            background: linear-gradient(90deg, transparent, var(--primary), transparent);
-            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-            mask-composite: exclude;
-            animation: moveBeam 4s linear infinite;
-        }
-
-        @keyframes moveBeam {
-            0% { clip-path: inset(0 0 98% 0); }
-            25% { clip-path: inset(0 0 0 98%); }
-            50% { clip-path: inset(98% 0 0 0); }
-            75% { clip-path: inset(0 98% 0 0); }
-            100% { clip-path: inset(0 0 98% 0); }
-        }
-
-        .tier-title { font-size: 0.9rem; font-weight: 800; color: var(--primary); text-transform: uppercase; letter-spacing: 2px; margin-bottom: 20px; }
-        .price { font-size: 3rem; font-weight: 900; margin-bottom: 30px; }
-        .price span { font-size: 1rem; color: #64748b; font-weight: 400; }
-        
-        .feature-list { list-style: none; text-align: left; margin-bottom: 40px; flex-grow: 1; }
-        .feature-list li { margin-bottom: 15px; font-size: 0.9rem; color: #cbd5e1; display: flex; align-items: center; gap: 12px; }
-        .feature-list i { color: var(--primary); font-size: 0.8rem; }
-
-        .choose-btn {
-            background: transparent;
-            color: white;
-            text-decoration: none;
-            padding: 15px;
-            border-radius: 12px;
+        .price-tag {
+            font-size: 2.5rem;
             font-weight: 800;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            transition: 0.3s;
-            border: 1px solid rgba(255,255,255,0.1);
+            color: var(--primary);
+            margin: 20px 0;
         }
-        .choose-btn:hover { background: var(--primary); border-color: var(--primary); box-shadow: 0 10px 20px rgba(0, 123, 255, 0.3); }
-
-        .highlight-btn { background: var(--primary); border-color: var(--primary); }
-
-        /* --- FOOTER --- */
-        footer { padding: 40px; text-align: center; font-size: 0.8rem; color: #475569; border-top: 1px solid rgba(255,255,255,0.05); z-index: 1; }
-
-        @media (max-width: 850px) {
-            .pricing-grid { grid-template-columns: 1fr; }
-            nav {
-                position: fixed; top: 0; right: -100%; width: 80%; height: 100vh;
-                background: var(--dark); display: flex; flex-direction: column; 
-                align-items: center; justify-content: center; transition: 0.5s;
-            }
-            nav.active { right: 0; }
+        .price-tag span {
+            font-size: 1rem;
+            color: var(--text-dim);
+            font-weight: 400;
+        }
+        .feature-list {
+            list-style: none;
+            text-align: left;
+            margin-bottom: 30px;
+        }
+        .feature-list li {
+            font-size: 0.9rem;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: var(--text-dim);
+        }
+        .feature-list i {
+            color: var(--primary);
+            font-size: 0.8rem;
         }
     </style>
 </head>
 <body>
-
-    <canvas id="particleCanvas" class="particles"></canvas>
 
     <header>
         <a href="index.html" class="logo">
             <i class="fas fa-laptop-code"></i> GASA <span>TECH</span>
         </a>
         <div class="menu-toggle" id="mobile-menu">
-            <i class="fas fa-bars"></i>
+            <span></span><span></span><span></span>
         </div>
         <nav id="nav-list">
             <a href="index.html">Home</a>
@@ -176,106 +58,92 @@
     </header>
 
     <main class="content-wrapper">
-        <div class="pricing-header">
-            <p>Select Deployment Tier</p>
-            <h1>Pricing Architecture</h1>
-        </div>
+        <h1 data-value="DEPLOYMENT TIERS" style="text-align: center; letter-spacing: 8px; margin-bottom: 50px;">
+            DEPLOYMENT TIERS
+        </h1>
 
-        <div class="pricing-grid">
-            <div class="pricing-card">
-                <div class="tier-title">Startup</div>
-                <div class="price">R3 000<span>/project</span></div>
+        <div class="grid-3">
+            <div class="animated-card" style="padding: 40px; text-align: center;">
+                <h2 style="font-size: 1.2rem; letter-spacing: 2px;">V.1 FOUNDATION</h2>
+                <div class="price-tag">R5k <span>/base</span></div>
                 <ul class="feature-list">
-                    <li><i class="fas fa-check"></i> 1 Dedicated Landing Page</li>
-                    <li><i class="fas fa-check"></i> Standard SEO Injection</li>
-                    <li><i class="fas fa-check"></i> SSL Security Setup</li>
-                    <li><i class="fas fa-check"></i> Mobile Responsive Build</li>
-                    <li><i class="fas fa-check"></i> Basic Analytics Integration</li>
+                    <li><i class="fas fa-check"></i> Single Page Architecture</li>
+                    <li><i class="fas fa-check"></i> Core POPIA Compliance</li>
+                    <li><i class="fas fa-check"></i> Mobile Optimization</li>
+                    <li><i class="fas fa-check"></i> 7-Day Deployment</li>
                 </ul>
-                <a href="contact.html" class="choose-btn">Initialize</a>
+                <a href="contact.html" class="choose-btn" style="width: 100%;">Initialize</a>
             </div>
 
-            <div class="pricing-card" style="border-color: rgba(0, 123, 255, 0.3);">
-                <div class="popular-badge">Popular</div>
-                <div class="tier-title">Standard</div>
-                <div class="price">R3 500<span>/project</span></div>
+            <div class="animated-card" style="padding: 40px; text-align: center; border-color: var(--primary);">
+                <div style="position: absolute; top: 15px; right: 15px;">
+                    <span class="status-dot"></span> <small style="color: var(--primary); font-weight: 800;">RECO</small>
+                </div>
+                <h2 style="font-size: 1.2rem; letter-spacing: 2px;">V.2 ENTERPRISE</h2>
+                <div class="price-tag">R12k <span>/base</span></div>
                 <ul class="feature-list">
                     <li><i class="fas fa-check"></i> Multi-Page Ecosystem</li>
-                    <li><i class="fas fa-check"></i> Advanced UI Architecture</li>
-                    <li><i class="fas fa-check"></i> API Integration (1)</li>
-                    <li><i class="fas fa-check"></i> Technical SEO Suite</li>
-                    <li><i class="fas fa-check"></i> Content Management Setup</li>
+                    <li><i class="fas fa-check"></i> Technical SEO Layer</li>
+                    <li><i class="fas fa-check"></i> Advanced Animations</li>
+                    <li><i class="fas fa-check"></i> 14-Day Deployment</li>
                 </ul>
-                <a href="contact.html" class="choose-btn highlight-btn">Initialize</a>
+                <a href="contact.html" class="choose-btn highlight-btn" style="width: 100%;">Initialize</a>
             </div>
 
-            <div class="pricing-card">
-                <div class="tier-title">Premium</div>
-                <div class="price">R4 500<span>/project</span></div>
+            <div class="animated-card" style="padding: 40px; text-align: center;">
+                <h2 style="font-size: 1.2rem; letter-spacing: 2px;">V.X CUSTOM</h2>
+                <div class="price-tag">Custom</div>
                 <ul class="feature-list">
-                    <li><i class="fas fa-check"></i> Full Stack Web Application</li>
-                    <li><i class="fas fa-check"></i> Database Integration</li>
-                    <li><i class="fas fa-check"></i> Custom Admin Dashboard</li>
-                    <li><i class="fas fa-check"></i> E-Commerce Capabilities</li>
-                    <li><i class="fas fa-check"></i> Priority Technical Support</li>
+                    <li><i class="fas fa-check"></i> Full Stack Web Apps</li>
+                    <li><i class="fas fa-check"></i> API Integration</li>
+                    <li><i class="fas fa-check"></i> E-Commerce Engines</li>
+                    <li><i class="fas fa-check"></i> Priority Support</li>
                 </ul>
-                <a href="contact.html" class="choose-btn">Initialize</a>
+                <a href="contact.html" class="choose-btn" style="width: 100%;">Consult</a>
             </div>
+        </div>
 
-            <div class="pricing-card">
-                <div class="tier-title">Enterprise</div>
-                <div class="price">Custom</div>
-                <ul class="feature-list">
-                    <li><i class="fas fa-check"></i> Full Cloud Infrastructure</li>
-                    <li><i class="fas fa-check"></i> Unlimited Scaling</li>
-                    <li><i class="fas fa-check"></i> Dedicated Engineering Team</li>
-                    <li><i class="fas fa-check"></i> Custom API Development</li>
-                    <li><i class="fas fa-check"></i> Security Hardening Audit</li>
-                </ul>
-                <a href="contact.html" class="choose-btn">Consult Now</a>
-            </div>
+        <div class="animated-card" style="margin-top: 80px; padding: 40px; overflow-x: auto;">
+            <h3 style="margin-bottom: 30px; letter-spacing: 3px;"><i class="fas fa-list-check"></i> TECHNICAL COMPARISON</h3>
+            <table style="width: 100%; border-collapse: collapse; text-align: left; font-size: 0.85rem;">
+                <tr style="border-bottom: 1px solid rgba(255,255,255,0.1); color: var(--primary);">
+                    <th style="padding: 15px;">Specification</th>
+                    <th style="padding: 15px;">V.1</th>
+                    <th style="padding: 15px;">V.2</th>
+                    <th style="padding: 15px;">V.X</th>
+                </tr>
+                <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
+                    <td style="padding: 15px;">Security Protocol</td>
+                    <td style="padding: 15px;">Standard SSL</td>
+                    <td style="padding: 15px;">Advanced Hardening</td>
+                    <td style="padding: 15px;">Custom Encryption</td>
+                </tr>
+                <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
+                    <td style="padding: 15px;">Uptime Guarantee</td>
+                    <td style="padding: 15px;">99.5%</td>
+                    <td style="padding: 15px;">99.9%</td>
+                    <td style="padding: 15px;">99.99%</td>
+                </tr>
+                <tr>
+                    <td style="padding: 15px;">Source Ownership</td>
+                    <td style="padding: 15px;">Full</td>
+                    <td style="padding: 15px;">Full</td>
+                    <td style="padding: 15px;">Full + IP Rights</td>
+                </tr>
+            </table>
         </div>
     </main>
 
+    
+
     <footer>
         <p>© 2026 GASA TECH (PTY) LTD | Engineering Excellence</p>
+        <div style="margin-top: 10px; opacity: 0.5; font-size: 0.7rem;">
+            <a href="privacy.html" style="color: white; text-decoration: none;">Privacy Policy</a> | 
+            <a href="terms.html" style="color: white; text-decoration: none;">Terms & Conditions</a>
+        </div>
     </footer>
 
-    <script>
-        // Particle Background Logic
-        const canvas = document.getElementById('particleCanvas');
-        const ctx = canvas.getContext('2d');
-        let particles = [];
-        function init() {
-            canvas.width = window.innerWidth; canvas.height = window.innerHeight;
-            for(let i=0; i<60; i++) {
-                particles.push({
-                    x: Math.random() * canvas.width,
-                    y: Math.random() * canvas.height,
-                    size: Math.random() * 2,
-                    speed: Math.random() * 0.5 + 0.1
-                });
-            }
-        }
-        function animate() {
-            ctx.clearRect(0,0,canvas.width, canvas.height);
-            ctx.fillStyle = 'rgba(0, 123, 255, 0.3)';
-            particles.forEach(p => {
-                p.y -= p.speed;
-                if(p.y < 0) p.y = canvas.height;
-                ctx.beginPath(); ctx.arc(p.x, p.y, p.size, 0, Math.PI*2); ctx.fill();
-            });
-            requestAnimationFrame(animate);
-        }
-        window.addEventListener('resize', () => { canvas.width = window.innerWidth; canvas.height = window.innerHeight; });
-        init(); animate();
-
-        // Mobile Nav
-        const menu = document.querySelector('#mobile-menu');
-        const navList = document.querySelector('#nav-list');
-        menu.addEventListener('click', () => {
-            navList.classList.toggle('active');
-        });
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>
