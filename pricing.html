@@ -3,50 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pricing Architecture | GASA TECH</title>
-    <link rel="icon" type="image/png" href="https://img.icons8.com/fluency/48/laptop.png">
+    <title>Pricing | GASA TECH</title>
+    <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link rel="stylesheet" href="style.css">
-    <style>
-        .price-tag {
-            font-size: 2.5rem;
-            font-weight: 800;
-            color: var(--primary);
-            margin: 20px 0;
-        }
-        .price-tag span {
-            font-size: 1rem;
-            color: var(--text-dim);
-            font-weight: 400;
-        }
-        .feature-list {
-            list-style: none;
-            text-align: left;
-            margin-bottom: 30px;
-        }
-        .feature-list li {
-            font-size: 0.9rem;
-            margin-bottom: 12px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            color: var(--text-dim);
-        }
-        .feature-list i {
-            color: var(--primary);
-            font-size: 0.8rem;
-        }
-    </style>
 </head>
 <body>
 
     <header>
-        <a href="index.html" class="logo">
-            <i class="fas fa-laptop-code"></i> GASA <span>TECH</span>
-        </a>
-        <div class="menu-toggle" id="mobile-menu">
-            <span></span><span></span><span></span>
-        </div>
+        <a href="index.html" class="logo"><i class="fas fa-laptop-code"></i> GASA <span>TECH</span></a>
         <nav id="nav-list">
             <a href="index.html">Home</a>
             <a href="about.html">About</a>
@@ -58,92 +22,32 @@
     </header>
 
     <main class="content-wrapper">
-        <h1 data-value="DEPLOYMENT TIERS" style="text-align: center; letter-spacing: 8px; margin-bottom: 50px;">
-            DEPLOYMENT TIERS
-        </h1>
+        <h1 data-value="DEPLOYMENT TIERS">DEPLOYMENT TIERS</h1>
 
         <div class="grid-3">
             <div class="animated-card" style="padding: 40px; text-align: center;">
-                <h2 style="font-size: 1.2rem; letter-spacing: 2px;">V.1 FOUNDATION</h2>
-                <div class="price-tag">R5k <span>/base</span></div>
-                <ul class="feature-list">
-                    <li><i class="fas fa-check"></i> Single Page Architecture</li>
-                    <li><i class="fas fa-check"></i> Core POPIA Compliance</li>
-                    <li><i class="fas fa-check"></i> Mobile Optimization</li>
-                    <li><i class="fas fa-check"></i> 7-Day Deployment</li>
-                </ul>
-                <a href="contact.html" class="choose-btn" style="width: 100%;">Initialize</a>
+                <h3>V.1 FOUNDATION</h3>
+                <div style="font-size: 2.5rem; color: var(--primary); margin: 20px 0;">R5k</div>
+                <p style="color: var(--text-dim); font-size: 0.8rem; margin-bottom: 20px;">Single Page Architecture & POPIA Layer</p>
+                <a href="contact.html" class="highlight-btn" style="width: 100%;">Initialize</a>
             </div>
 
             <div class="animated-card" style="padding: 40px; text-align: center; border-color: var(--primary);">
-                <div style="position: absolute; top: 15px; right: 15px;">
-                    <span class="status-dot"></span> <small style="color: var(--primary); font-weight: 800;">RECO</small>
-                </div>
-                <h2 style="font-size: 1.2rem; letter-spacing: 2px;">V.2 ENTERPRISE</h2>
-                <div class="price-tag">R12k <span>/base</span></div>
-                <ul class="feature-list">
-                    <li><i class="fas fa-check"></i> Multi-Page Ecosystem</li>
-                    <li><i class="fas fa-check"></i> Technical SEO Layer</li>
-                    <li><i class="fas fa-check"></i> Advanced Animations</li>
-                    <li><i class="fas fa-check"></i> 14-Day Deployment</li>
-                </ul>
-                <a href="contact.html" class="choose-btn highlight-btn" style="width: 100%;">Initialize</a>
+                <h3>V.2 ENTERPRISE</h3>
+                <div style="font-size: 2.5rem; color: var(--primary); margin: 20px 0;">R12k</div>
+                <p style="color: var(--text-dim); font-size: 0.8rem; margin-bottom: 20px;">Multi-Page Ecosystem & Technical SEO</p>
+                <a href="contact.html" class="highlight-btn" style="width: 100%;">Initialize</a>
             </div>
 
             <div class="animated-card" style="padding: 40px; text-align: center;">
-                <h2 style="font-size: 1.2rem; letter-spacing: 2px;">V.X CUSTOM</h2>
-                <div class="price-tag">Custom</div>
-                <ul class="feature-list">
-                    <li><i class="fas fa-check"></i> Full Stack Web Apps</li>
-                    <li><i class="fas fa-check"></i> API Integration</li>
-                    <li><i class="fas fa-check"></i> E-Commerce Engines</li>
-                    <li><i class="fas fa-check"></i> Priority Support</li>
-                </ul>
-                <a href="contact.html" class="choose-btn" style="width: 100%;">Consult</a>
+                <h3>V.X CUSTOM</h3>
+                <div style="font-size: 2.5rem; color: var(--primary); margin: 20px 0;">QUOTE</div>
+                <p style="color: var(--text-dim); font-size: 0.8rem; margin-bottom: 20px;">Full Stack Web Apps & API Integration</p>
+                <a href="contact.html" class="highlight-btn" style="width: 100%;">Consult</a>
             </div>
-        </div>
-
-        <div class="animated-card" style="margin-top: 80px; padding: 40px; overflow-x: auto;">
-            <h3 style="margin-bottom: 30px; letter-spacing: 3px;"><i class="fas fa-list-check"></i> TECHNICAL COMPARISON</h3>
-            <table style="width: 100%; border-collapse: collapse; text-align: left; font-size: 0.85rem;">
-                <tr style="border-bottom: 1px solid rgba(255,255,255,0.1); color: var(--primary);">
-                    <th style="padding: 15px;">Specification</th>
-                    <th style="padding: 15px;">V.1</th>
-                    <th style="padding: 15px;">V.2</th>
-                    <th style="padding: 15px;">V.X</th>
-                </tr>
-                <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
-                    <td style="padding: 15px;">Security Protocol</td>
-                    <td style="padding: 15px;">Standard SSL</td>
-                    <td style="padding: 15px;">Advanced Hardening</td>
-                    <td style="padding: 15px;">Custom Encryption</td>
-                </tr>
-                <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
-                    <td style="padding: 15px;">Uptime Guarantee</td>
-                    <td style="padding: 15px;">99.5%</td>
-                    <td style="padding: 15px;">99.9%</td>
-                    <td style="padding: 15px;">99.99%</td>
-                </tr>
-                <tr>
-                    <td style="padding: 15px;">Source Ownership</td>
-                    <td style="padding: 15px;">Full</td>
-                    <td style="padding: 15px;">Full</td>
-                    <td style="padding: 15px;">Full + IP Rights</td>
-                </tr>
-            </table>
         </div>
     </main>
 
-    
-
-    <footer>
-        <p>© 2026 GASA TECH (PTY) LTD | Engineering Excellence</p>
-        <div style="margin-top: 10px; opacity: 0.5; font-size: 0.7rem;">
-            <a href="privacy.html" style="color: white; text-decoration: none;">Privacy Policy</a> | 
-            <a href="terms.html" style="color: white; text-decoration: none;">Terms & Conditions</a>
-        </div>
-    </footer>
-
-    <script src="script.js"></script>
+    <script src="js/script.js"></script>
 </body>
 </html>
