@@ -6,160 +6,46 @@
     <title>Portfolio | GASA TECH</title>
     <link rel="icon" type="image/png" href="https://img.icons8.com/fluency/48/laptop.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
     <style>
-        :root { 
-            --primary: #007bff; 
-            --dark-bg: #070b14; 
-            --card-glass: rgba(255, 255, 255, 0.03);
-            --accent-glow: rgba(0, 123, 255, 0.15);
-        }
-
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
-        
-        body { 
-            background: var(--dark-bg); 
-            color: white; 
-            background: radial-gradient(circle at center, #0f172a 0%, #070b14 100%);
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            overflow-x: hidden;
-        }
-
-        /* --- FLOATING PARTICLES --- */
-        .particles {
-            position: fixed;
-            top: 0; left: 0; width: 100%; height: 100%;
-            z-index: 0;
-            pointer-events: none;
-        }
-
-        /* --- NAVIGATION --- */
-        header { 
-            display: flex; justify-content: space-between; align-items: center; 
-            padding: 20px 8%; position: fixed; width: 100%; top: 0; z-index: 1000; 
-            background: rgba(7, 11, 20, 0.8); backdrop-filter: blur(12px); 
-            border-bottom: 1px solid rgba(255,255,255,0.05); 
-        }
-        .logo { font-size: 22px; font-weight: 800; text-decoration: none; color: white; display: flex; align-items: center; gap: 12px; }
-        .logo i { color: var(--primary); }
-        .logo span { color: var(--primary); }
-        nav a { color: white; text-decoration: none; font-size: 11px; margin-left: 20px; opacity: 0.6; text-transform: uppercase; letter-spacing: 1px; transition: 0.3s; }
-        nav a:hover, nav a.active { opacity: 1; color: var(--primary); }
-
-        /* --- PORTFOLIO HEADER --- */
-        .content-wrapper {
-            flex: 1;
-            padding: 140px 8% 80px 8%;
-            z-index: 1;
-        }
-
-        .portfolio-header { text-align: center; margin-bottom: 80px; }
-        .portfolio-header h1 { font-size: clamp(2rem, 5vw, 3rem); letter-spacing: 8px; text-transform: uppercase; margin-bottom: 15px; }
-        .portfolio-header p { color: #94a3b8; letter-spacing: 2px; text-transform: uppercase; font-size: 0.8rem; }
-
-        /* --- PORTFOLIO GRID --- */
-        .portfolio-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
-            gap: 30px;
-            width: 100%;
-            max-width: 1300px;
-            margin: 0 auto;
-        }
-
-        .project-card {
-            position: relative;
-            background: var(--card-glass);
-            padding: 40px;
-            border-radius: 24px;
-            backdrop-filter: blur(20px);
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            transition: 0.5s cubic-bezier(0.23, 1, 0.32, 1);
-            text-decoration: none;
-            overflow: hidden;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-        }
-
-        .project-card:hover {
-            transform: translateY(-15px) scale(1.02);
-            background: rgba(255, 255, 255, 0.07);
-            border-color: var(--primary);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
-        }
-
-        /* Beam Effect on Hover */
-        .project-card::before {
-            content: "";
-            position: absolute;
-            top: 0; left: -100%; width: 100%; height: 2px;
-            background: linear-gradient(90deg, transparent, var(--primary), transparent);
-            transition: 0.5s;
-        }
-        .project-card:hover::before { left: 100%; }
-
-        .industry-icon {
-            font-size: 2.2rem;
-            color: var(--primary);
-            margin-bottom: 20px;
-            filter: drop-shadow(0 0 10px var(--accent-glow));
-        }
-
-        .project-card h3 { color: white; font-size: 1.5rem; margin-bottom: 12px; }
-        .project-card p { color: #94a3b8; line-height: 1.6; font-size: 0.9rem; margin-bottom: 25px; }
-
-        /* Tech Badges */
-        .tech-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 20px; }
-        .tech-tags span {
-            font-size: 10px;
+        .tech-badge {
+            font-size: 0.65rem;
             background: rgba(0, 123, 255, 0.1);
             color: var(--primary);
             padding: 4px 10px;
-            border-radius: 4px;
+            border-radius: 50px;
+            border: 1px solid rgba(0, 123, 255, 0.2);
             text-transform: uppercase;
-            font-weight: 700;
+            letter-spacing: 1px;
+            margin-right: 5px;
         }
-
-        .visit-link { 
-            font-size: 0.75rem; 
-            text-transform: uppercase; 
-            letter-spacing: 2px; 
-            color: var(--primary); 
-            font-weight: 800;
+        .project-image {
+            width: 100%;
+            height: 200px;
+            background: #0f172a;
+            border-radius: 15px;
+            margin-bottom: 20px;
             display: flex;
             align-items: center;
-            gap: 10px;
+            justify-content: center;
+            overflow: hidden;
+            border: 1px solid rgba(255,255,255,0.05);
         }
-
-        /* --- FOOTER --- */
-        footer { padding: 60px 40px 30px 40px; text-align: center; font-size: 0.8rem; color: #475569; }
-
-        @media (max-width: 850px) {
-            header { padding: 15px 5%; }
-            .portfolio-grid { grid-template-columns: 1fr; }
-            nav {
-                position: fixed; top: 0; right: -100%; width: 80%; height: 100vh;
-                background: var(--dark-bg); display: flex; flex-direction: column; 
-                align-items: center; justify-content: center; transition: 0.5s;
-            }
-            nav.active { right: 0; }
-            nav a { margin: 15px 0; font-size: 1.2rem; }
+        .project-image i {
+            font-size: 3rem;
+            opacity: 0.2;
+            color: var(--primary);
         }
     </style>
 </head>
 <body>
 
-    <canvas id="particleCanvas" class="particles"></canvas>
-
     <header>
         <a href="index.html" class="logo">
-            <i class="fas fa-laptop-code"></i>
-            GASA <span>TECH</span>
+            <i class="fas fa-laptop-code"></i> GASA <span>TECH</span>
         </a>
         <div class="menu-toggle" id="mobile-menu">
-            <i class="fas fa-bars" style="font-size: 1.5rem;"></i>
+            <span></span><span></span><span></span>
         </div>
         <nav id="nav-list">
             <a href="index.html">Home</a>
@@ -172,110 +58,74 @@
     </header>
 
     <main class="content-wrapper">
-        <div class="portfolio-header">
-            <p>Showcasing Deployment Excellence</p>
-            <h1>Engineering Legacy</h1>
-        </div>
+        <h1 data-value="DEPLOYMENT LOG" style="text-align: center; letter-spacing: 8px; margin-bottom: 50px;">
+            DEPLOYMENT LOG
+        </h1>
 
-        <div class="portfolio-grid">
-            <a href="https://neobreedmarketingsolutions.com" target="_blank" class="project-card">
-                <div>
-                    <i class="fas fa-bullhorn industry-icon"></i>
-                    <div class="tech-tags"><span>Marketing</span><span>SEO</span><span>Analytics</span></div>
-                    <h3>Neobreed Solutions</h3>
-                    <p>Performance-driven digital marketing ecosystem with deep data integration.</p>
+        <div class="grid-3">
+            <div class="animated-card" style="padding: 30px;">
+                <div class="project-image">
+                    <i class="fas fa-truck-fast"></i>
                 </div>
-                <div class="visit-link">Launch System <i class="fas fa-external-link-alt"></i></div>
-            </a>
+                <div style="margin-bottom: 15px;">
+                    <span class="tech-badge">E-Commerce</span>
+                    <span class="tech-badge">Logistics</span>
+                </div>
+                <h3 style="margin-bottom: 10px;">Iletha Online</h3>
+                <p style="font-size: 0.85rem; color: var(--text-dim); margin-bottom: 20px;">
+                    A high-performance retail engine integrated with real-time delivery tracking for the South African market.
+                </p>
+                <a href="https://iletha.co.za" target="_blank" class="choose-btn" style="width: 100%; text-align: center; font-size: 0.7rem;">
+                    Access System <i class="fas fa-external-link-alt" style="margin-left: 10px;"></i>
+                </a>
+            </div>
 
-            <a href="https://vilemaico.co.za" target="_blank" class="project-card">
-                <div>
-                    <i class="fas fa-video industry-icon"></i>
-                    <div class="tech-tags"><span>Media</span><span>UI Architecture</span><span>Cloud</span></div>
-                    <h3>Vile Amico</h3>
-                    <p>High-fidelity media infrastructure and brand-focused web delivery systems.</p>
+            <div class="animated-card" style="padding: 30px;">
+                <div class="project-image">
+                    <i class="fas fa-fire"></i>
                 </div>
-                <div class="visit-link">Launch System <i class="fas fa-external-link-alt"></i></div>
-            </a>
+                <div style="margin-bottom: 15px;">
+                    <span class="tech-badge">Portfolio</span>
+                    <span class="tech-badge">UI/UX</span>
+                </div>
+                <h3 style="margin-bottom: 10px;">Braai Block</h3>
+                <p style="font-size: 0.85rem; color: var(--text-dim); margin-bottom: 20px;">
+                    A minimalist, responsive brand showcase designed for maximum visual impact and high-speed asset loading.
+                </p>
+                <a href="https://braaiblock.co.za" target="_blank" class="choose-btn" style="width: 100%; text-align: center; font-size: 0.7rem;">
+                    Access System <i class="fas fa-external-link-alt" style="margin-left: 10px;"></i>
+                </a>
+            </div>
 
-            <a href="https://braaiblock.com" target="_blank" class="project-card">
-                <div>
-                    <i class="fas fa-fire industry-icon"></i>
-                    <div class="tech-tags"><span>E-Commerce</span><span>High Traffic</span></div>
-                    <h3>Braai Block</h3>
-                    <p>Robust software engineering for high-volume consumer food platforms.</p>
+            <div class="animated-card" style="padding: 30px;">
+                <div class="project-image">
+                    <i class="fas fa-network-wired"></i>
                 </div>
-                <div class="visit-link">Launch System <i class="fas fa-external-link-alt"></i></div>
-            </a>
-
-            <a href="https://iletha.com" target="_blank" class="project-card">
-                <div>
-                    <i class="fas fa-shipping-fast industry-icon"></i>
-                    <div class="tech-tags"><span>Logistics</span><span>Corporate</span></div>
-                    <h3>Iletha</h3>
-                    <p>Corporate-grade web architecture for streamlined delivery management.</p>
+                <div style="margin-bottom: 15px;">
+                    <span class="tech-badge">SAAS</span>
+                    <span class="tech-badge">Internal</span>
                 </div>
-                <div class="visit-link">Launch System <i class="fas fa-external-link-alt"></i></div>
-            </a>
-
-            <a href="index.html" class="project-card">
-                <div>
-                    <i class="fas fa-calculator industry-icon"></i>
-                    <div class="tech-tags"><span>Logic</span><span>Tooling</span><span>JS</span></div>
-                    <h3>GasaCalc Utility</h3>
-                    <p>Precision calculation engine developed for complex algorithmic computations.</p>
+                <h3 style="margin-bottom: 10px;">GASA V.1 Infrastructure</h3>
+                <p style="font-size: 0.85rem; color: var(--text-dim); margin-bottom: 20px;">
+                    The proprietary framework powering GASA TECH's rapid deployment pipeline and automation tools.
+                </p>
+                <div style="color: var(--primary); font-size: 0.7rem; font-weight: 800; text-transform: uppercase;">
+                    <span class="status-dot"></span> System Encrypted
                 </div>
-                <div class="visit-link">Internal Tool <i class="fas fa-arrow-right"></i></div>
-            </a>
+            </div>
         </div>
     </main>
 
+    
+
     <footer>
         <p>© 2026 GASA TECH (PTY) LTD | Engineering Excellence</p>
+        <div style="margin-top: 10px; opacity: 0.5; font-size: 0.7rem;">
+            <a href="privacy.html" style="color: white; text-decoration: none;">Privacy Policy</a> | 
+            <a href="terms.html" style="color: white; text-decoration: none;">Terms & Conditions</a>
+        </div>
     </footer>
 
-    <script>
-        // Particle Background Logic
-        const canvas = document.getElementById('particleCanvas');
-        const ctx = canvas.getContext('2d');
-        let particles = [];
-
-        function init() {
-            canvas.width = window.innerWidth;
-            canvas.height = window.innerHeight;
-            for(let i=0; i<60; i++) {
-                particles.push({
-                    x: Math.random() * canvas.width,
-                    y: Math.random() * canvas.height,
-                    size: Math.random() * 2,
-                    speed: Math.random() * 0.5 + 0.1
-                });
-            }
-        }
-
-        function animate() {
-            ctx.clearRect(0,0,canvas.width, canvas.height);
-            ctx.fillStyle = 'rgba(0, 123, 255, 0.3)';
-            particles.forEach(p => {
-                p.y -= p.speed;
-                if(p.y < 0) p.y = canvas.height;
-                ctx.beginPath();
-                ctx.arc(p.x, p.y, p.size, 0, Math.PI*2);
-                ctx.fill();
-            });
-            requestAnimationFrame(animate);
-        }
-
-        window.addEventListener('resize', () => { canvas.width = window.innerWidth; canvas.height = window.innerHeight; });
-        init();
-        animate();
-
-        // Mobile Nav
-        const menu = document.querySelector('#mobile-menu');
-        const navList = document.querySelector('#nav-list');
-        menu.addEventListener('click', () => {
-            navList.classList.toggle('active');
-        });
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>
