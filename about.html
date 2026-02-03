@@ -3,169 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home | GASA TECH</title>
+    <title>About | GASA TECH</title>
     <link rel="icon" type="image/png" href="https://img.icons8.com/fluency/48/laptop.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <style>
-        :root { 
-            --primary: #007bff; 
-            --dark-bg: #070b14; 
-            --accent-glow: rgba(0, 123, 255, 0.4);
-        }
-
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
-        
-        body { 
-            background: var(--dark-bg); 
-            color: white; 
-            background: radial-gradient(circle at center, #0f172a 0%, #070b14 100%);
-            height: 100vh;
-            display: flex;
-            flex-direction: column;
-            overflow: hidden;
-        }
-
-        .particles { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 0; pointer-events: none; }
-
-        header { 
-            display: flex; justify-content: space-between; align-items: center; 
-            padding: 25px 8%; position: fixed; width: 100%; top: 0; z-index: 1000; 
-            background: rgba(7, 11, 20, 0.5); backdrop-filter: blur(15px); 
-            border-bottom: 1px solid rgba(255,255,255,0.05); 
-        }
-        
-        .logo { font-size: 24px; font-weight: 800; text-decoration: none; color: white; display: flex; align-items: center; gap: 12px; }
-        .logo i { color: var(--primary); text-shadow: 0 0 10px var(--primary); }
-        .logo span { color: var(--primary); }
-
-        nav { display: flex; align-items: center; }
-        nav a { color: white; text-decoration: none; font-size: 11px; margin-left: 30px; opacity: 0.6; text-transform: uppercase; letter-spacing: 2px; transition: 0.3s; }
-        nav a:hover, nav a.active { opacity: 1; color: var(--primary); }
-
-        .menu-toggle { display: none; cursor: pointer; color: white; font-size: 1.5rem; }
-
-        .hero {
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            z-index: 1;
-            position: relative;
-        }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            width: 400px;
-            height: 400px;
-            background: var(--primary);
-            filter: blur(150px);
-            opacity: 0.15;
-            z-index: -1;
-        }
-
-        .hero h1 { 
-            font-size: clamp(3rem, 12vw, 7rem); 
-            letter-spacing: 15px; 
-            text-transform: uppercase; 
-            font-weight: 900;
-            margin-bottom: 10px;
-            line-height: 1;
-        }
-
-        .hero h2 {
-            font-size: 0.9rem;
-            letter-spacing: 12px;
-            color: var(--primary);
-            text-transform: uppercase;
-            margin-bottom: 50px;
-            font-weight: 400;
-            opacity: 0.8;
-        }
-
-        .cta-group { display: flex; gap: 30px; }
-        
-        .btn-box {
-            position: relative;
-            padding: 2px;
-            border-radius: 8px;
-            overflow: hidden;
-            display: inline-block;
-        }
-
-        .btn-box::after {
-            content: "";
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(90deg, transparent, var(--primary), transparent);
-            animation: moveBeam 3s linear infinite;
-        }
-
-        @keyframes moveBeam {
-            0% { clip-path: inset(0 0 95% 0); }
-            25% { clip-path: inset(0 0 0 95%); }
-            50% { clip-path: inset(95% 0 0 0); }
-            75% { clip-path: inset(0 95% 0 0); }
-            100% { clip-path: inset(0 0 95% 0); }
-        }
-
-        .btn {
-            position: relative;
-            z-index: 2;
-            background: #070b14;
-            padding: 18px 45px; 
-            border-radius: 6px; 
-            text-decoration: none; 
-            font-weight: 800; 
-            text-transform: uppercase; 
-            letter-spacing: 3px; 
-            font-size: 0.7rem; 
-            transition: 0.4s;
-            display: block;
-            color: white;
-        }
-
-        .btn:hover { background: var(--primary); box-shadow: 0 0 30px var(--accent-glow); }
-
-        .btn-outline {
-            background: transparent;
-            border: 1px solid rgba(255,255,255,0.1);
-        }
-        .btn-outline:hover { background: rgba(255,255,255,0.05); color: white; border-color: white; }
-
-        footer { padding: 40px; text-align: center; font-size: 0.7rem; color: #475569; letter-spacing: 3px; z-index: 1; text-transform: uppercase; }
-
-        @media (max-width: 850px) {
-            .menu-toggle { display: block; }
-            nav {
-                position: fixed; top: 0; right: -100%; width: 100%; height: 100vh;
-                background: var(--dark-bg); flex-direction: column; justify-content: center;
-                transition: 0.4s;
-            }
-            nav.active { right: 0; }
-            nav a { margin: 20px 0; font-size: 1.2rem; margin-left: 0; }
-            .cta-group { flex-direction: column; gap: 15px; }
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <canvas id="particleCanvas" class="particles"></canvas>
+    <canvas id="particleCanvas" style="position: fixed; top: 0; left: 0; z-index: -1;"></canvas>
 
     <header>
         <a href="index.html" class="logo">
-            <i class="fas fa-microchip"></i> GASA <span>TECH</span>
+            <i class="fas fa-laptop-code"></i> GASA <span>TECH</span>
         </a>
-        
         <div class="menu-toggle" id="mobile-menu">
-            <i class="fas fa-bars"></i>
+            <span></span><span></span><span></span>
         </div>
-
         <nav id="nav-list">
-            <a href="index.html" class="active">Home</a>
-            <a href="about.html">About</a>
+            <a href="index.html">Home</a>
+            <a href="about.html" class="active">About</a>
             <a href="services.html">Services</a>
             <a href="portfolio.html">Portfolio</a>
             <a href="pricing.html">Pricing</a>
@@ -173,20 +29,66 @@
         </nav>
     </header>
 
-    <main class="hero">
-        <h1>GASA TECH</h1>
-        <h2>Digital Engineering Agency</h2>
-        
-        <div class="cta-group">
-            <div class="btn-box">
-                <a href="portfolio.html" class="btn">View Systems</a>
+    <main class="content-wrapper">
+        <h1 data-value="ENGINEERING LEGACY" style="letter-spacing: 8px; text-align: center; margin-bottom: 50px;">
+            ENGINEERING LEGACY
+        </h1>
+
+        <div class="grid-3" style="align-items: center;">
+            <div class="animated-card" style="padding: 40px; grid-column: span 2;">
+                <h2 style="color: var(--primary); margin-bottom: 20px;">
+                    <span class="status-dot"></span> Mission Protocol
+                </h2>
+                <p style="font-size: 1.1rem; margin-bottom: 20px;">
+                    GASA TECH (PTY) LTD is not a design agency; we are a digital engineering firm. Based in South Africa, we specialize in building high-performance infrastructure for businesses that require precision, security, and scalability.
+                </p>
+                <p style="color: var(--text-dim);">
+                    Our philosophy is rooted in "Engineering Excellence." We treat every line of code as a structural component, ensuring that your digital assets are built to withstand the demands of modern traffic and complex logic.
+                </p>
             </div>
-            <a href="contact.html" class="btn btn-outline">Initialize Contact</a>
+
+            <div class="animated-card" style="padding: 40px; text-align: center;">
+                <i class="fas fa-microchip" style="font-size: 3rem; color: var(--primary); margin-bottom: 20px;"></i>
+                <h3>Founded 2026</h3>
+                <p style="font-size: 0.8rem; color: var(--text-dim); margin-top: 10px;">
+                    OPERATIONAL STATUS: OPTIMAL
+                </p>
+            </div>
+        </div>
+
+        <h2 style="text-align: center; margin: 80px 0 40px; letter-spacing: 4px;">CORE TECH STACK</h2>
+        
+        
+
+        <div class="grid-3">
+            <div class="animated-card" style="padding: 30px; text-align: center;">
+                <i class="fab fa-react" style="font-size: 2rem; margin-bottom: 15px;"></i>
+                <h4>Frontend Engine</h4>
+                <p style="font-size: 0.8rem; color: var(--text-dim);">React & Next.js Ecosystems</p>
+            </div>
+            <div class="animated-card" style="padding: 30px; text-align: center;">
+                <i class="fas fa-server" style="font-size: 2rem; margin-bottom: 15px;"></i>
+                <h4>Backend Architecture</h4>
+                <p style="font-size: 0.8rem; color: var(--text-dim);">Node.js & Python Integration</p>
+            </div>
+            <div class="animated-card" style="padding: 30px; text-align: center;">
+                <i class="fas fa-vault" style="font-size: 2rem; margin-bottom: 15px;"></i>
+                <h4>Security Layer</h4>
+                <p style="font-size: 0.8rem; color: var(--text-dim);">SSL Encryption & POPIA Guard</p>
+            </div>
+        </div>
+
+        <div style="text-align: center; margin-top: 80px;">
+            <a href="portfolio.html" class="choose-btn highlight-btn">View Our Builds</a>
         </div>
     </main>
 
     <footer>
-        <p>© 2026 GASA TECH | South Africa</p>
+        <p>© 2026 GASA TECH (PTY) LTD | Engineering Excellence</p>
+        <div style="margin-top: 10px; opacity: 0.5; font-size: 0.7rem;">
+            <a href="privacy.html" style="color: white; text-decoration: none;">Privacy Policy</a> | 
+            <a href="terms.html" style="color: white; text-decoration: none;">Terms & Conditions</a>
+        </div>
     </footer>
 
     <script>
@@ -195,34 +97,29 @@
         let particles = [];
         function init() {
             canvas.width = window.innerWidth; canvas.height = window.innerHeight;
-            for(let i=0; i<80; i++) {
+            for(let i=0; i<60; i++) {
                 particles.push({
                     x: Math.random() * canvas.width,
                     y: Math.random() * canvas.height,
                     size: Math.random() * 2,
-                    speed: Math.random() * 0.3 + 0.1,
-                    opacity: Math.random()
+                    speed: Math.random() * 0.5 + 0.1
                 });
             }
         }
         function animate() {
             ctx.clearRect(0,0,canvas.width, canvas.height);
+            ctx.fillStyle = 'rgba(0, 123, 255, 0.3)';
             particles.forEach(p => {
                 p.y -= p.speed;
                 if(p.y < 0) p.y = canvas.height;
-                ctx.fillStyle = `rgba(0, 123, 255, ${p.opacity})`;
                 ctx.beginPath(); ctx.arc(p.x, p.y, p.size, 0, Math.PI*2); ctx.fill();
             });
             requestAnimationFrame(animate);
         }
         window.addEventListener('resize', () => { canvas.width = window.innerWidth; canvas.height = window.innerHeight; });
         init(); animate();
-
-        const menu = document.querySelector('#mobile-menu');
-        const navList = document.querySelector('#nav-list');
-        menu.addEventListener('click', () => {
-            navList.classList.toggle('active');
-        });
     </script>
+
+    <script src="script.js"></script>
 </body>
 </html>
