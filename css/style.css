@@ -1,10 +1,32 @@
-/* --- Global Polish --- */
-html {
-    scroll-behavior: smooth;
+/* GASA TECH - Master Design System 2026
+    Engineering Excellence - Cape Town, RSA
+*/
+
+:root {
+    --primary: #007bff;
+    --dark: #070b14;
+    --glass: rgba(255, 255, 255, 0.03);
+    --accent-glow: rgba(0, 123, 255, 0.2);
+    --text-main: #ffffff;
+    --text-dim: #94a3b8;
+    --transition: 0.4s cubic-bezier(0.23, 1, 0.32, 1);
 }
 
-/* Custom Engineering Scrollbar */
-::-webkit-scrollbar { width: 5px; }
+/* --- 1. GLOBAL RESET & SCROLLBAR --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', 'Segoe UI', sans-serif;
+}
+
+html {
+    scroll-behavior: smooth;
+    background: var(--dark);
+}
+
+/* Modern Engineering Scrollbar */
+::-webkit-scrollbar { width: 6px; }
 ::-webkit-scrollbar-track { background: var(--dark); }
 ::-webkit-scrollbar-thumb { 
     background: var(--primary); 
@@ -12,19 +34,150 @@ html {
     box-shadow: 0 0 10px var(--primary);
 }
 
-/* Pulse Animation for "System Live" */
-.status-dot {
-    height: 8px; width: 8px;
-    background-color: #22c55e;
-    border-radius: 50%;
-    display: inline-block;
-    margin-right: 8px;
-    box-shadow: 0 0 8px #22c55e;
-    animation: pulse 2s infinite;
+body {
+    background: radial-gradient(circle at center, #0f172a 0%, #070b14 100%);
+    color: var(--text-main);
+    min-height: 100vh;
+    overflow-x: hidden;
+    line-height: 1.6;
 }
 
-@keyframes pulse {
-    0% { opacity: 1; }
-    50% { opacity: 0.3; }
-    100% { opacity: 1; }
+/* --- 2. THE NAVIGATION --- */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 8%;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    background: rgba(7, 11, 20, 0.85);
+    backdrop-filter: blur(15px);
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: 800;
+    text-decoration: none;
+    color: white;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.logo span { color: var(--primary); }
+
+nav a {
+    color: white;
+    text-decoration: none;
+    font-size: 11px;
+    margin-left: 25px;
+    opacity: 0.6;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    transition: var(--transition);
+}
+
+nav a:hover, nav a.active {
+    opacity: 1;
+    color: var(--primary);
+    text-shadow: 0 0 10px var(--primary);
+}
+
+/* --- 3. REUSABLE UI COMPONENTS --- */
+
+/* The Glass Card with Animated Beam */
+.animated-card {
+    position: relative;
+    background: var(--glass);
+    border-radius: 25px;
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    transition: var(--transition);
+    overflow: hidden;
+}
+
+.animated-card:hover {
+    transform: translateY(-10px) scale(1.02);
+    border-color: var(--primary);
+    background: rgba(255, 255, 255, 0.06);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+}
+
+/* Moving Light Beam Animation */
+.animated-card::after {
+    content: "";
+    position: absolute;
+    inset: -1px;
+    border-radius: 25px;
+    padding: 2px; 
+    background: linear-gradient(90deg, transparent, var(--primary), transparent);
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask-composite: exclude;
+    animation: moveBeam 4s linear infinite;
+}
+
+@keyframes moveBeam {
+    0% { clip-path: inset(0 0 98% 0); }
+    25% { clip-path: inset(0 0 0 98%); }
+    50% { clip-path: inset(98% 0 0 0); }
+    75% { clip-path: inset(0 98% 0 0); }
+    100% { clip-path: inset(0 0 98% 0); }
+}
+
+/* Magnetic Buttons */
+.choose-btn, .btn-back, .highlight-btn {
+    display: inline-block;
+    padding: 15px 35px;
+    border-radius: 12px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-decoration: none;
+    transition: var(--transition);
+    border: 1px solid rgba(255,255,255,0.1);
+    color: white;
+    cursor: pointer;
+}
+
+.highlight-btn, .choose-btn:hover {
+    background: var(--primary);
+    border-color: var(--primary);
+    box-shadow: 0 10px 20px var(--accent-glow);
+}
+
+/* --- 4. LAYOUTS --- */
+.content-wrapper {
+    padding: 140px 8% 80px 8%;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.grid-3 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+/* --- 5. RESPONSIVE DESIGN --- */
+@media (max-width: 850px) {
+    header { padding: 20px 5%; }
+    .menu-toggle { display: block; cursor: pointer; }
+    nav {
+        position: fixed; top: 0; right: -100%; width: 80%; height: 100vh;
+        background: var(--dark); display: flex; flex-direction: column; 
+        align-items: center; justify-content: center; transition: 0.5s;
+    }
+    nav.active { right: 0; }
+    nav a { margin: 20px 0; font-size: 1.2rem; }
+}
+
+footer {
+    padding: 60px 8% 40px 8%;
+    text-align: center;
+    border-top: 1px solid rgba(255,255,255,0.05);
+    color: var(--text-dim);
+    font-size: 0.8rem;
 }
