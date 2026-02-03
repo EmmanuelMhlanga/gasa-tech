@@ -3,11 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GASA TECH | Engineering South Africa's Digital Legacy</title>
-    <link rel="icon" type="image/png" href="https://img.icons8.com/fluency/48/laptop.png">
+    <title>GASA TECH | Engineering South Africa</title>
     
-    <link rel="stylesheet" href="style.css">
-    
+    <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
@@ -15,12 +13,7 @@
     <canvas id="particleCanvas" style="position: fixed; top: 0; left: 0; z-index: -1;"></canvas>
 
     <header>
-        <a href="index.html" class="logo">
-            <i class="fas fa-laptop-code"></i> GASA <span>TECH</span>
-        </a>
-        <div class="menu-toggle" id="mobile-menu">
-            <span></span><span></span><span></span>
-        </div>
+        <a href="index.html" class="logo"><i class="fas fa-laptop-code"></i> GASA <span>TECH</span></a>
         <nav id="nav-list">
             <a href="index.html" class="active">Home</a>
             <a href="about.html">About</a>
@@ -32,83 +25,35 @@
     </header>
 
     <main class="content-wrapper">
-        <section style="text-align: center; min-height: 70vh; display: flex; flex-direction: column; justify-content: center; align-items: center;">
-            <div style="margin-bottom: 20px;">
-                <span class="status-dot"></span> 
-                <span style="font-size: 0.8rem; letter-spacing: 3px; color: var(--primary); font-weight: 800; text-transform: uppercase;">
-                    System Status: Operational
-                </span>
-            </div>
-            
-            <h1 data-value="GASA TECH SOLUTIONS" style="font-size: clamp(2.5rem, 8vw, 5rem); letter-spacing: 15px; line-height: 1.1; margin-bottom: 20px;">
-                GASA TECH SOLUTIONS
-            </h1>
-            
-            <p style="max-width: 600px; font-size: 1.1rem; color: var(--text-dim); margin-bottom: 40px; text-transform: uppercase; letter-spacing: 2px;">
-                Engineering high-performance digital infrastructure and scalable web ecosystems.
-            </p>
-
-            <div style="display: flex; gap: 20px; flex-wrap: wrap; justify-content: center;">
-                <a href="services.html" class="choose-btn highlight-btn">Initialize Discovery</a>
+        <section style="text-align: center; min-height: 70vh; display: flex; flex-direction: column; justify-content: center;">
+            <div><span class="status-dot"></span> <small style="letter-spacing: 2px;">SYSTEM STATUS: OPERATIONAL</small></div>
+            <h1 data-value="GASA TECH SOLUTIONS" style="font-size: clamp(2rem, 8vw, 4.5rem); letter-spacing: 12px; margin: 20px 0;">GASA TECH SOLUTIONS</h1>
+            <p style="color: var(--text-dim); max-width: 600px; margin: 0 auto 40px;">ENGINEERING HIGH-PERFORMANCE DIGITAL INFRASTRUCTURE.</p>
+            <div style="display: flex; gap: 20px; justify-content: center;">
+                <a href="services.html" class="highlight-btn">Initialize Discovery</a>
                 <a href="portfolio.html" class="choose-btn">View Repository</a>
-            </div>
-        </section>
-
-        <section style="margin-top: 100px;">
-            <h2 style="text-align: center; margin-bottom: 60px; letter-spacing: 5px; text-transform: uppercase;">Core Capabilities</h2>
-            <div class="grid-3">
-                <div class="animated-card" style="padding: 40px;">
-                    <i class="fas fa-microchip" style="font-size: 2rem; color: var(--primary); margin-bottom: 20px;"></i>
-                    <h3>Digital Engineering</h3>
-                    <p style="color: var(--text-dim); font-size: 0.9rem;">Building robust backends and secure APIs that serve as the backbone of your enterprise.</p>
-                </div>
-                <div class="animated-card" style="padding: 40px;">
-                    <i class="fas fa-atom" style="font-size: 2rem; color: var(--primary); margin-bottom: 20px;"></i>
-                    <h3>UI Architecture</h3>
-                    <p style="color: var(--text-dim); font-size: 0.9rem;">Developing intuitive, high-fidelity interfaces optimized for user retention and speed.</p>
-                </div>
-                <div class="animated-card" style="padding: 40px;">
-                    <i class="fas fa-shield-halved" style="font-size: 2rem; color: var(--primary); margin-bottom: 20px;"></i>
-                    <h3>Cyber Hardening</h3>
-                    <p style="color: var(--text-dim); font-size: 0.9rem;">Implementing POPIA-compliant security layers to protect sensitive organizational data.</p>
-                </div>
             </div>
         </section>
     </main>
 
-    <footer>
-        <p>© 2026 GASA TECH (PTY) LTD | Engineering Excellence</p>
-    </footer>
-
     <script>
+        // Inline Particles for immediate loading
         const canvas = document.getElementById('particleCanvas');
         const ctx = canvas.getContext('2d');
         let particles = [];
         function init() {
             canvas.width = window.innerWidth; canvas.height = window.innerHeight;
-            for(let i=0; i<70; i++) {
-                particles.push({
-                    x: Math.random() * canvas.width,
-                    y: Math.random() * canvas.height,
-                    size: Math.random() * 2,
-                    speed: Math.random() * 0.4 + 0.1
-                });
-            }
+            for(let i=0; i<60; i++) { particles.push({ x: Math.random() * canvas.width, y: Math.random() * canvas.height, size: Math.random() * 2, speed: Math.random() * 0.5 }); }
         }
         function animate() {
             ctx.clearRect(0,0,canvas.width, canvas.height);
-            ctx.fillStyle = 'rgba(0, 123, 255, 0.3)';
-            particles.forEach(p => {
-                p.y -= p.speed;
-                if(p.y < 0) p.y = canvas.height;
-                ctx.beginPath(); ctx.arc(p.x, p.y, p.size, 0, Math.PI*2); ctx.fill();
-            });
+            ctx.fillStyle = 'rgba(0, 123, 255, 0.4)';
+            particles.forEach(p => { p.y -= p.speed; if(p.y < 0) p.y = canvas.height; ctx.beginPath(); ctx.arc(p.x, p.y, p.size, 0, Math.PI*2); ctx.fill(); });
             requestAnimationFrame(animate);
         }
-        window.addEventListener('resize', () => { canvas.width = window.innerWidth; canvas.height = window.innerHeight; });
         init(); animate();
     </script>
 
-    <script src="script.js"></script>
+    <script src="js/script.js"></script>
 </body>
 </html>
