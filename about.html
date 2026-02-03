@@ -4,21 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About | GASA TECH</title>
-    <link rel="icon" type="image/png" href="https://img.icons8.com/fluency/48/laptop.png">
+    <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
     <canvas id="particleCanvas" style="position: fixed; top: 0; left: 0; z-index: -1;"></canvas>
-
     <header>
-        <a href="index.html" class="logo">
-            <i class="fas fa-laptop-code"></i> GASA <span>TECH</span>
-        </a>
-        <div class="menu-toggle" id="mobile-menu">
-            <span></span><span></span><span></span>
-        </div>
+        <a href="index.html" class="logo"><i class="fas fa-laptop-code"></i> GASA <span>TECH</span></a>
         <nav id="nav-list">
             <a href="index.html">Home</a>
             <a href="about.html" class="active">About</a>
@@ -30,96 +22,18 @@
     </header>
 
     <main class="content-wrapper">
-        <h1 data-value="ENGINEERING LEGACY" style="letter-spacing: 8px; text-align: center; margin-bottom: 50px;">
-            ENGINEERING LEGACY
-        </h1>
-
-        <div class="grid-3" style="align-items: center;">
-            <div class="animated-card" style="padding: 40px; grid-column: span 2;">
-                <h2 style="color: var(--primary); margin-bottom: 20px;">
-                    <span class="status-dot"></span> Mission Protocol
-                </h2>
-                <p style="font-size: 1.1rem; margin-bottom: 20px;">
-                    GASA TECH (PTY) LTD is not a design agency; we are a digital engineering firm. Based in South Africa, we specialize in building high-performance infrastructure for businesses that require precision, security, and scalability.
-                </p>
-                <p style="color: var(--text-dim);">
-                    Our philosophy is rooted in "Engineering Excellence." We treat every line of code as a structural component, ensuring that your digital assets are built to withstand the demands of modern traffic and complex logic.
-                </p>
-            </div>
-
-            <div class="animated-card" style="padding: 40px; text-align: center;">
-                <i class="fas fa-microchip" style="font-size: 3rem; color: var(--primary); margin-bottom: 20px;"></i>
-                <h3>Founded 2026</h3>
-                <p style="font-size: 0.8rem; color: var(--text-dim); margin-top: 10px;">
-                    OPERATIONAL STATUS: OPTIMAL
-                </p>
-            </div>
-        </div>
-
-        <h2 style="text-align: center; margin: 80px 0 40px; letter-spacing: 4px;">CORE TECH STACK</h2>
-        
-        
-
+        <h1 data-value="ENGINEERING LEGACY">ENGINEERING LEGACY</h1>
         <div class="grid-3">
-            <div class="animated-card" style="padding: 30px; text-align: center;">
-                <i class="fab fa-react" style="font-size: 2rem; margin-bottom: 15px;"></i>
-                <h4>Frontend Engine</h4>
-                <p style="font-size: 0.8rem; color: var(--text-dim);">React & Next.js Ecosystems</p>
+            <div class="animated-card" style="padding: 40px; grid-column: span 2;">
+                <h2><span class="status-dot"></span> Mission Protocol</h2>
+                <p>GASA TECH specializes in high-performance digital infrastructure for businesses requiring precision and scalability.</p>
             </div>
-            <div class="animated-card" style="padding: 30px; text-align: center;">
-                <i class="fas fa-server" style="font-size: 2rem; margin-bottom: 15px;"></i>
-                <h4>Backend Architecture</h4>
-                <p style="font-size: 0.8rem; color: var(--text-dim);">Node.js & Python Integration</p>
+            <div class="animated-card" style="padding: 40px; text-align: center;">
+                <i class="fas fa-microchip" style="font-size: 2.5rem; color: var(--primary);"></i>
+                <p>EST. 2026</p>
             </div>
-            <div class="animated-card" style="padding: 30px; text-align: center;">
-                <i class="fas fa-vault" style="font-size: 2rem; margin-bottom: 15px;"></i>
-                <h4>Security Layer</h4>
-                <p style="font-size: 0.8rem; color: var(--text-dim);">SSL Encryption & POPIA Guard</p>
-            </div>
-        </div>
-
-        <div style="text-align: center; margin-top: 80px;">
-            <a href="portfolio.html" class="choose-btn highlight-btn">View Our Builds</a>
         </div>
     </main>
-
-    <footer>
-        <p>© 2026 GASA TECH (PTY) LTD | Engineering Excellence</p>
-        <div style="margin-top: 10px; opacity: 0.5; font-size: 0.7rem;">
-            <a href="privacy.html" style="color: white; text-decoration: none;">Privacy Policy</a> | 
-            <a href="terms.html" style="color: white; text-decoration: none;">Terms & Conditions</a>
-        </div>
-    </footer>
-
-    <script>
-        const canvas = document.getElementById('particleCanvas');
-        const ctx = canvas.getContext('2d');
-        let particles = [];
-        function init() {
-            canvas.width = window.innerWidth; canvas.height = window.innerHeight;
-            for(let i=0; i<60; i++) {
-                particles.push({
-                    x: Math.random() * canvas.width,
-                    y: Math.random() * canvas.height,
-                    size: Math.random() * 2,
-                    speed: Math.random() * 0.5 + 0.1
-                });
-            }
-        }
-        function animate() {
-            ctx.clearRect(0,0,canvas.width, canvas.height);
-            ctx.fillStyle = 'rgba(0, 123, 255, 0.3)';
-            particles.forEach(p => {
-                p.y -= p.speed;
-                if(p.y < 0) p.y = canvas.height;
-                ctx.beginPath(); ctx.arc(p.x, p.y, p.size, 0, Math.PI*2); ctx.fill();
-            });
-            requestAnimationFrame(animate);
-        }
-        window.addEventListener('resize', () => { canvas.width = window.innerWidth; canvas.height = window.innerHeight; });
-        init(); animate();
-    </script>
-
-    <script src="script.js"></script>
+    <script src="js/script.js"></script>
 </body>
 </html>
