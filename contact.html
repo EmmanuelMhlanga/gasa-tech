@@ -6,46 +6,44 @@
     <title>Contact | GASA TECH</title>
     <link rel="icon" type="image/png" href="https://img.icons8.com/fluency/48/laptop.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    
     <link rel="stylesheet" href="css/style.css">
-    
     <style>
         input, textarea {
-            width: 100%;
-            padding: 15px;
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 10px;
-            color: white;
-            margin-bottom: 20px;
-            transition: var(--transition);
+            width: 100%; padding: 15px; background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 10px;
+            color: white; margin-bottom: 20px; transition: var(--transition);
         }
         input:focus, textarea:focus {
-            outline: none;
-            border-color: var(--primary);
-            background: rgba(0, 123, 255, 0.05);
-            box-shadow: 0 0 15px var(--accent-glow);
+            outline: none; border-color: var(--primary);
+            background: rgba(0, 123, 255, 0.05); box-shadow: 0 0 15px var(--accent-glow);
         }
         label {
-            display: block;
-            font-size: 0.7rem;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            margin-bottom: 8px;
-            color: var(--primary);
-            font-weight: 800;
+            display: block; font-size: 0.7rem; text-transform: uppercase;
+            letter-spacing: 2px; margin-bottom: 8px; color: var(--primary); font-weight: 800;
         }
+        .social-grid {
+            display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-top: 20px;
+        }
+        .social-link {
+            display: flex; align-items: center; gap: 10px; padding: 12px;
+            background: rgba(255,255,255,0.03); border-radius: 8px;
+            text-decoration: none; color: white; font-size: 0.8rem;
+            transition: 0.3s; border: 1px solid transparent;
+        }
+        .social-link:hover {
+            border-color: var(--primary); background: rgba(0, 123, 255, 0.1);
+        }
+        footer {
+            padding: 60px 8% 30px; background: rgba(4, 7, 13, 0.95);
+            border-top: 1px solid rgba(255,255,255,0.05); margin-top: 100px;
+        }
+        .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 50px; }
     </style>
 </head>
 <body>
 
     <header>
-        <a href="index.html" class="logo">
-            <i class="fas fa-laptop-code"></i> GASA <span>TECH</span>
-        </a>
-        <div class="menu-toggle" id="mobile-menu">
-            <span></span><span></span><span></span>
-        </div>
+        <a href="index.html" class="logo"><i class="fas fa-laptop-code"></i> GASA <span>TECH</span></a>
         <nav id="nav-list">
             <a href="index.html">Home</a>
             <a href="about.html">About</a>
@@ -57,65 +55,81 @@
     </header>
 
     <main class="content-wrapper">
-        <h1 data-value="ESTABLISH UPLINK" style="text-align: center; letter-spacing: 8px; margin-bottom: 50px;">
-            ESTABLISH UPLINK
-        </h1>
+        <h1 data-value="ESTABLISH UPLINK" style="text-align: center; letter-spacing: 8px; margin-bottom: 50px;">ESTABLISH UPLINK</h1>
 
-        <div class="grid-3" style="grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));">
-            
+        <div class="grid-3" style="grid-template-columns: 1fr 2fr;">
             <div class="animated-card" style="padding: 40px;">
                 <h2 style="margin-bottom: 30px;"><span class="status-dot"></span> Signal Details</h2>
                 
                 <div style="margin-bottom: 25px;">
-                    <label>Headquarters</label>
-                    <p>Cape Town, South Africa</p>
-                    <p style="font-size: 0.8rem; color: var(--text-dim);">Remote Engineering Available Worldwide</p>
+                    <label><i class="fas fa-map-marker-alt"></i> Headquarters</label>
+                    <p>Johannesburg, South Africa</p>
                 </div>
 
                 <div style="margin-bottom: 25px;">
-                    <label>Direct Channel</label>
-                    <p>solutions@gasatech.co.za</p>
+                    <label><i class="fas fa-phone-alt"></i> Voice Channel</label>
+                    <p>+27 69 140 1737</p>
                 </div>
 
                 <div style="margin-bottom: 25px;">
-                    <label>Operating Hours</label>
-                    <p>08:00 - 17:00 SAST</p>
-                    <p style="font-size: 0.8rem; color: var(--text-dim);">Emergency Support: 24/7 (Premium Tiers)</p>
+                    <label><i class="fas fa-envelope"></i> Core Mail</label>
+                    <p style="font-size: 0.85rem;">gasatechptyltd@gmail.com</p>
+                </div>
+
+                <label>Social Matrix</label>
+                <div class="social-grid">
+                    <a href="https://instagram.com/gasatechptyltd" target="_blank" class="social-link"><i class="fab fa-instagram"></i> Instagram</a>
+                    <a href="https://linkedin.com/in/gasatech" target="_blank" class="social-link"><i class="fab fa-linkedin-in"></i> LinkedIn</a>
+                    <a href="https://x.com/gasatechptyltd" target="_blank" class="social-link"><i class="fab fa-x-twitter"></i> X / Twitter</a>
+                    <a href="https://tiktok.com/@gasatechptyltd" target="_blank" class="social-link"><i class="fab fa-tiktok"></i> TikTok</a>
                 </div>
             </div>
 
-            <div class="animated-card" style="padding: 40px; grid-column: span 2;">
+            <div class="animated-card" style="padding: 40px;">
                 <form action="https://formspree.io/f/YOUR_ID_HERE" method="POST">
                     <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
-                        <div>
-                            <label>Client Name</label>
-                            <input type="text" name="name" placeholder="E.g. Elon Musk" required>
-                        </div>
-                        <div>
-                            <label>Organization</label>
-                            <input type="text" name="company" placeholder="E.g. SpaceX" required>
-                        </div>
+                        <div><label>Identity</label><input type="text" name="name" placeholder="Client Name" required></div>
+                        <div><label>Organization</label><input type="text" name="org" placeholder="Company Name"></div>
                     </div>
-
-                    <label>Electronic Mail</label>
-                    <input type="email" name="email" placeholder="name@domain.com" required>
-
-                    <label>Mission Brief (Message)</label>
-                    <textarea name="message" rows="5" placeholder="Describe the technical requirements..." required></textarea>
-
-                    <button type="submit" class="choose-btn highlight-btn" style="width: 100%; border: none;">
-                        Transmit Data
-                    </button>
+                    <label>Digital Mail</label>
+                    <input type="email" name="email" placeholder="email@address.com" required>
+                    <label>Transmission Subject</label>
+                    <input type="text" name="subject" placeholder="E.g. Web Infrastructure Request">
+                    <label>Data Payload (Message)</label>
+                    <textarea name="message" rows="5" placeholder="Provide mission specifics..."></textarea>
+                    <button type="submit" class="highlight-btn" style="width: 100%; border: none; cursor: pointer;">TRANSMIT DATA</button>
                 </form>
             </div>
         </div>
     </main>
 
     <footer>
-        <p>© 2026 GASA TECH (PTY) LTD | Engineering Excellence</p>
-        <div style="margin-top: 10px; opacity: 0.5; font-size: 0.7rem;">
-            <a href="privacy.html" style="color: white; text-decoration: none;">Privacy Policy</a> | 
-            <a href="terms.html" style="color: white; text-decoration: none;">Terms & Conditions</a>
+        <div class="footer-grid">
+            <div>
+                <a href="index.html" class="logo" style="margin-bottom: 20px; display: inline-block;">GASA <span>TECH</span></a>
+                <p style="color: var(--text-dim); font-size: 0.85rem; max-width: 300px;">Precision engineering for the digital age. Architecting high-performance web ecosystems since 2024.</p>
+                <div style="margin-top: 20px; font-size: 0.8rem; color: var(--primary);">
+                    <i class="fas fa-shield-alt"></i> POPIA Compliant Infrastructure
+                </div>
+            </div>
+            <div>
+                <h4 style="margin-bottom: 20px; font-size: 0.8rem; letter-spacing: 2px;">NETWORK</h4>
+                <ul style="list-style: none; font-size: 0.8rem; line-height: 2;">
+                    <li><a href="services.html" style="color: var(--text-dim); text-decoration: none;">Services</a></li>
+                    <li><a href="portfolio.html" style="color: var(--text-dim); text-decoration: none;">Portfolio</a></li>
+                    <li><a href="pricing.html" style="color: var(--text-dim); text-decoration: none;">Pricing</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 style="margin-bottom: 20px; font-size: 0.8rem; letter-spacing: 2px;">RESOURCES</h4>
+                <ul style="list-style: none; font-size: 0.8rem; line-height: 2;">
+                    <li><a href="privacy.html" style="color: var(--text-dim); text-decoration: none;">Privacy Protocol</a></li>
+                    <li><a href="terms.html" style="color: var(--text-dim); text-decoration: none;">Terms of Service</a></li>
+                </ul>
+            </div>
+        </div>
+        <div style="text-align: center; padding-top: 30px; border-top: 1px solid rgba(255,255,255,0.05); font-size: 0.7rem; color: var(--text-dim); margin-top: 30px;">
+            <p>© 2026 GASA TECH (PTY) LTD | Johannesburg, South Africa</p>
         </div>
     </footer>
 
