@@ -7,23 +7,153 @@
     <link rel="icon" type="image/png" href="favicon.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="css/style.css">
+    <style>
+        /* Moving Icon Animation */
+        .service-icon {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 25px;
+            display: inline-block;
+            transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .animated-card:hover .service-icon {
+            transform: scale(1.2) rotate(10deg);
+            color: #fff;
+            filter: drop-shadow(0 0 10px var(--primary));
+        }
+
+        /* Float Animation for the cards */
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+
+        .animated-card {
+            animation: float 6s ease-in-out infinite;
+            animation-delay: calc(var(--order) * 1s);
+        }
+
+        .tech-badge {
+            font-size: 0.6rem;
+            background: rgba(0, 123, 255, 0.1);
+            color: var(--primary);
+            padding: 4px 10px;
+            border-radius: 20px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: 15px;
+            display: inline-block;
+        }
+
+        footer {
+            padding: 60px 8% 30px;
+            background: rgba(4, 7, 13, 0.95);
+            border-top: 1px solid rgba(255,255,255,0.05);
+            margin-top: 100px;
+        }
+    </style>
 </head>
 <body>
-    <header><a href="index.html" class="logo"><i class="fas fa-laptop-code"></i> GASA <span>TECH</span></a>
-        <nav><a href="index.html">Home</a><a href="about.html">About</a><a href="services.html" class="active">Services</a><a href="portfolio.html">Portfolio</a><a href="pricing.html">Pricing</a><a href="contact.html">Contact</a></nav>
+    <canvas id="particleCanvas" style="position: fixed; top: 0; left: 0; z-index: -1;"></canvas>
+
+    <header>
+        <a href="index.html" class="logo"><i class="fas fa-laptop-code"></i> GASA <span>TECH</span></a>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="services.html" class="active">Services</a>
+            <a href="portfolio.html">Portfolio</a>
+            <a href="pricing.html">Pricing</a>
+            <a href="contact.html">Contact</a>
+        </nav>
     </header>
+
     <main class="content-wrapper">
-        <h1 data-value="CORE SOLUTIONS" style="text-align: center; margin-bottom: 50px;">CORE SOLUTIONS</h1>
+        <section style="text-align: center; margin-bottom: 80px;">
+            <h1 data-value="CORE CAPABILITIES">CORE CAPABILITIES</h1>
+            <p style="color: var(--text-dim); letter-spacing: 2px;">PRECISION BUILT SOLUTIONS</p>
+        </section>
+
         <div class="grid-3">
-            <div class="animated-card" style="padding: 30px;"><h3>Web Engineering</h3><p>Custom React & Next.js builds.</p></div>
-            <div class="animated-card" style="padding: 30px;"><h3>E-Commerce</h3><p>Secure payment integration.</p></div>
-            <div class="animated-card" style="padding: 30px;"><h3>API Systems</h3><p>Third-party tool synchronization.</p></div>
-            <div class="animated-card" style="padding: 30px;"><h3>Technical SEO</h3><p>Core Web Vital optimization.</p></div>
-            <div class="animated-card" style="padding: 30px;"><h3>UI/UX Audit</h3><p>User engagement strategies.</p></div>
-            <div class="animated-card" style="padding: 30px;"><h3>Cloud Maintenance</h3><p>24/7 server monitoring.</p></div>
+            <div class="animated-card" style="padding: 45px; --order: 1;">
+                <div class="service-icon"><i class="fas fa-code"></i></div>
+                <h3>Custom Web Engineering</h3>
+                <p style="color: var(--text-dim); font-size: 0.85rem;">High-performance front-end and back-end architecture using React, Next.js, and Node.js.</p>
+                <div class="tech-badge">Frameworks</div>
+            </div>
+
+            <div class="animated-card" style="padding: 45px; --order: 2;">
+                <div class="service-icon"><i class="fas fa-store"></i></div>
+                <h3>E-Commerce Engines</h3>
+                <p style="color: var(--text-dim); font-size: 0.85rem;">Scalable digital storefronts with integrated PayFast and stock management systems.</p>
+                <div class="tech-badge">Commerce</div>
+            </div>
+
+            <div class="animated-card" style="padding: 45px; --order: 3;">
+                <div class="service-icon"><i class="fas fa-project-diagram"></i></div>
+                <h3>API Architectures</h3>
+                <p style="color: var(--text-dim); font-size: 0.85rem;">Seamlessly connecting your web app to CRM, ERP, and 3rd party cloud services.</p>
+                <div class="tech-badge">Integrations</div>
+            </div>
+
+            <div class="animated-card" style="padding: 45px; --order: 4;">
+                <div class="service-icon"><i class="fas fa-rocket"></i></div>
+                <h3>Technical SEO</h3>
+                <p style="color: var(--text-dim); font-size: 0.85rem;">Dominating Johannesburg search results with optimized Core Web Vitals and speed.</p>
+                <div class="tech-badge">Growth</div>
+            </div>
+
+            <div class="animated-card" style="padding: 45px; --order: 5;">
+                <div class="service-icon"><i class="fas fa-user-check"></i></div>
+                <h3>UX/UI Strategy</h3>
+                <p style="color: var(--text-dim); font-size: 0.85rem;">Human-centric design layouts focused on conversion and retention metrics.</p>
+                <div class="tech-badge">Design</div>
+            </div>
+
+            <div class="animated-card" style="padding: 45px; --order: 6;">
+                <div class="service-icon"><i class="fas fa-shield-virus"></i></div>
+                <h3>Cloud Maintenance</h3>
+                <p style="color: var(--text-dim); font-size: 0.85rem;">24/7 security monitoring, automated backups, and software patching.</p>
+                <div class="tech-badge">Security</div>
+            </div>
         </div>
+
+        <section style="margin-top: 100px;">
+            <div class="animated-card" style="padding: 40px; text-align: center; border-style: dashed;">
+                <h2 style="letter-spacing: 5px; margin-bottom: 20px;">OUR WORKFLOW</h2>
+                
+                <p style="color: var(--text-dim); max-width: 600px; margin: 20px auto;">Every project at GASA TECH follows a rigorous engineering pipeline to ensure zero-downtime deployments.</p>
+            </div>
+        </section>
     </main>
-    <footer></footer>
+
+    <footer>
+        <div class="footer-grid">
+            <div>
+                <a href="index.html" class="logo">GASA <span>TECH</span></a>
+                <p style="color: var(--text-dim); font-size: 0.8rem; margin-top: 20px;">
+                    Johannesburg, South Africa.<br>
+                    Engineering High-Impact Digital Infrastructure.
+                </p>
+            </div>
+            <div>
+                <h4 style="margin-bottom: 15px; font-size: 0.8rem;">SOLUTIONS</h4>
+                <a href="portfolio.html" style="display: block; color: var(--text-dim); text-decoration: none; margin-bottom: 8px; font-size: 0.8rem;">Portfolio</a>
+                <a href="pricing.html" style="display: block; color: var(--text-dim); text-decoration: none; margin-bottom: 8px; font-size: 0.8rem;">Pricing</a>
+            </div>
+            <div>
+                <h4 style="margin-bottom: 15px; font-size: 0.8rem;">UPLINK</h4>
+                <div style="display: flex; gap: 15px;">
+                    <a href="https://linkedin.com/company/gasatech" aria-label="LinkedIn" style="color: white;"><i class="fab fa-linkedin"></i></a>
+                    <a href="https://instagram.com/gasatechptyltd" aria-label="Instagram" style="color: white;"><i class="fab fa-instagram"></i></a>
+                    <a href="https://tiktok.com/@gasatechptyltd" aria-label="TikTok" style="color: white;"><i class="fab fa-tiktok"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
     <script src="js/script.js" defer></script>
 </body>
 </html>
