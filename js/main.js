@@ -1,29 +1,50 @@
-document.addEventListener('DOMContentLoaded', () => {
-    // 1. TERMINAL SCRAMBLE
-    const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789@#$";
-    document.querySelectorAll('h1').forEach(header => {
-        if (!header.dataset.value) header.dataset.value = header.innerText;
-        header.addEventListener('mouseenter', (e) => {
-            let iteration = 0;
-            const interval = setInterval(() => {
-                e.target.innerText = e.target.innerText.split("").map((letter, index) => {
-                    if (index < iteration) return e.target.dataset.value[index];
-                    return letters[Math.floor(Math.random() * 37)];
-                }).join("");
-                if (iteration >= e.target.dataset.value.length) clearInterval(interval);
-                iteration += 1 / 3;
-            }, 30);
-        });
-    });
-
-    // 2. MAGNETIC BUTTONS
-    document.querySelectorAll('.choose-btn, .highlight-btn').forEach(btn => {
-        btn.addEventListener('mousemove', (e) => {
-            const rect = btn.getBoundingClientRect();
-            const x = e.clientX - rect.left - rect.width / 2;
-            const y = e.clientY - rect.top - rect.height / 2;
-            btn.style.transform = `translate(${x * 0.2}px, ${y * 0.3}px)`;
-        });
-        btn.addEventListener('mouseleave', () => btn.style.transform = `translate(0, 0)`);
-    });
+// Hacker Effect for Titles
+const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+document.querySelectorAll("h1").forEach(header => {
+    header.onmouseover = event => {
+        let iteration = 0;
+        const interval = setInterval(() => {
+            event.target.innerText = event.target.innerText
+                .split("")
+                .map((letter, index) => {
+                    if (index < iteration) return event.target.dataset.value[index];
+                    return letters[Math.floor(Math.random() * 26)];
+                })
+                .join("");
+            if (iteration >= event.target.dataset.value.length) clearInterval(interval);
+            iteration += 1 / 3;
+        }, 30);
+    };
 });
+
+// Particle Background logic
+const canvas = document.getElementById('particleCanvas');
+if (canvas) {
+    const ctx = canvas.getContext('2d');
+    let particles = [];
+    function init() {
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+        particles = [];
+        for(let i=0; i<60; i++) {
+            particles.push({
+                x: Math.random() * canvas.width,
+                y: Math.random() * canvas.height,
+                size: Math.random() * 2,
+                speed: Math.random() * 0.5
+            });
+        }
+    }
+    function animate() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        ctx.fillStyle = 'rgba(0, 123, 255, 0.4)';
+        particles.forEach(p => {
+            p.y -= p.speed;
+            if (p.y < 0) p.y = canvas.height;
+            ctx.beginPath(); ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2); ctx.fill();
+        });
+        requestAnimationFrame(animate);
+    }
+    window.addEventListener('resize', init);
+    init(); animate();
+}
