@@ -10,10 +10,22 @@
     </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About | GASA TECH</title>
+    <title>About | GASA TECH Engineering Protocol</title>
     <link rel="icon" type="image/png" href="favicon.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="css/style.css">
+    <style>
+        .hero-section { padding: 180px 8% 100px; text-align: left; position: relative; }
+        .hero-section::after { content: "EST 2024"; position: absolute; right: 8%; top: 180px; font-size: 5rem; opacity: 0.03; font-weight: 900; }
+        
+        .protocol-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; margin: 60px 0; }
+        .step-card { background: var(--card-bg); border-left: 4px solid var(--primary); padding: 30px; border-radius: 0 15px 15px 0; position: relative; }
+        .step-number { position: absolute; top: 10px; right: 20px; font-size: 2rem; opacity: 0.1; font-weight: 800; }
+
+        .tech-stack { background: rgba(0, 123, 255, 0.05); padding: 40px; border-radius: 20px; border: 1px solid var(--border); display: flex; flex-wrap: wrap; justify-content: center; gap: 40px; margin-top: 80px; }
+        .tech-item { text-align: center; color: var(--text-dim); font-size: 0.8rem; letter-spacing: 2px; }
+        .tech-item i { font-size: 2.5rem; color: var(--text-main); margin-bottom: 10px; display: block; }
+    </style>
 </head>
 <body>
     <header>
@@ -28,40 +40,67 @@
         </nav>
     </header>
 
-    <main style="padding: 140px 8% 80px;">
-        <div style="max-width: 900px; margin: 0 auto;">
-            <h1 style="font-size: clamp(2.5rem, 5vw, 4rem); margin-bottom: 20px;">ENGINEERING <span style="color: var(--primary);">EXCELLENCE</span></h1>
-            <p style="color: var(--text-dim); font-size: 1.2rem; line-height: 1.8; margin-bottom: 40px;">
-                GASA TECH is a Johannesburg-based digital engineering firm. We specialize in building high-performance systems that empower businesses to dominate their digital landscape.
-            </p>
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px;">
-                <div class="animated-card">
-                    <i class="fas fa-microchip" style="color: var(--primary); font-size: 2rem;"></i>
-                    <h3>Precision</h3>
-                    <p>Every line of code is optimized for maximum efficiency.</p>
+    <main>
+        <section class="hero-section">
+            <h1 style="font-size: clamp(2.5rem, 6vw, 4.5rem); line-height: 1.1;">SYSTEM <br><span style="color: var(--primary);">ARCHITECTS.</span></h1>
+            <div style="max-width: 700px; margin-top: 30px;">
+                <p style="font-size: 1.2rem; color: var(--text-main); margin-bottom: 20px;">
+                    GASA TECH is a Johannesburg-based digital engineering collective focused on the intersection of high-performance code and localized market growth.
+                </p>
+                <p style="color: var(--text-dim); line-height: 1.8;">
+                    We don't just build websites; we deploy <strong>Digital Infrastructure</strong>. Our philosophy is rooted in the "Performance-First" protocol—ensuring every asset we deliver is optimized for Google's Core Web Vitals, secured with military-grade encryption, and designed to convert South African users into loyal customers.
+                </p>
+            </div>
+        </section>
+
+        <section style="padding: 0 8%;">
+            <h2 style="letter-spacing: 3px; font-size: 0.9rem; color: var(--primary); margin-bottom: 40px;">THE GASA PROTOCOL</h2>
+            <div class="protocol-grid">
+                <div class="step-card">
+                    <div class="step-number">01</div>
+                    <h4>Initialize</h4>
+                    <p style="font-size: 0.9rem; color: var(--text-dim);">Requirement analysis and infrastructure mapping for your specific business niche.</p>
                 </div>
-                <div class="animated-card">
-                    <i class="fas fa-shield-alt" style="color: var(--primary); font-size: 2rem;"></i>
-                    <h3>Integrity</h3>
-                    <p>Secure-by-design principles in every deployment.</p>
+                <div class="step-card">
+                    <div class="step-number">02</div>
+                    <h4>Engineer</h4>
+                    <p style="font-size: 0.9rem; color: var(--text-dim);">Clean-code development using modern frameworks to ensure future-proof scalability.</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-number">03</div>
+                    <h4>Optimize</h4>
+                    <p style="font-size: 0.9rem; color: var(--text-dim);">SEO injection and performance tuning for maximum visibility in Gauteng search results.</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-number">04</div>
+                    <h4>Deploy</h4>
+                    <p style="font-size: 0.9rem; color: var(--text-dim);">Live server integration and real-time monitoring via Google Analytics engine.</p>
                 </div>
             </div>
-        </div>
+        </section>
+
+        <section style="padding: 80px 8%;">
+            <h2 style="text-align: center; margin-bottom: 40px;">TECH STACK</h2>
+            <div class="tech-stack">
+                <div class="tech-item"><i class="fab fa-html5"></i>HTML5/CSS3</div>
+                <div class="tech-item"><i class="fab fa-js"></i>JAVASCRIPT</div>
+                <div class="tech-item"><i class="fab fa-react"></i>REACT ENGINE</div>
+                <div class="tech-item"><i class="fab fa-github"></i>GIT OPS</div>
+                <div class="tech-item"><i class="fab fa-google"></i>ANALYTICS 4</div>
+                <div class="tech-item"><i class="fas fa-search"></i>SEO CORE</div>
+            </div>
+        </section>
     </main>
 
     <footer>
         <div class="footer-grid">
-            <div><a href="index.html" class="logo">GASA <span>TECH</span></a><p>Johannesburg, South Africa.</p></div>
-            <div>
-                <h4 style="margin-bottom: 15px;">CONNECT</h4>
-                <div style="display: flex; gap: 15px;">
-                    <a href="https://linkedin.com/company/gasatech" style="color: white;"><i class="fab fa-linkedin"></i></a>
-                    <a href="https://instagram.com/gasatechptyltd" style="color: white;"><i class="fab fa-instagram"></i></a>
-                    <a href="https://tiktok.com/@gasatechptyltd" style="color: white;"><i class="fab fa-tiktok"></i></a>
-                </div>
+            <div><a href="index.html" class="logo">GASA <span>TECH</span></a><p>Johannesburg, ZA.</p></div>
+            <div style="text-align: right;">
+                <a href="contact.html" class="highlight-btn">Start Deployment</a>
             </div>
         </div>
-        <div style="text-align: center; margin-top: 40px; font-size: 0.7rem; color: var(--text-dim);">© 2026 GASA TECH (PTY) LTD</div>
     </footer>
+
+    <script src="js/script.js" defer></script>
 </body>
 </html>
