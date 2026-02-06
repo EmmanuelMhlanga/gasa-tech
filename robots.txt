@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /
+
+# Direct Google to your sitemap
+Sitemap: https://gasatech.co.za/sitemap.xml
+
+# Prevent indexing of system folders to save crawl budget
+Disallow: /css/
+Disallow: /js/
