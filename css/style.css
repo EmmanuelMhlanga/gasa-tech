@@ -1,12 +1,13 @@
-/* GASA TECH - Global CSS Variables */
+/* GASA TECH - Deep Navy Engineering Theme */
 :root {
     --primary: #007bff;
-    --primary-glow: rgba(0, 123, 255, 0.5);
-    --bg-dark: #050505;
-    --card-bg: rgba(255, 255, 255, 0.03);
-    --text-main: #ffffff;
-    --text-dim: #a0a0a0;
-    --border: rgba(255, 255, 255, 0.1);
+    --primary-glow: rgba(0, 123, 255, 0.4);
+    --bg-dark: #0a192f;        /* Deep Dark Blue */
+    --bg-darker: #060e1a;      /* Darker shade for Header/Footer */
+    --card-bg: rgba(17, 34, 64, 0.7); /* Translucent Blue-Grey */
+    --text-main: #e6f1ff;      /* Off-white blue tint */
+    --text-dim: #8892b0;       /* Muted blue-grey */
+    --border: rgba(0, 123, 255, 0.2);
 }
 
 * {
@@ -18,6 +19,7 @@
 
 body {
     background-color: var(--bg-dark);
+    background-image: radial-gradient(circle at 50% 50%, #112240 0%, #0a192f 100%);
     color: var(--text-main);
     line-height: 1.6;
     overflow-x: hidden;
@@ -28,18 +30,18 @@ header {
     position: fixed;
     top: 0;
     width: 100%;
-    padding: 25px 8%;
+    padding: 20px 8%;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background: rgba(5, 5, 5, 0.8);
-    backdrop-filter: blur(10px);
+    background: rgba(10, 25, 47, 0.85);
+    backdrop-filter: blur(12px);
     z-index: 1000;
     border-bottom: 1px solid var(--border);
 }
 
 .logo {
-    font-size: 1.5rem;
+    font-size: 1.4rem;
     font-weight: 800;
     color: #fff;
     text-decoration: none;
@@ -52,112 +54,93 @@ nav a {
     color: var(--text-dim);
     text-decoration: none;
     margin-left: 30px;
-    font-size: 0.9rem;
+    font-size: 0.85rem;
     transition: 0.3s;
     text-transform: uppercase;
-    letter-spacing: 1px;
+    letter-spacing: 1.5px;
 }
 
 nav a:hover, nav a.active {
     color: var(--primary);
+    text-shadow: 0 0 10px var(--primary-glow);
 }
 
-/* Animated Cards (Portfolio, Services, About) */
-.animated-card {
+/* UI Cards (Portfolio, Services, Pricing) */
+.animated-card, .pricing-card {
     background: var(--card-bg);
     border: 1px solid var(--border);
     padding: 40px 30px;
-    border-radius: 15px;
-    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    position: relative;
-    overflow: hidden;
+    border-radius: 12px;
+    backdrop-filter: blur(5px);
+    transition: all 0.4s ease;
 }
 
-.animated-card:hover {
-    transform: translateY(-10px);
+.animated-card:hover, .pricing-card:hover {
+    transform: translateY(-8px);
     border-color: var(--primary);
-    background: rgba(255, 255, 255, 0.05);
-    box-shadow: 0 10px 30px rgba(0, 123, 255, 0.1);
+    background: rgba(23, 42, 69, 0.9);
+    box-shadow: 0 20px 40px rgba(2, 12, 27, 0.7);
 }
 
-.animated-card i {
-    font-size: 2.5rem;
-    color: var(--primary);
-    margin-bottom: 20px;
+/* Specialized UI for Pricing */
+.pricing-card.featured {
+    border: 2px solid var(--primary);
+    box-shadow: 0 0 20px rgba(0, 123, 255, 0.2);
 }
 
-.animated-card h3 {
-    margin-bottom: 15px;
-    letter-spacing: 1px;
-}
+.price { color: #fff; font-size: 2.8rem; font-weight: 700; }
 
-.animated-card p {
-    color: var(--text-dim);
-    font-size: 0.95rem;
-}
-
-/* Global Footer UI */
+/* Global Footer */
 footer {
-    background: #000;
-    padding: 80px 8% 40px;
+    background: var(--bg-darker);
+    padding: 60px 8% 30px;
     border-top: 1px solid var(--border);
     margin-top: 100px;
 }
 
 .footer-grid {
     display: grid;
-    grid-template-columns: 2fr 1fr;
-    gap: 50px;
-    align-items: center;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
 }
 
-.footer-grid p {
-    color: var(--text-dim);
-    margin-top: 10px;
-}
-
-.footer-grid h4 {
-    letter-spacing: 2px;
-    margin-bottom: 20px;
-    font-size: 0.8rem;
-    color: var(--primary);
-}
+.footer-grid p { color: var(--text-dim); font-size: 0.9rem; }
 
 /* Buttons */
 .highlight-btn {
     background: var(--primary);
     color: white;
-    padding: 15px 35px;
-    border-radius: 5px;
+    padding: 14px 30px;
+    border-radius: 4px;
     text-decoration: none;
-    font-weight: 700;
+    font-weight: 600;
     transition: 0.3s;
     display: inline-block;
-    text-align: center;
+    border: none;
 }
 
 .highlight-btn:hover {
-    box-shadow: 0 0 20px var(--primary-glow);
-    transform: scale(1.02);
+    background: #006ae6;
+    box-shadow: 0 0 15px var(--primary-glow);
 }
 
 .choose-btn {
-    border: 1px solid var(--border);
-    color: white;
-    padding: 12px 30px;
-    border-radius: 5px;
+    border: 1px solid var(--primary);
+    color: var(--primary);
+    padding: 12px 28px;
+    border-radius: 4px;
     text-decoration: none;
     transition: 0.3s;
 }
 
 .choose-btn:hover {
-    background: white;
-    color: black;
+    background: var(--primary);
+    color: white;
 }
 
 /* Responsive Fixes */
 @media (max-width: 768px) {
-    nav { display: none; } /* Consider adding a mobile menu burger later */
+    header { padding: 15px 5%; }
+    nav { display: none; }
     .footer-grid { grid-template-columns: 1fr; text-align: center; }
-    .footer-grid div { display: flex; flex-direction: column; align-items: center; }
 }
