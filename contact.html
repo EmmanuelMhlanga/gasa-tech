@@ -1,100 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-L4M2GJHZ5Q"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-L4M2GJHZ5Q');
+    </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact | GASA TECH</title>
-    <link rel="icon" type="image/png" href="favicon.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="css/style.css">
-    <style>
-        .contact-layout {
-            display: grid;
-            grid-template-columns: 1.2fr 0.8fr;
-            gap: 50px;
-            margin-top: 30px;
-        }
-
-        .contact-form-card {
-            background: rgba(15, 23, 42, 0.5);
-            padding: 50px;
-            border-radius: 30px;
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
-        }
-
-        .input-group {
-            position: relative;
-            margin-bottom: 30px;
-        }
-
-        .input-group label {
-            display: block;
-            font-size: 0.65rem;
-            font-weight: 800;
-            color: var(--primary);
-            letter-spacing: 2px;
-            margin-bottom: 10px;
-            text-transform: uppercase;
-        }
-
-        input, textarea {
-            width: 100%;
-            padding: 18px;
-            background: rgba(255, 255, 255, 0.02);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 12px;
-            color: white;
-            transition: var(--transition);
-        }
-
-        input:focus, textarea:focus {
-            outline: none;
-            border-color: var(--primary);
-            background: rgba(0, 123, 255, 0.05);
-            box-shadow: 0 0 20px rgba(0, 123, 255, 0.1);
-        }
-
-        .info-sidebar {
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-        }
-
-        .contact-detail-card {
-            padding: 30px;
-            background: rgba(255,255,255,0.02);
-            border-radius: 20px;
-            border-left: 3px solid var(--primary);
-            transition: 0.3s;
-        }
-
-        .contact-detail-card:hover {
-            transform: translateX(10px);
-            background: rgba(255,255,255,0.05);
-        }
-
-        .map-box {
-            height: 250px;
-            width: 100%;
-            background: #0f172a;
-            border-radius: 20px;
-            margin-top: 20px;
-            border: 1px solid rgba(255,255,255,0.1);
-            position: relative;
-            overflow: hidden;
-        }
-
-        @media (max-width: 992px) {
-            .contact-layout { grid-template-columns: 1fr; }
-        }
-    </style>
 </head>
 <body>
-    <canvas id="particleCanvas" style="position: fixed; top: 0; left: 0; z-index: -1;"></canvas>
-
     <header>
-        <a href="index.html" class="logo"><i class="fas fa-laptop-code"></i> GASA <span>TECH</span></a>
+        <a href="index.html" class="logo">GASA <span>TECH</span></a>
         <nav>
             <a href="index.html">Home</a>
             <a href="about.html">About</a>
@@ -104,97 +26,17 @@
             <a href="contact.html" class="active">Contact</a>
         </nav>
     </header>
-
-    <main class="content-wrapper">
-        <div style="text-align: center; margin-bottom: 60px;">
-            <div style="display: inline-flex; align-items: center; gap: 8px; color: #22c55e; font-size: 0.7rem; font-weight: 800; margin-bottom: 15px;">
-                <span class="status-dot"></span> UPLINK STRENGTH: OPTIMAL
-            </div>
-            <h1 data-value="ESTABLISH CONNECTION">ESTABLISH CONNECTION</h1>
-        </div>
-
-        <div class="contact-layout">
-            <div class="contact-form-card animated-card">
-                <form action="https://formspree.io/f/YOUR_ID" method="POST">
-                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
-                        <div class="input-group">
-                            <label>Identity</label>
-                            <input type="text" name="name" placeholder="Name" required>
-                        </div>
-                        <div class="input-group">
-                            <label>System/Company</label>
-                            <input type="text" name="org" placeholder="Organization">
-                        </div>
-                    </div>
-                    <div class="input-group">
-                        <label>Return Signal</label>
-                        <input type="email" name="email" placeholder="email@domain.com" required>
-                    </div>
-                    <div class="input-group">
-                        <label>Mission Parameters</label>
-                        <textarea name="message" rows="5" placeholder="Detailed project scope..."></textarea>
-                    </div>
-                    <button type="submit" class="highlight-btn" style="width: 100%; border: none; cursor: pointer; padding: 20px; font-size: 1rem;">
-                        SEND TRANSMISSION <i class="fas fa-paper-plane" style="margin-left: 10px;"></i>
-                    </button>
-                </form>
-            </div>
-
-            <div class="info-sidebar">
-                <div class="contact-detail-card">
-                    <i class="fas fa-map-marked-alt" style="color: var(--primary); margin-bottom: 15px;"></i>
-                    <h4 style="font-size: 0.8rem; letter-spacing: 2px;">HEADQUARTERS</h4>
-                    <p style="margin-top: 5px;">Johannesburg, South Africa</p>
-                </div>
-
-                <div class="contact-detail-card">
-                    <i class="fas fa-phone-alt" style="color: var(--primary); margin-bottom: 15px;"></i>
-                    <h4 style="font-size: 0.8rem; letter-spacing: 2px;">SECURE LINE</h4>
-                    <p style="margin-top: 5px;">+27 69 140 1737</p>
-                </div>
-
-                <div class="map-box">
-                    <div style="position: absolute; inset: 0; background: radial-gradient(circle, transparent 20%, #0f172a 100%); z-index: 1;"></div>
-                    <iframe 
-                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d114584.73549727457!2d27.93123011327914!3d-26.171504624795493!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1e950c68f0406a51%3A0x238ac8d8627176d!2sJohannesburg!5e0!3m2!1sen!2sza!4v1700000000000!5m2!1sen!2sza" 
-                        width="100%" height="100%" style="border:0; filter: grayscale(1) invert(0.9) opacity(0.5);" allowfullscreen="" loading="lazy">
-                    </iframe>
-                </div>
-            </div>
+    <main style="padding: 120px 8% 80px;">
+        <div class="contact-container" style="max-width: 800px; margin: 0 auto; background: rgba(255,255,255,0.03); padding: 50px; border-radius: 15px; border: 1px solid rgba(255,255,255,0.05);">
+            <h2 style="margin-bottom: 30px;">INITIATE TRANSMISSION</h2>
+            <form action="https://formspree.io/f/your-id" method="POST" style="display: grid; gap: 20px;">
+                <input type="text" name="name" placeholder="Full Name" required style="padding: 15px; background: rgba(0,0,0,0.3); border: 1px solid #444; color: white;">
+                <input type="email" name="email" placeholder="Email Address" required style="padding: 15px; background: rgba(0,0,0,0.3); border: 1px solid #444; color: white;">
+                <textarea name="message" placeholder="Project Requirements" rows="5" style="padding: 15px; background: rgba(0,0,0,0.3); border: 1px solid #444; color: white;"></textarea>
+                <button type="submit" class="highlight-btn" style="border: none; cursor: pointer;">Send Signal</button>
+            </form>
         </div>
     </main>
-
-    <footer>
-        <div class="footer-grid">
-            <div>
-                <a href="index.html" class="logo">GASA <span>TECH</span></a>
-                <p style="color: var(--text-dim); font-size: 0.8rem; margin-top: 20px; max-width: 250px;">
-                    Engineering high-performance digital infrastructure for the next generation of South African business.
-                </p>
-            </div>
-            <div>
-                <h4 style="margin-bottom: 15px; font-size: 0.8rem; letter-spacing: 2px;">NAVIGATION</h4>
-                <div style="display: grid; gap: 10px;">
-                    <a href="about.html" style="color: var(--text-dim); text-decoration: none; font-size: 0.8rem;">About</a>
-                    <a href="services.html" style="color: var(--text-dim); text-decoration: none; font-size: 0.8rem;">Services</a>
-                    <a href="portfolio.html" style="color: var(--text-dim); text-decoration: none; font-size: 0.8rem;">Portfolio</a>
-                    <a href="pricing.html" style="color: var(--text-dim); text-decoration: none; font-size: 0.8rem;">Pricing</a>
-                </div>
-            </div>
-            <div>
-                <h4 style="margin-bottom: 15px; font-size: 0.8rem; letter-spacing: 2px;">SOCIAL MATRIX</h4>
-                <div style="display: flex; gap: 15px;">
-                    <a href="https://linkedin.com/company/gasatech" aria-label="LinkedIn" style="color: white;"><i class="fab fa-linkedin"></i></a>
-                    <a href="https://instagram.com/gasatechptyltd" aria-label="Instagram" style="color: white;"><i class="fab fa-instagram"></i></a>
-                    <a href="https://tiktok.com/@gasatechptyltd" aria-label="TikTok" style="color: white;"><i class="fab fa-tiktok"></i></a>
-                </div>
-            </div>
-        </div>
-        <div style="text-align: center; border-top: 1px solid rgba(255,255,255,0.05); margin-top: 40px; padding-top: 20px; font-size: 0.6rem; color: var(--text-dim); letter-spacing: 1px;">
-            © 2026 GASA TECH (PTY) LTD | JOHANNESBURG | POPIA COMPLIANT
-        </div>
-    </footer>
-
     <script src="js/script.js" defer></script>
 </body>
 </html>
