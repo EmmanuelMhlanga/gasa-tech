@@ -1,50 +1,87 @@
-// Hacker Effect for Titles
-const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-document.querySelectorAll("h1").forEach(header => {
-    header.onmouseover = event => {
-        let iteration = 0;
-        const interval = setInterval(() => {
-            event.target.innerText = event.target.innerText
-                .split("")
-                .map((letter, index) => {
-                    if (index < iteration) return event.target.dataset.value[index];
-                    return letters[Math.floor(Math.random() * 26)];
-                })
-                .join("");
-            if (iteration >= event.target.dataset.value.length) clearInterval(interval);
-            iteration += 1 / 3;
-        }, 30);
-    };
-});
+/**
+ * GASA TECH - Core UI Engine
+ * Version: 2.1.0
+ */
 
-// Particle Background logic
+// 1. Particle Background Animation
 const canvas = document.getElementById('particleCanvas');
 if (canvas) {
     const ctx = canvas.getContext('2d');
     let particles = [];
-    function init() {
+
+    function initCanvas() {
         canvas.width = window.innerWidth;
         canvas.height = window.innerHeight;
-        particles = [];
-        for(let i=0; i<60; i++) {
-            particles.push({
-                x: Math.random() * canvas.width,
-                y: Math.random() * canvas.height,
-                size: Math.random() * 2,
-                speed: Math.random() * 0.5
-            });
+    }
+
+    class Particle {
+        constructor() {
+            this.x = Math.random() * canvas.width;
+            this.y = Math.random() * canvas.height;
+            this.size = Math.random() * 1.5 + 0.5;
+            this.speedX = Math.random() * 0.5 - 0.25;
+            this.speedY = Math.random() * 0.5 - 0.25;
+            this.opacity = Math.random() * 0.5 + 0.2;
+        }
+
+        update() {
+            this.x += this.speedX;
+            this.y += this.speedY;
+            if (this.x > canvas.width) this.x = 0;
+            if (this.x < 0) this.x = canvas.width;
+            if (this.y > canvas.height) this.y = 0;
+            if (this.y < 0) this.y = canvas.height;
+        }
+
+        draw() {
+            ctx.fillStyle = `rgba(0, 123, 255, ${this.opacity})`;
+            ctx.beginPath();
+            ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+            ctx.fill();
         }
     }
+
+    function createParticles() {
+        const amount = Math.floor(window.innerWidth / 15);
+        for (let i = 0; i < amount; i++) {
+            particles.push(new Particle());
+        }
+    }
+
     function animate() {
         ctx.clearRect(0, 0, canvas.width, canvas.height);
-        ctx.fillStyle = 'rgba(0, 123, 255, 0.4)';
         particles.forEach(p => {
-            p.y -= p.speed;
-            if (p.y < 0) p.y = canvas.height;
-            ctx.beginPath(); ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2); ctx.fill();
+            p.update();
+            p.draw();
         });
         requestAnimationFrame(animate);
     }
-    window.addEventListener('resize', init);
-    init(); animate();
+
+    window.addEventListener('resize', initCanvas);
+    initCanvas();
+    createParticles();
+    animate();
 }
+
+// 2. Smooth Reveal Animation for Cards
+const observerOptions = {
+    threshold: 0.1
+};
+
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.style.opacity = '1';
+            entry.target.style.transform = 'translateY(0)';
+        }
+    });
+}, observerOptions);
+
+document.querySelectorAll('.animated-card, .pricing-card').forEach(card => {
+    card.style.opacity = '0';
+    card.style.transform = 'translateY(30px)';
+    card.style.transition = 'all 0.6s ease-out';
+    observer.observe(card);
+});
+
+console.log("GASA TECH Systems: Online");
