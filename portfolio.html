@@ -1,12 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-L4M2GJHZ5Q"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-L4M2GJHZ5Q');
+    </script>
+    
     <meta charset="UTF-8">
-    <title>Portfolio | GASA TECH</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio | GASA TECH Deployments</title>
+    
+    <link rel="icon" type="image/png" href="./favicon.png">
+    <link rel="shortcut icon" type="image/png" href="./favicon.png">
+    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+
     <header>
         <a href="index.html" class="logo">GASA <span>TECH</span></a>
         <nav>
@@ -19,43 +33,98 @@
         </nav>
     </header>
 
-    <main style="padding: 160px 8% 0;">
-        <h1 style="font-size: 3rem; margin-bottom: 40px;">DEPLOYED <span style="color: var(--primary);">SYSTEMS</span></h1>
-        <div class="grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 30px;">
-            
-            <a href="https://emmanuelmhlanga.github.io/ebbrato-travel-agency/" target="_blank" style="text-decoration:none;">
-                <div style="background: var(--bg-card); border: 1px solid var(--border); border-radius: 15px; overflow: hidden; padding: 30px; transition: 0.3s;" onmouseover="this.style.borderColor='#007bff'" onmouseout="this.style.borderColor='rgba(255,255,255,0.1)'">
-                    <i class="fas fa-plane-departure" style="font-size: 2rem; color: var(--primary);"></i>
-                    <h3 style="color:#fff; margin: 15px 0;">EBBRATO TRAVEL</h3>
-                    <p style="color: var(--text-dim);">Tourism showcase with high-speed delivery.</p>
-                </div>
-            </a>
+    <div class="portfolio-hero">
+        <h1 class="reveal active">SYSTEM <span style="color: var(--primary);">DEPLOYMENTS</span></h1>
+        <p style="color: var(--text-dim);">Validated digital infrastructures optimized for the South African market.</p>
+    </div>
 
-            <a href="https://iletha.com/" target="_blank" style="text-decoration:none;">
-                <div style="background: var(--bg-card); border: 1px solid var(--border); border-radius: 15px; overflow: hidden; padding: 30px; transition: 0.3s;" onmouseover="this.style.borderColor='#007bff'" onmouseout="this.style.borderColor='rgba(255,255,255,0.1)'">
-                    <i class="fas fa-university" style="font-size: 2rem; color: var(--primary);"></i>
-                    <h3 style="color:#fff; margin: 15px 0;">ILETHA ACADEMY</h3>
-                    <p style="color: var(--text-dim);">Institutional empowerment platform.</p>
-                </div>
-            </a>
+    <main class="portfolio-grid">
 
-        </div>
+        <a href="https://emmanuelmhlanga.github.io/ebbrato-travel-agency/" target="_blank" class="project-node">
+            <div class="project-card">
+                <div class="node-overlay">
+                    <div class="launch-command">
+                        <span class="command-text">INITIATE DEPLOYMENT</span>
+                        <div class="click-trigger">CLICK TO ENTER <i class="fas fa-external-link-alt"></i></div>
+                    </div>
+                </div>
+
+                <div class="status-indicator">
+                    <div class="pulse-dot"></div> SYSTEM: LIVE
+                </div>
+
+                <div class="card-visual">
+                    <i class="fas fa-globe-africa"></i>
+                </div>
+
+                <div class="card-content">
+                    <div class="category-tag">TOURISM PROTOCOL</div>
+                    <h3>EBBRATO TRAVEL</h3>
+                    <p>High-performance travel infrastructure engineered for rapid destination rendering and global visitor conversion.</p>
+                    <div class="tech-stack-icons">
+                        <i class="fab fa-html5"></i>
+                        <i class="fab fa-css3-alt"></i>
+                        <i class="fab fa-github"></i>
+                    </div>
+                </div>
+            </div>
+        </a>
+
+        <a href="https://iletha.com/" target="_blank" class="project-node">
+            <div class="project-card">
+                <div class="node-overlay">
+                    <div class="launch-command">
+                        <span class="command-text">ACCESS ACADEMY MESH</span>
+                        <div class="click-trigger">CLICK TO ENTER <i class="fas fa-external-link-alt"></i></div>
+                    </div>
+                </div>
+
+                <div class="status-indicator">
+                    <div class="pulse-dot"></div> SYSTEM: LIVE
+                </div>
+
+                <div class="card-visual">
+                    <i class="fas fa-university"></i>
+                </div>
+
+                <div class="card-content">
+                    <div class="category-tag">INSTITUTIONAL MESH</div>
+                    <h3>ILETHA</h3>
+                    <p>Institutional empowerment platform designed for youth skills development and community-driven resource scaling.</p>
+                    <div class="tech-stack-icons">
+                        <i class="fas fa-shield-alt"></i>
+                        <i class="fas fa-server"></i>
+                        <i class="fas fa-search"></i>
+                    </div>
+                </div>
+            </div>
+        </a>
+
     </main>
 
-    <footer>
-        <div class="footer-grid">
-            <div><a href="index.html" class="logo">GASA <span>TECH</span></a></div>
-            <div>
-                <h4 style="color: var(--primary);">SYSTEMS</h4>
-                <a href="portfolio.html" style="color: var(--text-dim); display: block; margin-top: 10px; text-decoration:none;">Portfolio</a>
-                <a href="services.html" style="color: var(--text-dim); display: block; margin-top: 5px; text-decoration:none;">Services</a>
+    <footer class="site-footer">
+        <div class="footer-content">
+            <div style="max-width: 400px;">
+                <a href="index.html" class="logo">GASA <span>TECH</span></a>
+                <p style="color: var(--text-dim); margin-top: 20px;">
+                    Engineering digital excellence in Johannesburg. Performance-first web systems for growing businesses.
+                </p>
             </div>
             <div>
-                <h4 style="color: var(--primary);">INITIATE</h4>
-                <a href="contact.html" class="btn" style="margin-top: 15px;">Contact Protocol</a>
+                <h4 style="margin-bottom: 20px; color: var(--primary);">CONNECT</h4>
+                <div style="display: flex; gap: 20px;">
+                    <a href="https://instagram.com/gasatechptyltd" target="_blank" style="color: var(--text-dim);"><i class="fab fa-instagram fa-lg"></i></a>
+                    <a href="https://wa.me/27691401737" target="_blank" style="color: var(--text-dim);"><i class="fab fa-whatsapp fa-lg"></i></a>
+                </div>
             </div>
         </div>
-        <div class="footer-bottom">GASA TECH © 2026 | JOHANNESBURG</div>
+        <div class="footer-bottom-text">
+            GASA TECH (PTY) LTD © 2026 | DEPLOYED IN SOUTH AFRICA
+        </div>
     </footer>
+
 </body>
 </html>
+</body>
+</html>
+
