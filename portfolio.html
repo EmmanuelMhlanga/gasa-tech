@@ -24,6 +24,9 @@
             padding: 0 8% 100px; 
         }
 
+        /* Wrap the card in a link */
+        .project-link { text-decoration: none; color: inherit; display: block; }
+
         .project-card {
             background: var(--card-bg);
             border: 1px solid var(--border);
@@ -32,6 +35,36 @@
             transition: 0.5s cubic-bezier(0.4, 0, 0.2, 1);
             position: relative;
         }
+
+        /* HUD Overlay Effect */
+        .view-overlay {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0, 123, 255, 0.2);
+            backdrop-filter: blur(4px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: 0.4s;
+            z-index: 5;
+        }
+
+        .project-card:hover .view-overlay { opacity: 1; }
+
+        .view-btn {
+            background: white;
+            color: black;
+            padding: 10px 20px;
+            border-radius: 50px;
+            font-weight: 800;
+            font-size: 0.8rem;
+            letter-spacing: 1px;
+            transform: translateY(20px);
+            transition: 0.4s;
+        }
+
+        .project-card:hover .view-btn { transform: translateY(0); }
 
         .project-card:hover {
             transform: translateY(-15px);
@@ -48,46 +81,18 @@
             position: relative;
         }
 
-        .project-image i {
-            font-size: 4rem;
-            color: rgba(255,255,255,0.1);
-            transition: 0.5s;
-        }
-
-        .project-card:hover .project-image i {
-            color: var(--primary);
-            transform: scale(1.1);
-        }
+        .project-image i { font-size: 4rem; color: rgba(255,255,255,0.1); transition: 0.5s; }
+        .project-card:hover .project-image i { color: var(--primary); transform: scale(1.1); }
 
         .project-content { padding: 30px; }
+        .project-tag { font-size: 0.7rem; color: var(--primary); text-transform: uppercase; letter-spacing: 2px; font-weight: 700; margin-bottom: 10px; display: block; }
+        .tech-stack-mini { display: flex; gap: 15px; margin-top: 20px; font-size: 0.8rem; color: var(--text-dim); border-top: 1px solid rgba(255,255,255,0.05); padding-top: 20px; }
+        .status-dot { width: 8px; height: 8px; background: #4ade80; border-radius: 50%; display: inline-block; margin-right: 5px; animation: pulse 2s infinite; }
         
-        .project-tag {
-            font-size: 0.7rem;
-            color: var(--primary);
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            font-weight: 700;
-            margin-bottom: 10px;
-            display: block;
-        }
-
-        .tech-stack-mini {
-            display: flex;
-            gap: 15px;
-            margin-top: 20px;
-            font-size: 0.8rem;
-            color: var(--text-dim);
-            border-top: 1px solid rgba(255,255,255,0.05);
-            padding-top: 20px;
-        }
-
-        .status-dot {
-            width: 8px;
-            height: 8px;
-            background: #4ade80;
-            border-radius: 50%;
-            display: inline-block;
-            margin-right: 5px;
+        @keyframes pulse {
+            0% { opacity: 1; }
+            50% { opacity: 0.4; }
+            100% { opacity: 1; }
         }
     </style>
 </head>
@@ -105,94 +110,73 @@
     </header>
 
     <div class="portfolio-header">
-        <h1 style="letter-spacing: 5px;">DEPLOYED <span style="color: var(--primary);">SYSTEMS</span></h1>
-        <p style="color: var(--text-dim);">A log of active digital infrastructures engineered by GASA TECH.</p>
+        <h1>DEPLOYED <span style="color: var(--primary);">SYSTEMS</span></h1>
+        <p style="color: var(--text-dim);">Select a node to view live deployment.</p>
     </div>
 
     <main class="portfolio-grid">
-        <div class="project-card">
-            <div class="project-image">
-                <i class="fas fa-seedling"></i>
-                <div style="position: absolute; top: 15px; left: 15px; font-size: 0.7rem; background: rgba(0,0,0,0.5); padding: 5px 10px; border-radius: 5px;">
-                    <span class="status-dot"></span> LIVE
+        <a href="https://neobreed.co.za" target="_blank" class="project-link">
+            <div class="project-card">
+                <div class="view-overlay"><div class="view-btn">VISIT SITE <i class="fas fa-external-link-alt"></i></div></div>
+                <div class="project-image">
+                    <i class="fas fa-seedling"></i>
+                    <div style="position: absolute; top: 15px; left: 15px; font-size: 0.7rem; background: rgba(0,0,0,0.5); padding: 5px 10px; border-radius: 5px; z-index: 6;">
+                        <span class="status-dot"></span> LIVE
+                    </div>
+                </div>
+                <div class="project-content">
+                    <span class="project-tag">Creative Engineering</span>
+                    <h3>NEO BREED</h3>
+                    <p style="color: var(--text-dim); font-size: 0.9rem; margin-top: 10px;">High-performance creative platform featuring custom UI movements.</p>
+                    <div class="tech-stack-mini">
+                        <span><i class="fab fa-js"></i> JS</span>
+                        <span><i class="fas fa-bolt"></i> SEO+</span>
+                    </div>
                 </div>
             </div>
-            <div class="project-content">
-                <span class="project-tag">Creative Engineering</span>
-                <h3>NEO BREED</h3>
-                <p style="color: var(--text-dim); font-size: 0.9rem; margin-top: 10px;">
-                    High-performance creative platform featuring custom UI movements and responsive architecture for the modern artist.
-                </p>
-                <div class="tech-stack-mini">
-                    <span><i class="fab fa-js"></i> JS</span>
-                    <span><i class="fas fa-bolt"></i> SEO+</span>
-                    <span><i class="fas fa-mobile"></i> MOBILE</span>
-                </div>
-            </div>
-        </div>
+        </a>
 
-        <div class="project-card">
-            <div class="project-image">
-                <i class="fas fa-plane-departure"></i>
-                <div style="position: absolute; top: 15px; left: 15px; font-size: 0.7rem; background: rgba(0,0,0,0.5); padding: 5px 10px; border-radius: 5px;">
-                    <span class="status-dot"></span> LIVE
+        <a href="https://ebbratotravel.co.za" target="_blank" class="project-link">
+            <div class="project-card">
+                <div class="view-overlay"><div class="view-btn">VISIT SITE <i class="fas fa-external-link-alt"></i></div></div>
+                <div class="project-image">
+                    <i class="fas fa-plane-departure"></i>
+                    <div style="position: absolute; top: 15px; left: 15px; font-size: 0.7rem; background: rgba(0,0,0,0.5); padding: 5px 10px; border-radius: 5px; z-index: 6;">
+                        <span class="status-dot"></span> LIVE
+                    </div>
+                </div>
+                <div class="project-content">
+                    <span class="project-tag">Logistics & Tourism</span>
+                    <h3>EBBRATO TRAVEL</h3>
+                    <p style="color: var(--text-dim); font-size: 0.9rem; margin-top: 10px;">Full-scale travel portal with localized search optimization.</p>
+                    <div class="tech-stack-mini">
+                        <span><i class="fas fa-server"></i> HOSTING</span>
+                        <span><i class="fas fa-lock"></i> SSL</span>
+                    </div>
                 </div>
             </div>
-            <div class="project-content">
-                <span class="project-tag">Logistics & Tourism</span>
-                <h3>EBBRATO TRAVEL</h3>
-                <p style="color: var(--text-dim); font-size: 0.9rem; margin-top: 10px;">
-                    Full-scale travel portal with localized search optimization and high-fidelity visual asset management.
-                </p>
-                <div class="tech-stack-mini">
-                    <span><i class="fas fa-server"></i> HOSTING</span>
-                    <span><i class="fas fa-map-marker-alt"></i> MAPS</span>
-                    <span><i class="fas fa-lock"></i> SSL</span>
-                </div>
-            </div>
-        </div>
+        </a>
 
-        <div class="project-card">
-            <div class="project-image">
-                <i class="fas fa-truck-loading"></i>
-                <div style="position: absolute; top: 15px; left: 15px; font-size: 0.7rem; background: rgba(0,0,0,0.5); padding: 5px 10px; border-radius: 5px;">
-                    <span class="status-dot"></span> LIVE
+        <a href="https://iletha.co.za" target="_blank" class="project-link">
+            <div class="project-card">
+                <div class="view-overlay"><div class="view-btn">VISIT SITE <i class="fas fa-external-link-alt"></i></div></div>
+                <div class="project-image">
+                    <i class="fas fa-truck-loading"></i>
+                    <div style="position: absolute; top: 15px; left: 15px; font-size: 0.7rem; background: rgba(0,0,0,0.5); padding: 5px 10px; border-radius: 5px; z-index: 6;">
+                        <span class="status-dot"></span> LIVE
+                    </div>
+                </div>
+                <div class="project-content">
+                    <span class="project-tag">Supply Chain</span>
+                    <h3>ILETHA</h3>
+                    <p style="color: var(--text-dim); font-size: 0.9rem; margin-top: 10px;">Custom business system optimized for logistics tracking.</p>
+                    <div class="tech-stack-mini">
+                        <span><i class="fas fa-code"></i> CUSTOM</span>
+                        <span><i class="fas fa-chart-pie"></i> DATA</span>
+                    </div>
                 </div>
             </div>
-            <div class="project-content">
-                <span class="project-tag">Supply Chain</span>
-                <h3>ILETHA</h3>
-                <p style="color: var(--text-dim); font-size: 0.9rem; margin-top: 10px;">
-                    Custom business system optimized for logistics tracking and client lead generation via the GASA protocol.
-                </p>
-                <div class="tech-stack-mini">
-                    <span><i class="fas fa-code"></i> CUSTOM</span>
-                    <span><i class="fas fa-chart-pie"></i> DATA</span>
-                    <span><i class="fas fa-users"></i> UX</span>
-                </div>
-            </div>
-        </div>
-
-        <div class="project-card">
-            <div class="project-image">
-                <i class="fas fa-gem"></i>
-                <div style="position: absolute; top: 15px; left: 15px; font-size: 0.7rem; background: rgba(0,0,0,0.5); padding: 5px 10px; border-radius: 5px;">
-                    <span class="status-dot"></span> LIVE
-                </div>
-            </div>
-            <div class="project-content">
-                <span class="project-tag">Lifestyle Brand</span>
-                <h3>VILE AMICO</h3>
-                <p style="color: var(--text-dim); font-size: 0.9rem; margin-top: 10px;">
-                    A luxury-focused lifestyle deployment emphasizing clean aesthetics and rapid page transitions.
-                </p>
-                <div class="tech-stack-mini">
-                    <span><i class="fas fa-palette"></i> UI</span>
-                    <span><i class="fas fa-tachometer-alt"></i> SPEED</span>
-                    <span><i class="fas fa-share-alt"></i> SOCIAL</span>
-                </div>
-            </div>
-        </div>
+        </a>
     </main>
 
     <footer>
@@ -201,7 +185,5 @@
             <div><a href="contact.html" class="highlight-btn">Start Your Project</a></div>
         </div>
     </footer>
-
-    <script src="js/script.js" defer></script>
 </body>
 </html>
