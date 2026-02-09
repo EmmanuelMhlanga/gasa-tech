@@ -10,39 +10,198 @@
     </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio | GASA TECH</title>
+    <title>Portfolio | GASA TECH Deployments</title>
     <link rel="icon" type="image/png" href="favicon.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="css/style.css">
+    <style>
+        .portfolio-header { text-align: center; padding: 160px 8% 60px; }
+        
+        .portfolio-grid { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); 
+            gap: 30px; 
+            padding: 0 8% 100px; 
+        }
+
+        .project-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            overflow: hidden;
+            transition: 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+        }
+
+        .project-card:hover {
+            transform: translateY(-15px);
+            border-color: var(--primary);
+            box-shadow: 0 20px 40px rgba(0, 123, 255, 0.2);
+        }
+
+        .project-image {
+            height: 220px;
+            background: linear-gradient(45deg, #060e1a, #112240);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        .project-image i {
+            font-size: 4rem;
+            color: rgba(255,255,255,0.1);
+            transition: 0.5s;
+        }
+
+        .project-card:hover .project-image i {
+            color: var(--primary);
+            transform: scale(1.1);
+        }
+
+        .project-content { padding: 30px; }
+        
+        .project-tag {
+            font-size: 0.7rem;
+            color: var(--primary);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: 700;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        .tech-stack-mini {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+            font-size: 0.8rem;
+            color: var(--text-dim);
+            border-top: 1px solid rgba(255,255,255,0.05);
+            padding-top: 20px;
+        }
+
+        .status-dot {
+            width: 8px;
+            height: 8px;
+            background: #4ade80;
+            border-radius: 50%;
+            display: inline-block;
+            margin-right: 5px;
+        }
+    </style>
 </head>
 <body>
     <header>
-        <a href="index.html" class="logo"><i class="fas fa-laptop-code"></i> GASA <span>TECH</span></a>
-        <nav><a href="index.html">Home</a><a href="about.html">About</a><a href="services.html">Services</a><a href="portfolio.html" class="active">Portfolio</a><a href="pricing.html">Pricing</a><a href="contact.html">Contact</a></nav>
+        <a href="index.html" class="logo">GASA <span>TECH</span></a>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="services.html">Services</a>
+            <a href="portfolio.html" class="active">Portfolio</a>
+            <a href="pricing.html">Pricing</a>
+            <a href="contact.html">Contact</a>
+        </nav>
     </header>
 
-    <main style="padding: 140px 8% 80px;">
-        <h2 style="text-align: center; margin-bottom: 60px;">DEPLOYED SYSTEMS</h2>
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 40px;">
-            <div class="animated-card"><h3>Neo Breed</h3><p>Creative Agency Infrastructure</p></div>
-            <div class="animated-card"><h3>Ebbrato Travel</h3><p>Booking & Logistics Portal</p></div>
-            <div class="animated-card"><h3>Iletha</h3><p>Delivery & Supply Chain System</p></div>
-            <div class="animated-card"><h3>Vile Amico</h3><p>Lifestyle Brand Platform</p></div>
+    <div class="portfolio-header">
+        <h1 style="letter-spacing: 5px;">DEPLOYED <span style="color: var(--primary);">SYSTEMS</span></h1>
+        <p style="color: var(--text-dim);">A log of active digital infrastructures engineered by GASA TECH.</p>
+    </div>
+
+    <main class="portfolio-grid">
+        <div class="project-card">
+            <div class="project-image">
+                <i class="fas fa-seedling"></i>
+                <div style="position: absolute; top: 15px; left: 15px; font-size: 0.7rem; background: rgba(0,0,0,0.5); padding: 5px 10px; border-radius: 5px;">
+                    <span class="status-dot"></span> LIVE
+                </div>
+            </div>
+            <div class="project-content">
+                <span class="project-tag">Creative Engineering</span>
+                <h3>NEO BREED</h3>
+                <p style="color: var(--text-dim); font-size: 0.9rem; margin-top: 10px;">
+                    High-performance creative platform featuring custom UI movements and responsive architecture for the modern artist.
+                </p>
+                <div class="tech-stack-mini">
+                    <span><i class="fab fa-js"></i> JS</span>
+                    <span><i class="fas fa-bolt"></i> SEO+</span>
+                    <span><i class="fas fa-mobile"></i> MOBILE</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="project-card">
+            <div class="project-image">
+                <i class="fas fa-plane-departure"></i>
+                <div style="position: absolute; top: 15px; left: 15px; font-size: 0.7rem; background: rgba(0,0,0,0.5); padding: 5px 10px; border-radius: 5px;">
+                    <span class="status-dot"></span> LIVE
+                </div>
+            </div>
+            <div class="project-content">
+                <span class="project-tag">Logistics & Tourism</span>
+                <h3>EBBRATO TRAVEL</h3>
+                <p style="color: var(--text-dim); font-size: 0.9rem; margin-top: 10px;">
+                    Full-scale travel portal with localized search optimization and high-fidelity visual asset management.
+                </p>
+                <div class="tech-stack-mini">
+                    <span><i class="fas fa-server"></i> HOSTING</span>
+                    <span><i class="fas fa-map-marker-alt"></i> MAPS</span>
+                    <span><i class="fas fa-lock"></i> SSL</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="project-card">
+            <div class="project-image">
+                <i class="fas fa-truck-loading"></i>
+                <div style="position: absolute; top: 15px; left: 15px; font-size: 0.7rem; background: rgba(0,0,0,0.5); padding: 5px 10px; border-radius: 5px;">
+                    <span class="status-dot"></span> LIVE
+                </div>
+            </div>
+            <div class="project-content">
+                <span class="project-tag">Supply Chain</span>
+                <h3>ILETHA</h3>
+                <p style="color: var(--text-dim); font-size: 0.9rem; margin-top: 10px;">
+                    Custom business system optimized for logistics tracking and client lead generation via the GASA protocol.
+                </p>
+                <div class="tech-stack-mini">
+                    <span><i class="fas fa-code"></i> CUSTOM</span>
+                    <span><i class="fas fa-chart-pie"></i> DATA</span>
+                    <span><i class="fas fa-users"></i> UX</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="project-card">
+            <div class="project-image">
+                <i class="fas fa-gem"></i>
+                <div style="position: absolute; top: 15px; left: 15px; font-size: 0.7rem; background: rgba(0,0,0,0.5); padding: 5px 10px; border-radius: 5px;">
+                    <span class="status-dot"></span> LIVE
+                </div>
+            </div>
+            <div class="project-content">
+                <span class="project-tag">Lifestyle Brand</span>
+                <h3>VILE AMICO</h3>
+                <p style="color: var(--text-dim); font-size: 0.9rem; margin-top: 10px;">
+                    A luxury-focused lifestyle deployment emphasizing clean aesthetics and rapid page transitions.
+                </p>
+                <div class="tech-stack-mini">
+                    <span><i class="fas fa-palette"></i> UI</span>
+                    <span><i class="fas fa-tachometer-alt"></i> SPEED</span>
+                    <span><i class="fas fa-share-alt"></i> SOCIAL</span>
+                </div>
+            </div>
         </div>
     </main>
 
     <footer>
         <div class="footer-grid">
-            <div><a href="index.html" class="logo">GASA <span>TECH</span></a><p>Johannesburg, South Africa.</p></div>
-            <div>
-                <h4 style="margin-bottom: 15px;">CONNECT</h4>
-                <div style="display: flex; gap: 15px;">
-                    <a href="https://linkedin.com/company/gasatech" style="color: white;"><i class="fab fa-linkedin"></i></a>
-                    <a href="https://instagram.com/gasatechptyltd" style="color: white;"><i class="fab fa-instagram"></i></a>
-                    <a href="https://tiktok.com/@gasatechptyltd" style="color: white;"><i class="fab fa-tiktok"></i></a>
-                </div>
-            </div>
+            <div><a href="index.html" class="logo">GASA <span>TECH</span></a><p>Johannesburg, ZA.</p></div>
+            <div><a href="contact.html" class="highlight-btn">Start Your Project</a></div>
         </div>
     </footer>
+
+    <script src="js/script.js" defer></script>
 </body>
 </html>
