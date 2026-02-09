@@ -1,78 +1,217 @@
-/* GASA TECH MASTER STYLESHEET - V4.0 (Fix for Live Deployment) */
+/* GASA TECH - Master Global Stylesheet V5.0
+    Integrated with Portfolio HUD and Contact Package Logic
+*/
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap');
+
 :root {
-    --bg-navy: #050a15; /* Deep dark navy from Vorxus ref */
+    /* Color Palette - Vorxus Inspired */
+    --bg-navy: #050a15; 
     --bg-card: #0d1425;
     --primary: #007bff;
+    --primary-glow: rgba(0, 123, 255, 0.4);
     --text-main: #ffffff;
     --text-dim: #94a3b8;
     --border: rgba(255, 255, 255, 0.08);
+    
+    /* Animation Speeds */
+    --transition: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-* { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
-body { background: var(--bg-navy); color: var(--text-main); line-height: 1.6; }
+/* 1. Global Reset & Body */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+}
 
-/* Fixed Navigation Bar */
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: var(--bg-navy);
+    color: var(--text-main);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+/* 2. Standardized Header (Fixed UI) */
 header {
-    position: fixed; top: 0; width: 100%; padding: 20px 8%;
-    display: flex; justify-content: space-between; align-items: center;
-    background: rgba(5, 10, 21, 0.95); backdrop-filter: blur(10px);
-    z-index: 1000; border-bottom: 1px solid var(--border);
+    position: fixed;
+    top: 0;
+    width: 100%;
+    padding: 20px 8%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(5, 10, 21, 0.9);
+    backdrop-filter: blur(12px);
+    z-index: 1000;
+    border-bottom: 1px solid var(--border);
 }
-.logo { font-size: 1.6rem; font-weight: 800; text-decoration: none; color: #fff; letter-spacing: 1px; }
-.logo span { color: var(--primary); }
-nav a { text-decoration: none; color: var(--text-dim); margin-left: 25px; font-size: 0.85rem; font-weight: 500; transition: 0.3s; }
-nav a:hover, nav a.active { color: var(--primary); }
 
-/* Portfolio Grid - Standardized from Reference */
-.portfolio-hero { text-align: center; padding: 140px 8% 60px; }
+.logo {
+    font-size: 1.5rem;
+    font-weight: 800;
+    text-decoration: none;
+    color: var(--text-main);
+    letter-spacing: 1px;
+}
+
+.logo span {
+    color: var(--primary);
+}
+
+nav a {
+    text-decoration: none;
+    color: var(--text-dim);
+    margin-left: 25px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    transition: var(--transition);
+}
+
+nav a:hover, nav a.active {
+    color: var(--primary);
+}
+
+/* 3. Portfolio Card Logic (The "Digital Breach" UI) */
+.portfolio-hero {
+    text-align: center;
+    padding: 160px 8% 60px;
+}
+
 .portfolio-grid { 
     display: grid; 
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); 
-    gap: 30px; 
-    padding: 0 8% 100px; 
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); 
+    gap: 40px; 
+    padding: 0 8% 100px;
     max-width: 1400px;
     margin: 0 auto;
 }
 
+.project-node {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+}
+
 .project-card {
+    position: relative;
     background: var(--bg-card);
     border: 1px solid var(--border);
-    border-radius: 12px;
-    padding: 30px;
-    position: relative;
-    transition: all 0.4s ease;
-    text-decoration: none;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    min-height: 380px;
+    border-radius: 20px;
+    overflow: hidden;
+    transition: var(--transition);
 }
 
 .project-card:hover {
     border-color: var(--primary);
-    transform: translateY(-8px);
-    box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+    transform: translateY(-10px);
 }
 
-/* UI Elements */
-.status-indicator { font-size: 0.7rem; color: #4ade80; display: flex; align-items: center; gap: 8px; margin-bottom: 20px; font-weight: bold; }
-.pulse-dot { width: 8px; height: 8px; background: #4ade80; border-radius: 50%; animation: blink 2s infinite; }
+/* Hover HUD Overlay */
+.node-overlay {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(10, 25, 47, 0.7);
+    backdrop-filter: blur(12px);
+    display: flex; align-items: center; justify-content: center;
+    opacity: 0; z-index: 10; transition: var(--transition);
+}
+
+.project-card:hover .node-overlay {
+    opacity: 1;
+}
+
+.click-trigger {
+    padding: 12px 25px;
+    background: var(--primary);
+    color: white;
+    font-weight: 800;
+    font-size: 0.8rem;
+    border-radius: 4px;
+    box-shadow: 0 0 20px var(--primary-glow);
+}
+
+/* Status Blinkers */
+.status-indicator {
+    position: absolute; top: 20px; right: 20px;
+    background: rgba(0,0,0,0.5); padding: 5px 12px; border-radius: 50px;
+    font-size: 0.65rem; font-weight: bold; border: 1px solid var(--border);
+    display: flex; align-items: center; gap: 8px; z-index: 5;
+    color: #4ade80;
+}
+
+.pulse-dot {
+    width: 7px; height: 7px; background: #4ade80; border-radius: 50%;
+    box-shadow: 0 0 8px #4ade80; animation: blink 2s infinite;
+}
+
 @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0.3; } }
 
-.category-tag { font-size: 0.65rem; color: var(--primary); letter-spacing: 2px; font-weight: 700; text-transform: uppercase; margin-bottom: 10px; }
-.project-card h3 { font-size: 1.5rem; margin-bottom: 15px; color: #fff; }
-.project-card p { color: var(--text-dim); font-size: 0.95rem; margin-bottom: 20px; }
+/* Card Content */
+.card-visual { height: 200px; display: flex; align-items: center; justify-content: center; background: #030712; }
+.card-visual i { font-size: 4rem; opacity: 0.2; color: var(--primary); }
+.card-content { padding: 30px; }
+.category-tag { font-size: 0.65rem; color: var(--primary); font-weight: 800; letter-spacing: 2px; margin-bottom: 10px; }
 
-.click-trigger { 
-    margin-top: auto;
-    color: var(--primary);
-    font-weight: bold;
-    font-size: 0.9rem;
-    display: flex;
-    align-items: center;
-    gap: 10px;
+/* 4. Contact UI (Un-crowded Layout) */
+.info-strip {
+    display: flex; justify-content: center; gap: 30px;
+    padding: 20px 8%; flex-wrap: wrap;
 }
 
-/* Footer Style from Ref */
-footer { background: #030712; padding: 80px 8% 40px; border-top: 1px solid var(--border); margin-top: 50px; }
-.footer-grid { display: flex; justify-content: space-between; align-items: center; }
+.info-item {
+    display: flex; align-items: center; gap: 15px;
+    background: var(--bg-card); padding: 20px 30px;
+    border-radius: 12px; border: 1px solid var(--border);
+}
+
+.contact-container {
+    display: grid; grid-template-columns: 1fr 1.5fr;
+    gap: 60px; padding: 60px 8%; max-width: 1400px; margin: 0 auto;
+}
+
+.contact-form-box {
+    background: var(--bg-card); padding: 40px;
+    border-radius: 15px; border: 1px solid var(--border);
+}
+
+/* Form Elements */
+input, textarea, select {
+    width: 100%; padding: 15px; background: #050a15;
+    border: 1px solid var(--border); border-radius: 6px;
+    color: #fff; margin-bottom: 20px; transition: 0.3s;
+}
+
+input:focus, textarea:focus, select:focus {
+    border-color: var(--primary); outline: none;
+}
+
+.submit-btn {
+    width: 100%; padding: 16px; background: var(--primary);
+    color: #fff; border: none; border-radius: 6px;
+    font-weight: 800; cursor: pointer; text-transform: uppercase;
+}
+
+/* 5. Standardized Footer */
+footer {
+    background: #030712; padding: 60px 8% 30px;
+    border-top: 1px solid var(--border); margin-top: 100px;
+}
+
+.footer-grid {
+    display: flex; justify-content: space-between;
+    align-items: center; flex-wrap: wrap; gap: 20px;
+}
+
+/* 6. Responsive Adjustments */
+@media (max-width: 968px) {
+    .contact-container { grid-template-columns: 1fr; }
+    header { padding: 20px 5%; }
+    nav { display: none; }
+}
