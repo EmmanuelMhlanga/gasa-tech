@@ -1,29 +1,31 @@
-/* GASA TECH - Master Design System 
-    Theme: Deep Navy / Digital Engineering
+/* GASA TECH - Master Global Stylesheet
+    Theme: Digital Engineering / Deep Navy Protocol
+    Version: 2.0 (Linked UI + HUD Updates)
 */
 
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap');
+
 :root {
-    /* Color Palette */
+    /* Color Variables */
     --bg-navy: #0a192f;
-    --bg-navy-light: #112240;
+    --bg-card: #112240;
     --primary: #007bff;
     --primary-glow: rgba(0, 123, 255, 0.4);
-    --text-main: #e6f1ff;
+    --text-main: #ccd6f6;
     --text-dim: #8892b0;
     --white: #ffffff;
     --border: rgba(255, 255, 255, 0.1);
-    --glass: rgba(17, 34, 64, 0.7);
     
-    /* Animation Speeds */
-    --transition: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    /* System Constants */
+    --transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
 }
 
-/* 1. Global Reset */
+/* 1. Reset & Foundations */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-family: 'Inter', sans-serif;
 }
 
 html {
@@ -39,7 +41,7 @@ body {
     overflow-x: hidden;
 }
 
-/* 2. Navigation & Header */
+/* 2. Global Navigation Header */
 header {
     position: fixed;
     top: 0;
@@ -70,9 +72,9 @@ header {
 nav a {
     text-decoration: none;
     color: var(--text-dim);
-    margin-left: 30px;
+    margin-left: 25px;
     font-size: 0.85rem;
-    font-weight: 500;
+    font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 1px;
     transition: var(--transition);
@@ -84,20 +86,14 @@ nav a:hover, nav a.active {
 }
 
 /* 3. Reusable UI Components */
-.section-title {
-    font-size: clamp(2rem, 5vw, 3.5rem);
-    margin-bottom: 20px;
-    letter-spacing: -1px;
-}
-
-.highlight-btn {
+.btn, .highlight-btn {
     display: inline-block;
-    padding: 14px 30px;
+    padding: 12px 28px;
     background: transparent;
     border: 1px solid var(--primary);
     color: var(--primary);
     text-decoration: none;
-    border-radius: 4px;
+    border-radius: 5px;
     font-weight: 600;
     text-transform: uppercase;
     font-size: 0.8rem;
@@ -106,39 +102,41 @@ nav a:hover, nav a.active {
     cursor: pointer;
 }
 
-.highlight-btn:hover {
+.btn:hover, .highlight-btn:hover {
     background: rgba(0, 123, 255, 0.1);
-    box-shadow: 0 0 20px var(--primary-glow);
-    transform: translateY(-3px);
+    box-shadow: 0 0 15px var(--primary-glow);
+    transform: translateY(-2px);
 }
 
-/* 4. Portfolio & Services Cards */
+/* 4. Project HUD Card System (Portfolio) */
 .grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
     gap: 30px;
 }
 
-.card {
-    background: var(--glass);
+.project-card {
+    background: var(--bg-card);
     border: 1px solid var(--border);
-    border-radius: 12px;
-    padding: 40px;
+    border-radius: 20px;
+    overflow: hidden;
+    position: relative;
     transition: var(--transition);
-    backdrop-filter: blur(5px);
+    text-decoration: none; /* For linked cards */
+    display: block;
 }
 
-.card:hover {
+.project-card:hover {
     border-color: var(--primary);
     transform: translateY(-10px);
-    background: rgba(23, 42, 69, 0.9);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
 }
 
-/* 5. HUD Overlay (Portfolio Specific) */
-.view-overlay {
+/* HUD Overlay for Portfolio */
+.hud-overlay {
     position: absolute;
     top: 0; left: 0; width: 100%; height: 100%;
-    background: rgba(10, 25, 47, 0.7);
+    background: rgba(0, 123, 255, 0.1);
     backdrop-filter: blur(4px);
     display: flex;
     align-items: center;
@@ -148,29 +146,93 @@ nav a:hover, nav a.active {
     z-index: 5;
 }
 
-.project-card:hover .view-overlay {
+.project-card:hover .hud-overlay {
     opacity: 1;
 }
 
-/* 6. Protocol Status Dots */
-.status-dot {
+/* 5. Status Indicators */
+.status-badge {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: rgba(0, 0, 0, 0.6);
+    padding: 6px 12px;
+    border-radius: 5px;
+    font-size: 0.7rem;
+    font-weight: bold;
+    color: #4ade80;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    z-index: 6;
+}
+
+.dot {
     width: 8px;
     height: 8px;
     background: #4ade80;
     border-radius: 50%;
-    display: inline-block;
-    margin-right: 8px;
     box-shadow: 0 0 8px #4ade80;
     animation: pulse 2s infinite;
 }
 
 @keyframes pulse {
     0% { transform: scale(1); opacity: 1; }
-    50% { transform: scale(1.5); opacity: 0.5; }
+    50% { transform: scale(1.3); opacity: 0.4; }
     100% { transform: scale(1); opacity: 1; }
 }
 
-/* 7. Scroll Reveals */
+/* 6. Form Styling (Contact Page) */
+.form-container {
+    background: rgba(255, 255, 255, 0.02);
+    padding: 40px;
+    border-radius: 15px;
+    border: 1px solid var(--border);
+}
+
+input, textarea {
+    width: 100%;
+    padding: 15px;
+    background: rgba(0, 0, 0, 0.3);
+    border: 1px solid var(--border);
+    border-radius: 5px;
+    color: var(--white);
+    margin-bottom: 20px;
+    transition: var(--transition);
+}
+
+input:focus, textarea:focus {
+    border-color: var(--primary);
+    outline: none;
+    background: rgba(0, 0, 0, 0.5);
+}
+
+/* 7. Footer System */
+footer {
+    background: #060e1a;
+    padding: 80px 8% 40px;
+    border-top: 1px solid var(--border);
+    margin-top: 100px;
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 50px;
+}
+
+.footer-bottom {
+    text-align: center;
+    padding-top: 40px;
+    margin-top: 40px;
+    border-top: 1px solid var(--border);
+    color: #444;
+    font-size: 0.75rem;
+    letter-spacing: 2px;
+}
+
+/* 8. Scroll Reveals */
 .reveal {
     opacity: 0;
     transform: translateY(30px);
@@ -182,44 +244,10 @@ nav a:hover, nav a.active {
     transform: translateY(0);
 }
 
-/* 8. Contact Form Elements */
-input, textarea {
-    width: 100%;
-    padding: 15px;
-    background: rgba(0, 0, 0, 0.2);
-    border: 1px solid var(--border);
-    border-radius: 6px;
-    color: var(--white);
-    margin-bottom: 20px;
-    transition: var(--transition);
-}
-
-input:focus, textarea:focus {
-    border-color: var(--primary);
-    outline: none;
-    background: rgba(0, 0, 0, 0.4);
-}
-
-/* 9. Footer */
-footer {
-    padding: 80px 8% 40px;
-    background: #060e1a;
-    border-top: 1px solid var(--border);
-    margin-top: 100px;
-}
-
-.footer-grid {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    flex-wrap: wrap;
-    gap: 40px;
-}
-
-/* 10. Responsive Design */
+/* 9. Responsive Adjustments */
 @media (max-width: 768px) {
     header { padding: 20px 5%; }
-    nav { display: none; } /* Add a burger menu later if needed */
+    nav { display: none; } /* Standard Mobile Hide */
+    .grid { grid-template-columns: 1fr; }
     section { padding: 80px 5%; }
-    .footer-grid { flex-direction: column; text-align: center; }
 }
