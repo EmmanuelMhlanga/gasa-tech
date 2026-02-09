@@ -1,253 +1,91 @@
-/* GASA TECH - Master Global Stylesheet
-    Theme: Digital Engineering / Deep Navy Protocol
-    Version: 2.0 (Linked UI + HUD Updates)
-*/
-
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap');
-
+/* GASA TECH MASTER STYLESHEET - V3.0 */
 :root {
-    /* Color Variables */
     --bg-navy: #0a192f;
     --bg-card: #112240;
     --primary: #007bff;
     --primary-glow: rgba(0, 123, 255, 0.4);
     --text-main: #ccd6f6;
     --text-dim: #8892b0;
-    --white: #ffffff;
     --border: rgba(255, 255, 255, 0.1);
-    
-    /* System Constants */
-    --transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+    --transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* 1. Reset & Foundations */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Inter', sans-serif;
-}
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
+body { background: var(--bg-navy); color: var(--text-main); line-height: 1.6; overflow-x: hidden; }
 
-html {
-    scroll-behavior: smooth;
-}
-
-body {
-    background-color: var(--bg-navy);
-    background-image: radial-gradient(circle at 50% 50%, #112240 0%, #0a192f 100%);
-    background-attachment: fixed;
-    color: var(--text-main);
-    line-height: 1.6;
-    overflow-x: hidden;
-}
-
-/* 2. Global Navigation Header */
+/* Header & Nav */
 header {
-    position: fixed;
-    top: 0;
-    width: 100%;
-    padding: 20px 8%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background: rgba(10, 25, 47, 0.85);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    z-index: 1000;
-    border-bottom: 1px solid var(--border);
+    position: fixed; top: 0; width: 100%; padding: 25px 8%;
+    display: flex; justify-content: space-between; align-items: center;
+    background: rgba(10, 25, 47, 0.85); backdrop-filter: blur(12px);
+    z-index: 1000; border-bottom: 1px solid var(--border);
 }
+.logo { font-size: 1.5rem; font-weight: 800; text-decoration: none; color: #fff; letter-spacing: 2px; }
+.logo span { color: var(--primary); }
+nav a { text-decoration: none; color: var(--text-dim); margin-left: 30px; font-size: 0.85rem; font-weight: 600; text-transform: uppercase; transition: var(--transition); }
+nav a:hover, nav a.active { color: var(--primary); }
 
-.logo {
-    font-size: 1.5rem;
-    font-weight: 800;
-    text-decoration: none;
-    color: var(--white);
-    letter-spacing: 2px;
-}
+/* Portfolio Grid & Cards */
+.portfolio-hero { text-align: center; padding: 180px 8% 60px; }
+.portfolio-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 40px; padding: 0 8% 100px; }
 
-.logo span {
-    color: var(--primary);
-}
-
-nav a {
-    text-decoration: none;
-    color: var(--text-dim);
-    margin-left: 25px;
-    font-size: 0.85rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    transition: var(--transition);
-}
-
-nav a:hover, nav a.active {
-    color: var(--primary);
-    text-shadow: 0 0 10px var(--primary-glow);
-}
-
-/* 3. Reusable UI Components */
-.btn, .highlight-btn {
-    display: inline-block;
-    padding: 12px 28px;
-    background: transparent;
-    border: 1px solid var(--primary);
-    color: var(--primary);
-    text-decoration: none;
-    border-radius: 5px;
-    font-weight: 600;
-    text-transform: uppercase;
-    font-size: 0.8rem;
-    letter-spacing: 1.5px;
-    transition: var(--transition);
-    cursor: pointer;
-}
-
-.btn:hover, .highlight-btn:hover {
-    background: rgba(0, 123, 255, 0.1);
-    box-shadow: 0 0 15px var(--primary-glow);
-    transform: translateY(-2px);
-}
-
-/* 4. Project HUD Card System (Portfolio) */
-.grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    gap: 30px;
-}
+.project-node { text-decoration: none; color: inherit; display: block; }
 
 .project-card {
+    position: relative;
     background: var(--bg-card);
     border: 1px solid var(--border);
     border-radius: 20px;
     overflow: hidden;
-    position: relative;
     transition: var(--transition);
-    text-decoration: none; /* For linked cards */
-    display: block;
 }
 
-.project-card:hover {
-    border-color: var(--primary);
-    transform: translateY(-10px);
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
-}
-
-/* HUD Overlay for Portfolio */
-.hud-overlay {
+/* The "Nice" UI Breach Effect */
+.node-overlay {
     position: absolute;
     top: 0; left: 0; width: 100%; height: 100%;
-    background: rgba(0, 123, 255, 0.1);
-    backdrop-filter: blur(4px);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    opacity: 0;
-    transition: var(--transition);
-    z-index: 5;
+    background: rgba(10, 25, 47, 0);
+    backdrop-filter: blur(0px);
+    display: flex; align-items: center; justify-content: center;
+    opacity: 0; z-index: 10; transition: var(--transition);
 }
 
-.project-card:hover .hud-overlay {
+.project-card:hover .node-overlay {
     opacity: 1;
+    backdrop-filter: blur(12px);
+    background: rgba(10, 25, 47, 0.7);
 }
 
-/* 5. Status Indicators */
-.status-badge {
-    position: absolute;
-    top: 15px;
-    right: 15px;
-    background: rgba(0, 0, 0, 0.6);
-    padding: 6px 12px;
-    border-radius: 5px;
-    font-size: 0.7rem;
-    font-weight: bold;
-    color: #4ade80;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    z-index: 6;
-}
+.launch-command { text-align: center; transform: translateY(20px); transition: var(--transition); }
+.project-card:hover .launch-command { transform: translateY(0); }
+.command-text { display: block; font-size: 0.6rem; color: var(--primary); letter-spacing: 4px; margin-bottom: 15px; }
+.click-trigger { padding: 12px 25px; background: var(--primary); color: white; font-weight: 800; font-size: 0.8rem; border-radius: 4px; box-shadow: 0 0 20px var(--primary-glow); }
 
-.dot {
-    width: 8px;
-    height: 8px;
-    background: #4ade80;
-    border-radius: 50%;
-    box-shadow: 0 0 8px #4ade80;
-    animation: pulse 2s infinite;
+/* Card Components */
+.status-indicator {
+    position: absolute; top: 20px; right: 20px;
+    background: rgba(0,0,0,0.5); padding: 5px 12px; border-radius: 50px;
+    font-size: 0.65rem; font-weight: bold; border: 1px solid rgba(255,255,255,0.1);
+    display: flex; align-items: center; gap: 8px; z-index: 5;
 }
+.pulse-dot { width: 7px; height: 7px; background: #4ade80; border-radius: 50%; box-shadow: 0 0 8px #4ade80; animation: blink 2s infinite; }
+@keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0.3; } }
 
-@keyframes pulse {
-    0% { transform: scale(1); opacity: 1; }
-    50% { transform: scale(1.3); opacity: 0.4; }
-    100% { transform: scale(1); opacity: 1; }
-}
+.card-visual { height: 220px; display: flex; align-items: center; justify-content: center; background: #060e1a; }
+.card-visual i { font-size: 4rem; opacity: 0.2; transition: var(--transition); }
+.project-card:hover .card-visual i { opacity: 1; color: var(--primary); transform: scale(1.1); }
 
-/* 6. Form Styling (Contact Page) */
-.form-container {
-    background: rgba(255, 255, 255, 0.02);
-    padding: 40px;
-    border-radius: 15px;
-    border: 1px solid var(--border);
-}
+.card-content { padding: 35px; }
+.category-tag { font-size: 0.65rem; color: var(--primary); font-weight: 900; letter-spacing: 2px; margin-bottom: 10px; }
+.tech-stack-icons { margin-top: 25px; display: flex; gap: 20px; color: var(--text-dim); font-size: 1.2rem; }
 
-input, textarea {
-    width: 100%;
-    padding: 15px;
-    background: rgba(0, 0, 0, 0.3);
-    border: 1px solid var(--border);
-    border-radius: 5px;
-    color: var(--white);
-    margin-bottom: 20px;
-    transition: var(--transition);
-}
+/* Footer */
+.site-footer { background: #060e1a; padding: 80px 8% 40px; border-top: 1px solid var(--border); }
+.footer-content { display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 40px; }
+.footer-bottom-text { text-align: center; margin-top: 60px; color: #333; font-size: 0.7rem; letter-spacing: 2px; }
 
-input:focus, textarea:focus {
-    border-color: var(--primary);
-    outline: none;
-    background: rgba(0, 0, 0, 0.5);
-}
-
-/* 7. Footer System */
-footer {
-    background: #060e1a;
-    padding: 80px 8% 40px;
-    border-top: 1px solid var(--border);
-    margin-top: 100px;
-}
-
-.footer-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 50px;
-}
-
-.footer-bottom {
-    text-align: center;
-    padding-top: 40px;
-    margin-top: 40px;
-    border-top: 1px solid var(--border);
-    color: #444;
-    font-size: 0.75rem;
-    letter-spacing: 2px;
-}
-
-/* 8. Scroll Reveals */
-.reveal {
-    opacity: 0;
-    transform: translateY(30px);
-    transition: all 0.8s ease-out;
-}
-
-.reveal.active {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-/* 9. Responsive Adjustments */
 @media (max-width: 768px) {
     header { padding: 20px 5%; }
-    nav { display: none; } /* Standard Mobile Hide */
-    .grid { grid-template-columns: 1fr; }
-    section { padding: 80px 5%; }
+    nav { display: none; }
+    .portfolio-grid { grid-template-columns: 1fr; padding: 0 5% 100px; }
 }
