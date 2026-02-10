@@ -1,10 +1,10 @@
-/* GASA TECH MASTER STYLE SHEET */
+/* GASA TECH MASTER STYLE */
 :root {
     --primary: #007bff;
-    --primary-glow: rgba(0, 123, 255, 0.5);
-    --bg: #050a15; /* Your Dark Blue Background */
-    --card-bg: #0a192f;
-    --text-main: #ffffff;
+    --dark: #121d31;
+    --light: #ffffff;
+    --footer-bg: #0b121f;
+    --card-bg: #1c2a42;
     --text-dim: #a0aec0;
     --border: rgba(255, 255, 255, 0.1);
 }
@@ -12,11 +12,10 @@
 * { margin: 0; padding: 0; box-sizing: border-box; }
 
 body { 
-    background-color: var(--bg) !important; 
-    color: var(--text-main); 
-    font-family: 'Inter', 'Segoe UI', sans-serif;
+    background-color: var(--dark) !important; 
+    color: var(--light); 
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     line-height: 1.6;
-    min-height: 100vh;
 }
 
 header {
@@ -26,13 +25,13 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background: rgba(5, 10, 21, 0.95);
+    background: rgba(18, 29, 49, 0.95);
     backdrop-filter: blur(10px);
     border-bottom: 1px solid var(--border);
     z-index: 1000;
 }
 
-.logo { font-size: 1.5rem; font-weight: 800; color: #fff; text-decoration: none; }
+.logo { font-size: 24px; font-weight: bold; color: var(--light); text-decoration: none; }
 .logo span { color: var(--primary); }
 
 nav a {
@@ -43,60 +42,11 @@ nav a {
     transition: 0.3s;
 }
 
-nav a:hover, nav a.active { color: var(--primary); }
+nav a.active { color: var(--primary); font-weight: bold; }
 
+/* Mobile Menu Toggle */
 .menu-toggle { display: none; color: white; font-size: 1.5rem; cursor: pointer; }
 
-/* Hero Section Styling */
-.hero-container {
-    padding: 180px 8% 100px;
-    text-align: left;
-}
-
-.encryption-text {
-    letter-spacing: 5px;
-    font-size: 0.8rem;
-    color: var(--text-dim);
-    margin-bottom: 10px;
-    text-transform: uppercase;
-}
-
-h1 {
-    font-size: clamp(3rem, 10vw, 6rem);
-    font-weight: 900;
-    margin-bottom: 20px;
-    color: white;
-}
-
-.hero-description {
-    max-width: 600px;
-    color: var(--text-dim);
-    font-size: 1.1rem;
-    margin-bottom: 40px;
-}
-
-.btn-group { display: flex; gap: 20px; }
-
-.highlight-btn { 
-    background: var(--primary); 
-    color: white; 
-    padding: 15px 30px; 
-    border-radius: 5px; 
-    text-decoration: none; 
-    font-weight: 600; 
-    transition: 0.3s;
-}
-
-.outline-btn { 
-    border: 1px solid var(--primary); 
-    color: var(--primary); 
-    padding: 15px 30px; 
-    border-radius: 5px; 
-    text-decoration: none;
-    transition: 0.3s;
-}
-
-/* RESPONSIVE MENU */
 @media (max-width: 968px) {
     .menu-toggle { display: block; }
     nav {
@@ -104,10 +54,20 @@ h1 {
         flex-direction: column;
         position: absolute;
         top: 100%; left: 0; width: 100%;
-        background: #050a15;
-        padding: 30px;
-        border-bottom: 1px solid var(--border);
+        background: var(--dark);
+        padding: 20px;
+        text-align: center;
+        border-bottom: 1px solid var(--primary);
     }
     nav.mobile-active { display: flex; }
-    nav a { margin: 15px 0; font-size: 1.2rem; margin-left: 0; }
+    nav a { margin: 15px 0; margin-left: 0; font-size: 1.2rem; }
 }
+
+/* Hero Section */
+.hero-container { padding: 180px 8% 100px; }
+.encryption-text { letter-spacing: 5px; color: var(--primary); font-size: 0.8rem; margin-bottom: 10px; }
+h1 { font-size: 4rem; font-weight: 900; margin-bottom: 20px; }
+.hero-description { max-width: 600px; color: var(--text-dim); margin-bottom: 40px; }
+.btn-group { display: flex; gap: 20px; }
+.highlight-btn { background: var(--primary); color: white; padding: 15px 30px; border-radius: 5px; text-decoration: none; }
+.outline-btn { border: 1px solid var(--primary); color: var(--primary); padding: 15px 30px; border-radius: 5px; text-decoration: none; }
