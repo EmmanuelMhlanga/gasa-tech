@@ -1,21 +1,31 @@
-/* GASA TECH MASTER STYLE */
+/* GASA TECH GLOBAL DESIGN PROTOCOL */
 :root {
-    --primary: #007bff;
-    --dark: #121d31;
-    --light: #ffffff;
-    --footer-bg: #0b121f;
-    --card-bg: #1c2a42;
-    --text-dim: #a0aec0;
-    --border: rgba(255, 255, 255, 0.1);
+    --primary: #00a2ff;
+    --primary-glow: rgba(0, 162, 255, 0.4);
+    --bg: #0d1b2a; 
+    --card-bg: rgba(27, 38, 59, 0.7);
+    --text-main: #ffffff;
+    --text-dim: #b0c4de;
+    --border: rgba(0, 162, 255, 0.2);
 }
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
 
 body { 
-    background-color: var(--dark) !important; 
-    color: var(--light); 
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: var(--bg); 
+    color: var(--text-main); 
+    font-family: 'Inter', sans-serif;
+    overflow-x: hidden;
     line-height: 1.6;
+}
+
+/* Neural Canvas Background */
+#neural-canvas {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    z-index: -1;
+    opacity: 0.5;
 }
 
 header {
@@ -25,49 +35,58 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background: rgba(18, 29, 49, 0.95);
-    backdrop-filter: blur(10px);
+    background: rgba(13, 27, 42, 0.85);
+    backdrop-filter: blur(15px);
     border-bottom: 1px solid var(--border);
     z-index: 1000;
 }
 
-.logo { font-size: 24px; font-weight: bold; color: var(--light); text-decoration: none; }
-.logo span { color: var(--primary); }
+.logo { font-size: 1.5rem; font-weight: 800; color: #fff; text-decoration: none; }
+.logo span { color: var(--primary); text-shadow: 0 0 10px var(--primary-glow); }
 
-nav a {
-    color: var(--text-dim);
+nav a { color: var(--text-dim); text-decoration: none; margin-left: 30px; font-size: 0.95rem; transition: 0.3s; }
+nav a:hover, nav a.active { color: var(--primary); text-shadow: 0 0 8px var(--primary-glow); }
+
+/* Buttons */
+.btn {
+    padding: 16px 35px;
+    border-radius: 10px;
     text-decoration: none;
-    margin-left: 30px;
-    font-size: 0.9rem;
-    transition: 0.3s;
+    font-weight: 800;
+    text-transform: uppercase;
+    transition: 0.4s;
+    display: inline-block;
+}
+.btn-primary { background: var(--primary); color: #fff; box-shadow: 0 5px 20px var(--primary-glow); }
+.btn-outline { border: 1px solid var(--border); color: #fff; }
+.btn:hover { transform: translateY(-3px); opacity: 0.9; }
+
+/* Cards */
+.service-card, .project-card, .price-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 40px;
+    backdrop-filter: blur(10px);
+    transition: 0.4s;
+}
+.service-card:hover, .project-card:hover, .price-card:hover {
+    border-color: var(--primary);
+    transform: translateY(-10px);
+    box-shadow: 0 10px 40px rgba(0,162,255,0.2);
 }
 
-nav a.active { color: var(--primary); font-weight: bold; }
+/* Footer */
+footer { padding: 80px 8% 40px; background: #07101a; border-top: 1px solid var(--border); }
+.footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 50px; }
+.footer-col h4 { color: var(--primary); margin-bottom: 25px; letter-spacing: 2px; }
+.footer-col a, .footer-col p { color: var(--text-dim); text-decoration: none; display: block; margin-bottom: 12px; }
 
-/* Mobile Menu Toggle */
-.menu-toggle { display: none; color: white; font-size: 1.5rem; cursor: pointer; }
-
-@media (max-width: 968px) {
-    .menu-toggle { display: block; }
-    nav {
-        display: none;
-        flex-direction: column;
-        position: absolute;
-        top: 100%; left: 0; width: 100%;
-        background: var(--dark);
-        padding: 20px;
-        text-align: center;
-        border-bottom: 1px solid var(--primary);
-    }
-    nav.mobile-active { display: flex; }
-    nav a { margin: 15px 0; margin-left: 0; font-size: 1.2rem; }
+@media (max-width: 768px) { nav { display: none; } }
+.service-card:hover {
+    border-color: var(--primary);
+    transform: translateY(-10px);
+    box-shadow: 0 0 30px var(--primary-glow);
 }
 
-/* Hero Section */
-.hero-container { padding: 180px 8% 100px; }
-.encryption-text { letter-spacing: 5px; color: var(--primary); font-size: 0.8rem; margin-bottom: 10px; }
-h1 { font-size: 4rem; font-weight: 900; margin-bottom: 20px; }
-.hero-description { max-width: 600px; color: var(--text-dim); margin-bottom: 40px; }
-.btn-group { display: flex; gap: 20px; }
-.highlight-btn { background: var(--primary); color: white; padding: 15px 30px; border-radius: 5px; text-decoration: none; }
-.outline-btn { border: 1px solid var(--primary); color: var(--primary); padding: 15px 30px; border-radius: 5px; text-decoration: none; }
+/* Add the rest of your header, hero, and footer CSS here */
