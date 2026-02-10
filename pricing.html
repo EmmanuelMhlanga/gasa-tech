@@ -4,6 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pricing | GASA TECH Service Modules</title>
+
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#00a2ff">
+    <link rel="apple-touch-icon" href="icon-192.png">
+    <script>
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+          navigator.serviceWorker.register('/sw.js');
+        });
+      }
+    </script>
+
     <link rel="icon" type="image/png" href="favicon.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
@@ -46,16 +58,8 @@
         .logo { font-size: 1.5rem; font-weight: 800; color: #fff; text-decoration: none; }
         .logo span { color: var(--primary); text-shadow: 0 0 10px var(--primary-glow); }
 
-        nav a {
-            color: var(--text-dim);
-            text-decoration: none;
-            margin-left: 30px;
-            font-size: 0.95rem;
-            transition: 0.3s;
-        }
-
-        nav a:hover, nav a.active { color: var(--primary); text-shadow: 0 0 8px var(--primary-glow); }
-        .menu-toggle { display: none; color: white; font-size: 1.5rem; cursor: pointer; }
+        nav a { color: var(--text-dim); text-decoration: none; margin-left: 30px; font-size: 0.95rem; }
+        nav a.active { color: var(--primary); }
 
         .pricing-header { text-align: center; padding: 180px 8% 60px; position: relative; }
         .glow-orb { position: absolute; width: 450px; height: 450px; background: radial-gradient(circle, var(--primary-glow) 0%, transparent 70%); top: -10%; left: -10%; z-index: -1; filter: blur(50px); animation: float 8s infinite ease-in-out; }
@@ -65,66 +69,24 @@
         .pricing-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; padding: 0 8% 100px; }
         
         .price-card { 
-            background: var(--card-bg); 
-            border: 1px solid var(--border); 
-            border-radius: 20px; 
-            padding: 50px 40px; 
-            text-align: center;
-            transition: 0.4s;
-            position: relative;
-            display: flex;
-            flex-direction: column;
+            background: var(--card-bg); border: 1px solid var(--border); border-radius: 20px; padding: 50px 40px; text-align: center; transition: 0.4s; position: relative; display: flex; flex-direction: column;
         }
         
         .price-card:hover { border-color: var(--primary); transform: translateY(-10px); }
-
-        .package-name { font-size: 1.5rem; font-weight: 800; margin-bottom: 20px; letter-spacing: 2px; }
         .price-value { font-size: 3rem; font-weight: 900; margin-bottom: 30px; background: #fff; color: var(--bg); border-radius: 50px; padding: 5px 20px; display: inline-block; }
 
-        .feature-list { list-style: none; margin-bottom: 40px; text-align: left; flex-grow: 1; }
-        .feature-list li { margin-bottom: 12px; color: var(--text-dim); display: flex; align-items: center; gap: 10px; font-size: 0.9rem; border-bottom: 1px solid rgba(255,255,255,0.05); padding-bottom: 8px; }
-        .feature-list li i { color: var(--primary); font-size: 0.8rem; }
-
-        /* Package Specific Colors */
-        .basic { border-top: 5px solid var(--accent-purple); }
-        .standard { border-top: 5px solid var(--accent-teal); }
-        .premium { border-top: 5px solid var(--accent-orange); }
-
-        .price-btn { 
-            display: block; 
-            background: var(--primary); 
-            color: white; 
-            text-decoration: none; 
-            padding: 15px; 
-            border-radius: 10px; 
-            font-weight: 700; 
-            transition: 0.3s;
-            text-transform: uppercase;
-        }
-        .price-btn:hover { box-shadow: 0 0 20px var(--primary); transform: scale(1.02); }
+        .price-btn { display: block; background: var(--primary); color: white; text-decoration: none; padding: 15px; border-radius: 10px; font-weight: 700; text-transform: uppercase; }
 
         footer { padding: 80px 8% 40px; background: #07101a; border-top: 1px solid var(--border); }
         .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 50px; }
         .footer-col h4 { margin-bottom: 25px; color: var(--primary); letter-spacing: 2px; text-transform: uppercase; font-weight: 800; }
-        .footer-col a, .footer-col p { color: var(--text-dim); text-decoration: none; display: block; margin-bottom: 12px; font-size: 0.95rem; }
-        .footer-bottom { text-align: center; padding-top: 40px; margin-top: 40px; border-top: 1px solid rgba(255,255,255,0.05); color: #516275; font-size: 0.85rem; }
-
-        @media (max-width: 968px) {
-            .menu-toggle { display: block; }
-            nav {
-                display: none; flex-direction: column; position: absolute;
-                top: 100%; left: 0; width: 100%; background: var(--bg); padding: 30px;
-                border-bottom: 2px solid var(--primary);
-            }
-            nav.mobile-active { display: flex; }
-            nav a { margin: 15px 0; margin-left: 0; font-size: 1.2rem; }
-        }
+        .footer-col a, .footer-col p { color: var(--text-dim); text-decoration: none; display: block; margin-bottom: 12px; }
     </style>
 </head>
 <body>
     <header>
         <a href="index.html" class="logo">GASA <span>TECH</span></a>
-        <nav id="navMenu">
+        <nav>
             <a href="index.html">Home</a>
             <a href="about.html">About</a>
             <a href="services.html">Services</a>
@@ -132,51 +94,36 @@
             <a href="pricing.html" class="active">Pricing</a>
             <a href="contact.html">Contact</a>
         </nav>
-        <div class="menu-toggle" id="mobileMenu"><i class="fas fa-bars"></i></div>
     </header>
 
     <div class="pricing-header">
         <div class="glow-orb"></div>
         <h1 style="text-transform: uppercase; font-weight: 900; font-size: clamp(2.5rem, 8vw, 4rem);">WEBSITE DESIGN</h1>
-        <p style="color: var(--text-dim); margin-top: 15px;">Professional development packages tailored to your growth.</p>
     </div>
 
     <main class="pricing-grid">
-        <div class="price-card basic">
-            <div class="package-name" style="color: var(--accent-purple);">BASIC PACKAGE</div>
-            <ul class="feature-list">
-                <li><i class="fas fa-check"></i> Up to 5 Pages</li>
-                <li><i class="fas fa-check"></i> Custom Design</li>
-                <li><i class="fas fa-check"></i> Free .co.za Domain</li>
-                <li><i class="fas fa-check"></i> Desktop, Tablet & Mobile Responsive</li>
+        <div class="price-card" style="border-top: 5px solid var(--accent-purple);">
+            <h3>BASIC PACKAGE</h3>
+            <ul style="list-style: none; color: var(--text-dim); margin-bottom: 30px; text-align: left;">
+                <li><i class="fas fa-check" style="color: var(--primary)"></i> Up to 5 Pages</li>
             </ul>
             <div class="price-value">R3000</div>
             <a href="contact.html" class="price-btn">Select Basic</a>
         </div>
 
-        <div class="price-card standard">
-            <div class="package-name" style="color: var(--accent-teal);">STANDARD PACKAGE</div>
-            <ul class="feature-list">
-                <li><i class="fas fa-check"></i> Up to 8 Pages</li>
-                <li><i class="fas fa-check"></i> Custom Design</li>
-                <li><i class="fas fa-check"></i> Free .co.za Domain</li>
-                <li><i class="fas fa-check"></i> Photo Gallery</li>
-                <li><i class="fas fa-check"></i> Desktop, Tablet & Mobile Responsive</li>
-                <li><i class="fas fa-check"></i> One Year Hosting</li>
+        <div class="price-card" style="border-top: 5px solid var(--accent-teal);">
+            <h3>STANDARD PACKAGE</h3>
+            <ul style="list-style: none; color: var(--text-dim); margin-bottom: 30px; text-align: left;">
+                <li><i class="fas fa-check" style="color: var(--primary)"></i> Up to 8 Pages</li>
             </ul>
             <div class="price-value">R3500</div>
             <a href="contact.html" class="price-btn">Select Standard</a>
         </div>
 
-        <div class="price-card premium">
-            <div class="package-name" style="color: var(--accent-orange);">PREMIUM PACKAGE</div>
-            <ul class="feature-list">
-                <li><i class="fas fa-check"></i> Unlimited Pages</li>
-                <li><i class="fas fa-check"></i> Custom Design</li>
-                <li><i class="fas fa-check"></i> Free .co.za Domain</li>
-                <li><i class="fas fa-check"></i> Social Media Integration</li>
-                <li><i class="fas fa-check"></i> Desktop, Tablet & Mobile Responsive</li>
-                <li><i class="fas fa-check"></i> One Year Hosting</li>
+        <div class="price-card" style="border-top: 5px solid var(--accent-orange);">
+            <h3>PREMIUM PACKAGE</h3>
+            <ul style="list-style: none; color: var(--text-dim); margin-bottom: 30px; text-align: left;">
+                <li><i class="fas fa-check" style="color: var(--primary)"></i> Unlimited Pages</li>
             </ul>
             <div class="price-value">R4500</div>
             <a href="contact.html" class="price-btn">Select Premium</a>
@@ -187,39 +134,19 @@
         <div class="footer-grid">
             <div class="footer-col">
                 <a href="index.html" class="logo">GASA <span>TECH</span></a>
-                <p style="margin-top: 20px;">Precision Engineering.<br>Strategic Deployment.</p>
+                <p style="margin-top: 20px;">Strategic Deployment.</p>
             </div>
             <div class="footer-col">
                 <h4>QUICK LINKS</h4>
-                <a href="index.html">Home Base</a>
                 <a href="services.html">Capabilities</a>
-                <a href="portfolio.html">Live Deployments</a>
                 <a href="contact.html">Contact Hub</a>
             </div>
             <div class="footer-col">
-                <h4>LEGAL</h4>
-                <a href="privacy.html">Privacy Policy</a>
-                <a href="terms.html">Terms of Service</a>
-            </div>
-            <div class="footer-col">
                 <h4>CONNECT</h4>
-                <p><i class="fab fa-whatsapp" style="color:var(--primary)"></i> +27 69 140 1737</p>
-                <p><i class="fas fa-envelope" style="color:var(--primary)"></i> gasatechptyltd@gmail.com</p>
+                <p>+27 69 140 1737</p>
+                <p>gasatechptyltd@gmail.com</p>
             </div>
-        </div>
-        <div class="footer-bottom">
-            &copy; 2026 GASA TECH (PTY) LTD | JOHANNESBURG, SOUTH AFRICA
         </div>
     </footer>
-
-    <script>
-        const mobileMenuBtn = document.getElementById('mobileMenu');
-        const navMenu = document.getElementById('navMenu');
-        if (mobileMenuBtn) {
-            mobileMenuBtn.addEventListener('click', () => {
-                navMenu.classList.toggle('mobile-active');
-            });
-        }
-    </script>
 </body>
 </html>
