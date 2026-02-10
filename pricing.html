@@ -7,7 +7,6 @@
     <link rel="icon" type="image/png" href="favicon.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        /* ELECTRIC BLUE THEME SETTINGS */
         :root {
             --primary: #00a2ff;
             --primary-glow: rgba(0, 162, 255, 0.4);
@@ -16,6 +15,9 @@
             --text-main: #ffffff;
             --text-dim: #b0c4de;
             --border: rgba(0, 162, 255, 0.2);
+            --accent-purple: #8e44ad;
+            --accent-teal: #1abc9c;
+            --accent-orange: #e67e22;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -55,7 +57,6 @@
         nav a:hover, nav a.active { color: var(--primary); text-shadow: 0 0 8px var(--primary-glow); }
         .menu-toggle { display: none; color: white; font-size: 1.5rem; cursor: pointer; }
 
-        /* PRICING CONTENT */
         .pricing-header { text-align: center; padding: 180px 8% 60px; position: relative; }
         .glow-orb { position: absolute; width: 450px; height: 450px; background: radial-gradient(circle, var(--primary-glow) 0%, transparent 70%); top: -10%; left: -10%; z-index: -1; filter: blur(50px); animation: float 8s infinite ease-in-out; }
         
@@ -71,18 +72,23 @@
             text-align: center;
             transition: 0.4s;
             position: relative;
+            display: flex;
+            flex-direction: column;
         }
         
-        .price-card.featured { border: 2px solid var(--primary); transform: scale(1.05); z-index: 2; box-shadow: 0 0 30px rgba(0, 162, 255, 0.2); }
         .price-card:hover { border-color: var(--primary); transform: translateY(-10px); }
 
-        .price-card h3 { font-size: 1.5rem; color: var(--primary); margin-bottom: 20px; letter-spacing: 2px; }
-        .price-value { font-size: 3rem; font-weight: 900; margin-bottom: 30px; }
-        .price-value span { font-size: 1rem; color: var(--text-dim); }
+        .package-name { font-size: 1.5rem; font-weight: 800; margin-bottom: 20px; letter-spacing: 2px; }
+        .price-value { font-size: 3rem; font-weight: 900; margin-bottom: 30px; background: #fff; color: var(--bg); border-radius: 50px; padding: 5px 20px; display: inline-block; }
 
-        .feature-list { list-style: none; margin-bottom: 40px; text-align: left; }
-        .feature-list li { margin-bottom: 15px; color: var(--text-dim); display: flex; align-items: center; gap: 10px; font-size: 0.9rem; }
+        .feature-list { list-style: none; margin-bottom: 40px; text-align: left; flex-grow: 1; }
+        .feature-list li { margin-bottom: 12px; color: var(--text-dim); display: flex; align-items: center; gap: 10px; font-size: 0.9rem; border-bottom: 1px solid rgba(255,255,255,0.05); padding-bottom: 8px; }
         .feature-list li i { color: var(--primary); font-size: 0.8rem; }
+
+        /* Package Specific Colors */
+        .basic { border-top: 5px solid var(--accent-purple); }
+        .standard { border-top: 5px solid var(--accent-teal); }
+        .premium { border-top: 5px solid var(--accent-orange); }
 
         .price-btn { 
             display: block; 
@@ -93,10 +99,10 @@
             border-radius: 10px; 
             font-weight: 700; 
             transition: 0.3s;
+            text-transform: uppercase;
         }
         .price-btn:hover { box-shadow: 0 0 20px var(--primary); transform: scale(1.02); }
 
-        /* FOOTER */
         footer { padding: 80px 8% 40px; background: #07101a; border-top: 1px solid var(--border); }
         .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 50px; }
         .footer-col h4 { margin-bottom: 25px; color: var(--primary); letter-spacing: 2px; text-transform: uppercase; font-weight: 800; }
@@ -112,7 +118,6 @@
             }
             nav.mobile-active { display: flex; }
             nav a { margin: 15px 0; margin-left: 0; font-size: 1.2rem; }
-            .price-card.featured { transform: scale(1); }
         }
     </style>
 </head>
@@ -132,45 +137,49 @@
 
     <div class="pricing-header">
         <div class="glow-orb"></div>
-        <h1 style="text-transform: uppercase; font-weight: 900; font-size: clamp(2.5rem, 8vw, 4rem);">SERVICE MODULES</h1>
-        <p style="color: var(--text-dim); margin-top: 15px;">Transparent investment for enterprise-grade digital engineering.</p>
+        <h1 style="text-transform: uppercase; font-weight: 900; font-size: clamp(2.5rem, 8vw, 4rem);">WEBSITE DESIGN</h1>
+        <p style="color: var(--text-dim); margin-top: 15px;">Professional development packages tailored to your growth.</p>
     </div>
 
     <main class="pricing-grid">
-        <div class="price-card">
-            <h3>LITE PROTOCOL</h3>
-            <div class="price-value">R1,499<span>/setup</span></div>
+        <div class="price-card basic">
+            <div class="package-name" style="color: var(--accent-purple);">BASIC PACKAGE</div>
             <ul class="feature-list">
-                <li><i class="fas fa-check"></i> Single Page Architecture</li>
-                <li><i class="fas fa-check"></i> Essential SEO Package</li>
-                <li><i class="fas fa-check"></i> Mobile Responsive Design</li>
-                <li><i class="fas fa-check"></i> SSL Security Integration</li>
+                <li><i class="fas fa-check"></i> Up to 5 Pages</li>
+                <li><i class="fas fa-check"></i> Custom Design</li>
+                <li><i class="fas fa-check"></i> Free .co.za Domain</li>
+                <li><i class="fas fa-check"></i> Desktop, Tablet & Mobile Responsive</li>
             </ul>
-            <a href="contact.html" class="price-btn">Initiate Deployment</a>
+            <div class="price-value">R3000</div>
+            <a href="contact.html" class="price-btn">Select Basic</a>
         </div>
 
-        <div class="price-card featured">
-            <h3>CORE SYSTEM</h3>
-            <div class="price-value">R3,499<span>/setup</span></div>
+        <div class="price-card standard">
+            <div class="package-name" style="color: var(--accent-teal);">STANDARD PACKAGE</div>
             <ul class="feature-list">
-                <li><i class="fas fa-check"></i> Multi-Page Infrastructure</li>
-                <li><i class="fas fa-check"></i> Advanced Search Dominance</li>
-                <li><i class="fas fa-check"></i> Custom UI/UX Engineering</li>
-                <li><i class="fas fa-check"></i> Google Analytics Config</li>
+                <li><i class="fas fa-check"></i> Up to 8 Pages</li>
+                <li><i class="fas fa-check"></i> Custom Design</li>
+                <li><i class="fas fa-check"></i> Free .co.za Domain</li>
+                <li><i class="fas fa-check"></i> Photo Gallery</li>
+                <li><i class="fas fa-check"></i> Desktop, Tablet & Mobile Responsive</li>
+                <li><i class="fas fa-check"></i> One Year Hosting</li>
             </ul>
-            <a href="contact.html" class="price-btn">Initiate Deployment</a>
+            <div class="price-value">R3500</div>
+            <a href="contact.html" class="price-btn">Select Standard</a>
         </div>
 
-        <div class="price-card">
-            <h3>ENTERPRISE</h3>
-            <div class="price-value">CUSTOM<span>/quote</span></div>
+        <div class="price-card premium">
+            <div class="package-name" style="color: var(--accent-orange);">PREMIUM PACKAGE</div>
             <ul class="feature-list">
-                <li><i class="fas fa-check"></i> Custom Web Applications</li>
-                <li><i class="fas fa-check"></i> Scalable Cloud Ecosystems</li>
-                <li><i class="fas fa-check"></i> API & Database Integration</li>
-                <li><i class="fas fa-check"></i> 24/7 Priority Maintenance</li>
+                <li><i class="fas fa-check"></i> Unlimited Pages</li>
+                <li><i class="fas fa-check"></i> Custom Design</li>
+                <li><i class="fas fa-check"></i> Free .co.za Domain</li>
+                <li><i class="fas fa-check"></i> Social Media Integration</li>
+                <li><i class="fas fa-check"></i> Desktop, Tablet & Mobile Responsive</li>
+                <li><i class="fas fa-check"></i> One Year Hosting</li>
             </ul>
-            <a href="contact.html" class="price-btn">Inquire Now</a>
+            <div class="price-value">R4500</div>
+            <a href="contact.html" class="price-btn">Select Premium</a>
         </div>
     </main>
 
