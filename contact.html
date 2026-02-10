@@ -4,10 +4,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact | GASA TECH Support Nodes</title>
+
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#00a2ff">
+    <link rel="apple-touch-icon" href="icon-192.png">
+    <script>
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+          navigator.serviceWorker.register('/sw.js');
+        });
+      }
+    </script>
+
     <link rel="icon" type="image/png" href="favicon.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        /* ELECTRIC BLUE THEME SETTINGS */
         :root {
             --primary: #00a2ff;
             --primary-glow: rgba(0, 162, 255, 0.4);
@@ -44,95 +55,28 @@
         .logo { font-size: 1.5rem; font-weight: 800; color: #fff; text-decoration: none; }
         .logo span { color: var(--primary); text-shadow: 0 0 10px var(--primary-glow); }
 
-        nav a {
-            color: var(--text-dim);
-            text-decoration: none;
-            margin-left: 30px;
-            font-size: 0.95rem;
-            transition: 0.3s;
-        }
+        nav a { color: var(--text-dim); text-decoration: none; margin-left: 30px; font-size: 0.95rem; }
+        nav a.active { color: var(--primary); }
 
-        nav a:hover, nav a.active { color: var(--primary); text-shadow: 0 0 8px var(--primary-glow); }
-        .menu-toggle { display: none; color: white; font-size: 1.5rem; cursor: pointer; }
-
-        /* CONTACT CONTENT */
         .contact-header { padding: 180px 8% 40px; position: relative; }
         .glow-orb { position: absolute; width: 400px; height: 400px; background: radial-gradient(circle, var(--primary-glow) 0%, transparent 70%); top: 10%; right: -5%; z-index: -1; filter: blur(40px); animation: float 6s infinite ease-in-out; }
         @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-20px); } }
 
         .contact-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 50px; padding: 0 8% 100px; }
-
-        /* SUPPORT NODES (Left Side) */
-        .node-info h2 { font-size: 2rem; margin-bottom: 25px; text-transform: uppercase; }
-        .node-links { margin-bottom: 40px; }
-        .node-link { 
-            display: flex; 
-            align-items: center; 
-            gap: 15px; 
-            color: var(--text-dim); 
-            text-decoration: none; 
-            margin-bottom: 20px; 
-            font-size: 1.1rem; 
-            transition: 0.3s;
-        }
-        .node-link i { color: var(--primary); font-size: 1.5rem; }
-        .node-link:hover { color: var(--primary); transform: translateX(10px); }
-
-        /* TRANSMIT FORM (Right Side) */
         .contact-form { background: var(--card-bg); padding: 40px; border-radius: 20px; border: 1px solid var(--border); }
-        .form-group { margin-bottom: 20px; }
-        .form-group label { display: block; color: var(--primary); font-size: 0.8rem; letter-spacing: 1px; margin-bottom: 8px; font-weight: 700; }
-        
-        input, select, textarea { 
-            width: 100%; 
-            padding: 15px; 
-            background: rgba(13, 27, 42, 0.5); 
-            border: 1px solid var(--border); 
-            border-radius: 8px; 
-            color: #fff; 
-            font-family: inherit;
-            transition: 0.3s;
-        }
-        input:focus, select:focus, textarea:focus { outline: none; border-color: var(--primary); box-shadow: 0 0 10px var(--primary-glow); }
+        input, select, textarea { width: 100%; padding: 15px; background: rgba(13, 27, 42, 0.5); border: 1px solid var(--border); border-radius: 8px; color: #fff; margin-bottom: 20px; }
+        .transmit-btn { width: 100%; background: var(--primary); color: #fff; border: none; padding: 18px; border-radius: 8px; font-weight: 800; text-transform: uppercase; cursor: pointer; letter-spacing: 2px; }
 
-        .transmit-btn { 
-            width: 100%; 
-            background: var(--primary); 
-            color: #fff; 
-            border: none; 
-            padding: 18px; 
-            border-radius: 8px; 
-            font-weight: 800; 
-            text-transform: uppercase; 
-            cursor: pointer; 
-            transition: 0.3s;
-            letter-spacing: 2px;
-        }
-        .transmit-btn:hover { box-shadow: 0 0 25px var(--primary); transform: scale(1.02); }
-
-        /* FOOTER */
         footer { padding: 80px 8% 40px; background: #07101a; border-top: 1px solid var(--border); }
         .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 50px; }
         .footer-col h4 { margin-bottom: 25px; color: var(--primary); letter-spacing: 2px; text-transform: uppercase; font-weight: 800; }
-        .footer-col a, .footer-col p { color: var(--text-dim); text-decoration: none; display: block; margin-bottom: 12px; font-size: 0.95rem; }
-        .footer-bottom { text-align: center; padding-top: 40px; margin-top: 40px; border-top: 1px solid rgba(255,255,255,0.05); color: #516275; font-size: 0.85rem; }
-
-        @media (max-width: 968px) {
-            .menu-toggle { display: block; }
-            nav {
-                display: none; flex-direction: column; position: absolute;
-                top: 100%; left: 0; width: 100%; background: var(--bg); padding: 30px;
-                border-bottom: 2px solid var(--primary);
-            }
-            nav.mobile-active { display: flex; }
-            nav a { margin: 15px 0; margin-left: 0; font-size: 1.2rem; }
-        }
+        .footer-col a, .footer-col p { color: var(--text-dim); text-decoration: none; display: block; margin-bottom: 12px; }
     </style>
 </head>
 <body>
     <header>
         <a href="index.html" class="logo">GASA <span>TECH</span></a>
-        <nav id="navMenu">
+        <nav>
             <a href="index.html">Home</a>
             <a href="about.html">About</a>
             <a href="services.html">Services</a>
@@ -140,58 +84,32 @@
             <a href="pricing.html">Pricing</a>
             <a href="contact.html" class="active">Contact</a>
         </nav>
-        <div class="menu-toggle" id="mobileMenu"><i class="fas fa-bars"></i></div>
     </header>
 
     <div class="contact-header">
         <div class="glow-orb"></div>
         <h1 style="letter-spacing: 4px; font-weight: 900; font-size: clamp(2.5rem, 8vw, 4rem);">INITIATE CONTACT</h1>
-        <p style="color: var(--text-dim); margin-top: 10px;">Select your protocol and our engineers will reach out.</p>
     </div>
 
     <main class="contact-container">
         <div class="node-info">
             <h2>Support Nodes</h2>
-            <div class="node-links">
-                <a href="https://wa.me/27691401737" class="node-link">
-                    <i class="fab fa-whatsapp"></i> WhatsApp Direct
-                </a>
-                <a href="#" class="node-link">
-                    <i class="fab fa-instagram"></i> Instagram Official
-                </a>
-                <a href="mailto:gasatechptyltd@gmail.com" class="node-link">
-                    <i class="fas fa-envelope"></i> Email Protocol
-                </a>
+            <div style="margin-top: 20px;">
+                <p><i class="fab fa-whatsapp" style="color:var(--primary)"></i> +27 69 140 1737</p>
+                <p><i class="fas fa-envelope" style="color:var(--primary)"></i> gasatechptyltd@gmail.com</p>
             </div>
-            <p style="color: var(--text-dim); font-size: 0.9rem;">
-                Available for technical consultation: <br>
-                Mon - Fri | 08:00 - 17:00 SAST
-            </p>
         </div>
-
         <div class="contact-form">
             <form action="#">
-                <div class="form-group">
-                    <label>IDENTIFIER (FULL NAME)</label>
-                    <input type="text" placeholder="Enter name..." required>
-                </div>
-                <div class="form-group">
-                    <label>COMMUNICATION MESH (EMAIL)</label>
-                    <input type="email" placeholder="Enter email address..." required>
-                </div>
-                <div class="form-group">
-                    <label>DEPLOYMENT PACKAGE</label>
-                    <select required>
-                        <option value="" disabled selected>Choose a package...</option>
-                        <option>Lite Protocol (R1,499)</option>
-                        <option>Core System (R3,499)</option>
-                        <option>Enterprise (Custom)</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label>SPECIFICATIONS</label>
-                    <textarea rows="4" placeholder="Project details or special requirements..."></textarea>
-                </div>
+                <input type="text" placeholder="IDENTIFIER (NAME)" required>
+                <input type="email" placeholder="EMAIL MESH" required>
+                <select required>
+                    <option value="" disabled selected>PACKAGE SELECTION</option>
+                    <option>Basic (R3000)</option>
+                    <option>Standard (R3500)</option>
+                    <option>Premium (R4500)</option>
+                </select>
+                <textarea rows="4" placeholder="SPECIFICATIONS"></textarea>
                 <button type="submit" class="transmit-btn">Transmit Message</button>
             </form>
         </div>
@@ -201,39 +119,19 @@
         <div class="footer-grid">
             <div class="footer-col">
                 <a href="index.html" class="logo">GASA <span>TECH</span></a>
-                <p style="margin-top: 20px;">Precision Engineering.<br>Strategic Deployment.</p>
+                <p style="margin-top: 20px;">Strategic Deployment.</p>
             </div>
             <div class="footer-col">
                 <h4>QUICK LINKS</h4>
                 <a href="index.html">Home Base</a>
-                <a href="services.html">Capabilities</a>
                 <a href="portfolio.html">Live Deployments</a>
-                <a href="contact.html" class="active">Contact Hub</a>
-            </div>
-            <div class="footer-col">
-                <h4>LEGAL</h4>
-                <a href="privacy.html">Privacy Policy</a>
-                <a href="terms.html">Terms of Service</a>
             </div>
             <div class="footer-col">
                 <h4>CONNECT</h4>
-                <p><i class="fab fa-whatsapp" style="color:var(--primary)"></i> +27 69 140 1737</p>
-                <p><i class="fas fa-envelope" style="color:var(--primary)"></i> gasatechptyltd@gmail.com</p>
+                <p>+27 69 140 1737</p>
+                <p>gasatechptyltd@gmail.com</p>
             </div>
         </div>
-        <div class="footer-bottom">
-            &copy; 2026 GASA TECH (PTY) LTD | JOHANNESBURG, SOUTH AFRICA
-        </div>
     </footer>
-
-    <script>
-        const mobileMenuBtn = document.getElementById('mobileMenu');
-        const navMenu = document.getElementById('navMenu');
-        if (mobileMenuBtn) {
-            mobileMenuBtn.addEventListener('click', () => {
-                navMenu.classList.toggle('mobile-active');
-            });
-        }
-    </script>
 </body>
 </html>
