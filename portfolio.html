@@ -3,10 +3,124 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio | GASA TECH</title>
+    <title>Portfolio | GASA TECH Deployments</title>
     <link rel="icon" type="image/png" href="favicon.png">
-    <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        /* ELECTRIC BLUE THEME SETTINGS */
+        :root {
+            --primary: #00a2ff;
+            --primary-glow: rgba(0, 162, 255, 0.4);
+            --bg: #0d1b2a; 
+            --card-bg: #1b263b;
+            --text-main: #ffffff;
+            --text-dim: #b0c4de;
+            --border: rgba(0, 162, 255, 0.2);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body { 
+            background: var(--bg); 
+            color: var(--text-main); 
+            font-family: 'Inter', sans-serif;
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        header {
+            position: fixed;
+            top: 0; width: 100%;
+            padding: 20px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(13, 27, 42, 0.85);
+            backdrop-filter: blur(15px);
+            border-bottom: 1px solid var(--border);
+            z-index: 1000;
+        }
+
+        .logo { font-size: 1.5rem; font-weight: 800; color: #fff; text-decoration: none; }
+        .logo span { color: var(--primary); text-shadow: 0 0 10px var(--primary-glow); }
+
+        nav a {
+            color: var(--text-dim);
+            text-decoration: none;
+            margin-left: 30px;
+            font-size: 0.95rem;
+            transition: 0.3s;
+        }
+
+        nav a:hover, nav a.active { color: var(--primary); text-shadow: 0 0 8px var(--primary-glow); }
+        .menu-toggle { display: none; color: white; font-size: 1.5rem; cursor: pointer; }
+
+        /* PORTFOLIO CONTENT */
+        .portfolio-header { padding: 180px 8% 60px; position: relative; }
+        .glow-orb { position: absolute; width: 400px; height: 400px; background: radial-gradient(circle, var(--primary-glow) 0%, transparent 70%); top: 10%; right: -5%; z-index: -1; filter: blur(40px); animation: float 6s infinite ease-in-out; }
+        
+        @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-20px); } }
+
+        .portfolio-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 30px; padding: 0 8% 100px; }
+        
+        .project-card { 
+            background: var(--card-bg); 
+            border: 1px solid var(--border); 
+            border-radius: 20px; 
+            padding: 40px; 
+            transition: 0.4s;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .project-card:hover { 
+            border-color: var(--primary); 
+            box-shadow: 0 10px 40px rgba(0, 162, 255, 0.2); 
+            transform: translateY(-10px); 
+        }
+
+        .system-status { 
+            font-size: 0.7rem; 
+            color: var(--primary); 
+            letter-spacing: 2px; 
+            font-weight: 800; 
+            margin-bottom: 10px; 
+            display: block;
+        }
+
+        .project-card h3 { font-size: 1.8rem; margin-bottom: 15px; color: #fff; }
+        .project-card p { color: var(--text-dim); margin-bottom: 25px; font-size: 0.95rem; }
+        
+        .project-link { 
+            color: var(--primary); 
+            text-decoration: none; 
+            font-weight: 700; 
+            display: flex; 
+            align-items: center; 
+            gap: 10px; 
+            transition: 0.3s;
+        }
+        
+        .project-link:hover { gap: 15px; }
+
+        /* FOOTER */
+        footer { padding: 80px 8% 40px; background: #07101a; border-top: 1px solid var(--border); }
+        .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 50px; }
+        .footer-col h4 { margin-bottom: 25px; color: var(--primary); letter-spacing: 2px; text-transform: uppercase; font-weight: 800; }
+        .footer-col a, .footer-col p { color: var(--text-dim); text-decoration: none; display: block; margin-bottom: 12px; font-size: 0.95rem; }
+        .footer-bottom { text-align: center; padding-top: 40px; margin-top: 40px; border-top: 1px solid rgba(255,255,255,0.05); color: #516275; font-size: 0.85rem; }
+
+        @media (max-width: 968px) {
+            .menu-toggle { display: block; }
+            nav {
+                display: none; flex-direction: column; position: absolute;
+                top: 100%; left: 0; width: 100%; background: var(--bg); padding: 30px;
+                border-bottom: 2px solid var(--primary);
+            }
+            nav.mobile-active { display: flex; }
+            nav a { margin: 15px 0; margin-left: 0; font-size: 1.2rem; }
+        }
+    </style>
 </head>
 <body>
     <header>
@@ -22,38 +136,71 @@
         <div class="menu-toggle" id="mobileMenu"><i class="fas fa-bars"></i></div>
     </header>
 
-    <div class="portfolio-hero">
-        <h1>LIVE <span style="color: var(--primary);">DEPLOYMENTS</span></h1>
-        <p style="color: var(--text-dim); margin-top: 10px;">Engineering excellence for the South African digital landscape.</p>
+    <div class="portfolio-header">
+        <div class="glow-orb"></div>
+        <h1 style="letter-spacing: 4px; font-weight: 900; font-size: clamp(2.5rem, 8vw, 4rem); text-transform: uppercase;">LIVE DEPLOYMENTS</h1>
+        <p style="color: var(--text-dim); margin-top: 15px; border-left: 3px solid var(--primary); padding-left: 20px; max-width: 600px;">Engineering excellence for the South African digital landscape. Explore our latest active protocols.</p>
     </div>
 
     <main class="portfolio-grid">
-        <a href="https://emmanuelmhlanga.github.io/ebbrato-travel-agency/" target="_blank" class="project-card">
-            <div class="status-indicator"><div class="pulse-dot"></div> SYSTEM: LIVE</div>
-            <div class="content">
-                <div class="category-tag">TOURISM PROTOCOL</div>
-                <h3>EBBRATO TRAVEL</h3>
-                <p>A sleek, high-conversion travel landing page optimized for rapid destination rendering and global tour inquiries.</p>
-            </div>
-            <div class="click-trigger">CLICK TO ENTER <i class="fas fa-arrow-right"></i></div>
-        </a>
-        <a href="https://iletha.com/" target="_blank" class="project-card">
-            <div class="status-indicator"><div class="pulse-dot"></div> SYSTEM: LIVE</div>
-            <div class="content">
-                <div class="category-tag">INSTITUTIONAL MESH</div>
-                <h3>ILETHA</h3>
-                <p>An institutional empowerment platform designed for youth skills development and community-driven resource scaling.</p>
-            </div>
-            <div class="click-trigger">CLICK TO ENTER <i class="fas fa-arrow-right"></i></div>
-        </a>
+        <div class="project-card">
+            <span class="system-status">SYSTEM: LIVE | TOURISM PROTOCOL</span>
+            <h3>EBBRATO TRAVEL</h3>
+            <p>A sleek, high-conversion travel landing page optimized for rapid destination rendering and global tour inquiries.</p>
+            <a href="#" class="project-link">CLICK TO ENTER <i class="fas fa-arrow-right"></i></a>
+        </div>
+
+        <div class="project-card">
+            <span class="system-status">SYSTEM: LIVE | INSTITUTIONAL MESH</span>
+            <h3>ILETHA</h3>
+            <p>An institutional empowerment platform designed for youth skills development and community-driven resource scaling.</p>
+            <a href="#" class="project-link">CLICK TO ENTER <i class="fas fa-arrow-right"></i></a>
+        </div>
+        
+        <div class="project-card" style="opacity: 0.6; border-style: dashed;">
+            <span class="system-status">SYSTEM: PENDING</span>
+            <h3>NEXT DEPLOYMENT</h3>
+            <p>New architectural project currently in development phase. Protocol initiation coming soon.</p>
+        </div>
     </main>
 
     <footer>
         <div class="footer-grid">
-            <a href="index.html" class="logo">GASA <span>TECH</span></a>
-            <p style="color: #444; font-size: 0.8rem;">© 2026 Johannesburg, South Africa.</p>
+            <div class="footer-col">
+                <a href="index.html" class="logo">GASA <span>TECH</span></a>
+                <p style="margin-top: 20px;">Precision Engineering.<br>Strategic Deployment.</p>
+            </div>
+            <div class="footer-col">
+                <h4>QUICK LINKS</h4>
+                <a href="index.html">Home Base</a>
+                <a href="services.html">Capabilities</a>
+                <a href="portfolio.html" class="active">Live Deployments</a>
+                <a href="contact.html">Contact Hub</a>
+            </div>
+            <div class="footer-col">
+                <h4>LEGAL</h4>
+                <a href="privacy.html">Privacy Policy</a>
+                <a href="terms.html">Terms of Service</a>
+            </div>
+            <div class="footer-col">
+                <h4>CONNECT</h4>
+                <p><i class="fab fa-whatsapp" style="color:var(--primary)"></i> +27 69 140 1737</p>
+                <p><i class="fas fa-envelope" style="color:var(--primary)"></i> gasatechptyltd@gmail.com</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            &copy; 2026 GASA TECH (PTY) LTD | JOHANNESBURG, SOUTH AFRICA
         </div>
     </footer>
-    <script src="js/script.js"></script>
+
+    <script>
+        const mobileMenuBtn = document.getElementById('mobileMenu');
+        const navMenu = document.getElementById('navMenu');
+        if (mobileMenuBtn) {
+            mobileMenuBtn.addEventListener('click', () => {
+                navMenu.classList.toggle('mobile-active');
+            });
+        }
+    </script>
 </body>
 </html>
