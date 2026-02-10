@@ -4,17 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact | GASA TECH</title>
-    
     <link rel="icon" type="image/png" href="favicon.png">
-    
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
-
     <header>
         <a href="index.html" class="logo">GASA <span>TECH</span></a>
-        <nav>
+        <nav id="navMenu">
             <a href="index.html">Home</a>
             <a href="about.html">About</a>
             <a href="services.html">Services</a>
@@ -22,6 +19,7 @@
             <a href="pricing.html">Pricing</a>
             <a href="contact.html" class="active">Contact</a>
         </nav>
+        <div class="menu-toggle" id="mobileMenu"><i class="fas fa-bars"></i></div>
     </header>
 
     <div class="contact-hero">
@@ -38,14 +36,12 @@
                 <a href="mailto:gasatechptyltd@gmail.com"><i class="fas fa-envelope"></i> Email Protocol</a>
             </div>
         </div>
-
         <div class="contact-form-box">
             <form action="https://formspree.io/f/xnjjqryr" method="POST">
                 <div class="form-row">
                     <input type="text" name="name" placeholder="Full Name" required>
                     <input type="email" name="email" placeholder="Email Address" required>
                 </div>
-
                 <div class="select-wrapper">
                     <label>Select Your Deployment Package</label>
                     <select name="package" required>
@@ -56,9 +52,7 @@
                         <option value="Custom - Consultation">Custom Deployment</option>
                     </select>
                 </div>
-
                 <textarea name="message" placeholder="Project details or special requirements..." rows="5" required></textarea>
-                
                 <button type="submit" class="submit-btn">Transmit Message</button>
             </form>
         </div>
@@ -70,6 +64,6 @@
             <p style="color: #444; font-size: 0.7rem; letter-spacing: 1px;">© 2026 GASA TECH (PTY) LTD | JOHANNESBURG</p>
         </div>
     </footer>
-
+    <script src="js/script.js"></script>
 </body>
 </html>
