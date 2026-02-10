@@ -7,15 +7,15 @@
     <link rel="icon" type="image/png" href="favicon.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        /* THEME COPIED FROM ABOUT PAGE */
+        /* LIGHTER ELECTRIC BLUE THEME */
         :root {
-            --primary: #007bff;
-            --primary-glow: rgba(0, 123, 255, 0.5);
-            --bg: #050a15;
-            --card-bg: #0a192f;
+            --primary: #00a2ff; /* Vibrant Light Blue */
+            --primary-glow: rgba(0, 162, 255, 0.4);
+            --bg: #0d1b2a; /* Lighter Space Blue background */
+            --card-bg: #1b263b; /* Distinct Card Blue */
             --text-main: #ffffff;
-            --text-dim: #a0aec0;
-            --border: rgba(255, 255, 255, 0.1);
+            --text-dim: #b0c4de;
+            --border: rgba(0, 162, 255, 0.2);
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -36,115 +36,127 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            background: rgba(5, 10, 21, 0.8);
-            backdrop-filter: blur(10px);
+            background: rgba(13, 27, 42, 0.85);
+            backdrop-filter: blur(15px);
             border-bottom: 1px solid var(--border);
             z-index: 1000;
         }
 
-        .logo { font-size: 1.5rem; font-weight: 800; color: #fff; text-decoration: none; }
-        .logo span { color: var(--primary); }
+        .logo { font-size: 1.5rem; font-weight: 800; color: #fff; text-decoration: none; display: flex; align-items: center; gap: 10px; }
+        .logo span { color: var(--primary); text-shadow: 0 0 10px var(--primary-glow); }
 
         nav a {
             color: var(--text-dim);
             text-decoration: none;
             margin-left: 30px;
-            font-size: 0.9rem;
+            font-size: 0.95rem;
             transition: 0.3s;
+            font-weight: 500;
         }
 
-        nav a:hover, nav a.active { color: var(--primary); }
+        nav a:hover, nav a.active { color: var(--primary); text-shadow: 0 0 8px var(--primary-glow); }
         .menu-toggle { display: none; color: white; font-size: 1.5rem; cursor: pointer; }
 
-        /* HERO SECTION WITH ABOUT PAGE "GLOW" */
+        /* HERO SECTION WITH BRIGHT GLOW */
         .hero-section { 
-            padding: 180px 8% 100px; 
+            padding: 200px 8% 120px; 
             position: relative; 
-            overflow: hidden; 
-            min-height: 80vh;
+            min-height: 85vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
         }
 
+        /* Large Light Blue Glow Orb */
         .glow-orb { 
             position: absolute; 
-            width: 300px; 
-            height: 300px; 
+            width: 500px; 
+            height: 500px; 
             background: radial-gradient(circle, var(--primary-glow) 0%, transparent 70%); 
-            top: 10%; right: -5%; 
+            top: -100px; 
+            right: -100px; 
             z-index: -1; 
-            animation: float 6s infinite ease-in-out; 
+            filter: blur(40px);
+            animation: float 8s infinite ease-in-out; 
         }
 
         @keyframes float { 
-            0%, 100% { transform: translateY(0) scale(1); } 
-            50% { transform: translateY(-20px) scale(1.1); } 
+            0%, 100% { transform: translate(0, 0); } 
+            50% { transform: translate(-30px, 20px); } 
         }
 
-        /* STATUS BADGE FROM ABOUT PAGE */
         .status-badge { 
             display: inline-flex; 
             align-items: center; 
-            gap: 8px; 
-            background: rgba(74, 222, 128, 0.1); 
-            color: #4ade80; 
-            padding: 5px 15px; 
-            border-radius: 20px; 
-            font-size: 0.8rem; 
-            font-weight: 600; 
-            margin-bottom: 20px; 
+            gap: 10px; 
+            background: rgba(0, 162, 255, 0.1); 
+            color: var(--primary); 
+            padding: 6px 18px; 
+            border-radius: 30px; 
+            font-size: 0.85rem; 
+            font-weight: 700; 
+            margin-bottom: 30px;
+            border: 1px solid var(--border);
+            letter-spacing: 1px;
         }
 
-        .pulse { 
-            width: 8px; height: 8px; 
-            background: #4ade80; 
-            border-radius: 50%; 
-            box-shadow: 0 0 0 rgba(74, 222, 128, 0.4); 
-            animation: pulse-animation 2s infinite; 
+        h1 { 
+            font-size: clamp(3.5rem, 9vw, 6rem); 
+            line-height: 0.95; 
+            font-weight: 900; 
+            margin-bottom: 25px; 
+            color: #fff;
+            text-transform: uppercase;
         }
-
-        @keyframes pulse-animation { 
-            0% { box-shadow: 0 0 0 0px rgba(74, 222, 128, 0.7); } 
-            70% { box-shadow: 0 0 0 10px rgba(74, 222, 128, 0); } 
-            100% { box-shadow: 0 0 0 0px rgba(74, 222, 128, 0); } 
-        }
-
-        h1 { font-size: clamp(3rem, 8vw, 5rem); line-height: 1.1; font-weight: 900; margin-bottom: 20px; }
         
         .hero-description { 
-            max-width: 750px; 
-            margin-top: 20px;
-            font-size: 1.1rem; 
+            max-width: 700px; 
+            font-size: 1.2rem; 
             color: var(--text-dim); 
-            margin-bottom: 40px;
-            border-left: 2px solid var(--primary); 
-            padding-left: 20px;
+            margin-bottom: 45px;
+            border-left: 3px solid var(--primary); 
+            padding-left: 25px;
         }
 
         .btn-group { display: flex; gap: 20px; flex-wrap: wrap; }
-        .highlight-btn { background: var(--primary); color: white; padding: 15px 35px; border-radius: 5px; text-decoration: none; font-weight: 600; transition: 0.3s; }
-        .outline-btn { border: 1px solid var(--primary); color: var(--primary); padding: 15px 35px; border-radius: 5px; text-decoration: none; transition: 0.3s; }
-        
-        /* CONTENT SECTION SECTION */
-        .content-section { padding: 80px 8%; background: var(--bg); }
-        .feature-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; }
-        .feature-card { background: var(--card-bg); padding: 40px; border-radius: 15px; border: 1px solid var(--border); transition: 0.4s; }
-        .feature-card:hover { border-color: var(--primary); transform: translateY(-10px); }
-        .feature-card i { font-size: 2rem; color: var(--primary); margin-bottom: 20px; }
+        .highlight-btn { 
+            background: var(--primary); 
+            color: #fff; 
+            padding: 16px 40px; 
+            border-radius: 8px; 
+            text-decoration: none; 
+            font-weight: 700; 
+            transition: 0.3s;
+            box-shadow: 0 4px 15px rgba(0, 162, 255, 0.3);
+        }
+        .outline-btn { 
+            border: 2px solid var(--primary); 
+            color: var(--primary); 
+            padding: 16px 40px; 
+            border-radius: 8px; 
+            text-decoration: none; 
+            font-weight: 700;
+            transition: 0.3s;
+        }
+        .highlight-btn:hover { transform: scale(1.05); box-shadow: 0 0 25px var(--primary); }
 
         /* FOOTER */
-        footer { padding: 80px 8% 40px; background: #02060c; border-top: 1px solid var(--border); }
+        footer { padding: 80px 8% 40px; background: #07101a; border-top: 1px solid var(--border); }
         .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 50px; }
-        .footer-col h4 { margin-bottom: 25px; color: var(--primary); letter-spacing: 2px; }
-        .footer-col a { color: var(--text-dim); text-decoration: none; display: block; margin-bottom: 10px; font-size: 0.9rem; }
-        .footer-bottom { text-align: center; padding-top: 40px; margin-top: 40px; border-top: 1px solid rgba(255,255,255,0.05); color: #444; font-size: 0.8rem; }
+        .footer-col h4 { margin-bottom: 25px; color: var(--primary); letter-spacing: 2px; font-weight: 800; }
+        .footer-col a, .footer-col p { color: var(--text-dim); text-decoration: none; display: block; margin-bottom: 12px; font-size: 0.95rem; transition: 0.3s; }
+        .footer-col a:hover { color: var(--primary); }
+        .footer-bottom { text-align: center; padding-top: 40px; margin-top: 40px; border-top: 1px solid rgba(255,255,255,0.05); color: #516275; font-size: 0.85rem; }
 
         @media (max-width: 968px) {
             .menu-toggle { display: block; }
             nav {
                 display: none; flex-direction: column; position: absolute;
-                top: 100%; left: 0; width: 100%; background: #050a15; padding: 30px;
+                top: 100%; left: 0; width: 100%; background: var(--bg); padding: 40px;
+                border-bottom: 2px solid var(--primary);
             }
             nav.mobile-active { display: flex; }
-            nav a { margin: 15px 0; margin-left: 0; font-size: 1.2rem; }
+            nav a { margin: 15px 0; margin-left: 0; font-size: 1.3rem; }
         }
     </style>
 </head>
@@ -166,34 +178,14 @@
     <main>
         <section class="hero-section">
             <div class="glow-orb"></div>
-            <div class="status-badge"><div class="pulse"></div> GASA SYSTEMS ONLINE</div>
-            <h1>ENGINEERING<br><span style="color: var(--primary);">DIGITAL FUTURES.</span></h1>
+            <div class="status-badge"><i class="fas fa-satellite-dish"></i> SYSTEMS OPERATIONAL</div>
+            <h1>ENGINEERING<br><span style="color: var(--primary); text-shadow: 0 0 20px var(--primary-glow);">DIGITAL FUTURES.</span></h1>
             <div class="hero-description">
-                Johannesburg's premier digital engineering collective. We build high-performance web infrastructure, custom software, and scalable cloud ecosystems designed for the modern South African landscape.
+                Johannesburg's premier digital engineering collective. We build high-performance web infrastructure, custom software, and scalable cloud ecosystems.
             </div>
             <div class="btn-group">
                 <a href="contact.html" class="highlight-btn">Start Deployment</a>
                 <a href="portfolio.html" class="outline-btn">View Projects</a>
-            </div>
-        </section>
-
-        <section class="content-section">
-            <div class="feature-grid">
-                <div class="feature-card">
-                    <i class="fas fa-code"></i>
-                    <h3>Full-Stack Systems</h3>
-                    <p>Custom-coded web applications built with modern frameworks for speed, security, and infinite scalability.</p>
-                </div>
-                <div class="feature-card">
-                    <i class="fas fa-rocket"></i>
-                    <h3>SEO Dominance</h3>
-                    <p>Strategic optimization protocols to ensure your brand stays at the top of South African search results.</p>
-                </div>
-                <div class="feature-card">
-                    <i class="fas fa-shield-alt"></i>
-                    <h3>Cyber Security</h3>
-                    <p>POPIA-compliant data handling and enterprise-grade encryption to protect your digital assets.</p>
-                </div>
             </div>
         </section>
     </main>
@@ -202,7 +194,7 @@
         <div class="footer-grid">
             <div class="footer-col">
                 <a href="index.html" class="logo">GASA <span>TECH</span></a>
-                <p style="margin-top: 20px; color: var(--text-dim);">Precision Engineering.<br>Strategic Deployment.</p>
+                <p style="margin-top: 20px;">Precision Engineering.<br>Strategic Deployment.</p>
             </div>
             <div class="footer-col">
                 <h4>QUICK LINKS</h4>
@@ -218,8 +210,8 @@
             </div>
             <div class="footer-col">
                 <h4>CONNECT</h4>
-                <p style="color: var(--text-dim);"><i class="fab fa-whatsapp"></i> +27 69 140 1737</p>
-                <p style="color: var(--text-dim);"><i class="fas fa-envelope"></i> gasatechptyltd@gmail.com</p>
+                <p><i class="fab fa-whatsapp" style="color:var(--primary)"></i> +27 69 140 1737</p>
+                <p><i class="fas fa-envelope" style="color:var(--primary)"></i> gasatechptyltd@gmail.com</p>
             </div>
         </div>
         <div class="footer-bottom">
