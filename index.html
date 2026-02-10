@@ -1,18 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-L4M2GJHZ5Q"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-L4M2GJHZ5Q');
+    </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GASA TECH | Engineering Digital Excellence</title>
+    <title>GASA TECH | Engineering Digital Infrastructure</title>
+
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#00a2ff">
+    <link rel="apple-touch-icon" href="icon-192.png">
+    <script>
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+          navigator.serviceWorker.register('/sw.js')
+            .then(reg => console.log('GASA TECH: PWA Active'))
+            .catch(err => console.log('PWA Registration Failed', err));
+        });
+      }
+    </script>
+
     <link rel="icon" type="image/png" href="favicon.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        /* LIGHTER ELECTRIC BLUE THEME */
         :root {
-            --primary: #00a2ff; /* Vibrant Light Blue */
+            --primary: #00a2ff;
             --primary-glow: rgba(0, 162, 255, 0.4);
-            --bg: #0d1b2a; /* Lighter Space Blue background */
-            --card-bg: #1b263b; /* Distinct Card Blue */
+            --bg: #0d1b2a; 
+            --card-bg: #1b263b;
             --text-main: #ffffff;
             --text-dim: #b0c4de;
             --border: rgba(0, 162, 255, 0.2);
@@ -21,14 +41,13 @@
         * { margin: 0; padding: 0; box-sizing: border-box; }
 
         body { 
-            background-color: var(--bg); 
+            background: var(--bg); 
             color: var(--text-main); 
-            font-family: 'Inter', 'Segoe UI', sans-serif;
-            line-height: 1.6;
+            font-family: 'Inter', sans-serif;
             overflow-x: hidden;
+            line-height: 1.6;
         }
 
-        /* HEADER & NAV */
         header {
             position: fixed;
             top: 0; width: 100%;
@@ -42,7 +61,7 @@
             z-index: 1000;
         }
 
-        .logo { font-size: 1.5rem; font-weight: 800; color: #fff; text-decoration: none; display: flex; align-items: center; gap: 10px; }
+        .logo { font-size: 1.5rem; font-weight: 800; color: #fff; text-decoration: none; }
         .logo span { color: var(--primary); text-shadow: 0 0 10px var(--primary-glow); }
 
         nav a {
@@ -51,120 +70,96 @@
             margin-left: 30px;
             font-size: 0.95rem;
             transition: 0.3s;
-            font-weight: 500;
         }
 
         nav a:hover, nav a.active { color: var(--primary); text-shadow: 0 0 8px var(--primary-glow); }
-        .menu-toggle { display: none; color: white; font-size: 1.5rem; cursor: pointer; }
 
-        /* HERO SECTION WITH BRIGHT GLOW */
-        .hero-section { 
-            padding: 200px 8% 120px; 
-            position: relative; 
-            min-height: 85vh;
+        .hero {
+            height: 100vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0 8%;
+            position: relative;
         }
 
-        /* Large Light Blue Glow Orb */
-        .glow-orb { 
-            position: absolute; 
-            width: 500px; 
-            height: 500px; 
-            background: radial-gradient(circle, var(--primary-glow) 0%, transparent 70%); 
-            top: -100px; 
-            right: -100px; 
-            z-index: -1; 
-            filter: blur(40px);
-            animation: float 8s infinite ease-in-out; 
+        .glow-orb {
+            position: absolute;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, var(--primary-glow) 0%, transparent 70%);
+            z-index: -1;
+            filter: blur(60px);
+            animation: pulse 8s infinite alternate;
         }
 
-        @keyframes float { 
-            0%, 100% { transform: translate(0, 0); } 
-            50% { transform: translate(-30px, 20px); } 
+        @keyframes pulse {
+            from { transform: scale(1); opacity: 0.5; }
+            to { transform: scale(1.2); opacity: 0.8; }
         }
 
-        .status-badge { 
-            display: inline-flex; 
-            align-items: center; 
-            gap: 10px; 
-            background: rgba(0, 162, 255, 0.1); 
-            color: var(--primary); 
-            padding: 6px 18px; 
-            border-radius: 30px; 
-            font-size: 0.85rem; 
-            font-weight: 700; 
-            margin-bottom: 30px;
-            border: 1px solid var(--border);
-            letter-spacing: 1px;
+        .hero h1 {
+            font-size: clamp(3.5rem, 12vw, 7rem);
+            font-weight: 900;
+            line-height: 0.9;
+            letter-spacing: -3px;
+            margin-bottom: 20px;
         }
 
-        h1 { 
-            font-size: clamp(3.5rem, 9vw, 6rem); 
-            line-height: 0.95; 
-            font-weight: 900; 
-            margin-bottom: 25px; 
-            color: #fff;
-            text-transform: uppercase;
+        .hero p {
+            font-size: clamp(1rem, 2vw, 1.25rem);
+            color: var(--text-dim);
+            max-width: 700px;
+            margin-bottom: 40px;
         }
+
+        .cta-group { display: flex; gap: 20px; }
         
-        .hero-description { 
-            max-width: 700px; 
-            font-size: 1.2rem; 
-            color: var(--text-dim); 
-            margin-bottom: 45px;
-            border-left: 3px solid var(--primary); 
-            padding-left: 25px;
+        .btn {
+            padding: 18px 40px;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: 0.4s;
         }
 
-        .btn-group { display: flex; gap: 20px; flex-wrap: wrap; }
-        .highlight-btn { 
-            background: var(--primary); 
-            color: #fff; 
-            padding: 16px 40px; 
-            border-radius: 8px; 
-            text-decoration: none; 
-            font-weight: 700; 
-            transition: 0.3s;
-            box-shadow: 0 4px 15px rgba(0, 162, 255, 0.3);
+        .btn-primary {
+            background: var(--primary);
+            color: #fff;
+            box-shadow: 0 10px 30px var(--primary-glow);
         }
-        .outline-btn { 
-            border: 2px solid var(--primary); 
-            color: var(--primary); 
-            padding: 16px 40px; 
-            border-radius: 8px; 
-            text-decoration: none; 
-            font-weight: 700;
-            transition: 0.3s;
-        }
-        .highlight-btn:hover { transform: scale(1.05); box-shadow: 0 0 25px var(--primary); }
 
-        /* FOOTER */
-        footer { padding: 80px 8% 40px; background: #07101a; border-top: 1px solid var(--border); }
+        .btn-primary:hover { transform: translateY(-5px); box-shadow: 0 15px 40px var(--primary-glow); }
+
+        .btn-outline {
+            border: 1px solid var(--border);
+            color: #fff;
+            backdrop-filter: blur(10px);
+        }
+
+        .btn-outline:hover { background: rgba(255,255,255,0.05); border-color: var(--primary); }
+
+        footer { padding: 80px 8% 40px; background: #07101a; border-top: 1px solid var(--border); margin-top: 50px; }
         .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 50px; }
-        .footer-col h4 { margin-bottom: 25px; color: var(--primary); letter-spacing: 2px; font-weight: 800; }
-        .footer-col a, .footer-col p { color: var(--text-dim); text-decoration: none; display: block; margin-bottom: 12px; font-size: 0.95rem; transition: 0.3s; }
-        .footer-col a:hover { color: var(--primary); }
+        .footer-col h4 { margin-bottom: 25px; color: var(--primary); letter-spacing: 2px; text-transform: uppercase; font-weight: 800; }
+        .footer-col a, .footer-col p { color: var(--text-dim); text-decoration: none; display: block; margin-bottom: 12px; font-size: 0.95rem; }
         .footer-bottom { text-align: center; padding-top: 40px; margin-top: 40px; border-top: 1px solid rgba(255,255,255,0.05); color: #516275; font-size: 0.85rem; }
 
-        @media (max-width: 968px) {
-            .menu-toggle { display: block; }
-            nav {
-                display: none; flex-direction: column; position: absolute;
-                top: 100%; left: 0; width: 100%; background: var(--bg); padding: 40px;
-                border-bottom: 2px solid var(--primary);
-            }
-            nav.mobile-active { display: flex; }
-            nav a { margin: 15px 0; margin-left: 0; font-size: 1.3rem; }
+        @media (max-width: 768px) {
+            nav { display: none; }
+            .hero h1 { font-size: 4rem; }
+            .cta-group { flex-direction: column; width: 100%; }
         }
     </style>
 </head>
 <body>
-
     <header>
-        <a href="index.html" class="logo"><i class="fas fa-laptop-code"></i> GASA <span>TECH</span></a>
-        <nav id="navMenu">
+        <a href="index.html" class="logo">GASA <span>TECH</span></a>
+        <nav>
             <a href="index.html" class="active">Home</a>
             <a href="about.html">About</a>
             <a href="services.html">Services</a>
@@ -172,23 +167,17 @@
             <a href="pricing.html">Pricing</a>
             <a href="contact.html">Contact</a>
         </nav>
-        <div class="menu-toggle" id="mobileMenu"><i class="fas fa-bars"></i></div>
     </header>
 
-    <main>
-        <section class="hero-section">
-            <div class="glow-orb"></div>
-            <div class="status-badge"><i class="fas fa-satellite-dish"></i> SYSTEMS OPERATIONAL</div>
-            <h1>ENGINEERING<br><span style="color: var(--primary); text-shadow: 0 0 20px var(--primary-glow);">DIGITAL FUTURES.</span></h1>
-            <div class="hero-description">
-                Johannesburg's premier digital engineering collective. We build high-performance web infrastructure, custom software, and scalable cloud ecosystems.
-            </div>
-            <div class="btn-group">
-                <a href="contact.html" class="highlight-btn">Start Deployment</a>
-                <a href="portfolio.html" class="outline-btn">View Projects</a>
-            </div>
-        </section>
-    </main>
+    <section class="hero">
+        <div class="glow-orb"></div>
+        <h1>GASA<br>TECH</h1>
+        <p>We engineer high-performance digital infrastructure for the next generation of South African businesses.</p>
+        <div class="cta-group">
+            <a href="contact.html" class="btn btn-primary">Start Deployment</a>
+            <a href="services.html" class="btn btn-outline">Our Capabilities</a>
+        </div>
+    </section>
 
     <footer>
         <div class="footer-grid">
@@ -198,7 +187,7 @@
             </div>
             <div class="footer-col">
                 <h4>QUICK LINKS</h4>
-                <a href="about.html">Our Protocol</a>
+                <a href="index.html">Home Base</a>
                 <a href="services.html">Capabilities</a>
                 <a href="portfolio.html">Live Deployments</a>
                 <a href="contact.html">Contact Hub</a>
@@ -218,19 +207,5 @@
             &copy; 2026 GASA TECH (PTY) LTD | JOHANNESBURG, SOUTH AFRICA
         </div>
     </footer>
-
-    <script>
-        const mobileMenuBtn = document.getElementById('mobileMenu');
-        const navMenu = document.getElementById('navMenu');
-
-        if (mobileMenuBtn) {
-            mobileMenuBtn.addEventListener('click', () => {
-                navMenu.classList.toggle('mobile-active');
-                const icon = mobileMenuBtn.querySelector('i');
-                icon.classList.toggle('fa-bars');
-                icon.classList.toggle('fa-times');
-            });
-        }
-    </script>
 </body>
 </html>
