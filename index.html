@@ -1,13 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-L4M2GJHZ5Q"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-L4M2GJHZ5Q');
-    </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GASA TECH | Engineering Digital Infrastructure</title>
@@ -18,9 +11,7 @@
     <script>
       if ('serviceWorker' in navigator) {
         window.addEventListener('load', () => {
-          navigator.serviceWorker.register('/sw.js')
-            .then(reg => console.log('GASA TECH: PWA Active'))
-            .catch(err => console.log('PWA Registration Failed', err));
+          navigator.serviceWorker.register('/sw.js');
         });
       }
     </script>
@@ -48,6 +39,17 @@
             line-height: 1.6;
         }
 
+        /* NEURAL CANVAS STYLING */
+        #neural-canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            opacity: 0.6;
+        }
+
         header {
             position: fixed;
             top: 0; width: 100%;
@@ -55,7 +57,7 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            background: rgba(13, 27, 42, 0.85);
+            background: rgba(13, 27, 42, 0.8);
             backdrop-filter: blur(15px);
             border-bottom: 1px solid var(--border);
             z-index: 1000;
@@ -82,22 +84,6 @@
             align-items: center;
             text-align: center;
             padding: 0 8%;
-            position: relative;
-        }
-
-        .glow-orb {
-            position: absolute;
-            width: 600px;
-            height: 600px;
-            background: radial-gradient(circle, var(--primary-glow) 0%, transparent 70%);
-            z-index: -1;
-            filter: blur(60px);
-            animation: pulse 8s infinite alternate;
-        }
-
-        @keyframes pulse {
-            from { transform: scale(1); opacity: 0.5; }
-            to { transform: scale(1.2); opacity: 0.8; }
         }
 
         .hero h1 {
@@ -106,13 +92,16 @@
             line-height: 0.9;
             letter-spacing: -3px;
             margin-bottom: 20px;
+            text-transform: uppercase;
         }
 
-        .hero p {
-            font-size: clamp(1rem, 2vw, 1.25rem);
-            color: var(--text-dim);
-            max-width: 700px;
+        /* TERMINAL TYPING EFFECT */
+        .typing-container {
+            font-family: 'Courier New', Courier, monospace;
+            color: var(--primary);
+            font-size: 1.2rem;
             margin-bottom: 40px;
+            min-height: 1.5em;
         }
 
         .cta-group { display: flex; gap: 20px; }
@@ -133,30 +122,24 @@
             box-shadow: 0 10px 30px var(--primary-glow);
         }
 
-        .btn-primary:hover { transform: translateY(-5px); box-shadow: 0 15px 40px var(--primary-glow); }
-
         .btn-outline {
             border: 1px solid var(--border);
             color: #fff;
             backdrop-filter: blur(10px);
         }
 
-        .btn-outline:hover { background: rgba(255,255,255,0.05); border-color: var(--primary); }
+        .btn:hover { transform: translateY(-5px); }
 
-        footer { padding: 80px 8% 40px; background: #07101a; border-top: 1px solid var(--border); margin-top: 50px; }
+        footer { padding: 80px 8% 40px; background: #07101a; border-top: 1px solid var(--border); }
         .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 50px; }
         .footer-col h4 { margin-bottom: 25px; color: var(--primary); letter-spacing: 2px; text-transform: uppercase; font-weight: 800; }
         .footer-col a, .footer-col p { color: var(--text-dim); text-decoration: none; display: block; margin-bottom: 12px; font-size: 0.95rem; }
-        .footer-bottom { text-align: center; padding-top: 40px; margin-top: 40px; border-top: 1px solid rgba(255,255,255,0.05); color: #516275; font-size: 0.85rem; }
-
-        @media (max-width: 768px) {
-            nav { display: none; }
-            .hero h1 { font-size: 4rem; }
-            .cta-group { flex-direction: column; width: 100%; }
-        }
     </style>
 </head>
 <body>
+
+    <canvas id="neural-canvas"></canvas>
+
     <header>
         <a href="index.html" class="logo">GASA <span>TECH</span></a>
         <nav>
@@ -170,12 +153,11 @@
     </header>
 
     <section class="hero">
-        <div class="glow-orb"></div>
-        <h1>GASA<br>TECH</h1>
-        <p>We engineer high-performance digital infrastructure for the next generation of South African businesses.</p>
+        <h1>GASA TECH</h1>
+        <div class="typing-container" id="typewriter"></div>
         <div class="cta-group">
             <a href="contact.html" class="btn btn-primary">Start Deployment</a>
-            <a href="services.html" class="btn btn-outline">Our Capabilities</a>
+            <a href="services.html" class="btn btn-outline">Capabilities</a>
         </div>
     </section>
 
@@ -187,15 +169,9 @@
             </div>
             <div class="footer-col">
                 <h4>QUICK LINKS</h4>
-                <a href="index.html">Home Base</a>
                 <a href="services.html">Capabilities</a>
                 <a href="portfolio.html">Live Deployments</a>
                 <a href="contact.html">Contact Hub</a>
-            </div>
-            <div class="footer-col">
-                <h4>LEGAL</h4>
-                <a href="privacy.html">Privacy Policy</a>
-                <a href="terms.html">Terms of Service</a>
             </div>
             <div class="footer-col">
                 <h4>CONNECT</h4>
@@ -203,9 +179,77 @@
                 <p><i class="fas fa-envelope" style="color:var(--primary)"></i> gasatechptyltd@gmail.com</p>
             </div>
         </div>
-        <div class="footer-bottom">
-            &copy; 2026 GASA TECH (PTY) LTD | JOHANNESBURG, SOUTH AFRICA
+        <div style="text-align: center; margin-top: 40px; color: #516275; font-size: 0.85rem;">
+            &copy; 2026 GASA TECH (PTY) LTD | JOHANNESBURG
         </div>
     </footer>
+
+    <script>
+        // TYPEWRITER EFFECT
+        const text = "ENGINEERING DIGITAL INFRASTRUCTURE_";
+        let i = 0;
+        function typeWriter() {
+            if (i < text.length) {
+                document.getElementById("typewriter").innerHTML += text.charAt(i);
+                i++;
+                setTimeout(typeWriter, 100);
+            }
+        }
+        window.onload = typeWriter;
+
+        // NEURAL NETWORK BACKGROUND ANIMATION
+        const canvas = document.getElementById('neural-canvas');
+        const ctx = canvas.getContext('2d');
+        let particles = [];
+
+        function init() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+            particles = [];
+            for (let i = 0; i < 80; i++) {
+                particles.push({
+                    x: Math.random() * canvas.width,
+                    y: Math.random() * canvas.height,
+                    vx: (Math.random() - 0.5) * 0.5,
+                    vy: (Math.random() - 0.5) * 0.5
+                });
+            }
+        }
+
+        function draw() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            ctx.fillStyle = '#00a2ff';
+            ctx.strokeStyle = 'rgba(0, 162, 255, 0.15)';
+            
+            particles.forEach((p, index) => {
+                p.x += p.vx;
+                p.y += p.vy;
+
+                if (p.x < 0 || p.x > canvas.width) p.vx *= -1;
+                if (p.y < 0 || p.y > canvas.height) p.vy *= -1;
+
+                ctx.beginPath();
+                ctx.arc(p.x, p.y, 2, 0, Math.PI * 2);
+                ctx.fill();
+
+                for (let j = index + 1; j < particles.length; j++) {
+                    let p2 = particles[j];
+                    let dist = Math.hypot(p.x - p2.x, p.y - p2.y);
+                    if (dist < 150) {
+                        ctx.lineWidth = 1 - dist/150;
+                        ctx.beginPath();
+                        ctx.moveTo(p.x, p.y);
+                        ctx.lineTo(p2.x, p2.y);
+                        ctx.stroke();
+                    }
+                }
+            });
+            requestAnimationFrame(draw);
+        }
+
+        window.addEventListener('resize', init);
+        init();
+        draw();
+    </script>
 </body>
 </html>
