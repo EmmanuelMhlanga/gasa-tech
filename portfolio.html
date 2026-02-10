@@ -4,10 +4,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portfolio | GASA TECH Deployments</title>
+
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#00a2ff">
+    <link rel="apple-touch-icon" href="icon-192.png">
+    <script>
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+          navigator.serviceWorker.register('/sw.js');
+        });
+      }
+    </script>
+
     <link rel="icon" type="image/png" href="favicon.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        /* ELECTRIC BLUE THEME */
         :root {
             --primary: #00a2ff;
             --primary-glow: rgba(0, 162, 255, 0.4);
@@ -49,13 +60,10 @@
             text-decoration: none;
             margin-left: 30px;
             font-size: 0.95rem;
-            transition: 0.3s;
         }
 
-        nav a:hover, nav a.active { color: var(--primary); text-shadow: 0 0 8px var(--primary-glow); }
-        .menu-toggle { display: none; color: white; font-size: 1.5rem; cursor: pointer; }
+        nav a.active { color: var(--primary); }
 
-        /* PORTFOLIO HEADER */
         .portfolio-header { padding: 180px 8% 60px; position: relative; }
         .glow-orb { position: absolute; width: 400px; height: 400px; background: radial-gradient(circle, var(--primary-glow) 0%, transparent 70%); top: 10%; right: -5%; z-index: -1; filter: blur(40px); animation: float 6s infinite ease-in-out; }
         
@@ -63,15 +71,12 @@
 
         .portfolio-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 30px; padding: 0 8% 100px; }
         
-        /* ENHANCED PROJECT CARDS */
         .project-card { 
             background: var(--card-bg); 
             border: 1px solid var(--border); 
             border-radius: 20px; 
             padding: 40px; 
-            transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            position: relative;
-            overflow: hidden;
+            transition: 0.4s;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
@@ -83,76 +88,24 @@
             transform: translateY(-12px); 
         }
 
-        .project-icon {
-            font-size: 2.5rem;
-            color: var(--primary);
-            margin-bottom: 20px;
-            filter: drop-shadow(0 0 10px var(--primary-glow));
-        }
-
-        .system-status { 
-            font-size: 0.7rem; 
-            color: var(--primary); 
-            letter-spacing: 2px; 
-            font-weight: 800; 
-            margin-bottom: 10px; 
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-        
-        .pulse-dot {
-            width: 6px; height: 6px; background: #00ff88; border-radius: 50%;
-            box-shadow: 0 0 8px #00ff88;
-        }
-
-        .project-card h3 { font-size: 1.6rem; margin-bottom: 12px; color: #fff; text-transform: uppercase; letter-spacing: 1px; }
-        .project-card p { color: var(--text-dim); margin-bottom: 25px; font-size: 0.95rem; min-height: 60px; }
-        
-        .tech-tags { display: flex; gap: 10px; margin-bottom: 25px; flex-wrap: wrap; }
-        .tag { font-size: 0.7rem; background: rgba(255,255,255,0.05); padding: 4px 10px; border-radius: 4px; color: var(--primary); border: 1px solid var(--border); }
+        .project-icon { font-size: 2.5rem; color: var(--primary); margin-bottom: 20px; }
+        .system-status { font-size: 0.7rem; color: var(--primary); letter-spacing: 2px; font-weight: 800; display: flex; align-items: center; gap: 8px; margin-bottom: 10px; }
+        .pulse-dot { width: 6px; height: 6px; background: #00ff88; border-radius: 50%; box-shadow: 0 0 8px #00ff88; }
 
         .project-link { 
-            color: #fff; 
-            background: var(--primary);
-            text-decoration: none; 
-            font-weight: 800; 
-            padding: 12px 25px;
-            border-radius: 8px;
-            text-align: center;
-            display: flex; 
-            align-items: center; 
-            justify-content: center;
-            gap: 10px; 
-            transition: 0.3s;
-            font-size: 0.9rem;
+            color: #fff; background: var(--primary); text-decoration: none; font-weight: 800; padding: 12px 25px; border-radius: 8px; text-align: center; display: flex; align-items: center; justify-content: center; gap: 10px; margin-top: 20px;
         }
-        
-        .project-link:hover { background: #0081cc; box-shadow: 0 0 20px var(--primary-glow); }
 
-        /* FOOTER */
         footer { padding: 80px 8% 40px; background: #07101a; border-top: 1px solid var(--border); }
         .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 50px; }
         .footer-col h4 { margin-bottom: 25px; color: var(--primary); letter-spacing: 2px; text-transform: uppercase; font-weight: 800; }
-        .footer-col a, .footer-col p { color: var(--text-dim); text-decoration: none; display: block; margin-bottom: 12px; font-size: 0.95rem; }
-        .footer-bottom { text-align: center; padding-top: 40px; margin-top: 40px; border-top: 1px solid rgba(255,255,255,0.05); color: #516275; font-size: 0.85rem; }
-
-        @media (max-width: 968px) {
-            .menu-toggle { display: block; }
-            nav {
-                display: none; flex-direction: column; position: absolute;
-                top: 100%; left: 0; width: 100%; background: var(--bg); padding: 30px;
-                border-bottom: 2px solid var(--primary);
-            }
-            nav.mobile-active { display: flex; }
-            nav a { margin: 15px 0; margin-left: 0; font-size: 1.2rem; }
-        }
+        .footer-col a, .footer-col p { color: var(--text-dim); text-decoration: none; display: block; margin-bottom: 12px; }
     </style>
 </head>
 <body>
     <header>
         <a href="index.html" class="logo">GASA <span>TECH</span></a>
-        <nav id="navMenu">
+        <nav>
             <a href="index.html">Home</a>
             <a href="about.html">About</a>
             <a href="services.html">Services</a>
@@ -160,13 +113,12 @@
             <a href="pricing.html">Pricing</a>
             <a href="contact.html">Contact</a>
         </nav>
-        <div class="menu-toggle" id="mobileMenu"><i class="fas fa-bars"></i></div>
     </header>
 
     <div class="portfolio-header">
         <div class="glow-orb"></div>
         <h1 style="text-transform: uppercase; font-weight: 900; font-size: clamp(2.5rem, 8vw, 4rem);">LIVE DEPLOYMENTS</h1>
-        <p style="color: var(--text-dim); margin-top: 15px; border-left: 3px solid var(--primary); padding-left: 20px; max-width: 600px;">Active infrastructure protocols engineered by GASA TECH. Select a project to initiate link redirection.</p>
+        <p style="color: var(--text-dim); margin-top: 15px;">Active infrastructure protocols engineered by GASA TECH.</p>
     </div>
 
     <main class="portfolio-grid">
@@ -175,11 +127,7 @@
                 <div class="project-icon"><i class="fas fa-plane-departure"></i></div>
                 <span class="system-status"><div class="pulse-dot"></div> LIVE PROTOCOL</span>
                 <h3>EBBRATO TRAVEL</h3>
-                <p>High-conversion tourism infrastructure. Engineered for rapid destination rendering and global travel bookings.</p>
-                <div class="tech-tags">
-                    <span class="tag">UI/UX</span>
-                    <span class="tag">Optimization</span>
-                </div>
+                <p>High-conversion tourism infrastructure.</p>
             </div>
             <a href="https://emmanuelmhlanga.github.io/ebbrato-travel-agency/" target="_blank" class="project-link">VISIT SITE <i class="fas fa-external-link-alt"></i></a>
         </div>
@@ -189,11 +137,7 @@
                 <div class="project-icon"><i class="fas fa-seedling"></i></div>
                 <span class="system-status"><div class="pulse-dot"></div> LIVE PROTOCOL</span>
                 <h3>ILETHA</h3>
-                <p>Community empowerment platform. Specialized digital mesh for institutional skills development and resource sharing.</p>
-                <div class="tech-tags">
-                    <span class="tag">Community</span>
-                    <span class="tag">Web App</span>
-                </div>
+                <p>Community empowerment platform.</p>
             </div>
             <a href="https://iletha.com" target="_blank" class="project-link">VISIT SITE <i class="fas fa-external-link-alt"></i></a>
         </div>
@@ -203,11 +147,7 @@
                 <div class="project-icon"><i class="fas fa-bullhorn"></i></div>
                 <span class="system-status"><div class="pulse-dot"></div> LIVE PROTOCOL</span>
                 <h3>NEO BREED</h3>
-                <p>Advanced Marketing Solutions. A strategic interface for brand growth, lead generation, and creative digital presence.</p>
-                <div class="tech-tags">
-                    <span class="tag">Marketing</span>
-                    <span class="tag">SEO+</span>
-                </div>
+                <p>Advanced Marketing Solutions.</p>
             </div>
             <a href="https://neobreedmarketingsolutions.com" target="_blank" class="project-link">VISIT SITE <i class="fas fa-external-link-alt"></i></a>
         </div>
@@ -217,11 +157,7 @@
                 <div class="project-icon"><i class="fas fa-compact-disc"></i></div>
                 <span class="system-status"><div class="pulse-dot"></div> LIVE PROTOCOL</span>
                 <h3>VILE AMICO</h3>
-                <p>Next-gen entertainment hub. A digital environment focused on event management, media hosting, and fan engagement.</p>
-                <div class="tech-tags">
-                    <span class="tag">Entertainment</span>
-                    <span class="tag">Media</span>
-                </div>
+                <p>Next-gen entertainment hub.</p>
             </div>
             <a href="https://vileamico.com" target="_blank" class="project-link">VISIT SITE <i class="fas fa-external-link-alt"></i></a>
         </div>
@@ -231,39 +167,19 @@
         <div class="footer-grid">
             <div class="footer-col">
                 <a href="index.html" class="logo">GASA <span>TECH</span></a>
-                <p style="margin-top: 20px;">Precision Engineering.<br>Strategic Deployment.</p>
+                <p style="margin-top: 20px;">Precision Engineering.</p>
             </div>
             <div class="footer-col">
                 <h4>QUICK LINKS</h4>
-                <a href="index.html">Home Base</a>
                 <a href="services.html">Capabilities</a>
-                <a href="portfolio.html" class="active">Live Deployments</a>
                 <a href="contact.html">Contact Hub</a>
             </div>
             <div class="footer-col">
-                <h4>LEGAL</h4>
-                <a href="privacy.html">Privacy Policy</a>
-                <a href="terms.html">Terms of Service</a>
-            </div>
-            <div class="footer-col">
                 <h4>CONNECT</h4>
-                <p><i class="fab fa-whatsapp" style="color:var(--primary)"></i> +27 69 140 1737</p>
-                <p><i class="fas fa-envelope" style="color:var(--primary)"></i> gasatechptyltd@gmail.com</p>
+                <p>+27 69 140 1737</p>
+                <p>gasatechptyltd@gmail.com</p>
             </div>
-        </div>
-        <div class="footer-bottom">
-            &copy; 2026 GASA TECH (PTY) LTD | JOHANNESBURG, SOUTH AFRICA
         </div>
     </footer>
-
-    <script>
-        const mobileMenuBtn = document.getElementById('mobileMenu');
-        const navMenu = document.getElementById('navMenu');
-        if (mobileMenuBtn) {
-            mobileMenuBtn.addEventListener('click', () => {
-                navMenu.classList.toggle('mobile-active');
-            });
-        }
-    </script>
 </body>
 </html>
