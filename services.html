@@ -11,10 +11,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Capabilities | GASA TECH Digital Engineering</title>
+
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#00a2ff">
+    <link rel="apple-touch-icon" href="icon-192.png">
+    <script>
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+          navigator.serviceWorker.register('/sw.js');
+        });
+      }
+    </script>
+
     <link rel="icon" type="image/png" href="favicon.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        /* ELECTRIC BLUE THEME SETTINGS */
         :root {
             --primary: #00a2ff;
             --primary-glow: rgba(0, 162, 255, 0.4);
@@ -60,9 +71,7 @@
         }
 
         nav a:hover, nav a.active { color: var(--primary); text-shadow: 0 0 8px var(--primary-glow); }
-        .menu-toggle { display: none; color: white; font-size: 1.5rem; cursor: pointer; }
 
-        /* SERVICES HERO */
         .services-header { text-align: center; padding: 180px 8% 60px; position: relative; }
         .glow-orb { position: absolute; width: 400px; height: 400px; background: radial-gradient(circle, var(--primary-glow) 0%, transparent 70%); top: 10%; left: 50%; transform: translateX(-50%); z-index: -1; filter: blur(40px); animation: float 6s infinite ease-in-out; }
         
@@ -78,29 +87,17 @@
         
         .service-icon { font-size: 2.5rem; margin-bottom: 25px; color: var(--primary); filter: drop-shadow(0 0 10px var(--primary-glow)); }
 
-        /* FOOTER */
         footer { padding: 80px 8% 40px; background: #07101a; border-top: 1px solid var(--border); margin-top: 50px; }
         .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 50px; }
         .footer-col h4 { margin-bottom: 25px; color: var(--primary); letter-spacing: 2px; text-transform: uppercase; font-weight: 800; }
         .footer-col a, .footer-col p { color: var(--text-dim); text-decoration: none; display: block; margin-bottom: 12px; font-size: 0.95rem; }
         .footer-bottom { text-align: center; padding-top: 40px; margin-top: 40px; border-top: 1px solid rgba(255,255,255,0.05); color: #516275; font-size: 0.85rem; }
-
-        @media (max-width: 968px) {
-            .menu-toggle { display: block; }
-            nav {
-                display: none; flex-direction: column; position: absolute;
-                top: 100%; left: 0; width: 100%; background: var(--bg); padding: 30px;
-                border-bottom: 2px solid var(--primary);
-            }
-            nav.mobile-active { display: flex; }
-            nav a { margin: 15px 0; margin-left: 0; font-size: 1.2rem; }
-        }
     </style>
 </head>
 <body>
     <header>
         <a href="index.html" class="logo">GASA <span>TECH</span></a>
-        <nav id="navMenu">
+        <nav>
             <a href="index.html">Home</a>
             <a href="about.html">About</a>
             <a href="services.html" class="active">Services</a>
@@ -108,7 +105,6 @@
             <a href="pricing.html">Pricing</a>
             <a href="contact.html">Contact</a>
         </nav>
-        <div class="menu-toggle" id="mobileMenu"><i class="fas fa-bars"></i></div>
     </header>
 
     <div class="services-header">
@@ -132,27 +128,12 @@
         <div class="service-card">
             <div class="service-icon"><i class="fas fa-chart-line"></i></div>
             <h3>SEO Domination</h3>
-            <p style="color: var(--text-dim); margin-top: 15px;">Algorithmic optimization focused on the South African search landscape. Get discovered by local customers.</p>
-        </div>
-        <div class="service-card">
-            <div class="service-icon"><i class="fas fa-fingerprint"></i></div>
-            <h3>Brand Identity</h3>
-            <p style="color: var(--text-dim); margin-top: 15px;">High-fidelity UI/UX design that resonates with modern users. Professional aesthetics meet functional utility.</p>
-        </div>
-        <div class="service-card">
-            <div class="service-icon"><i class="fas fa-database"></i></div>
-            <h3>Cloud Integration</h3>
-            <p style="color: var(--text-dim); margin-top: 15px;">Deployment across secure cloud environments with real-time analytics monitoring and data backup.</p>
+            <p style="color: var(--text-dim); margin-top: 15px;">Algorithmic optimization focused on the South African search landscape.</p>
         </div>
         <div class="service-card">
             <div class="service-icon"><i class="fas fa-shield-virus"></i></div>
             <h3>Security Audits</h3>
-            <p style="color: var(--text-dim); margin-top: 15px;">POPIA-compliant data handling and SSL encryption to protect your business and your clients' privacy.</p>
-        </div>
-        <div class="service-card">
-            <div class="service-icon"><i class="fas fa-sync-alt"></i></div>
-            <h3>Active Maintenance</h3>
-            <p style="color: var(--text-dim); margin-top: 15px;">Continuous updates and performance tuning to ensure your digital assets never become legacy systems.</p>
+            <p style="color: var(--text-dim); margin-top: 15px;">POPIA-compliant data handling and SSL encryption to protect your business.</p>
         </div>
     </main>
 
@@ -165,14 +146,8 @@
             <div class="footer-col">
                 <h4>QUICK LINKS</h4>
                 <a href="index.html">Home Base</a>
-                <a href="about.html">Our Protocol</a>
                 <a href="portfolio.html">Live Deployments</a>
                 <a href="contact.html">Contact Hub</a>
-            </div>
-            <div class="footer-col">
-                <h4>LEGAL</h4>
-                <a href="privacy.html">Privacy Policy</a>
-                <a href="terms.html">Terms of Service</a>
             </div>
             <div class="footer-col">
                 <h4>CONNECT</h4>
@@ -184,15 +159,5 @@
             &copy; 2026 GASA TECH (PTY) LTD | JOHANNESBURG, SOUTH AFRICA
         </div>
     </footer>
-
-    <script>
-        const mobileMenuBtn = document.getElementById('mobileMenu');
-        const navMenu = document.getElementById('navMenu');
-        if (mobileMenuBtn) {
-            mobileMenuBtn.addEventListener('click', () => {
-                navMenu.classList.toggle('mobile-active');
-            });
-        }
-    </script>
 </body>
 </html>
