@@ -7,7 +7,7 @@
     <link rel="icon" type="image/png" href="favicon.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        /* ELECTRIC BLUE THEME SETTINGS */
+        /* ELECTRIC BLUE THEME */
         :root {
             --primary: #00a2ff;
             --primary-glow: rgba(0, 162, 255, 0.4);
@@ -55,7 +55,7 @@
         nav a:hover, nav a.active { color: var(--primary); text-shadow: 0 0 8px var(--primary-glow); }
         .menu-toggle { display: none; color: white; font-size: 1.5rem; cursor: pointer; }
 
-        /* PORTFOLIO CONTENT */
+        /* PORTFOLIO HEADER */
         .portfolio-header { padding: 180px 8% 60px; position: relative; }
         .glow-orb { position: absolute; width: 400px; height: 400px; background: radial-gradient(circle, var(--primary-glow) 0%, transparent 70%); top: 10%; right: -5%; z-index: -1; filter: blur(40px); animation: float 6s infinite ease-in-out; }
         
@@ -63,20 +63,31 @@
 
         .portfolio-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 30px; padding: 0 8% 100px; }
         
+        /* ENHANCED PROJECT CARDS */
         .project-card { 
             background: var(--card-bg); 
             border: 1px solid var(--border); 
             border-radius: 20px; 
             padding: 40px; 
-            transition: 0.4s;
+            transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             position: relative;
             overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
         }
         
         .project-card:hover { 
             border-color: var(--primary); 
-            box-shadow: 0 10px 40px rgba(0, 162, 255, 0.2); 
-            transform: translateY(-10px); 
+            box-shadow: 0 15px 50px rgba(0, 162, 255, 0.25); 
+            transform: translateY(-12px); 
+        }
+
+        .project-icon {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 20px;
+            filter: drop-shadow(0 0 10px var(--primary-glow));
         }
 
         .system-status { 
@@ -85,23 +96,39 @@
             letter-spacing: 2px; 
             font-weight: 800; 
             margin-bottom: 10px; 
-            display: block;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .pulse-dot {
+            width: 6px; height: 6px; background: #00ff88; border-radius: 50%;
+            box-shadow: 0 0 8px #00ff88;
         }
 
-        .project-card h3 { font-size: 1.8rem; margin-bottom: 15px; color: #fff; }
-        .project-card p { color: var(--text-dim); margin-bottom: 25px; font-size: 0.95rem; }
+        .project-card h3 { font-size: 1.6rem; margin-bottom: 12px; color: #fff; text-transform: uppercase; letter-spacing: 1px; }
+        .project-card p { color: var(--text-dim); margin-bottom: 25px; font-size: 0.95rem; min-height: 60px; }
         
+        .tech-tags { display: flex; gap: 10px; margin-bottom: 25px; flex-wrap: wrap; }
+        .tag { font-size: 0.7rem; background: rgba(255,255,255,0.05); padding: 4px 10px; border-radius: 4px; color: var(--primary); border: 1px solid var(--border); }
+
         .project-link { 
-            color: var(--primary); 
+            color: #fff; 
+            background: var(--primary);
             text-decoration: none; 
-            font-weight: 700; 
+            font-weight: 800; 
+            padding: 12px 25px;
+            border-radius: 8px;
+            text-align: center;
             display: flex; 
             align-items: center; 
+            justify-content: center;
             gap: 10px; 
             transition: 0.3s;
+            font-size: 0.9rem;
         }
         
-        .project-link:hover { gap: 15px; }
+        .project-link:hover { background: #0081cc; box-shadow: 0 0 20px var(--primary-glow); }
 
         /* FOOTER */
         footer { padding: 80px 8% 40px; background: #07101a; border-top: 1px solid var(--border); }
@@ -138,29 +165,65 @@
 
     <div class="portfolio-header">
         <div class="glow-orb"></div>
-        <h1 style="letter-spacing: 4px; font-weight: 900; font-size: clamp(2.5rem, 8vw, 4rem); text-transform: uppercase;">LIVE DEPLOYMENTS</h1>
-        <p style="color: var(--text-dim); margin-top: 15px; border-left: 3px solid var(--primary); padding-left: 20px; max-width: 600px;">Engineering excellence for the South African digital landscape. Explore our latest active protocols.</p>
+        <h1 style="text-transform: uppercase; font-weight: 900; font-size: clamp(2.5rem, 8vw, 4rem);">LIVE DEPLOYMENTS</h1>
+        <p style="color: var(--text-dim); margin-top: 15px; border-left: 3px solid var(--primary); padding-left: 20px; max-width: 600px;">Active infrastructure protocols engineered by GASA TECH. Select a project to initiate link redirection.</p>
     </div>
 
     <main class="portfolio-grid">
         <div class="project-card">
-            <span class="system-status">SYSTEM: LIVE | TOURISM PROTOCOL</span>
-            <h3>EBBRATO TRAVEL</h3>
-            <p>A sleek, high-conversion travel landing page optimized for rapid destination rendering and global tour inquiries.</p>
-            <a href="#" class="project-link">CLICK TO ENTER <i class="fas fa-arrow-right"></i></a>
+            <div>
+                <div class="project-icon"><i class="fas fa-plane-departure"></i></div>
+                <span class="system-status"><div class="pulse-dot"></div> LIVE PROTOCOL</span>
+                <h3>EBBRATO TRAVEL</h3>
+                <p>High-conversion tourism infrastructure. Engineered for rapid destination rendering and global travel bookings.</p>
+                <div class="tech-tags">
+                    <span class="tag">UI/UX</span>
+                    <span class="tag">Optimization</span>
+                </div>
+            </div>
+            <a href="https://emmanuelmhlanga.github.io/ebbrato-travel-agency/" target="_blank" class="project-link">VISIT SITE <i class="fas fa-external-link-alt"></i></a>
         </div>
 
         <div class="project-card">
-            <span class="system-status">SYSTEM: LIVE | INSTITUTIONAL MESH</span>
-            <h3>ILETHA</h3>
-            <p>An institutional empowerment platform designed for youth skills development and community-driven resource scaling.</p>
-            <a href="#" class="project-link">CLICK TO ENTER <i class="fas fa-arrow-right"></i></a>
+            <div>
+                <div class="project-icon"><i class="fas fa-seedling"></i></div>
+                <span class="system-status"><div class="pulse-dot"></div> LIVE PROTOCOL</span>
+                <h3>ILETHA</h3>
+                <p>Community empowerment platform. Specialized digital mesh for institutional skills development and resource sharing.</p>
+                <div class="tech-tags">
+                    <span class="tag">Community</span>
+                    <span class="tag">Web App</span>
+                </div>
+            </div>
+            <a href="https://iletha.com" target="_blank" class="project-link">VISIT SITE <i class="fas fa-external-link-alt"></i></a>
         </div>
-        
-        <div class="project-card" style="opacity: 0.6; border-style: dashed;">
-            <span class="system-status">SYSTEM: PENDING</span>
-            <h3>NEXT DEPLOYMENT</h3>
-            <p>New architectural project currently in development phase. Protocol initiation coming soon.</p>
+
+        <div class="project-card">
+            <div>
+                <div class="project-icon"><i class="fas fa-bullhorn"></i></div>
+                <span class="system-status"><div class="pulse-dot"></div> LIVE PROTOCOL</span>
+                <h3>NEO BREED</h3>
+                <p>Advanced Marketing Solutions. A strategic interface for brand growth, lead generation, and creative digital presence.</p>
+                <div class="tech-tags">
+                    <span class="tag">Marketing</span>
+                    <span class="tag">SEO+</span>
+                </div>
+            </div>
+            <a href="https://neobreedmarketingsolutions.com" target="_blank" class="project-link">VISIT SITE <i class="fas fa-external-link-alt"></i></a>
+        </div>
+
+        <div class="project-card">
+            <div>
+                <div class="project-icon"><i class="fas fa-compact-disc"></i></div>
+                <span class="system-status"><div class="pulse-dot"></div> LIVE PROTOCOL</span>
+                <h3>VILE AMICO</h3>
+                <p>Next-gen entertainment hub. A digital environment focused on event management, media hosting, and fan engagement.</p>
+                <div class="tech-tags">
+                    <span class="tag">Entertainment</span>
+                    <span class="tag">Media</span>
+                </div>
+            </div>
+            <a href="https://vileamico.com" target="_blank" class="project-link">VISIT SITE <i class="fas fa-external-link-alt"></i></a>
         </div>
     </main>
 
