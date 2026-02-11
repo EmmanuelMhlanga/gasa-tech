@@ -5,24 +5,44 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pricing | GASA TECH Modules</title>
     <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#00a2ff">
+    <link rel="apple-touch-icon" href="icon-192.png">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        .pricing-container { padding: 180px 8% 100px; display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
-        .floating-icon { font-size: 3rem; margin-bottom: 25px; animation: float-icon 4s infinite ease-in-out; display: inline-block; }
-        @keyframes float-icon { 0%, 100% { transform: translateY(0) rotate(0deg); } 50% { transform: translateY(-15px) rotate(10deg); } }
-        .price-tag { font-size: 3.5rem; font-weight: 900; color: #fff; margin: 20px 0; display: block; }
-        .feature-list { list-style: none; margin-bottom: 30px; text-align: left; border-top: 1px solid var(--border); pt-20px; }
-        .feature-list li { margin: 12px 0; color: var(--text-dim); font-size: 0.9rem; display: flex; align-items: center; gap: 10px; }
+        .pricing-header { text-align: center; padding: 180px 8% 40px; }
+        .pricing-container { padding: 0 8% 100px; display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+        
+        .floating-icon { font-size: 3rem; margin-bottom: 25px; animation: float-move 4s infinite ease-in-out; display: inline-block; }
+        @keyframes float-move { 0%, 100% { transform: translateY(0) rotate(0deg); } 50% { transform: translateY(-15px) rotate(5deg); } }
+        
+        .price-tag { font-size: 3.5rem; font-weight: 900; margin: 20px 0; display: block; letter-spacing: -2px; }
+        
+        .feature-list { list-style: none; padding: 20px 0; border-top: 1px solid var(--border); }
+        .feature-list li { margin: 12px 0; color: var(--text-dim); font-size: 0.9rem; display: flex; align-items: center; gap: 12px; }
         .feature-list i { color: var(--primary); font-size: 0.8rem; }
+        
+        .price-card h3 { letter-spacing: 2px; text-transform: uppercase; font-size: 1.1rem; }
     </style>
 </head>
 <body>
     <canvas id="neural-canvas"></canvas>
     <header>
         <a href="index.html" class="logo">GASA <span>TECH</span></a>
-        <nav><a href="index.html">Home</a><a href="about.html">About</a><a href="services.html">Services</a><a href="portfolio.html">Portfolio</a><a href="pricing.html" class="active">Pricing</a><a href="contact.html">Contact</a></nav>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="services.html">Services</a>
+            <a href="portfolio.html">Portfolio</a>
+            <a href="pricing.html" class="active">Pricing</a>
+            <a href="contact.html">Contact</a>
+        </nav>
     </header>
+
+    <div class="pricing-header">
+        <h1 style="font-size: 3.5rem; font-weight: 900;">SERVICE MODULES</h1>
+        <p style="color: var(--text-dim);">Scalable pricing for next-gen digital infrastructure.</p>
+    </div>
 
     <main class="pricing-container">
         <div class="price-card" style="border-top: 4px solid #8e44ad;">
@@ -30,12 +50,12 @@
             <h3>BASIC CORE</h3>
             <span class="price-tag">R3000</span>
             <ul class="feature-list">
-                <li><i class="fas fa-microchip"></i> 5 Engineered Pages</li>
-                <li><i class="fas fa-microchip"></i> Responsive Mobile UI</li>
-                <li><i class="fas fa-microchip"></i> Standard SEO Meta</li>
-                <li><i class="fas fa-microchip"></i> Contact Integration</li>
+                <li><i class="fas fa-check-circle"></i> 5 Engineered Pages</li>
+                <li><i class="fas fa-check-circle"></i> Responsive Mobile Layout</li>
+                <li><i class="fas fa-check-circle"></i> Basic SEO Optimization</li>
+                <li><i class="fas fa-check-circle"></i> Secure Contact Node</li>
             </ul>
-            <a href="contact.html" class="btn btn-primary" style="background: #8e44ad; box-shadow: 0 5px 15px rgba(142, 68, 173, 0.4); width: 100%;">Select Basic</a>
+            <a href="contact.html" class="btn btn-primary" style="background: #8e44ad; width: 100%; text-align: center;">Initiate Basic</a>
         </div>
 
         <div class="price-card" style="border-top: 4px solid #1abc9c; transform: scale(1.05);">
@@ -43,12 +63,12 @@
             <h3 style="color: #1abc9c;">STANDARD PRO</h3>
             <span class="price-tag">R3500</span>
             <ul class="feature-list">
-                <li><i class="fas fa-microchip"></i> 8 Engineered Pages</li>
-                <li><i class="fas fa-microchip"></i> PWA App Features</li>
-                <li><i class="fas fa-microchip"></i> Advanced SEO Protocol</li>
-                <li><i class="fas fa-microchip"></i> Priority Support</li>
+                <li><i class="fas fa-check-circle"></i> 8 Engineered Pages</li>
+                <li><i class="fas fa-check-circle"></i> Progressive Web App (PWA)</li>
+                <li><i class="fas fa-check-circle"></i> Advanced SEO Protocol</li>
+                <li><i class="fas fa-check-circle"></i> Priority Deployment Support</li>
             </ul>
-            <a href="contact.html" class="btn btn-primary" style="background: #1abc9c; box-shadow: 0 5px 15px rgba(26, 188, 156, 0.4); width: 100%;">Select Standard</a>
+            <a href="contact.html" class="btn btn-primary" style="background: #1abc9c; width: 100%; text-align: center;">Initiate Standard</a>
         </div>
 
         <div class="price-card" style="border-top: 4px solid #e67e22;">
@@ -56,14 +76,16 @@
             <h3>PREMIUM ELITE</h3>
             <span class="price-tag">R4500</span>
             <ul class="feature-list">
-                <li><i class="fas fa-microchip"></i> Unlimited Expansion</li>
-                <li><i class="fas fa-microchip"></i> Full E-Commerce Logic</li>
-                <li><i class="fas fa-microchip"></i> Database Integration</li>
-                <li><i class="fas fa-microchip"></i> Security Monitoring</li>
+                <li><i class="fas fa-check-circle"></i> Unlimited Pages</li>
+                <li><i class="fas fa-check-circle"></i> Full E-Commerce Systems</li>
+                <li><i class="fas fa-check-circle"></i> Database Architecture</li>
+                <li><i class="fas fa-check-circle"></i> 24/7 Security Monitoring</li>
             </ul>
-            <a href="contact.html" class="btn btn-primary" style="background: #e67e22; box-shadow: 0 5px 15px rgba(230, 126, 34, 0.4); width: 100%;">Select Premium</a>
+            <a href="contact.html" class="btn btn-primary" style="background: #e67e22; width: 100%; text-align: center;">Initiate Premium</a>
         </div>
     </main>
+
     <script src="script.js"></script>
 </body>
-</html>
+</html>>
+
