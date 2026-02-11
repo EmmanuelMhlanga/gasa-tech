@@ -2,74 +2,55 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Pricing | GASA TECH Modules</title>
-    
-    <meta name="theme-color" content="#0d1b2a">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    
-    <link rel="manifest" href="manifest.json">
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pricing | GASA TECH</title>
     <style>
-        body { background-color: #0d1b2a !important; color: #ffffff; }
-        .pricing-header { text-align: center; padding: 180px 8% 40px; }
-        .pricing-container { padding: 0 8% 100px; display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
-        .floating-icon { font-size: 3rem; margin-bottom: 25px; animation: float-move 4s infinite ease-in-out; display: inline-block; }
-        @keyframes float-move { 0%, 100% { transform: translateY(0) rotate(0deg); } 50% { transform: translateY(-15px) rotate(5deg); } }
-        .price-tag { font-size: 3.5rem; font-weight: 900; margin: 20px 0; display: block; letter-spacing: -2px; }
-        .feature-list { list-style: none; padding: 20px 0; border-top: 1px solid var(--border); }
-        .feature-list li { margin: 12px 0; color: var(--text-dim); font-size: 0.9rem; display: flex; align-items: center; gap: 12px; }
-        .feature-list i { color: var(--primary); font-size: 0.8rem; }
+        :root { --bg-color: #0b1622; --accent-blue: #00a2ff; --card-bg: rgba(17, 33, 49, 0.6); --text-dim: #b0c4de; }
+        body { background-color: var(--bg-color); color: #fff; font-family: 'Inter', sans-serif; margin: 0; }
+        .pricing-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; padding: 180px 8% 100px; }
+        
+        .price-card {
+            background: var(--card-bg);
+            padding: 40px;
+            border-radius: 20px;
+            border: 1px solid rgba(0, 162, 255, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+        .price-card::before { content: ''; position: absolute; left: 0; top: 0; height: 100%; width: 4px; background: var(--accent-blue); }
+        
+        .price { font-size: 3rem; font-weight: 900; margin: 20px 0; color: #fff; }
+        .feature-list { list-style: none; padding: 0; color: var(--text-dim); }
+        .feature-list li { margin: 15px 0; display: flex; align-items: center; gap: 10px; }
+        .feature-list i { color: var(--accent-blue); font-size: 0.8rem; }
     </style>
 </head>
 <body>
-    <canvas id="neural-canvas"></canvas>
-    <header>
-        <a href="index.html" class="logo">GASA <span>TECH</span></a>
-        <nav><a href="index.html">Home</a><a href="about.html">About</a><a href="services.html">Services</a><a href="portfolio.html">Portfolio</a><a href="pricing.html" class="active">Pricing</a><a href="contact.html">Contact</a></nav>
-    </header>
-
-    <div class="pricing-header">
-        <h1 style="font-size: 3.5rem; font-weight: 900;">SERVICE MODULES</h1>
-        <p style="color: var(--text-dim);">Scalable pricing for next-gen digital infrastructure.</p>
-    </div>
-
-    <main class="pricing-container">
-        <div class="price-card" style="border-top: 4px solid #8e44ad;">
-            <div class="floating-icon" style="color: #8e44ad;"><i class="fas fa-cube"></i></div>
-            <h3>BASIC CORE</h3>
-            <span class="price-tag">R3000</span>
+    <main class="pricing-grid">
+        <div class="price-card">
+            <h2 style="color: var(--accent-blue); margin: 0;">BASIC CORE</h2>
+            <div class="price">R3000</div>
             <ul class="feature-list">
-                <li><i class="fas fa-check-circle"></i> 5 Engineered Pages</li>
-                <li><i class="fas fa-check-circle"></i> Standard SEO Optimization</li>
+                <li><i class="fas fa-chevron-right"></i> 5 Engineered Pages</li>
+                <li><i class="fas fa-chevron-right"></i> Mobile Responsive UI</li>
             </ul>
-            <a href="contact.html" class="btn btn-primary" style="background: #8e44ad; width: 100%; text-align: center;">Initiate Basic</a>
         </div>
-
-        <div class="price-card" style="border-top: 4px solid #1abc9c; transform: scale(1.05);">
-            <div class="floating-icon" style="color: #1abc9c;"><i class="fas fa-layer-group"></i></div>
-            <h3 style="color: #1abc9c;">STANDARD PRO</h3>
-            <span class="price-tag">R3500</span>
+        <div class="price-card" style="background: #162a3d; border: 1px solid var(--accent-blue);">
+            <h2 style="color: var(--accent-blue); margin: 0;">STANDARD PRO</h2>
+            <div class="price">R3500</div>
             <ul class="feature-list">
-                <li><i class="fas fa-check-circle"></i> 8 Engineered Pages</li>
-                <li><i class="fas fa-check-circle"></i> Progressive Web App (PWA)</li>
+                <li><i class="fas fa-chevron-right"></i> 8 Engineered Pages</li>
+                <li><i class="fas fa-chevron-right"></i> PWA Infrastructure</li>
             </ul>
-            <a href="contact.html" class="btn btn-primary" style="background: #1abc9c; width: 100%; text-align: center;">Initiate Standard</a>
         </div>
-
-        <div class="price-card" style="border-top: 4px solid #e67e22;">
-            <div class="floating-icon" style="color: #e67e22;"><i class="fas fa-rocket"></i></div>
-            <h3>PREMIUM ELITE</h3>
-            <span class="price-tag">R4500</span>
+        <div class="price-card">
+            <h2 style="color: var(--accent-blue); margin: 0;">PREMIUM ELITE</h2>
+            <div class="price">R4500</div>
             <ul class="feature-list">
-                <li><i class="fas fa-check-circle"></i> Unlimited Expansion</li>
-                <li><i class="fas fa-check-circle"></i> Full E-Commerce Logic</li>
+                <li><i class="fas fa-chevron-right"></i> Unlimited Scale</li>
+                <li><i class="fas fa-chevron-right"></i> E-Commerce Architecture</li>
             </ul>
-            <a href="contact.html" class="btn btn-primary" style="background: #e67e22; width: 100%; text-align: center;">Initiate Premium</a>
         </div>
     </main>
-    <script src="script.js"></script>
 </body>
 </html>
