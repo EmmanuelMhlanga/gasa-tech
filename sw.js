@@ -1,13 +1,15 @@
 const CACHE_NAME = 'gasa-tech-v1';
 const ASSETS = [
   '/',
-  '/index.html',
-  '/about.html',
-  '/services.html',
-  '/portfolio.html',
-  '/pricing.html',
-  '/contact.html',
-  'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css'
+  'index.html',
+  'about.html',
+  'services.html',
+  'portfolio.html',
+  'pricing.html',
+  'contact.html',
+  'style.css',
+  'script.js',
+  'manifest.json'
 ];
 
 // Install Service Worker
@@ -19,7 +21,7 @@ self.addEventListener('install', (event) => {
   );
 });
 
-// Fetch Assets from Cache
+// Intercept Requests
 self.addEventListener('fetch', (event) => {
   event.respondWith(
     caches.match(event.request).then((response) => {
