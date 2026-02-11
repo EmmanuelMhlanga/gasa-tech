@@ -1,4 +1,4 @@
-/* GASA TECH GLOBAL DESIGN PROTOCOL */
+/* GASA TECH - GLOBAL ENGINEERING STYLES */
 :root {
     --primary: #00a2ff;
     --primary-glow: rgba(0, 162, 255, 0.4);
@@ -14,20 +14,22 @@
 body { 
     background: var(--bg); 
     color: var(--text-main); 
-    font-family: 'Inter', sans-serif;
+    font-family: 'Inter', -apple-system, sans-serif;
     overflow-x: hidden;
     line-height: 1.6;
 }
 
-/* Neural Canvas Background */
+/* Neural Network Background Canvas */
 #neural-canvas {
     position: fixed;
     top: 0; left: 0;
     width: 100%; height: 100%;
     z-index: -1;
     opacity: 0.5;
+    pointer-events: none;
 }
 
+/* Navigation Header */
 header {
     position: fixed;
     top: 0; width: 100%;
@@ -56,37 +58,53 @@ nav a:hover, nav a.active { color: var(--primary); text-shadow: 0 0 8px var(--pr
     text-transform: uppercase;
     transition: 0.4s;
     display: inline-block;
+    cursor: pointer;
+    border: none;
 }
 .btn-primary { background: var(--primary); color: #fff; box-shadow: 0 5px 20px var(--primary-glow); }
-.btn-outline { border: 1px solid var(--border); color: #fff; }
+.btn-outline { border: 1px solid var(--border); color: #fff; background: transparent; }
 .btn:hover { transform: translateY(-3px); opacity: 0.9; }
 
-/* Cards */
+/* Global Card Design (Glassmorphism) */
 .service-card, .project-card, .price-card {
     background: var(--card-bg);
     border: 1px solid var(--border);
     border-radius: 20px;
     padding: 40px;
     backdrop-filter: blur(10px);
-    transition: 0.4s;
+    transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 .service-card:hover, .project-card:hover, .price-card:hover {
     border-color: var(--primary);
     transform: translateY(-10px);
-    box-shadow: 0 10px 40px rgba(0,162,255,0.2);
+    box-shadow: 0 10px 40px rgba(0, 162, 255, 0.15);
 }
 
+/* PWA Success Toast Notification */
+#pwa-toast {
+    position: fixed;
+    bottom: -100px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(0, 162, 255, 0.95);
+    color: white;
+    padding: 15px 30px;
+    border-radius: 50px;
+    font-weight: 800;
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    box-shadow: 0 0 30px var(--primary-glow);
+    transition: bottom 0.6s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+    z-index: 10000;
+}
+#pwa-toast.show { bottom: 30px; }
+
 /* Footer */
-footer { padding: 80px 8% 40px; background: #07101a; border-top: 1px solid var(--border); }
+footer { padding: 80px 8% 40px; background: #07101a; border-top: 1px solid var(--border); margin-top: 50px; }
 .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 50px; }
-.footer-col h4 { color: var(--primary); margin-bottom: 25px; letter-spacing: 2px; }
+.footer-col h4 { color: var(--primary); margin-bottom: 25px; letter-spacing: 2px; text-transform: uppercase; }
 .footer-col a, .footer-col p { color: var(--text-dim); text-decoration: none; display: block; margin-bottom: 12px; }
 
 @media (max-width: 768px) { nav { display: none; } }
-.service-card:hover {
-    border-color: var(--primary);
-    transform: translateY(-10px);
-    box-shadow: 0 0 30px var(--primary-glow);
-}
-
-/* Add the rest of your header, hero, and footer CSS here */
