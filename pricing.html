@@ -3,72 +3,158 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pricing | GASA TECH</title>
+    <title>Pricing Modules | GASA TECH</title>
+    
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="apple-touch-icon" href="icon-192.png">
     <meta name="theme-color" content="#0b1622">
+
+    <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
     <style>
-        :root { --bg: #0b1622; --card-bg: rgba(17, 33, 49, 0.8); --accent: #00a2ff; --text-dim: #b0c4de; }
-        body { background-color: var(--bg); color: #fff; font-family: 'Inter', sans-serif; margin: 0; }
+        :root {
+            --bg: #0b1622;
+            --card-bg: #112131;
+            --accent: #00a2ff;
+            --text-dim: #b0c4de;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { background-color: var(--bg); color: #ffffff; font-family: 'Inter', sans-serif; }
         
-        header { position: fixed; top: 0; width: 100%; padding: 25px 8%; display: flex; justify-content: space-between; align-items: center; background: rgba(11, 22, 34, 0.9); z-index: 1000; }
+        /* Header Navigation */
+        header { 
+            position: fixed; top: 0; width: 100%; padding: 25px 8%; 
+            display: flex; justify-content: space-between; align-items: center; 
+            background: rgba(11, 22, 34, 0.95); backdrop-filter: blur(10px); 
+            z-index: 1000; border-bottom: 1px solid rgba(0, 162, 255, 0.1); 
+        }
         .logo { font-weight: 800; font-size: 1.5rem; text-decoration: none; color: #fff; }
         .logo span { color: var(--accent); }
+        nav a { color: #fff; text-decoration: none; margin-left: 25px; font-size: 0.9rem; transition: 0.3s; }
+        nav a:hover, nav a.active { color: var(--accent); }
 
-        .pricing-container { padding: 180px 8% 100px; display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+        /* Pricing Section UI */
+        .pricing-header { padding: 180px 8% 60px; }
+        .pricing-header h1 { font-size: 4rem; font-weight: 900; line-height: 1; text-transform: uppercase; }
+        
+        .pricing-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; padding: 0 8% 100px; }
         
         .price-card { 
             background: var(--card-bg); 
-            padding: 40px; 
+            padding: 45px; 
             border-radius: 20px; 
             border-left: 4px solid var(--accent);
-            border-top: 1px solid rgba(0, 162, 255, 0.1);
+            display: flex;
+            flex-direction: column;
+            transition: 0.4s ease;
         }
-        .price { font-size: 3.5rem; font-weight: 900; margin: 20px 0; letter-spacing: -2px; }
-        .feature-list { list-style: none; padding: 0; color: var(--text-dim); }
-        .feature-list li { margin: 12px 0; display: flex; align-items: center; gap: 10px; }
-        .feature-list i { color: var(--accent); font-size: 0.8rem; }
+        .price-card:hover { transform: translateY(-10px); background: #162a3d; }
         
-        .btn-order { display: block; padding: 15px; background: var(--accent); color: #fff; text-decoration: none; border-radius: 8px; text-align: center; font-weight: 800; margin-top: 30px; }
+        .tier-label { color: var(--accent); font-size: 0.8rem; font-weight: 800; letter-spacing: 3px; text-transform: uppercase; margin-bottom: 10px; }
+        .price-val { font-size: 4rem; font-weight: 900; margin: 15px 0; letter-spacing: -3px; }
+        .price-val span { font-size: 1rem; color: var(--text-dim); letter-spacing: 0; margin-left: 5px; }
+        
+        .feature-list { list-style: none; margin: 25px 0; flex-grow: 1; }
+        .feature-list li { margin: 15px 0; color: var(--text-dim); font-size: 0.95rem; display: flex; align-items: flex-start; gap: 12px; }
+        .feature-list i { color: var(--accent); margin-top: 5px; font-size: 0.8rem; }
+
+        .btn-select { 
+            display: block; padding: 16px; background: var(--accent); 
+            color: #fff; text-decoration: none; border-radius: 10px; 
+            text-align: center; font-weight: 800; text-transform: uppercase; 
+            letter-spacing: 1px; transition: 0.3s;
+        }
+        .btn-select:hover { opacity: 0.9; box-shadow: 0 5px 20px rgba(0, 162, 255, 0.3); }
+
+        /* Footer Styling */
+        footer { padding: 80px 8% 40px; background: #07101a; border-top: 1px solid rgba(0, 162, 255, 0.1); }
+        .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 50px; }
+        .footer-col h4 { color: var(--accent); margin-bottom: 25px; letter-spacing: 2px; text-transform: uppercase; font-size: 0.9rem; }
+        .footer-col a, .footer-col p { color: var(--text-dim); text-decoration: none; display: block; margin-bottom: 12px; font-size: 0.9rem; }
     </style>
 </head>
 <body>
     <header>
         <a href="index.html" class="logo">GASA <span>TECH</span></a>
-        <nav style="display: flex; gap: 25px;">
-            <a href="index.html" style="color:#fff; text-decoration:none;">Home</a>
-            <a href="pricing.html" style="color:var(--accent); text-decoration:none;">Pricing</a>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="services.html">Services</a>
+            <a href="portfolio.html">Portfolio</a>
+            <a href="pricing.html" class="active">Pricing</a>
+            <a href="contact.html">Contact</a>
         </nav>
     </header>
 
+    <div class="pricing-header">
+        <h1 style="color: #fff;">SERVICE<br><span style="color: var(--accent);">MODULES</span></h1>
+    </div>
+
     <main class="pricing-container">
         <div class="price-card">
-            <h2 style="color: var(--accent); font-size: 1rem; letter-spacing: 2px;">BASIC CORE</h2>
-            <div class="price">R3000</div>
+            <div class="tier-label">System Core</div>
+            <div class="price-val">R3000<span>ONE-TIME</span></div>
+            <p style="color: var(--text-dim); font-size: 0.9rem;">Ideal for landing pages and startups needing a precision entry into the digital market.</p>
             <ul class="feature-list">
-                <li><i class="fas fa-check"></i> 5 Engineered Pages</li>
-                <li><i class="fas fa-check"></i> Standard SEO Meta</li>
+                <li><i class="fas fa-microchip"></i> 5 Precision Engineered Pages</li>
+                <li><i class="fas fa-microchip"></i> Mobile-Optimized Grid</li>
+                <li><i class="fas fa-microchip"></i> Standard SEO Meta-Data</li>
+                <li><i class="fas fa-microchip"></i> Secure Contact Node</li>
             </ul>
-            <a href="contact.html" class="btn-order">SELECT CORE</a>
+            <a href="contact.html" class="btn-select">Select Core</a>
         </div>
-        <div class="price-card" style="background: #162a3d; border: 1px solid var(--accent);">
-            <h2 style="color: var(--accent); font-size: 1rem; letter-spacing: 2px;">STANDARD PRO</h2>
-            <div class="price">R3500</div>
+
+        <div class="price-card" style="border: 1px solid var(--accent); background: #162a3d;">
+            <div class="tier-label">Standard Pro</div>
+            <div class="price-val">R3500<span>ONE-TIME</span></div>
+            <p style="color: var(--text-dim); font-size: 0.9rem;">High-performance architecture for established businesses ready to scale.</p>
             <ul class="feature-list">
-                <li><i class="fas fa-check"></i> 8 Engineered Pages</li>
-                <li><i class="fas fa-check"></i> PWA Infrastructure</li>
+                <li><i class="fas fa-microchip"></i> 8 Engineered Pages</li>
+                <li><i class="fas fa-microchip"></i> Progressive Web App (PWA)</li>
+                <li><i class="fas fa-microchip"></i> Advanced Search Optimization</li>
+                <li><i class="fas fa-microchip"></i> Priority Deployment Protocol</li>
             </ul>
-            <a href="contact.html" class="btn-order">SELECT PRO</a>
+            <a href="contact.html" class="btn-select">Select Pro</a>
         </div>
+
         <div class="price-card">
-            <h2 style="color: var(--accent); font-size: 1rem; letter-spacing: 2px;">PREMIUM ELITE</h2>
-            <div class="price">R4500</div>
+            <div class="tier-label">Premium Elite</div>
+            <div class="price-val">R4500<span>ONE-TIME</span></div>
+            <p style="color: var(--text-dim); font-size: 0.9rem;">The ultimate infrastructure for complex systems and digital dominance.</p>
             <ul class="feature-list">
-                <li><i class="fas fa-check"></i> Unlimited Scale</li>
-                <li><i class="fas fa-check"></i> E-Commerce Logic</li>
+                <li><i class="fas fa-microchip"></i> Unlimited Page Expansion</li>
+                <li><i class="fas fa-microchip"></i> Full E-Commerce Logic</li>
+                <li><i class="fas fa-microchip"></i> Database Architecture</li>
+                <li><i class="fas fa-microchip"></i> 24/7 Security Monitoring</li>
             </ul>
-            <a href="contact.html" class="btn-order">SELECT ELITE</a>
+            <a href="contact.html" class="btn-select">Select Elite</a>
         </div>
     </main>
+
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-col">
+                <a href="index.html" class="logo">GASA <span>TECH</span></a>
+                <p style="margin-top: 20px;">Precision Digital Engineering.<br>Johannesburg, ZA.</p>
+            </div>
+            <div class="footer-col">
+                <h4>QUICK NAV</h4>
+                <a href="about.html">Our Mission</a>
+                <a href="portfolio.html">Live Deployments</a>
+                <a href="pricing.html">Service Modules</a>
+            </div>
+            <div class="footer-col">
+                <h4>DEPLOY</h4>
+                <p>+27 69 140 1737</p>
+                <p>gasatechptyltd@gmail.com</p>
+            </div>
+        </div>
+        <div style="text-align: center; margin-top: 50px; color: #516275; font-size: 0.75rem;">
+            &copy; 2026 GASA TECH (PTY) LTD | Systems Engineering Firm
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
 </body>
 </html>
-
