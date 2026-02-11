@@ -2,89 +2,73 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Portfolio | GASA TECH Live Deployments</title>
+    
+    <meta name="theme-color" content="#0d1b2a">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    
     <link rel="manifest" href="manifest.json">
-    <meta name="theme-color" content="#00a2ff">
-    <link rel="apple-touch-icon" href="icon-192.png">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
     <style>
+        /* Force dark background immediately to prevent white flash on mobile */
+        body { background-color: #0d1b2a !important; color: #ffffff; }
         .portfolio-header { text-align: center; padding: 180px 8% 40px; }
-        .portfolio-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 30px; padding: 0 8% 100px; }
-        
+        .portfolio-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; padding: 0 8% 100px; }
         .status-badge { display: flex; align-items: center; gap: 8px; font-size: 0.7rem; color: #00ff88; letter-spacing: 2px; margin-bottom: 15px; font-weight: 800; }
         .pulse-dot { width: 8px; height: 8px; background: #00ff88; border-radius: 50%; box-shadow: 0 0 10px #00ff88; animation: pulse-blink 1.5s infinite; }
         @keyframes pulse-blink { 0%, 100% { opacity: 1; transform: scale(1); } 50% { opacity: 0.4; transform: scale(1.2); } }
-        
         .tech-tags { margin-top: 20px; display: flex; gap: 10px; flex-wrap: wrap; }
         .tag { font-size: 0.7rem; color: var(--primary); border: 1px solid var(--border); padding: 4px 10px; border-radius: 4px; font-family: monospace; }
-        
-        .project-card h3 { font-size: 1.5rem; margin-bottom: 10px; letter-spacing: 1px; }
-        .project-card p { color: var(--text-dim); font-size: 0.95rem; line-height: 1.6; }
     </style>
 </head>
 <body>
     <canvas id="neural-canvas"></canvas>
     <header>
         <a href="index.html" class="logo">GASA <span>TECH</span></a>
-        <nav>
-            <a href="index.html">Home</a>
-            <a href="about.html">About</a>
-            <a href="services.html">Services</a>
-            <a href="portfolio.html" class="active">Portfolio</a>
-            <a href="pricing.html">Pricing</a>
-            <a href="contact.html">Contact</a>
-        </nav>
+        <nav><a href="index.html">Home</a><a href="about.html">About</a><a href="services.html">Services</a><a href="portfolio.html" class="active">Portfolio</a><a href="pricing.html">Pricing</a><a href="contact.html">Contact</a></nav>
     </header>
 
     <div class="portfolio-header">
         <h1 style="font-size: 3.5rem; font-weight: 900;">LIVE DEPLOYMENTS</h1>
-        <p style="color: var(--text-dim);">Active infrastructure engineered and monitored by GASA TECH.</p>
+        <p style="color: var(--text-dim);">Active infrastructure engineered by GASA TECH.</p>
     </div>
 
     <main class="portfolio-grid">
         <div class="project-card">
             <div class="status-badge"><div class="pulse-dot"></div> SYSTEM_ACTIVE</div>
             <h3>EBBRATO TRAVEL</h3>
-            <p>A high-conversion tourism engine featuring optimized booking flows and premium visual architecture for the travel industry.</p>
-            <div class="tech-tags">
-                <span class="tag">#UX_CORE</span> <span class="tag">#MOBILE_OPTIMIZED</span> <span class="tag">#FAST_LOAD</span>
-            </div>
-            <a href="https://emmanuelmhlanga.github.io/ebbrato-travel-agency/" target="_blank" class="btn btn-outline" style="margin-top: 25px; width: 100%; text-align: center;">View Protocol <i class="fas fa-external-link-alt" style="font-size: 0.8rem; margin-left: 10px;"></i></a>
+            <p>A high-conversion tourism engine featuring optimized booking flows and premium visual architecture.</p>
+            <div class="tech-tags"><span class="tag">#UX_CORE</span> <span class="tag">#MOBILE_READY</span></div>
+            <a href="https://emmanuelmhlanga.github.io/ebbrato-travel-agency/" target="_blank" class="btn btn-outline" style="margin-top: 25px; width: 100%; text-align: center;">View Protocol</a>
         </div>
 
         <div class="project-card">
             <div class="status-badge"><div class="pulse-dot"></div> SYSTEM_ACTIVE</div>
             <h3>ILETHA</h3>
-            <p>A community-centric mesh network platform designed to facilitate local resource distribution and communication efficiency.</p>
-            <div class="tech-tags">
-                <span class="tag">#COMMUNITY_TECH</span> <span class="tag">#DB_INTEGRATION</span>
-            </div>
-            <a href="https://iletha.com" target="_blank" class="btn btn-outline" style="margin-top: 25px; width: 100%; text-align: center;">View Protocol <i class="fas fa-external-link-alt" style="font-size: 0.8rem; margin-left: 10px;"></i></a>
+            <p>A community-centric mesh network platform designed to facilitate local resource distribution.</p>
+            <div class="tech-tags"><span class="tag">#DATABASE</span> <span class="tag">#COMMUNITY_TECH</span></div>
+            <a href="https://iletha.com" target="_blank" class="btn btn-outline" style="margin-top: 25px; width: 100%; text-align: center;">View Protocol</a>
         </div>
 
         <div class="project-card">
             <div class="status-badge"><div class="pulse-dot"></div> SYSTEM_ACTIVE</div>
             <h3>NEO BREED</h3>
-            <p>Strategic digital hub for marketing solutions, built with an aggressive SEO framework to dominate search rankings.</p>
-            <div class="tech-tags">
-                <span class="tag">#SEO_DOMINATION</span> <span class="tag">#MARKETING_UI</span>
-            </div>
-            <a href="https://neobreedmarketingsolutions.com" target="_blank" class="btn btn-outline" style="margin-top: 25px; width: 100%; text-align: center;">View Protocol <i class="fas fa-external-link-alt" style="font-size: 0.8rem; margin-left: 10px;"></i></a>
+            <p>Strategic digital hub for marketing solutions, built with an aggressive SEO framework.</p>
+            <div class="tech-tags"><span class="tag">#SEO_ELITE</span> <span class="tag">#MARKETING_UI</span></div>
+            <a href="https://neobreedmarketingsolutions.com" target="_blank" class="btn btn-outline" style="margin-top: 25px; width: 100%; text-align: center;">View Protocol</a>
         </div>
 
         <div class="project-card">
             <div class="status-badge"><div class="pulse-dot"></div> SYSTEM_ACTIVE</div>
             <h3>VILE AMICO</h3>
-            <p>Next-generation entertainment interface featuring low-latency content delivery and a modern dark-mode design system.</p>
-            <div class="tech-tags">
-                <span class="tag">#HIGH_LATENCY_FIX</span> <span class="tag">#ENTERTAINMENT_MESH</span>
-            </div>
-            <a href="https://vileamico.com" target="_blank" class="btn btn-outline" style="margin-top: 25px; width: 100%; text-align: center;">View Protocol <i class="fas fa-external-link-alt" style="font-size: 0.8rem; margin-left: 10px;"></i></a>
+            <p>Next-generation entertainment interface featuring low-latency content delivery.</p>
+            <div class="tech-tags"><span class="tag">#DARK_UX</span> <span class="tag">#LATENCY_FIX</span></div>
+            <a href="https://vileamico.com" target="_blank" class="btn btn-outline" style="margin-top: 25px; width: 100%; text-align: center;">View Protocol</a>
         </div>
     </main>
-
     <script src="script.js"></script>
 </body>
 </html>
