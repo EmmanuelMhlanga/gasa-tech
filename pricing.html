@@ -4,53 +4,71 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pricing | GASA TECH</title>
+    <meta name="theme-color" content="#0b1622">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        :root { --bg-color: #0b1622; --accent-blue: #00a2ff; --card-bg: rgba(17, 33, 49, 0.6); --text-dim: #b0c4de; }
-        body { background-color: var(--bg-color); color: #fff; font-family: 'Inter', sans-serif; margin: 0; }
-        .pricing-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; padding: 180px 8% 100px; }
+        :root { --bg: #0b1622; --card-bg: rgba(17, 33, 49, 0.8); --accent: #00a2ff; --text-dim: #b0c4de; }
+        body { background-color: var(--bg); color: #fff; font-family: 'Inter', sans-serif; margin: 0; }
         
-        .price-card {
-            background: var(--card-bg);
-            padding: 40px;
-            border-radius: 20px;
-            border: 1px solid rgba(0, 162, 255, 0.1);
-            position: relative;
-            overflow: hidden;
+        header { position: fixed; top: 0; width: 100%; padding: 25px 8%; display: flex; justify-content: space-between; align-items: center; background: rgba(11, 22, 34, 0.9); z-index: 1000; }
+        .logo { font-weight: 800; font-size: 1.5rem; text-decoration: none; color: #fff; }
+        .logo span { color: var(--accent); }
+
+        .pricing-container { padding: 180px 8% 100px; display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+        
+        .price-card { 
+            background: var(--card-bg); 
+            padding: 40px; 
+            border-radius: 20px; 
+            border-left: 4px solid var(--accent);
+            border-top: 1px solid rgba(0, 162, 255, 0.1);
         }
-        .price-card::before { content: ''; position: absolute; left: 0; top: 0; height: 100%; width: 4px; background: var(--accent-blue); }
-        
-        .price { font-size: 3rem; font-weight: 900; margin: 20px 0; color: #fff; }
+        .price { font-size: 3.5rem; font-weight: 900; margin: 20px 0; letter-spacing: -2px; }
         .feature-list { list-style: none; padding: 0; color: var(--text-dim); }
-        .feature-list li { margin: 15px 0; display: flex; align-items: center; gap: 10px; }
-        .feature-list i { color: var(--accent-blue); font-size: 0.8rem; }
+        .feature-list li { margin: 12px 0; display: flex; align-items: center; gap: 10px; }
+        .feature-list i { color: var(--accent); font-size: 0.8rem; }
+        
+        .btn-order { display: block; padding: 15px; background: var(--accent); color: #fff; text-decoration: none; border-radius: 8px; text-align: center; font-weight: 800; margin-top: 30px; }
     </style>
 </head>
 <body>
-    <main class="pricing-grid">
+    <header>
+        <a href="index.html" class="logo">GASA <span>TECH</span></a>
+        <nav style="display: flex; gap: 25px;">
+            <a href="index.html" style="color:#fff; text-decoration:none;">Home</a>
+            <a href="pricing.html" style="color:var(--accent); text-decoration:none;">Pricing</a>
+        </nav>
+    </header>
+
+    <main class="pricing-container">
         <div class="price-card">
-            <h2 style="color: var(--accent-blue); margin: 0;">BASIC CORE</h2>
+            <h2 style="color: var(--accent); font-size: 1rem; letter-spacing: 2px;">BASIC CORE</h2>
             <div class="price">R3000</div>
             <ul class="feature-list">
-                <li><i class="fas fa-chevron-right"></i> 5 Engineered Pages</li>
-                <li><i class="fas fa-chevron-right"></i> Mobile Responsive UI</li>
+                <li><i class="fas fa-check"></i> 5 Engineered Pages</li>
+                <li><i class="fas fa-check"></i> Standard SEO Meta</li>
             </ul>
+            <a href="contact.html" class="btn-order">SELECT CORE</a>
         </div>
-        <div class="price-card" style="background: #162a3d; border: 1px solid var(--accent-blue);">
-            <h2 style="color: var(--accent-blue); margin: 0;">STANDARD PRO</h2>
+        <div class="price-card" style="background: #162a3d; border: 1px solid var(--accent);">
+            <h2 style="color: var(--accent); font-size: 1rem; letter-spacing: 2px;">STANDARD PRO</h2>
             <div class="price">R3500</div>
             <ul class="feature-list">
-                <li><i class="fas fa-chevron-right"></i> 8 Engineered Pages</li>
-                <li><i class="fas fa-chevron-right"></i> PWA Infrastructure</li>
+                <li><i class="fas fa-check"></i> 8 Engineered Pages</li>
+                <li><i class="fas fa-check"></i> PWA Infrastructure</li>
             </ul>
+            <a href="contact.html" class="btn-order">SELECT PRO</a>
         </div>
         <div class="price-card">
-            <h2 style="color: var(--accent-blue); margin: 0;">PREMIUM ELITE</h2>
+            <h2 style="color: var(--accent); font-size: 1rem; letter-spacing: 2px;">PREMIUM ELITE</h2>
             <div class="price">R4500</div>
             <ul class="feature-list">
-                <li><i class="fas fa-chevron-right"></i> Unlimited Scale</li>
-                <li><i class="fas fa-chevron-right"></i> E-Commerce Architecture</li>
+                <li><i class="fas fa-check"></i> Unlimited Scale</li>
+                <li><i class="fas fa-check"></i> E-Commerce Logic</li>
             </ul>
+            <a href="contact.html" class="btn-order">SELECT ELITE</a>
         </div>
     </main>
 </body>
 </html>
+
