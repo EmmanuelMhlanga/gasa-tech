@@ -4,6 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GASA TECH | Digital Architects</title>
+    
+    <link rel="icon" type="image/png" href="favicon.png">
+    
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
     <style>
         :root {
@@ -15,16 +18,9 @@
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
-        body { background: var(--bg); color: var(--text-main); overflow-x: hidden; }
+        body { background: var(--bg); color: var(--text-main); overflow-x: hidden; display: flex; flex-direction: column; min-height: 100vh; }
 
-        /* Animated Background */
-        body::before {
-            content: ""; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-            background: radial-gradient(circle at 50% 50%, rgba(0,162,255,0.05) 0%, transparent 80%);
-            z-index: -1;
-        }
-
-        /* Navigation UI */
+        /* Navigation */
         header {
             position: fixed; top: 0; width: 100%; padding: 1.5rem 8%;
             display: flex; justify-content: space-between; align-items: center;
@@ -38,33 +34,48 @@
         nav a { color: var(--text-dim); text-decoration: none; margin-left: 1.5rem; font-size: 0.85rem; font-weight: 700; text-transform: uppercase; transition: 0.3s; }
         nav a:hover { color: var(--primary); }
 
-        /* Hero Section with Entrance Animation */
-        section { 
-            height: 100vh; display: flex; flex-direction: column; 
-            justify-content: center; align-items: center; text-align: center; padding: 0 10%; 
+        /* Hero Section */
+        .hero { 
+            flex: 1; display: flex; flex-direction: column; 
+            justify-content: center; align-items: center; text-align: center; padding: 120px 10% 60px; 
         }
 
-        h1 { 
-            font-size: clamp(2.5rem, 6vw, 4.5rem); line-height: 1.1; margin-bottom: 1.5rem; 
-            opacity: 0; transform: translateY(30px); animation: fadeInUp 1s forwards;
-        }
+        h1 { font-size: clamp(2.5rem, 6vw, 4.5rem); line-height: 1.1; margin-bottom: 1.5rem; }
         h1 span { color: var(--primary); }
-
-        p { 
-            color: var(--text-dim); max-width: 650px; margin-bottom: 2.5rem; font-size: 1.1rem;
-            opacity: 0; transform: translateY(30px); animation: fadeInUp 1s 0.3s forwards;
-        }
+        p { color: var(--text-dim); max-width: 650px; margin-bottom: 2.5rem; font-size: 1.1rem; }
 
         .btn { 
             padding: 1rem 2.5rem; border-radius: 50px; text-decoration: none; font-weight: 800; 
             transition: 0.4s; background: var(--primary); color: white;
             box-shadow: 0 10px 30px rgba(0, 162, 255, 0.3);
-            opacity: 0; transform: translateY(30px); animation: fadeInUp 1s 0.6s forwards;
         }
         .btn:hover { transform: scale(1.05); background: white; color: var(--bg); }
 
-        @keyframes fadeInUp {
-            to { opacity: 1; transform: translateY(0); }
+        /* FOOTER UI */
+        footer {
+            background: var(--card-bg);
+            padding: 4rem 8% 2rem;
+            border-top: 1px solid rgba(255,255,255,0.05);
+            margin-top: auto;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-col h4 { color: var(--primary); margin-bottom: 1.2rem; text-transform: uppercase; font-size: 0.8rem; letter-spacing: 1px; }
+        .footer-col p, .footer-col a { color: var(--text-dim); text-decoration: none; font-size: 0.9rem; display: block; margin-bottom: 0.5rem; transition: 0.3s; }
+        .footer-col a:hover { color: var(--primary); }
+
+        .footer-bottom {
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.05);
+            text-align: center;
+            color: #444;
+            font-size: 0.75rem;
         }
     </style>
 </head>
@@ -82,12 +93,37 @@
         </nav>
     </header>
 
-    <section>
+    <section class="hero">
         <h1>Engineering the <br><span>Digital Frontier.</span></h1>
         <p>GASA TECH PTY LTD specializes in high-performance systems engineering. We don't just build websites; we deploy strategic digital assets built to scale.</p>
         <a href="services.html" class="btn">Explore Services</a>
     </section>
 
-</body>
-</html>>
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-col">
+                <h4>Architecture</h4>
+                <a href="about.html">Our Mission</a>
+                <a href="portfolio.html">Recent Deployments</a>
+                <a href="privacy.html">Privacy Protocol</a>
+            </div>
+            <div class="footer-col">
+                <h4>Services</h4>
+                <a href="services.html">PWA Development</a>
+                <a href="services.html">Technical SEO</a>
+                <a href="pricing.html">System Pricing</a>
+            </div>
+            <div class="footer-col">
+                <h4>Contact</h4>
+                <p>Johannesburg, Gauteng</p>
+                <p>South Africa</p>
+                <a href="mailto:info@gasatech.co.za">info@gasatech.co.za</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            &copy; 2026 GASA TECH (PTY) LTD. All Rights Reserved. Systems Engineered in South Africa.
+        </div>
+    </footer>
 
+</body>
+</html>
