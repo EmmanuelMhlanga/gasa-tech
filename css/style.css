@@ -1,38 +1,48 @@
-/* style.css - The Master Architecture */
 :root {
-    --bg: #0d1b2a;
-    --card-bg: #1b263b;
+    --bg: #0b0e14;
+    --card-bg: #161b22;
     --primary: #00a2ff;
+    --accent: #005bb5;
     --text-main: #ffffff;
-    --text-dim: #b0c4de;
+    --text-dim: #8b949e;
+    --nav-height: 80px;
 }
 
-* { margin: 0; padding: 0; box-sizing: border-box; }
-body { background: var(--bg); color: var(--text-main); font-family: 'Inter', sans-serif; line-height: 1.6; overflow-x: hidden; }
-
-/* The "Moving" Background */
-.neural-overlay {
-    position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-    background: radial-gradient(circle at 50% 50%, rgba(0,162,255,0.05) 0%, transparent 80%);
-    z-index: -1; pointer-events: none;
-}
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
+body { background: var(--bg); color: var(--text-main); line-height: 1.6; overflow-x: hidden; }
 
 /* Global Navigation */
 header {
-    position: fixed; top: 0; width: 100%; padding: 20px 8%;
+    position: fixed; top: 0; width: 100%; height: var(--nav-height); padding: 0 8%;
     display: flex; justify-content: space-between; align-items: center;
-    background: rgba(13, 27, 42, 0.95); backdrop-filter: blur(10px);
-    border-bottom: 1px solid rgba(255,255,255,0.1); z-index: 1000;
+    background: rgba(11, 14, 20, 0.9); backdrop-filter: blur(15px);
+    border-bottom: 1px solid rgba(255,255,255,0.05); z-index: 1000;
 }
 
-.logo { font-size: 1.5rem; font-weight: 800; color: #fff; text-decoration: none; }
-nav a { color: var(--text-dim); text-decoration: none; margin-left: 30px; font-weight: 500; transition: 0.3s; }
-nav a:hover, nav a.active { color: var(--primary); }
+.logo { font-weight: 800; font-size: 1.5rem; color: #fff; text-decoration: none; letter-spacing: 1px; display: flex; align-items: center; }
+.logo span { color: var(--primary); margin-left: 5px; }
 
-/* Global Layout */
-section { padding: 120px 8% 60px; min-height: 100vh; }
-.card { background: var(--card-bg); padding: 30px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.05); }
+nav a { color: var(--text-dim); text-decoration: none; margin-left: 1.5rem; font-size: 0.85rem; font-weight: 600; text-transform: uppercase; transition: 0.3s; }
+nav a:hover, nav a.active { color: var(--primary); text-shadow: 0 0 8px var(--primary); }
 
-/* Scroll Reveal Animation */
-.reveal { opacity: 0; transform: translateY(30px); transition: 1s all ease; }
+/* Layouts */
+section { padding: calc(var(--nav-height) + 40px) 8% 60px; min-height: 100vh; }
+.hero { display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; }
+.hero h1 { font-size: clamp(2.5rem, 5vw, 4rem); margin-bottom: 1rem; line-height: 1.1; }
+.hero p { color: var(--text-dim); max-width: 700px; margin-bottom: 2rem; font-size: 1.1rem; }
+
+/* Grid & Cards */
+.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; width: 100%; margin-top: 3rem; }
+.card { background: var(--card-bg); padding: 2.5rem; border-radius: 15px; border: 1px solid rgba(255,255,255,0.03); transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); position: relative; overflow: hidden; }
+.card:hover { border-color: var(--primary); transform: translateY(-10px); box-shadow: 0 20px 40px rgba(0,0,0,0.4); }
+.card i { font-size: 2rem; color: var(--primary); margin-bottom: 1.5rem; }
+.card h3 { margin-bottom: 1rem; font-size: 1.4rem; }
+
+/* Buttons */
+.btn { padding: 1rem 2.5rem; border-radius: 50px; text-decoration: none; font-weight: 700; transition: 0.3s; display: inline-block; border: none; cursor: pointer; }
+.btn-primary { background: var(--primary); color: white; box-shadow: 0 10px 20px rgba(0, 162, 255, 0.3); }
+.btn-primary:hover { transform: scale(1.05); background: #fff; color: var(--bg); }
+
+/* Animations */
+.reveal { opacity: 0; transform: translateY(30px); transition: 0.8s ease-out; }
 .reveal.active { opacity: 1; transform: translateY(0); }
