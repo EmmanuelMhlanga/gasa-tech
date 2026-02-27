@@ -3,253 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GASA TECH | Engineering Digital Infrastructure</title>
-
-    <link rel="manifest" href="manifest.json">
-    <meta name="theme-color" content="#00a2ff">
-    <link rel="apple-touch-icon" href="icon-192.png">
-    <script>
-      if ('serviceWorker' in navigator) {
-        window.addEventListener('load', () => {
-          navigator.serviceWorker.register('/sw.js');
-        });
-      }
-    </script>
-
-    <link rel="icon" type="image/png" href="favicon.png">
+    <title>GASA TECH | Digital Architects</title>
+    <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <style>
-        :root {
-            --primary: #00a2ff;
-            --primary-glow: rgba(0, 162, 255, 0.4);
-            --bg: #0d1b2a; 
-            --card-bg: #1b263b;
-            --text-main: #ffffff;
-            --text-dim: #b0c4de;
-            --border: rgba(0, 162, 255, 0.2);
-        }
-
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-
-        body { 
-            background: var(--bg); 
-            color: var(--text-main); 
-            font-family: 'Inter', sans-serif;
-            overflow-x: hidden;
-            line-height: 1.6;
-        }
-
-        /* NEURAL CANVAS STYLING */
-        #neural-canvas {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
-            opacity: 0.6;
-        }
-
-        header {
-            position: fixed;
-            top: 0; width: 100%;
-            padding: 20px 8%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            background: rgba(13, 27, 42, 0.8);
-            backdrop-filter: blur(15px);
-            border-bottom: 1px solid var(--border);
-            z-index: 1000;
-        }
-
-        .logo { font-size: 1.5rem; font-weight: 800; color: #fff; text-decoration: none; }
-        .logo span { color: var(--primary); text-shadow: 0 0 10px var(--primary-glow); }
-
-        nav a {
-            color: var(--text-dim);
-            text-decoration: none;
-            margin-left: 30px;
-            font-size: 0.95rem;
-            transition: 0.3s;
-        }
-
-        nav a:hover, nav a.active { color: var(--primary); text-shadow: 0 0 8px var(--primary-glow); }
-
-        .hero {
-            height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            padding: 0 8%;
-        }
-
-        .hero h1 {
-            font-size: clamp(3.5rem, 12vw, 7rem);
-            font-weight: 900;
-            line-height: 0.9;
-            letter-spacing: -3px;
-            margin-bottom: 20px;
-            text-transform: uppercase;
-        }
-
-        /* TERMINAL TYPING EFFECT */
-        .typing-container {
-            font-family: 'Courier New', Courier, monospace;
-            color: var(--primary);
-            font-size: 1.2rem;
-            margin-bottom: 40px;
-            min-height: 1.5em;
-        }
-
-        .cta-group { display: flex; gap: 20px; }
-        
-        .btn {
-            padding: 18px 40px;
-            border-radius: 12px;
-            text-decoration: none;
-            font-weight: 800;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            transition: 0.4s;
-        }
-
-        .btn-primary {
-            background: var(--primary);
-            color: #fff;
-            box-shadow: 0 10px 30px var(--primary-glow);
-        }
-
-        .btn-outline {
-            border: 1px solid var(--border);
-            color: #fff;
-            backdrop-filter: blur(10px);
-        }
-
-        .btn:hover { transform: translateY(-5px); }
-
-        footer { padding: 80px 8% 40px; background: #07101a; border-top: 1px solid var(--border); }
-        .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 50px; }
-        .footer-col h4 { margin-bottom: 25px; color: var(--primary); letter-spacing: 2px; text-transform: uppercase; font-weight: 800; }
-        .footer-col a, .footer-col p { color: var(--text-dim); text-decoration: none; display: block; margin-bottom: 12px; font-size: 0.95rem; }
-    </style>
 </head>
 <body>
-
-    <canvas id="neural-canvas"></canvas>
-
     <header>
-        <a href="index.html" class="logo">GASA <span>TECH</span></a>
+        <a href="index.html" class="logo">GASA<span>TECH</span></a>
         <nav>
-            <a href="index.html" class="active">Home</a>
-            <a href="about.html">About</a>
+            <a href="index.html">Home</a>
+            <a href="about.html">Architecture</a>
             <a href="services.html">Services</a>
-            <a href="portfolio.html">Portfolio</a>
             <a href="pricing.html">Pricing</a>
-            <a href="contact.html">Contact</a>
+            <a href="portfolio.html">Portfolio</a>
+            <a href="contact.html">Deploy</a>
         </nav>
     </header>
 
     <section class="hero">
-        <h1>GASA TECH</h1>
-        <div class="typing-container" id="typewriter"></div>
-        <div class="cta-group">
-            <a href="contact.html" class="btn btn-primary">Start Deployment</a>
-            <a href="services.html" class="btn btn-outline">Capabilities</a>
+        <h1 class="reveal">Engineering the <span style="color:var(--primary)">Digital Frontier.</span></h1>
+        <p class="reveal">GASA TECH PTY LTD specializes in high-performance systems engineering. We don't just build websites; we deploy strategic digital assets built to scale.</p>
+        <div class="reveal">
+            <a href="services.html" class="btn btn-primary">Explore Services</a>
+            <a href="contact.html" class="btn" style="color:white; margin-left:10px;">Get a Quote</a>
         </div>
     </section>
 
-    <footer>
-        <div class="footer-grid">
-            <div class="footer-col">
-                <a href="index.html" class="logo">GASA <span>TECH</span></a>
-                <p style="margin-top: 20px;">Precision Engineering.<br>Strategic Deployment.</p>
-            </div>
-            <div class="footer-col">
-                <h4>QUICK LINKS</h4>
-                <a href="services.html">Capabilities</a>
-                <a href="portfolio.html">Live Deployments</a>
-                <a href="contact.html">Contact Hub</a>
-            </div>
-            <div class="footer-col">
-                <h4>CONNECT</h4>
-                <p><i class="fab fa-whatsapp" style="color:var(--primary)"></i> +27 69 140 1737</p>
-                <p><i class="fas fa-envelope" style="color:var(--primary)"></i> gasatechptyltd@gmail.com</p>
-            </div>
-        </div>
-        <div style="text-align: center; margin-top: 40px; color: #516275; font-size: 0.85rem;">
-            &copy; 2026 GASA TECH (PTY) LTD | JOHANNESBURG
-        </div>
-    </footer>
-
-    <script>
-        // TYPEWRITER EFFECT
-        const text = "ENGINEERING DIGITAL INFRASTRUCTURE_";
-        let i = 0;
-        function typeWriter() {
-            if (i < text.length) {
-                document.getElementById("typewriter").innerHTML += text.charAt(i);
-                i++;
-                setTimeout(typeWriter, 100);
-            }
-        }
-        window.onload = typeWriter;
-
-        // NEURAL NETWORK BACKGROUND ANIMATION
-        const canvas = document.getElementById('neural-canvas');
-        const ctx = canvas.getContext('2d');
-        let particles = [];
-
-        function init() {
-            canvas.width = window.innerWidth;
-            canvas.height = window.innerHeight;
-            particles = [];
-            for (let i = 0; i < 80; i++) {
-                particles.push({
-                    x: Math.random() * canvas.width,
-                    y: Math.random() * canvas.height,
-                    vx: (Math.random() - 0.5) * 0.5,
-                    vy: (Math.random() - 0.5) * 0.5
-                });
-            }
-        }
-
-        function draw() {
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
-            ctx.fillStyle = '#00a2ff';
-            ctx.strokeStyle = 'rgba(0, 162, 255, 0.15)';
-            
-            particles.forEach((p, index) => {
-                p.x += p.vx;
-                p.y += p.vy;
-
-                if (p.x < 0 || p.x > canvas.width) p.vx *= -1;
-                if (p.y < 0 || p.y > canvas.height) p.vy *= -1;
-
-                ctx.beginPath();
-                ctx.arc(p.x, p.y, 2, 0, Math.PI * 2);
-                ctx.fill();
-
-                for (let j = index + 1; j < particles.length; j++) {
-                    let p2 = particles[j];
-                    let dist = Math.hypot(p.x - p2.x, p.y - p2.y);
-                    if (dist < 150) {
-                        ctx.lineWidth = 1 - dist/150;
-                        ctx.beginPath();
-                        ctx.moveTo(p.x, p.y);
-                        ctx.lineTo(p2.x, p2.y);
-                        ctx.stroke();
-                    }
-                }
-            });
-            requestAnimationFrame(draw);
-        }
-
-        window.addEventListener('resize', init);
-        init();
-        draw();
-    </script>
+    <script src="main.js"></script>
 </body>
 </html>
