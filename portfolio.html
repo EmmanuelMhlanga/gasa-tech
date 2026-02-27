@@ -2,142 +2,33 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portfolio | GASA TECH</title>
-    
-    <link rel="icon" type="image/png" href="favicon.png">
-    <link rel="apple-touch-icon" href="icon-192.png">
-
-    <meta name="theme-color" content="#0b1622">
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    
-    <style>
-        :root {
-            --bg: #0b1622;
-            --card-bg: #112131;
-            --accent: #00a2ff;
-            --text-dim: #b0c4de;
-        }
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { background-color: var(--bg); color: #ffffff; font-family: 'Inter', sans-serif; line-height: 1.6; }
-        
-        /* Navigation Header */
-        header { 
-            position: fixed; top: 0; width: 100%; padding: 25px 8%; 
-            display: flex; justify-content: space-between; align-items: center; 
-            background: rgba(11, 22, 34, 0.95); backdrop-filter: blur(10px); 
-            z-index: 1000; border-bottom: 1px solid rgba(0, 162, 255, 0.1); 
-        }
-        .logo { font-weight: 800; font-size: 1.5rem; text-decoration: none; color: #fff; }
-        .logo span { color: var(--accent); }
-        nav a { color: #fff; text-decoration: none; margin-left: 25px; font-size: 0.9rem; transition: 0.3s; }
-        nav a:hover, nav a.active { color: var(--accent); }
-
-        /* Content Sections */
-        .hero-title { padding: 180px 8% 40px; }
-        .hero-title h1 { font-size: 4rem; font-weight: 900; line-height: 1; text-transform: uppercase; }
-        
-        .portfolio-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; padding: 0 8% 100px; }
-        
-        .project-card { 
-            background: var(--card-bg); 
-            padding: 40px; 
-            border-radius: 20px; 
-            border-left: 4px solid var(--accent);
-            transition: 0.4s ease;
-        }
-        .project-card:hover { transform: translateY(-8px); background: #162a3d; box-shadow: 0 10px 30px rgba(0,0,0,0.3); }
-        
-        .status { color: #00ff88; font-size: 0.7rem; font-weight: 800; letter-spacing: 2px; display: flex; align-items: center; gap: 8px; margin-bottom: 15px; }
-        .pulse { width: 8px; height: 8px; background: #00ff88; border-radius: 50%; box-shadow: 0 0 10px #00ff88; animation: blink 1.5s infinite; }
-        @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0.3; } }
-
-        .btn-protocol { 
-            display: inline-block; margin-top: 20px; padding: 14px 25px; 
-            background: var(--accent); color: #fff; text-decoration: none; 
-            border-radius: 8px; font-weight: 800; transition: 0.3s; 
-            width: 100%; text-align: center; text-transform: uppercase; font-size: 0.8rem;
-        }
-        .btn-protocol:hover { opacity: 0.9; transform: scale(1.02); }
-
-        /* Footer Styling */
-        footer { padding: 80px 8% 40px; background: #07101a; border-top: 1px solid rgba(0, 162, 255, 0.1); margin-top: 50px; }
-        .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 50px; }
-        .footer-col h4 { color: var(--accent); margin-bottom: 25px; letter-spacing: 2px; text-transform: uppercase; font-size: 0.9rem; }
-        .footer-col a, .footer-col p { color: var(--text-dim); text-decoration: none; display: block; margin-bottom: 12px; font-size: 0.9rem; }
-    </style>
 </head>
 <body>
     <header>
-        <a href="index.html" class="logo">GASA <span>TECH</span></a>
-        <nav>
-            <a href="index.html">Home</a>
-            <a href="about.html">About</a>
-            <a href="services.html">Services</a>
-            <a href="portfolio.html" class="active">Portfolio</a>
-            <a href="pricing.html">Pricing</a>
-            <a href="contact.html">Contact</a>
-        </nav>
+        <a href="index.html" class="logo">GASA<span>TECH</span></a>
+        <nav><a href="index.html">Home</a><a href="about.html">Architecture</a><a href="services.html">Services</a><a href="pricing.html">Pricing</a><a href="portfolio.html" class="active">Portfolio</a><a href="contact.html">Deploy</a></nav>
     </header>
 
-    <div class="hero-title">
-        <h1>LIVE<br><span style="color: var(--accent);">DEPLOYMENTS</span></h1>
-    </div>
-
-    <main class="portfolio-grid">
-        <div class="project-card">
-            <div class="status"><div class="pulse"></div> SYSTEM_LIVE</div>
-            <h3>EBBRATO TRAVEL</h3>
-            <p style="color: var(--text-dim);">Tourism infrastructure engine with high-performance booking flows and visual architecture.</p>
-            <a href="contact.html" class="btn-protocol">Deploy Similar Protocol</a>
-        </div>
-
-        <div class="project-card">
-            <div class="status"><div class="pulse"></div> SYSTEM_LIVE</div>
-            <h3>ILETHA</h3>
-            <p style="color: var(--text-dim);">Community resource network facilitating local resource distribution and communication.</p>
-            <a href="contact.html" class="btn-protocol">Deploy Similar Protocol</a>
-        </div>
-
-        <div class="project-card">
-            <div class="status"><div class="pulse"></div> SYSTEM_LIVE</div>
-            <h3>NEO BREED</h3>
-            <p style="color: var(--text-dim);">Strategic digital hub for marketing solutions with an aggressive SEO framework.</p>
-            <a href="contact.html" class="btn-protocol">Deploy Similar Protocol</a>
-        </div>
-
-        <div class="project-card">
-            <div class="status"><div class="pulse"></div> SYSTEM_LIVE</div>
-            <h3>VILE AMICO</h3>
-            <p style="color: var(--text-dim);">Low-latency media interface featuring modern dark-mode aesthetics and fluid UI.</p>
-            <a href="contact.html" class="btn-protocol">Deploy Similar Protocol</a>
-        </div>
-    </main>
-
-    <footer>
-        <div class="footer-grid">
-            <div class="footer-col">
-                <a href="index.html" class="logo">GASA <span>TECH</span></a>
-                <p style="margin-top: 20px;">Precision Engineering.<br>Strategic Deployment.</p>
+    <section>
+        <h2 class="reveal" style="text-align:center; margin-bottom:3rem;">Recent <span>Deployments</span></h2>
+        <div class="grid">
+            <div class="card reveal">
+                <div style="width:100%; height:200px; background:#0b0e14; border-radius:8px; margin-bottom:1rem; border:1px solid #333;"></div>
+                <h3>Ebbrato Luxury</h3>
+                <p>High-end e-commerce architecture for luxury retail.</p>
+                <a href="#" style="color:var(--primary); text-decoration:none; font-size:0.8rem; font-weight:bold;">VIEW PROTOCOL →</a>
             </div>
-            <div class="footer-col">
-                <h4>NAVIGATION</h4>
-                <a href="services.html">Capabilities</a>
-                <a href="portfolio.html">Portfolio</a>
-                <a href="contact.html">Contact Hub</a>
-            </div>
-            <div class="footer-col">
-                <h4>CONNECT</h4>
-                <p><i class="fab fa-whatsapp" style="color:var(--accent)"></i> +27 69 140 1737</p>
-                <p><i class="fas fa-envelope" style="color:var(--accent)"></i> gasatechptyltd@gmail.com</p>
+            <div class="card reveal">
+                <div style="width:100%; height:200px; background:#0b0e14; border-radius:8px; margin-bottom:1rem; border:1px solid #333;"></div>
+                <h3>Iletha Travel</h3>
+                <p>Custom booking system with real-time API integration.</p>
+                <a href="#" style="color:var(--primary); text-decoration:none; font-size:0.8rem; font-weight:bold;">VIEW PROTOCOL →</a>
             </div>
         </div>
-        <div style="text-align: center; margin-top: 60px; color: #516275; font-size: 0.8rem; border-top: 1px solid rgba(255,255,255,0.05); padding-top: 30px;">
-            &copy; 2026 GASA TECH (PTY) LTD | JOHANNESBURG
-        </div>
-    </footer>
+    </section>
 
-    <script src="script.js"></script>
+    <script src="main.js"></script>
 </body>
 </html>
