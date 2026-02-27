@@ -3,58 +3,39 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About | GASA TECH Engineering</title>
-    <link rel="manifest" href="manifest.json">
-    <meta name="theme-color" content="#00a2ff">
-    <link rel="apple-touch-icon" href="icon-192.png">
-    <script>
-      if ('serviceWorker' in navigator) {
-        window.addEventListener('load', () => { navigator.serviceWorker.register('/sw.js'); });
-      }
-    </script>
-    <link rel="icon" type="image/png" href="favicon.png">
+    <title>Architecture | GASA TECH</title>
+    <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <style>
-        :root { --primary: #00a2ff; --primary-glow: rgba(0, 162, 255, 0.4); --bg: #0d1b2a; --card-bg: #1b263b; --text-main: #ffffff; --text-dim: #b0c4de; --border: rgba(0, 162, 255, 0.2); }
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { background: var(--bg); color: var(--text-main); font-family: 'Inter', sans-serif; line-height: 1.6; }
-        header { position: fixed; top: 0; width: 100%; padding: 20px 8%; display: flex; justify-content: space-between; align-items: center; background: rgba(13, 27, 42, 0.85); backdrop-filter: blur(15px); border-bottom: 1px solid var(--border); z-index: 1000; }
-        .logo { font-size: 1.5rem; font-weight: 800; color: #fff; text-decoration: none; }
-        .logo span { color: var(--primary); }
-        nav a { color: var(--text-dim); text-decoration: none; margin-left: 30px; font-size: 0.95rem; }
-        nav a.active { color: var(--primary); }
-        .about-hero { padding: 180px 8% 80px; display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
-        .vision-card { background: var(--card-bg); border: 1px solid var(--border); padding: 40px; border-radius: 20px; position: relative; overflow: hidden; }
-        .vision-card::before { content: ''; position: absolute; top: 0; left: 0; width: 4px; height: 100%; background: var(--primary); }
-        footer { padding: 80px 8% 40px; background: #07101a; border-top: 1px solid var(--border); }
-        .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 50px; }
-        @media (max-width: 768px) { .about-hero { grid-template-columns: 1fr; padding-top: 120px; } }
-    </style>
 </head>
 <body>
     <header>
-        <a href="index.html" class="logo">GASA <span>TECH</span></a>
-        <nav><a href="index.html">Home</a><a href="about.html" class="active">About</a><a href="services.html">Services</a><a href="portfolio.html">Portfolio</a><a href="pricing.html">Pricing</a><a href="contact.html">Contact</a></nav>
+        <a href="index.html" class="logo">GASA<span>TECH</span></a>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="about.html" class="active">Architecture</a>
+            <a href="services.html">Services</a>
+            <a href="pricing.html">Pricing</a>
+            <a href="portfolio.html">Portfolio</a>
+            <a href="contact.html">Deploy</a>
+        </nav>
     </header>
-    <main class="about-hero">
-        <div>
-            <h1 style="font-size: 3.5rem; font-weight: 900; margin-bottom: 20px;">DIGITAL<br><span style="color: var(--primary);">ARCHITECTS</span></h1>
-            <p style="color: var(--text-dim); font-size: 1.1rem; margin-bottom: 30px;">GASA TECH (PTY) LTD is a Johannesburg-based engineering firm specializing in high-performance web systems. We don't just build websites; we deploy digital assets designed to scale.</p>
-            <div class="vision-card">
+
+    <section class="hero">
+        <h2 class="reveal">The Philosophy of <span>Digital Architecture</span></h2>
+        <p class="reveal">GASA TECH (PTY) LTD was founded on the principle that code is structural. We don't just "design" interfaces; we engineer environments that are secure, lightning-fast, and built to handle the demands of the 2026 digital economy.</p>
+        
+        <div class="grid">
+            <div class="card reveal">
                 <h3>Our Mission</h3>
-                <p style="color: var(--text-dim);">To provide South African businesses with world-class technical infrastructure that is fast, secure, and ready for the 2026 digital economy.</p>
+                <p>To provide South African enterprises with world-class technical infrastructure that scales without friction.</p>
+            </div>
+            <div class="card reveal">
+                <h3>Our Vision</h3>
+                <p>Setting the standard for systems engineering in Johannesburg and beyond through precision and strategy.</p>
             </div>
         </div>
-        <div style="text-align: right;">
-            <i class="fas fa-microchip" style="font-size: 15rem; color: rgba(0, 162, 255, 0.1);"></i>
-        </div>
-    </main>
-    <footer>
-        <div class="footer-grid">
-            <div class="footer-col"><a href="index.html" class="logo">GASA <span>TECH</span></a><p style="margin-top:20px;">Precision Engineering.</p></div>
-            <div class="footer-col"><h4>CONNECT</h4><p>+27 69 140 1737</p><p>gasatechptyltd@gmail.com</p></div>
-        </div>
-        <div style="text-align: center; margin-top: 40px; color: #516275;">&copy; 2026 GASA TECH (PTY) LTD</div>
-    </footer>
+    </section>
+
+    <script src="main.js"></script>
 </body>
 </html>
