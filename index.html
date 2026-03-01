@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GASA TECH | Digital Infrastructure</title>
+    <title>GASA TECH | Engineering Digital Infrastructure</title>
     <link rel="icon" type="image/png" href="favicon.png?v=1.1">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <style>
         :root { --bg: #0b1121; --card-bg: #161b22; --primary: #00a2ff; --text-main: #ffffff; --text-dim: #8b949e; }
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
@@ -16,9 +16,10 @@
         .logo span { color: var(--primary); }
         nav a { color: var(--text-dim); text-decoration: none; margin-left: 1.5rem; font-size: 0.8rem; font-weight: 700; text-transform: uppercase; transition: 0.3s; }
         nav a:hover, nav a.active { color: var(--primary); }
-        .hero { flex: 1; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 120px 10% 60px; background: radial-gradient(circle at center, #112244 0%, #0b1121 100%); }
-        h1 { font-size: clamp(3rem, 10vw, 6rem); font-weight: 900; line-height: 1; margin-bottom: 1rem; }
-        .hero p { color: var(--primary); font-family: monospace; letter-spacing: 4px; margin-bottom: 3rem; text-transform: uppercase; font-size: 0.9rem; }
+        .hero { flex: 1; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 160px 10% 80px; background: radial-gradient(circle at center, #112244 0%, #0b1121 100%); }
+        h1 { font-size: clamp(3rem, 10vw, 6rem); font-weight: 900; line-height: 1; margin-bottom: 1.5rem; }
+        .hero p.code { color: var(--primary); font-family: monospace; letter-spacing: 4px; margin-bottom: 2rem; text-transform: uppercase; font-size: 0.9rem; }
+        .hero p.desc { color: var(--text-dim); max-width: 700px; line-height: 1.8; font-size: 1.1rem; margin-bottom: 3rem; }
         .btn-group { display: flex; gap: 1.5rem; }
         .btn { padding: 1.2rem 2.5rem; border-radius: 8px; text-decoration: none; font-weight: 900; transition: 0.4s; text-transform: uppercase; font-size: 0.85rem; letter-spacing: 1px; }
         .btn-primary { background: var(--primary); color: white; box-shadow: 0 0 30px rgba(0, 162, 255, 0.3); }
@@ -30,7 +31,8 @@
         .footer-col a, .footer-col p { color: var(--text-dim); text-decoration: none; font-size: 0.9rem; display: block; margin-bottom: 0.8rem; transition: 0.3s; }
         .footer-col a:hover { color: var(--primary); }
         .social-icons { display: flex; gap: 15px; flex-wrap: wrap; margin-top: 10px; }
-        .social-icons a { width: 40px; height: 40px; background: rgba(255,255,255,0.03); display: flex; align-items: center; justify-content: center; border-radius: 50%; font-size: 1.1rem; border: 1px solid rgba(255,255,255,0.05); }
+        .social-icons a { width: 40px; height: 40px; background: rgba(255,255,255,0.03); display: flex; align-items: center; justify-content: center; border-radius: 50%; font-size: 1.1rem; border: 1px solid rgba(255,255,255,0.05); color: var(--text-dim); text-decoration: none; }
+        .social-icons a:hover { color: var(--primary); border-color: var(--primary); }
         .footer-bottom { text-align: center; color: #333; font-size: 0.7rem; border-top: 1px solid rgba(255,255,255,0.03); padding-top: 2rem; text-transform: uppercase; letter-spacing: 1px; }
     </style>
 </head>
@@ -40,27 +42,28 @@
         <nav><a href="index.html" class="active">Home</a><a href="about.html">Architecture</a><a href="services.html">Services</a><a href="portfolio.html">Portfolio</a><a href="pricing.html">Pricing</a><a href="contact.html">Deploy</a></nav>
     </header>
     <section class="hero">
+        <p class="code">System Status: Active_</p>
         <h1>GASA TECH</h1>
-        <p>Engineering Digital Infrastructure_</p>
+        <p class="desc">We engineer high-performance digital infrastructure for businesses that demand precision. From advanced PWAs to strategic SEO architecture, GASA TECH (PTY) LTD deploys the technical foundation your brand needs to scale in the 2026 digital economy.</p>
         <div class="btn-group">
             <a href="contact.html" class="btn btn-primary">Start Deployment</a>
-            <a href="services.html" class="btn btn-secondary">Capabilities</a>
+            <a href="services.html" class="btn btn-secondary">Our Capabilities</a>
         </div>
     </section>
     <footer>
         <div class="footer-grid">
-            <div class="footer-col"><h4>Navigation</h4><a href="about.html">Architecture</a><a href="portfolio.html">Portfolio</a><a href="pricing.html">System Pricing</a><a href="privacy.html">Privacy Protocol</a></div>
+            <div class="footer-col"><h4>Sitemap</h4><a href="about.html">Architecture</a><a href="portfolio.html">Portfolio</a><a href="pricing.html">Pricing</a><a href="privacy.html">Privacy Protocol</a></div>
             <div class="footer-col"><h4>Connect</h4>
                 <div class="social-icons">
-                    <a href="https://tiktok.com/@gasatechpty" title="TikTok"><i class="fab fa-tiktok"></i></a>
-                    <a href="https://instagram.com/gasatechptyltd" title="Instagram"><i class="fab fa-instagram"></i></a>
-                    <a href="https://facebook.com/gasatechptyltd" title="Facebook"><i class="fab fa-facebook-f"></i></a>
-                    <a href="https://linkedin.com/company/gasatechptyltd" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-                    <a href="https://x.com/gasatechptyltd" title="X"><i class="fab fa-x-twitter"></i></a>
-                    <a href="mailto:gasatechptyltd@gmail.com" title="Email"><i class="fas fa-envelope"></i></a>
+                    <a href="https://tiktok.com/@gasatechpty"><i class="fab fa-tiktok"></i></a>
+                    <a href="https://instagram.com/gasatechptyltd"><i class="fab fa-instagram"></i></a>
+                    <a href="https://facebook.com/gasatechptyltd"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://linkedin.com/company/gasatechptyltd"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="https://x.com/gasatechptyltd"><i class="fab fa-x-twitter"></i></a>
+                    <a href="mailto:gasatechptyltd@gmail.com"><i class="fas fa-envelope"></i></a>
                 </div>
             </div>
-            <div class="footer-col"><h4>HQ</h4><p>Johannesburg, GP</p><p>South Africa</p><p>+27 69 140 1737</p></div>
+            <div class="footer-col"><h4>Location</h4><p>Johannesburg, GP</p><p>South Africa</p><p>+27 69 140 1737</p></div>
         </div>
         <div class="footer-bottom">&copy; 2026 GASA TECH (PTY) LTD. Engineered in South Africa.</div>
     </footer>
