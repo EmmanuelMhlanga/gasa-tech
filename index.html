@@ -3,127 +3,66 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GASA TECH | Digital Architects</title>
-    
-    <link rel="icon" type="image/png" href="favicon.png">
-    
+    <title>GASA TECH | Engineering Digital Infrastructure</title>
+    <link rel="icon" type="image/png" href="favicon.png?v=1.1">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        :root {
-            --bg: #0b0e14;
-            --card-bg: #161b22;
-            --primary: #00a2ff;
-            --text-main: #ffffff;
-            --text-dim: #8b949e;
-        }
-
+        :root { --bg: #0b1121; --card-bg: #161b22; --primary: #00a2ff; --text-main: #ffffff; --text-dim: #8b949e; }
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
         body { background: var(--bg); color: var(--text-main); overflow-x: hidden; display: flex; flex-direction: column; min-height: 100vh; }
-
-        /* Navigation */
-        header {
-            position: fixed; top: 0; width: 100%; padding: 1.5rem 8%;
-            display: flex; justify-content: space-between; align-items: center;
-            background: rgba(11, 14, 20, 0.9); backdrop-filter: blur(10px);
-            border-bottom: 1px solid rgba(255,255,255,0.05); z-index: 1000;
-        }
-
-        .logo { font-weight: 900; font-size: 1.4rem; color: #fff; text-decoration: none; letter-spacing: 1px; }
+        header { position: fixed; top: 0; width: 100%; padding: 1.5rem 8%; display: flex; justify-content: space-between; align-items: center; background: rgba(11, 17, 33, 0.9); backdrop-filter: blur(10px); border-bottom: 1px solid rgba(255,255,255,0.05); z-index: 1000; }
+        .logo { font-weight: 900; font-size: 1.4rem; color: #fff; text-decoration: none; }
         .logo span { color: var(--primary); }
-
         nav a { color: var(--text-dim); text-decoration: none; margin-left: 1.5rem; font-size: 0.85rem; font-weight: 700; text-transform: uppercase; transition: 0.3s; }
-        nav a:hover { color: var(--primary); }
-
-        /* Hero Section */
-        .hero { 
-            flex: 1; display: flex; flex-direction: column; 
-            justify-content: center; align-items: center; text-align: center; padding: 120px 10% 60px; 
-        }
-
-        h1 { font-size: clamp(2.5rem, 6vw, 4.5rem); line-height: 1.1; margin-bottom: 1.5rem; }
-        h1 span { color: var(--primary); }
-        p { color: var(--text-dim); max-width: 650px; margin-bottom: 2.5rem; font-size: 1.1rem; }
-
-        .btn { 
-            padding: 1rem 2.5rem; border-radius: 50px; text-decoration: none; font-weight: 800; 
-            transition: 0.4s; background: var(--primary); color: white;
-            box-shadow: 0 10px 30px rgba(0, 162, 255, 0.3);
-        }
-        .btn:hover { transform: scale(1.05); background: white; color: var(--bg); }
-
-        /* FOOTER UI */
-        footer {
-            background: var(--card-bg);
-            padding: 4rem 8% 2rem;
-            border-top: 1px solid rgba(255,255,255,0.05);
-            margin-top: auto;
-        }
-
-        .footer-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 2rem;
-            margin-bottom: 3rem;
-        }
-
-        .footer-col h4 { color: var(--primary); margin-bottom: 1.2rem; text-transform: uppercase; font-size: 0.8rem; letter-spacing: 1px; }
-        .footer-col p, .footer-col a { color: var(--text-dim); text-decoration: none; font-size: 0.9rem; display: block; margin-bottom: 0.5rem; transition: 0.3s; }
-        .footer-col a:hover { color: var(--primary); }
-
-        .footer-bottom {
-            padding-top: 2rem;
-            border-top: 1px solid rgba(255,255,255,0.05);
-            text-align: center;
-            color: #444;
-            font-size: 0.75rem;
-        }
+        nav a:hover, nav a.active { color: var(--primary); }
+        .hero { flex: 1; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 120px 10% 60px; background: radial-gradient(circle at center, #112244 0%, #0b1121 100%); }
+        h1 { font-size: clamp(2.5rem, 8vw, 5rem); line-height: 1.1; margin-bottom: 1.5rem; text-transform: uppercase; letter-spacing: -2px; }
+        .hero p { color: var(--primary); font-family: monospace; letter-spacing: 2px; margin-bottom: 3rem; }
+        .btn-group { display: flex; gap: 1rem; }
+        .btn { padding: 1rem 2.5rem; border-radius: 8px; text-decoration: none; font-weight: 800; transition: 0.4s; text-transform: uppercase; font-size: 0.9rem; }
+        .btn-primary { background: var(--primary); color: white; box-shadow: 0 0 20px rgba(0, 162, 255, 0.4); }
+        .btn-secondary { border: 1px solid rgba(255,255,255,0.2); color: white; }
+        .btn:hover { transform: translateY(-5px); filter: brightness(1.2); }
+        footer { background: #070a14; padding: 4rem 8% 2rem; border-top: 1px solid rgba(255,255,255,0.05); }
+        .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 3rem; margin-bottom: 3rem; }
+        .footer-col h4 { color: var(--primary); margin-bottom: 1.5rem; text-transform: uppercase; font-size: 0.8rem; letter-spacing: 1px; }
+        .footer-col a, .footer-col p { color: var(--text-dim); text-decoration: none; font-size: 0.9rem; display: block; margin-bottom: 0.8rem; }
+        .social-links { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+        .social-links a { font-size: 1.2rem; transition: 0.3s; }
+        .social-links a:hover { color: var(--primary); }
+        .footer-bottom { text-align: center; color: #444; font-size: 0.75rem; border-top: 1px solid rgba(255,255,255,0.05); padding-top: 2rem; }
     </style>
 </head>
 <body>
-
     <header>
-        <a href="index.html" class="logo">GASA<span>TECH</span></a>
-        <nav>
-            <a href="index.html">Home</a>
-            <a href="about.html">Architecture</a>
-            <a href="services.html">Services</a>
-            <a href="pricing.html">Pricing</a>
-            <a href="portfolio.html">Portfolio</a>
-            <a href="contact.html">Deploy</a>
-        </nav>
+        <a href="index.html" class="logo">GASA <span>TECH</span></a>
+        <nav><a href="index.html" class="active">Home</a><a href="about.html">Architecture</a><a href="services.html">Services</a><a href="portfolio.html">Portfolio</a><a href="pricing.html">Pricing</a><a href="contact.html">Deploy</a></nav>
     </header>
-
     <section class="hero">
-        <h1>Engineering the <br><span>Digital Frontier.</span></h1>
-        <p>GASA TECH PTY LTD specializes in high-performance systems engineering. We don't just build websites; we deploy strategic digital assets built to scale.</p>
-        <a href="services.html" class="btn">Explore Services</a>
+        <h1>GASA TECH</h1>
+        <p>ENGINEERING DIGITAL INFRASTRUCTURE_</p>
+        <div class="btn-group">
+            <a href="contact.html" class="btn btn-primary">Start Deployment</a>
+            <a href="services.html" class="btn btn-secondary">Capabilities</a>
+        </div>
     </section>
-
     <footer>
         <div class="footer-grid">
-            <div class="footer-col">
-                <h4>Architecture</h4>
-                <a href="about.html">Our Mission</a>
-                <a href="portfolio.html">Recent Deployments</a>
-                <a href="privacy.html">Privacy Protocol</a>
+            <div class="footer-col"><h4>Navigation</h4><a href="about.html">Architecture</a><a href="portfolio.html">Portfolio</a><a href="contact.html">Deploy</a></div>
+            <div class="footer-col"><h4>Social Nodes</h4>
+                <div class="social-links">
+                    <a href="https://tiktok.com/@gasatechpty"><i class="fab fa-tiktok"></i></a>
+                    <a href="https://instagram.com/gasatechptyltd"><i class="fab fa-instagram"></i></a>
+                    <a href="https://facebook.com/gasatechptyltd"><i class="fab fa-facebook"></i></a>
+                    <a href="https://linkedin.com/company/gasatechptyltd"><i class="fab fa-linkedin"></i></a>
+                    <a href="https://x.com/gasatechptyltd"><i class="fab fa-x-twitter"></i></a>
+                    <a href="mailto:gasatechptyltd@gmail.com"><i class="fas fa-envelope"></i></a>
+                </div>
             </div>
-            <div class="footer-col">
-                <h4>Services</h4>
-                <a href="services.html">PWA Development</a>
-                <a href="services.html">Technical SEO</a>
-                <a href="pricing.html">System Pricing</a>
-            </div>
-            <div class="footer-col">
-                <h4>Contact</h4>
-                <p>Johannesburg, Gauteng</p>
-                <p>South Africa</p>
-                <a href="mailto:info@gasatech.co.za">info@gasatech.co.za</a>
-            </div>
+            <div class="footer-col"><h4>Contact</h4><p>Johannesburg, SA</p><p>+27 69 140 1737</p></div>
         </div>
-        <div class="footer-bottom">
-            &copy; 2026 GASA TECH (PTY) LTD. All Rights Reserved. Systems Engineered in South Africa.
-        </div>
+        <div class="footer-bottom">&copy; 2026 GASA TECH (PTY) LTD. Systems Architected in South Africa.</div>
     </footer>
-
 </body>
 </html>
