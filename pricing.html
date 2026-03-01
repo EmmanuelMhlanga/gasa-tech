@@ -1,217 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pricing | GASA TECH Systems</title>
-    
-    <link rel="icon" type="image/png" href="favicon.png">
-    
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    
-    <style>
-        :root {
-            --bg: #0b0e14;
-            --card-bg: #161b22;
-            --primary: #00a2ff;
-            --text-main: #ffffff;
-            --text-dim: #8b949e;
-            --basic: #7b61ff;
-            --standard: #00d2ff;
-            --premium: #ff6b6b;
-        }
-
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
-        body { background: var(--bg); color: var(--text-main); overflow-x: hidden; display: flex; flex-direction: column; min-height: 100vh; }
-
-        /* Navigation */
-        header {
-            position: fixed; top: 0; width: 100%; padding: 1.5rem 8%;
-            display: flex; justify-content: space-between; align-items: center;
-            background: rgba(11, 14, 20, 0.9); backdrop-filter: blur(10px);
-            border-bottom: 1px solid rgba(255,255,255,0.05); z-index: 1000;
-        }
-
-        .logo { font-weight: 900; font-size: 1.4rem; color: #fff; text-decoration: none; letter-spacing: 1px; }
-        .logo span { color: var(--primary); }
-
-        nav a { color: var(--text-dim); text-decoration: none; margin-left: 1.5rem; font-size: 0.85rem; font-weight: 700; text-transform: uppercase; transition: 0.3s; }
-        nav a:hover, nav a.active { color: var(--primary); }
-
-        /* Pricing Section */
-        section { padding: 140px 8% 80px; text-align: center; }
-        
-        h1 { font-size: clamp(2.5rem, 5vw, 3.5rem); margin-bottom: 1rem; }
-        h1 span { color: var(--primary); }
-        .subtitle { color: var(--text-dim); margin-bottom: 4rem; max-width: 600px; margin-inline: auto; }
-
-        .pricing-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-top: 2rem;
-        }
-
-        .price-card {
-            background: var(--card-bg);
-            border-radius: 20px;
-            overflow: hidden;
-            border: 1px solid rgba(255,255,255,0.05);
-            transition: transform 0.4s;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .price-card:hover { transform: translateY(-10px); border-color: var(--primary); }
-
-        .card-header { padding: 2.5rem; color: #fff; font-weight: 900; font-size: 1.5rem; text-transform: uppercase; }
-        .basic-head { background: var(--basic); }
-        .standard-head { background: var(--standard); }
-        .premium-head { background: var(--premium); }
-
-        .price-body { padding: 2rem; flex-grow: 1; }
-        .price-tag { font-size: 2.5rem; font-weight: 900; margin-bottom: 1.5rem; }
-        .price-tag span { font-size: 1rem; color: var(--text-dim); }
-
-        .features { list-style: none; text-align: left; margin-bottom: 2rem; }
-        .features li { margin-bottom: 0.8rem; color: var(--text-dim); font-size: 0.9rem; display: flex; align-items: center; }
-        .features li i { color: var(--primary); margin-right: 10px; font-size: 0.8rem; }
-
-        .btn {
-            display: inline-block;
-            width: 100%;
-            padding: 1rem;
-            background: #fff;
-            color: var(--bg);
-            text-decoration: none;
-            border-radius: 50px;
-            font-weight: 800;
-            transition: 0.3s;
-        }
-        .btn:hover { background: var(--primary); color: #fff; }
-
-        /* Footer */
-        footer {
-            background: var(--card-bg);
-            padding: 4rem 8% 2rem;
-            border-top: 1px solid rgba(255,255,255,0.05);
-            margin-top: auto;
-        }
-
-        .footer-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 2rem;
-            margin-bottom: 3rem;
-        }
-
-        .footer-col h4 { color: var(--primary); margin-bottom: 1.2rem; text-transform: uppercase; font-size: 0.8rem; letter-spacing: 1px; }
-        .footer-col p, .footer-col a { color: var(--text-dim); text-decoration: none; font-size: 0.9rem; display: block; margin-bottom: 0.5rem; transition: 0.3s; }
-        .footer-col a:hover { color: var(--primary); }
-
-        .footer-bottom {
-            padding-top: 2rem;
-            border-top: 1px solid rgba(255,255,255,0.05);
-            text-align: center;
-            color: #444;
-            font-size: 0.75rem;
-        }
-    </style>
+    <title>Pricing | GASA TECH</title>
 </head>
 <body>
-
     <header>
-        <a href="index.html" class="logo">GASA<span>TECH</span></a>
-        <nav>
-            <a href="index.html">Home</a>
-            <a href="about.html">Architecture</a>
-            <a href="services.html">Services</a>
-            <a href="pricing.html" class="active">Pricing</a>
-            <a href="portfolio.html">Portfolio</a>
-            <a href="contact.html">Deploy</a>
-        </nav>
+        <a href="index.html" class="logo">GASA <span>TECH</span></a>
+        <nav><a href="index.html">Home</a><a href="about.html">Architecture</a><a href="services.html">Services</a><a href="portfolio.html">Portfolio</a><a href="pricing.html" class="active">Pricing</a><a href="contact.html">Deploy</a></nav>
     </header>
-
-    <section>
-        <h1>System <span>Tiers</span></h1>
-        <p class="subtitle">Architectural packages engineered for growth. Transparent pricing with no hidden technical debt.</p>
-        
-        <div class="pricing-grid">
-            <div class="price-card">
-                <div class="card-header basic-head">Basic</div>
-                <div class="price-body">
-                    <div class="price-tag">R3,000</div>
-                    <ul class="features">
-                        <li><i class="fas fa-check"></i> Up to 5 Engineering Pages</li>
-                        <li><i class="fas fa-check"></i> Custom Digital Design</li>
-                        <li><i class="fas fa-check"></i> Free .co.za Domain</li>
-                        <li><i class="fas fa-check"></i> Fully Mobile Responsive</li>
-                        <li><i class="fas fa-check"></i> Technical SEO Core</li>
-                    </ul>
-                    <a href="contact.html" class="btn">Select Tier</a>
-                </div>
+    <section style="padding: 140px 8% 100px; text-align: center; flex: 1;">
+        <h1 style="margin-bottom: 4rem;">System <span>Tiers</span></h1>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;">
+            <div style="background: var(--card-bg); padding: 3rem; border-radius: 24px; border: 1px solid #7b61ff;">
+                <h2 style="color: #7b61ff; text-transform: uppercase; font-size: 1rem;">Basic Package</h2>
+                <div style="font-size: 3rem; font-weight: 900; margin: 2rem 0;">R3000</div>
+                <ul style="text-align: left; list-style: none; color: var(--text-dim); margin-bottom: 2rem; line-height: 2;">
+                    <li><i class="fas fa-check" style="color: #7b61ff;"></i> Up to 5 Pages</li>
+                    <li><i class="fas fa-check" style="color: #7b61ff;"></i> Custom UI Design</li>
+                    <li><i class="fas fa-check" style="color: #7b61ff;"></i> Free .co.za Domain</li>
+                    <li><i class="fas fa-check" style="color: #7b61ff;"></i> Fully Responsive</li>
+                </ul>
+                <a href="contact.html" style="display: block; padding: 1rem; border: 1px solid #7b61ff; color: #fff; text-decoration: none; border-radius: 8px; font-weight: 900;">SELECT</a>
             </div>
-
-            <div class="price-card">
-                <div class="card-header standard-head">Standard</div>
-                <div class="price-body">
-                    <div class="price-tag">R3,500</div>
-                    <ul class="features">
-                        <li><i class="fas fa-check"></i> Up to 8 Engineering Pages</li>
-                        <li><i class="fas fa-check"></i> Custom System Design</li>
-                        <li><i class="fas fa-check"></i> Free .co.za Domain</li>
-                        <li><i class="fas fa-check"></i> Photo & Media Gallery</li>
-                        <li><i class="fas fa-check"></i> One Year Managed Hosting</li>
-                        <li><i class="fas fa-check"></i> High-Speed Cache Tuning</li>
-                    </ul>
-                    <a href="contact.html" class="btn">Select Tier</a>
-                </div>
+            <div style="background: var(--card-bg); padding: 3rem; border-radius: 24px; border: 1px solid #00d2ff; transform: scale(1.05);">
+                <h2 style="color: #00d2ff; text-transform: uppercase; font-size: 1rem;">Standard Package</h2>
+                <div style="font-size: 3rem; font-weight: 900; margin: 2rem 0;">R3500</div>
+                <ul style="text-align: left; list-style: none; color: var(--text-dim); margin-bottom: 2rem; line-height: 2;">
+                    <li><i class="fas fa-check" style="color: #00d2ff;"></i> Up to 8 Pages</li>
+                    <li><i class="fas fa-check" style="color: #00d2ff;"></i> Photo Gallery</li>
+                    <li><i class="fas fa-check" style="color: #00d2ff;"></i> One Year Hosting</li>
+                    <li><i class="fas fa-check" style="color: #00d2ff;"></i> Custom System Email</li>
+                </ul>
+                <a href="contact.html" style="display: block; padding: 1rem; background: #00d2ff; color: #fff; text-decoration: none; border-radius: 8px; font-weight: 900;">MOST POPULAR</a>
             </div>
-
-            <div class="price-card">
-                <div class="card-header premium-head">Premium</div>
-                <div class="price-body">
-                    <div class="price-tag">R4,500</div>
-                    <ul class="features">
-                        <li><i class="fas fa-check"></i> Unlimited Page Architecture</li>
-                        <li><i class="fas fa-check"></i> Bespoke System Engineering</li>
-                        <li><i class="fas fa-check"></i> Social Media Integration</li>
-                        <li><i class="fas fa-check"></i> API & Data Integration</li>
-                        <li><i class="fas fa-check"></i> One Year Managed Hosting</li>
-                        <li><i class="fas fa-check"></i> 24/7 Priority Support</li>
-                    </ul>
-                    <a href="contact.html" class="btn">Select Tier</a>
-                </div>
+            <div style="background: var(--card-bg); padding: 3rem; border-radius: 24px; border: 1px solid #ffae00;">
+                <h2 style="color: #ffae00; text-transform: uppercase; font-size: 1rem;">Premium Package</h2>
+                <div style="font-size: 3rem; font-weight: 900; margin: 2rem 0;">R4500</div>
+                <ul style="text-align: left; list-style: none; color: var(--text-dim); margin-bottom: 2rem; line-height: 2;">
+                    <li><i class="fas fa-check" style="color: #ffae00;"></i> Unlimited Pages</li>
+                    <li><i class="fas fa-check" style="color: #ffae00;"></i> API Integration</li>
+                    <li><i class="fas fa-check" style="color: #ffae00;"></i> Social Media Setup</li>
+                    <li><i class="fas fa-check" style="color: #ffae00;"></i> 24/7 Technical Ops</li>
+                </ul>
+                <a href="contact.html" style="display: block; padding: 1rem; border: 1px solid #ffae00; color: #fff; text-decoration: none; border-radius: 8px; font-weight: 900;">ELITE</a>
             </div>
         </div>
     </section>
-
-    <footer>
-        <div class="footer-grid">
-            <div class="footer-col">
-                <h4>Architecture</h4>
-                <a href="about.html">Our Mission</a>
-                <a href="portfolio.html">Recent Deployments</a>
-                <a href="privacy.html">Privacy Protocol</a>
-            </div>
-            <div class="footer-col">
-                <h4>Services</h4>
-                <a href="services.html">PWA Development</a>
-                <a href="services.html">Technical SEO</a>
-                <a href="pricing.html">System Pricing</a>
-            </div>
-            <div class="footer-col">
-                <h4>Contact</h4>
-                <p>Johannesburg, Gauteng</p>
-                <p>South Africa</p>
-                <a href="mailto:info@gasatech.co.za">info@gasatech.co.za</a>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            &copy; 2026 GASA TECH (PTY) LTD. All Rights Reserved. Systems Engineered in South Africa.
-        </div>
-    </footer>
-
-</body>
+    </body>
 </html>
