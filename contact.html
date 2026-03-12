@@ -16,6 +16,7 @@
             --text-main: #ffffff; 
             --text-dim: #8b949e; 
             --border: rgba(255, 255, 255, 0.08);
+            --input-bg: #070a14;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
@@ -28,7 +29,6 @@
             min-height: 100vh;
         }
 
-        /* Nav Bar - Synced */
         header { 
             position: fixed; top: 0; width: 100%; padding: 1.5rem 8%; 
             display: flex; justify-content: space-between; align-items: center; 
@@ -40,7 +40,6 @@
         nav a { color: var(--text-dim); text-decoration: none; margin-left: 1.5rem; font-size: 0.8rem; font-weight: 700; text-transform: uppercase; transition: 0.3s; }
         nav a:hover, nav a.active { color: var(--primary); }
 
-        /* Deploy Content */
         .deploy-container { 
             padding: 160px 8% 100px; 
             max-width: 1400px; 
@@ -51,7 +50,6 @@
             align-items: center;
         }
 
-        /* Recommendation: Terminal UI */
         .terminal-box {
             background: #050810;
             border: 1px solid var(--border);
@@ -69,7 +67,6 @@
         .terminal-body p { margin-bottom: 8px; opacity: 0.8; }
         .terminal-body span { color: var(--primary); }
 
-        /* Form Styling - Synced with Index/About */
         form { 
             background: var(--card-bg); 
             padding: 3.5rem; 
@@ -83,20 +80,40 @@
         form p { color: var(--text-dim); margin-bottom: 2.5rem; font-size: 0.95rem; }
 
         .input-group { position: relative; margin-bottom: 1.5rem; }
+        
         input, select, textarea { 
             width: 100%; 
             padding: 1.2rem; 
-            background: rgba(0,0,0,0.2); 
+            background: var(--input-bg); 
             border: 1px solid var(--border); 
             color: #fff; 
             border-radius: 12px;
             font-size: 0.9rem;
-            transition: 0.3s;
+            transition: all 0.3s ease;
+            appearance: none; /* Removes default styling */
         }
+
+        /* Fix for White Dropdown */
+        select {
+            cursor: pointer;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%2300a2ff'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'%3E%3C/path%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 1rem center;
+            background-size: 1.2em;
+            padding-right: 3rem;
+        }
+
+        select option {
+            background-color: #0b1121; /* Matches theme */
+            color: #fff;
+            padding: 1rem;
+        }
+
         input:focus, select:focus, textarea:focus { 
             outline: none; 
             border-color: var(--primary); 
             background: rgba(0, 162, 255, 0.05);
+            box-shadow: 0 0 15px var(--primary-glow);
         }
 
         button { 
@@ -120,7 +137,6 @@
             box-shadow: 0 15px 30px rgba(255,255,255,0.2);
         }
 
-        /* Footer - Synced */
         footer { background: #070a14; padding: 5rem 8% 2rem; border-top: 1px solid var(--border); margin-top: auto; }
         .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 4rem; margin-bottom: 4rem; }
         .footer-col h4 { color: var(--primary); margin-bottom: 1.5rem; text-transform: uppercase; font-size: 0.75rem; letter-spacing: 2px; }
