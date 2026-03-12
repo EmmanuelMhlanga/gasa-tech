@@ -8,56 +8,218 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <style>
-        :root { --bg: #0b1121; --card-bg: #161b22; --primary: #00a2ff; --text-main: #ffffff; --text-dim: #8b949e; }
+        :root { 
+            --bg: #0b1121; 
+            --card-bg: rgba(22, 27, 34, 0.5); 
+            --primary: #00a2ff; 
+            --primary-glow: rgba(0, 162, 255, 0.4);
+            --text-main: #ffffff; 
+            --text-dim: #8b949e; 
+            --border: rgba(255, 255, 255, 0.08);
+        }
+
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
-        body { background: var(--bg); color: var(--text-main); display: flex; flex-direction: column; min-height: 100vh; }
-        header { position: fixed; top: 0; width: 100%; padding: 1.5rem 8%; display: flex; justify-content: space-between; align-items: center; background: rgba(11, 17, 33, 0.9); backdrop-filter: blur(10px); border-bottom: 1px solid rgba(255,255,255,0.05); z-index: 1000; }
+
+        body { 
+            background: var(--bg); 
+            color: var(--text-main); 
+            background: radial-gradient(circle at 50% 100%, #112244 0%, #0b1121 80%);
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+
+        /* Nav Bar - Synced */
+        header { 
+            position: fixed; top: 0; width: 100%; padding: 1.5rem 8%; 
+            display: flex; justify-content: space-between; align-items: center; 
+            background: rgba(11, 17, 33, 0.85); backdrop-filter: blur(15px); 
+            border-bottom: 1px solid var(--border); z-index: 1000; 
+        }
         .logo { font-weight: 900; font-size: 1.4rem; color: #fff; text-decoration: none; text-transform: uppercase; }
         .logo span { color: var(--primary); }
-        nav a { color: var(--text-dim); text-decoration: none; margin-left: 1.5rem; font-size: 0.8rem; font-weight: 700; text-transform: uppercase; }
+        nav a { color: var(--text-dim); text-decoration: none; margin-left: 1.5rem; font-size: 0.8rem; font-weight: 700; text-transform: uppercase; transition: 0.3s; }
         nav a:hover, nav a.active { color: var(--primary); }
-        section { flex: 1; padding: 140px 8% 100px; display: flex; justify-content: center; align-items: center; }
-        form { background: var(--card-bg); padding: 4rem; border-radius: 32px; width: 100%; max-width: 650px; border: 1px solid rgba(255,255,255,0.05); }
-        input, select, textarea { width: 100%; padding: 1.2rem; background: #0b1121; border: 1px solid #333; color: #fff; margin-bottom: 1.5rem; border-radius: 12px; }
-        button { width: 100%; padding: 1.5rem; background: var(--primary); color: #fff; border: none; border-radius: 12px; font-weight: 900; text-transform: uppercase; cursor: pointer; transition: 0.3s; }
-        button:hover { background: #fff; color: var(--bg); }
-        footer { background: #070a14; padding: 5rem 8% 2rem; border-top: 1px solid rgba(255,255,255,0.05); }
+
+        /* Deploy Content */
+        .deploy-container { 
+            padding: 160px 8% 100px; 
+            max-width: 1400px; 
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        /* Recommendation: Terminal UI */
+        .terminal-box {
+            background: #050810;
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 2rem;
+            font-family: 'Courier New', Courier, monospace;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+        }
+        .terminal-header { display: flex; gap: 8px; margin-bottom: 1.5rem; }
+        .dot { width: 12px; height: 12px; border-radius: 50%; }
+        .dot.red { background: #ff5f56; }
+        .dot.yellow { background: #ffbd2e; }
+        .dot.green { background: #27c93f; }
+        .terminal-body { color: #27c93f; font-size: 0.85rem; }
+        .terminal-body p { margin-bottom: 8px; opacity: 0.8; }
+        .terminal-body span { color: var(--primary); }
+
+        /* Form Styling - Synced with Index/About */
+        form { 
+            background: var(--card-bg); 
+            padding: 3.5rem; 
+            border-radius: 32px; 
+            border: 1px solid var(--border);
+            backdrop-filter: blur(20px);
+            box-shadow: 0 40px 100px rgba(0,0,0,0.3);
+        }
+        form h1 { font-size: 2.5rem; font-weight: 900; letter-spacing: -1.5px; margin-bottom: 1rem; }
+        form h1 span { color: var(--primary); }
+        form p { color: var(--text-dim); margin-bottom: 2.5rem; font-size: 0.95rem; }
+
+        .input-group { position: relative; margin-bottom: 1.5rem; }
+        input, select, textarea { 
+            width: 100%; 
+            padding: 1.2rem; 
+            background: rgba(0,0,0,0.2); 
+            border: 1px solid var(--border); 
+            color: #fff; 
+            border-radius: 12px;
+            font-size: 0.9rem;
+            transition: 0.3s;
+        }
+        input:focus, select:focus, textarea:focus { 
+            outline: none; 
+            border-color: var(--primary); 
+            background: rgba(0, 162, 255, 0.05);
+        }
+
+        button { 
+            width: 100%; 
+            padding: 1.3rem; 
+            background: var(--primary); 
+            color: #fff; 
+            border: none; 
+            border-radius: 12px; 
+            font-weight: 900; 
+            text-transform: uppercase; 
+            cursor: pointer; 
+            transition: 0.4s;
+            letter-spacing: 2px;
+            box-shadow: 0 10px 20px var(--primary-glow);
+        }
+        button:hover { 
+            background: #fff; 
+            color: var(--bg); 
+            transform: translateY(-3px);
+            box-shadow: 0 15px 30px rgba(255,255,255,0.2);
+        }
+
+        /* Footer - Synced */
+        footer { background: #070a14; padding: 5rem 8% 2rem; border-top: 1px solid var(--border); margin-top: auto; }
         .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 4rem; margin-bottom: 4rem; }
-        .footer-col h4 { color: var(--primary); margin-bottom: 1.5rem; text-transform: uppercase; font-size: 0.75rem; }
+        .footer-col h4 { color: var(--primary); margin-bottom: 1.5rem; text-transform: uppercase; font-size: 0.75rem; letter-spacing: 2px; }
+        .footer-col a, .footer-col p { color: var(--text-dim); text-decoration: none; font-size: 0.9rem; display: block; margin-bottom: 0.8rem; }
+        .footer-col a:hover { color: var(--primary); }
+
         .social-icons { display: flex; gap: 15px; margin-top: 10px; }
-        .social-icons a { width: 40px; height: 40px; background: rgba(255,255,255,0.03); display: flex; align-items: center; justify-content: center; border-radius: 50%; border: 1px solid rgba(255,255,255,0.05); color: var(--text-dim); }
-        .social-icons a:hover { color: var(--primary); border-color: var(--primary); }
+        .social-icons a { width: 40px; height: 40px; background: rgba(255,255,255,0.03); display: flex; align-items: center; justify-content: center; border-radius: 50%; border: 1px solid var(--border); color: var(--text-dim); transition: 0.3s; }
+        .social-icons a:hover { color: var(--primary); border-color: var(--primary); transform: scale(1.1); }
+        .footer-bottom { text-align: center; color: #333; font-size: 0.7rem; border-top: 1px solid rgba(255,255,255,0.02); padding-top: 2rem; margin-top: 3rem; }
+
+        @media (max-width: 968px) {
+            .deploy-container { grid-template-columns: 1fr; padding-top: 120px; }
+            .terminal-box { display: none; }
+        }
     </style>
 </head>
 <body>
     <header>
         <a href="index.html" class="logo">GASA <span>TECH</span></a>
-        <nav><a href="index.html">Home</a><a href="about.html">Architecture</a><a href="services.html">Services</a><a href="portfolio.html">Portfolio</a><a href="pricing.html">Pricing</a><a href="contact.html" class="active">Deploy</a></nav>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="about.html">Architecture</a>
+            <a href="services.html">Services</a>
+            <a href="portfolio.html">Portfolio</a>
+            <a href="pricing.html">Pricing</a>
+            <a href="contact.html" class="active">Deploy</a>
+        </nav>
     </header>
-    <section>
+
+    <main class="deploy-container">
+        <div class="terminal-box">
+            <div class="terminal-header">
+                <div class="dot red"></div>
+                <div class="dot yellow"></div>
+                <div class="dot green"></div>
+            </div>
+            <div class="terminal-body">
+                <p>> Initializing GASA_OS...</p>
+                <p>> Connectivity: <span>STABLE</span></p>
+                <p>> Location: <span>Johannesburg, SA</span></p>
+                <p>> Awaiting protocol selection...</p>
+                <p>> _</p>
+                <br>
+                <p style="color: var(--text-dim);">Ready to transform your digital infrastructure. Submit the protocol form to begin the handshake sequence.</p>
+            </div>
+        </div>
+
         <form>
-            <h1 style="margin-bottom:1rem;">Initialize <span>Protocol</span></h1>
-            <input type="text" placeholder="Name" required>
-            <input type="email" placeholder="Email" required>
-            <select><option>Basic Protocol (R3000)</option><option>Standard Protocol (R3500)</option><option>Elite Protocol (R4500)</option></select>
-            <textarea rows="5" placeholder="Project Details"></textarea>
+            <h1>Initialize <span>Protocol</span></h1>
+            <p>Secure the future of your brand. Fill in the parameters below to trigger a system deployment.</p>
+            
+            <div class="input-group">
+                <input type="text" placeholder="Full Name / Company Name" required>
+            </div>
+            <div class="input-group">
+                <input type="email" placeholder="Official Email Address" required>
+            </div>
+            <div class="input-group">
+                <select required>
+                    <option value="" disabled selected>Select System Tier</option>
+                    <option>Basic Protocol (R3000)</option>
+                    <option>Standard Protocol (R3500)</option>
+                    <option>Elite Protocol (R4500)</option>
+                </select>
+            </div>
+            <div class="input-group">
+                <textarea rows="4" placeholder="Brief System Requirements / Project Details"></textarea>
+            </div>
+            
             <button type="submit">Deploy System</button>
         </form>
-    </section>
+    </main>
+
     <footer>
         <div class="footer-grid">
-            <div class="footer-col"><h4>Sitemap</h4><a href="index.html">Home</a><a href="about.html">Architecture</a><a href="pricing.html">Pricing</a><a href="privacy.html">Privacy Protocol</a></div>
-            <div class="footer-col"><h4>Connect</h4>
+            <div class="footer-col">
+                <h4>Architecture</h4>
+                <a href="about.html">Design</a>
+                <a href="services.html">Capabilities</a>
+                <a href="pricing.html">System Pricing</a>
+                <a href="privacy.html">Privacy Protocol</a>
+            </div>
+            <div class="footer-col">
+                <h4>Connect</h4>
                 <div class="social-icons">
                     <a href="https://tiktok.com/@gasatechpty"><i class="fab fa-tiktok"></i></a>
                     <a href="https://instagram.com/gasatechptyltd"><i class="fab fa-instagram"></i></a>
-                    <a href="https://facebook.com/gasatechptyltd"><i class="fab fa-facebook-f"></i></a>
                     <a href="https://linkedin.com/company/gasatechptyltd"><i class="fab fa-linkedin-in"></i></a>
                     <a href="https://x.com/gasatechptyltd"><i class="fab fa-x-twitter"></i></a>
                     <a href="mailto:gasatechptyltd@gmail.com"><i class="fas fa-envelope"></i></a>
                 </div>
             </div>
-            <div class="footer-col"><h4>HQ</h4><p>Johannesburg, GP</p><p>+27 69 140 1737</p></div>
+            <div class="footer-col">
+                <h4>HQ Node</h4>
+                <p>Johannesburg, GP</p>
+                <p>South Africa</p>
+                <p>+27 69 140 1737</p>
+            </div>
         </div>
         <div class="footer-bottom">&copy; 2026 GASA TECH (PTY) LTD. Engineered in South Africa.</div>
     </footer>
