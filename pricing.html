@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pricing | GASA TECH</title>
     <link rel="icon" type="image/png" href="favicon.png?v=2.2">
-    
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     
@@ -14,6 +13,7 @@
             --bg: #0b1121; 
             --card-bg: rgba(22, 27, 34, 0.4); 
             --primary: #00a2ff; 
+            --primary-glow: rgba(0, 162, 255, 0.3);
             --standard: #00d4ff;
             --elite: #ffaa00;
             --text-main: #ffffff; 
@@ -29,9 +29,10 @@
             background: radial-gradient(circle at 50% 0%, #112244 0%, #0b1121 70%);
             line-height: 1.6;
             min-height: 100vh;
+            overflow-x: hidden;
         }
 
-        /* Nav Bar */
+        /* Nav Bar - Synced */
         header { 
             position: fixed; top: 0; width: 100%; padding: 1.5rem 8%; 
             display: flex; justify-content: space-between; align-items: center; 
@@ -43,18 +44,33 @@
         nav a { color: var(--text-dim); text-decoration: none; margin-left: 1.5rem; font-size: 0.8rem; font-weight: 700; text-transform: uppercase; transition: 0.3s; }
         nav a.active, nav a:hover { color: var(--primary); }
 
-        /* Pricing Section */
+        /* Pricing Content */
         .pricing-container { padding: 180px 8% 100px; max-width: 1400px; margin: 0 auto; }
         
         .header-box { text-align: center; margin-bottom: 5rem; }
-        .header-box h1 { font-size: clamp(2.5rem, 7vw, 4rem); font-weight: 900; letter-spacing: -2px; }
-        .header-box p { color: var(--text-dim); margin-top: 10px; font-size: 1.1rem; }
+        .pricing-badge {
+            display: inline-block;
+            padding: 5px 12px;
+            background: rgba(0, 162, 255, 0.1);
+            border: 1px solid var(--primary);
+            color: var(--primary);
+            border-radius: 50px;
+            font-size: 0.65rem;
+            font-weight: 900;
+            letter-spacing: 2px;
+            margin-bottom: 1.5rem;
+            text-transform: uppercase;
+        }
+        .header-box h1 { font-size: clamp(2.5rem, 7vw, 4rem); font-weight: 900; letter-spacing: -2px; line-height: 1; }
+        .header-box h1 span { color: var(--primary); text-shadow: 0 0 30px var(--primary-glow); }
+        .header-box p { color: var(--text-dim); margin-top: 20px; font-size: 1.1rem; max-width: 600px; margin-inline: auto; }
 
-        /* Grid */
+        /* Pricing Grid */
         .pricing-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
             gap: 2rem;
+            align-items: flex-start;
         }
 
         .price-card {
@@ -68,53 +84,77 @@
             backdrop-filter: blur(10px);
             display: flex;
             flex-direction: column;
+            overflow: hidden;
         }
 
         .price-card:hover {
-            transform: translateY(-15px);
-            background: rgba(255, 255, 255, 0.03);
-            box-shadow: 0 30px 60px rgba(0,0,0,0.5);
+            transform: translateY(-10px);
+            border-color: rgba(255,255,255,0.2);
+            box-shadow: 0 30px 60px rgba(0,0,0,0.4);
         }
 
-        /* Tier Specific Colors */
-        .tier-basic { border-top: 4px solid #6e40ff; }
-        .tier-standard { border-top: 4px solid var(--standard); scale: 1.05; background: rgba(0, 162, 255, 0.02); }
-        .tier-elite { border-top: 4px solid var(--elite); }
+        /* Recommendation: Popular Label */
+        .popular-tag {
+            position: absolute;
+            top: 20px;
+            right: -35px;
+            background: var(--primary);
+            color: white;
+            padding: 5px 40px;
+            font-size: 0.65rem;
+            font-weight: 900;
+            transform: rotate(45deg);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
 
-        .tier-name { text-transform: uppercase; font-weight: 900; letter-spacing: 2px; font-size: 0.9rem; margin-bottom: 1rem; }
+        /* Tier Styling */
+        .tier-name { text-transform: uppercase; font-weight: 900; letter-spacing: 3px; font-size: 0.8rem; margin-bottom: 1.5rem; }
+        
         .tier-basic .tier-name { color: #6e40ff; }
+        .tier-standard { border: 1px solid var(--primary); box-shadow: 0 0 40px rgba(0, 162, 255, 0.1); }
         .tier-standard .tier-name { color: var(--standard); }
         .tier-elite .tier-name { color: var(--elite); }
 
-        .price { font-size: 3.5rem; font-weight: 900; margin-bottom: 2rem; letter-spacing: -2px; }
-        .price span { font-size: 1.2rem; color: var(--text-dim); font-weight: 400; }
+        .price { font-size: 3.5rem; font-weight: 900; margin-bottom: 0.5rem; letter-spacing: -2px; }
+        .currency { font-size: 1.5rem; vertical-align: super; margin-right: 5px; color: var(--text-main); }
+        .price-sub { color: var(--text-dim); font-size: 0.85rem; margin-bottom: 2.5rem; display: block; }
 
-        .feature-list { text-align: left; margin-bottom: 3rem; flex-grow: 1; }
+        .feature-list { text-align: left; margin-bottom: 3rem; flex-grow: 1; border-top: 1px solid var(--border); padding-top: 2rem; }
         .feature-item { 
             display: flex; align-items: center; 
-            color: var(--text-dim); font-size: 0.95rem; 
-            margin-bottom: 12px; 
+            color: var(--text-dim); font-size: 0.9rem; 
+            margin-bottom: 15px; 
         }
-        .feature-item i { color: var(--primary); margin-right: 12px; font-size: 0.8rem; }
+        .feature-item i { color: var(--primary); margin-right: 12px; font-size: 0.75rem; width: 15px; }
+        .feature-item.elite-feat i { color: var(--elite); }
 
         .deploy-btn {
             width: 100%; padding: 1.2rem; 
-            background: rgba(255,255,255,0.05); color: #fff; 
+            background: rgba(255,255,255,0.03); color: #fff; 
             border: 1px solid var(--border); border-radius: 12px;
             text-decoration: none; font-weight: 900; text-transform: uppercase;
-            letter-spacing: 1px; transition: 0.3s;
+            letter-spacing: 1px; font-size: 0.8rem; transition: 0.3s;
         }
 
-        .tier-standard .deploy-btn { background: var(--primary); border: none; }
-        .price-card:hover .deploy-btn { background: var(--primary); border-color: var(--primary); }
+        .tier-standard .deploy-btn { background: var(--primary); border: none; box-shadow: 0 10px 20px rgba(0, 162, 255, 0.2); }
+        .price-card:hover .deploy-btn { background: var(--primary); border-color: var(--primary); color: white; }
+        .tier-elite:hover .deploy-btn { background: var(--elite); border-color: var(--elite); }
 
-        /* Footer */
-        footer { background: #070a14; padding: 5rem 8% 2rem; border-top: 1px solid var(--border); margin-top: 100px; }
-        .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 4rem; }
-        .footer-col h4 { color: var(--primary); margin-bottom: 1.5rem; text-transform: uppercase; font-size: 0.75rem; letter-spacing: 2px; }
-        .footer-col a, .footer-col p { color: var(--text-dim); text-decoration: none; font-size: 0.9rem; display: block; margin-bottom: 0.8rem; }
-        .social-icons { display: flex; gap: 15px; margin-top: 10px; }
-        .social-icons a { width: 40px; height: 40px; background: rgba(255,255,255,0.03); display: flex; align-items: center; justify-content: center; border-radius: 50%; border: 1px solid var(--border); color: var(--text-dim); transition: 0.3s; }
+        /* Slim Footer - Synced */
+        footer { background: #070a14; padding: 3rem 8% 1.5rem; border-top: 1px solid var(--border); margin-top: 100px; }
+        .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 2rem; margin-bottom: 2rem; }
+        .footer-col h4 { color: var(--primary); margin-bottom: 1rem; text-transform: uppercase; font-size: 0.7rem; letter-spacing: 1px; }
+        .footer-col a, .footer-col p { color: var(--text-dim); text-decoration: none; font-size: 0.85rem; display: block; margin-bottom: 0.5rem; }
+        .footer-col a:hover { color: var(--primary); }
+        
+        .social-icons { display: flex; gap: 12px; margin-top: 10px; }
+        .social-icons a { font-size: 1rem; color: var(--text-dim); text-decoration: none; transition: 0.3s; }
+        .social-icons a:hover { color: var(--primary); transform: translateY(-3px); }
+
+        .footer-bottom { text-align: center; color: #444; font-size: 0.65rem; border-top: 1px solid rgba(255,255,255,0.03); padding-top: 1.5rem; text-transform: uppercase; letter-spacing: 1px; }
+
+        @media (max-width: 768px) { .pricing-grid { grid-template-columns: 1fr; } .price-card { padding: 2.5rem 1.5rem; } }
     </style>
 </head>
 <body>
@@ -133,14 +173,16 @@
 
     <main class="pricing-container">
         <div class="header-box">
+            <div class="pricing-badge">Market Rates 2026</div>
             <h1>System <span>Tiers</span></h1>
-            <p>Select your operational scale. All systems engineered for 2026 performance.</p>
+            <p>Select your operational scale. All systems are engineered with our core high-performance framework.</p>
         </div>
         
         <div class="pricing-grid">
             <div class="price-card tier-basic">
                 <div class="tier-name">Basic Protocol</div>
-                <div class="price">R3000</div>
+                <div class="price"><span class="currency">R</span>3000</div>
+                <span class="price-sub">Core Deployment</span>
                 <div class="feature-list">
                     <div class="feature-item"><i class="fas fa-check"></i> Up to 5 Pages</div>
                     <div class="feature-item"><i class="fas fa-check"></i> Free .co.za Domain</div>
@@ -152,8 +194,10 @@
             </div>
 
             <div class="price-card tier-standard">
+                <div class="popular-tag">Popular</div>
                 <div class="tier-name">Standard Protocol</div>
-                <div class="price">R3500</div>
+                <div class="price"><span class="currency">R</span>3500</div>
+                <span class="price-sub">Enterprise Mid-Tier</span>
                 <div class="feature-list">
                     <div class="feature-item"><i class="fas fa-check"></i> Up to 8 Pages</div>
                     <div class="feature-item"><i class="fas fa-check"></i> One Year Hosting Incl.</div>
@@ -167,14 +211,15 @@
 
             <div class="price-card tier-elite">
                 <div class="tier-name">Elite Protocol</div>
-                <div class="price">R4500</div>
+                <div class="price"><span class="currency">R</span>4500</div>
+                <span class="price-sub">Full Digital Infrastructure</span>
                 <div class="feature-list">
-                    <div class="feature-item"><i class="fas fa-bolt"></i> Unlimited Pages</div>
-                    <div class="feature-item"><i class="fas fa-bolt"></i> Custom API Integration</div>
-                    <div class="feature-item"><i class="fas fa-bolt"></i> 24/7 Tech Support Node</div>
-                    <div class="feature-item"><i class="fas fa-bolt"></i> Full E-Commerce Capability</div>
-                    <div class="feature-item"><i class="fas fa-bolt"></i> Elite Performance SEO</div>
-                    <div class="feature-item"><i class="fas fa-bolt"></i> Custom Animation Suite</div>
+                    <div class="feature-item elite-feat"><i class="fas fa-bolt"></i> Unlimited Pages</div>
+                    <div class="feature-item elite-feat"><i class="fas fa-bolt"></i> Custom API Integration</div>
+                    <div class="feature-item elite-feat"><i class="fas fa-bolt"></i> 24/7 Tech Support Node</div>
+                    <div class="feature-item elite-feat"><i class="fas fa-bolt"></i> Full E-Commerce Capability</div>
+                    <div class="feature-item elite-feat"><i class="fas fa-bolt"></i> Elite Performance SEO</div>
+                    <div class="feature-item elite-feat"><i class="fas fa-bolt"></i> Custom Animation Suite</div>
                 </div>
                 <a href="contact.html" class="deploy-btn">Deploy Elite</a>
             </div>
@@ -184,28 +229,33 @@
     <footer>
         <div class="footer-grid">
             <div class="footer-col">
-                <h4>Architecture</h4>
+                <h4>System</h4>
                 <a href="about.html">Architecture</a>
-                <a href="services.html">Services</a>
-                <a href="portfolio.html">Portfolio</a>
+                <a href="services.html">Capabilities</a>
+                <a href="portfolio.html">Deployments</a>
+            </div>
+            <div class="footer-col">
+                <h4>Support</h4>
+                <a href="privacy.html">Privacy</a>
+                <a href="contact.html">Contact</a>
+                <p>+27 69 140 1737</p>
             </div>
             <div class="footer-col">
                 <h4>Connect</h4>
                 <div class="social-icons">
                     <a href="https://tiktok.com/@gasatechpty"><i class="fab fa-tiktok"></i></a>
                     <a href="https://instagram.com/gasatechptyltd"><i class="fab fa-instagram"></i></a>
-                    <a href="https://facebook.com/gasatechptyltd"><i class="fab fa-facebook-f"></i></a>
                     <a href="https://linkedin.com/company/gasatechptyltd"><i class="fab fa-linkedin-in"></i></a>
-                    <a href="https://x.com/gasatechptyltd"><i class="fab fa-x-twitter"></i></a>
+                    <a href="mailto:gasatechptyltd@gmail.com"><i class="fas fa-envelope"></i></a>
                 </div>
             </div>
             <div class="footer-col">
-                <h4>HQ</h4>
+                <h4>Hub</h4>
                 <p>Johannesburg, GP</p>
-                <p>+27 69 140 1737</p>
+                <p>South Africa</p>
             </div>
         </div>
-        <div class="footer-bottom">&copy; 2026 GASA TECH (PTY) LTD. Engineered in SA.</div>
+        <div class="footer-bottom">&copy; 2026 GASA TECH (PTY) LTD. Engineered in South Africa.</div>
     </footer>
 
 </body>
