@@ -1,32 +1,46 @@
-/* GASA TECH 2026 - CORE SYSTEM STYLES */
+/* GASA TECH (PTY) LTD - CORE SYSTEM STYLES v1.5
+    [REVISION: APRIL 2026]
+    [TARGET: MODERN BROWSERS / PWA COMPLIANT]
+*/
+
 :root {
     --bg: #0b1121;
-    --card-bg: #161b22;
+    --card-bg: rgba(22, 27, 34, 0.4);
     --primary: #00a2ff;
     --primary-glow: rgba(0, 162, 255, 0.3);
+    --accent-green: #00ff88;
     --text-main: #ffffff;
     --text-dim: #8b949e;
-    --nav-height: 80px;
+    --nav-height: 85px;
+    --border: rgba(255, 255, 255, 0.08);
+    --transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
 }
 
+/* 1. Reset & Base Architecture */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-family: 'Inter', sans-serif;
+    -webkit-font-smoothing: antialiased;
+}
+
+html {
+    scroll-behavior: smooth;
 }
 
 body {
     background-color: var(--bg);
     color: var(--text-main);
-    line-height: 1.6;
+    line-height: 1.7;
     overflow-x: hidden;
     display: flex;
     flex-direction: column;
     min-height: 100vh;
+    background: radial-gradient(circle at 50% 0%, #112244 0%, #0b1121 80%);
 }
 
-/* Header & Navigation */
+/* 2. Header & Navigation System */
 header {
     position: fixed;
     top: 0;
@@ -36,10 +50,12 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background: rgba(11, 17, 33, 0.85);
-    backdrop-filter: blur(12px);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    background: rgba(11, 17, 33, 0.8);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border-bottom: 1px solid var(--border);
     z-index: 1000;
+    transition: var(--transition);
 }
 
 .logo {
@@ -47,93 +63,140 @@ header {
     font-size: 1.5rem;
     color: #fff;
     text-decoration: none;
-    letter-spacing: -1px;
+    letter-spacing: -1.5px;
+    text-transform: uppercase;
 }
 
 .logo span { color: var(--primary); }
 
+nav { display: flex; align-items: center; }
+
 nav a {
     color: var(--text-dim);
     text-decoration: none;
-    margin-left: 1.5rem;
-    font-size: 0.85rem;
+    margin-left: 1.8rem;
+    font-size: 0.75rem;
     font-weight: 700;
     text-transform: uppercase;
-    transition: 0.3s ease;
+    letter-spacing: 1.5px;
+    transition: var(--transition);
+    position: relative;
 }
 
 nav a:hover, nav a.active {
     color: var(--primary);
-    text-shadow: 0 0 10px var(--primary-glow);
 }
 
-/* Global Footer System */
+/* 3. Global Footer System */
 footer {
     background: #070a14;
-    padding: 5rem 8% 2rem;
-    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    padding: 6rem 8% 2rem;
+    border-top: 1px solid var(--border);
     margin-top: auto;
 }
 
 .footer-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 3rem;
-    margin-bottom: 3rem;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 4rem;
+    margin-bottom: 4rem;
 }
 
 .footer-col h4 {
     color: var(--primary);
-    font-size: 0.75rem;
+    font-size: 0.7rem;
     text-transform: uppercase;
-    letter-spacing: 2px;
-    margin-bottom: 1.5rem;
+    letter-spacing: 2.5px;
+    margin-bottom: 1.8rem;
+    font-weight: 900;
 }
 
 .footer-col a, .footer-col p {
     color: var(--text-dim);
     text-decoration: none;
-    font-size: 0.95rem;
+    font-size: 0.85rem;
     display: block;
     margin-bottom: 0.8rem;
+    transition: var(--transition);
 }
 
-/* X (Twitter) & Social Icon Logic */
+.footer-col a:hover {
+    color: var(--primary);
+    transform: translateX(5px);
+}
+
+/* 4. Social & Interactive Elements */
 .social-icons {
     display: flex;
-    gap: 12px;
-    flex-wrap: wrap;
+    gap: 15px;
 }
 
 .social-icons a {
-    width: 45px;
-    height: 45px;
+    width: 42px;
+    height: 42px;
     background: rgba(255, 255, 255, 0.03);
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    border-radius: 50%;
+    border: 1px solid var(--border);
+    border-radius: 12px;
     display: flex;
     align-items: center;
     justify-content: center;
     color: var(--text-dim);
-    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    transition: var(--transition);
+    font-size: 1.1rem;
 }
 
 .social-icons a:hover {
     color: #fff;
     border-color: var(--primary);
-    background: var(--primary);
+    background: rgba(0, 162, 255, 0.1);
     transform: translateY(-5px);
-    box-shadow: 0 5px 15px var(--primary-glow);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.4);
 }
 
-/* UI Elements */
+/* 5. Utility UI Classes */
 .card {
     background: var(--card-bg);
-    border: 1px solid rgba(255,255,255,0.05);
-    border-radius: 20px;
-    transition: 0.3s;
+    border: 1px solid var(--border);
+    border-radius: 24px;
+    padding: 2.5rem;
+    backdrop-filter: blur(10px);
+    transition: var(--transition);
 }
 
 .card:hover {
     border-color: var(--primary);
+    transform: translateY(-8px);
+    background: rgba(11, 34, 68, 0.3);
+}
+
+.btn-primary {
+    background: var(--primary);
+    color: #fff;
+    padding: 1rem 2.5rem;
+    border-radius: 10px;
+    text-transform: uppercase;
+    font-weight: 900;
+    font-size: 0.8rem;
+    letter-spacing: 1.5px;
+    border: none;
+    cursor: pointer;
+    transition: var(--transition);
+    box-shadow: 0 10px 30px rgba(0, 162, 255, 0.2);
+}
+
+.btn-primary:hover {
+    transform: translateY(-3px);
+    filter: brightness(1.1);
+    box-shadow: 0 15px 40px rgba(0, 162, 255, 0.3);
+}
+
+/* 6. Responsive Tuning */
+@media (max-width: 992px) {
+    header { padding: 0 5%; }
+    nav a { margin-left: 1.2rem; font-size: 0.7rem; }
+}
+
+@media (max-width: 768px) {
+    .nav-links { display: none; } /* Consider adding a hamburger menu later */
+    .footer-grid { grid-template-columns: 1fr 1fr; }
 }
