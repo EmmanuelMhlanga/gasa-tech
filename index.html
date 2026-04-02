@@ -4,32 +4,66 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GASA TECH | Engineering Digital Infrastructure</title>
-    <link rel="icon" type="image/png" href="favicon.png?v=1.1">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="favicon.png?v=1.8">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <style>
-        :root { --bg: #0b1121; --card-bg: #161b22; --primary: #00a2ff; --text-main: #ffffff; --text-dim: #8b949e; }
+        :root { 
+            --bg: #0b1121; 
+            --card-bg: #161b22; 
+            --primary: #00a2ff; 
+            --primary-glow: rgba(0, 162, 255, 0.4);
+            --text-main: #ffffff; 
+            --text-dim: #8b949e; 
+            --border: rgba(255, 255, 255, 0.08);
+        }
+
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
-        body { background: var(--bg); color: var(--text-main); overflow-x: hidden; display: flex; flex-direction: column; min-height: 100vh; }
         
-        header { position: fixed; top: 0; width: 100%; padding: 1.5rem 8%; display: flex; justify-content: space-between; align-items: center; background: rgba(11, 17, 33, 0.9); backdrop-filter: blur(10px); border-bottom: 1px solid rgba(255,255,255,0.05); z-index: 1000; }
-        .logo { font-weight: 900; font-size: 1.4rem; color: #fff; text-decoration: none; text-transform: uppercase; }
+        body { 
+            background: var(--bg); 
+            color: var(--text-main); 
+            overflow-x: hidden; 
+            display: flex; 
+            flex-direction: column; 
+            min-height: 100vh; 
+        }
+        
+        header { 
+            position: fixed; top: 0; width: 100%; padding: 1.5rem 8%; 
+            display: flex; justify-content: space-between; align-items: center; 
+            background: rgba(11, 17, 33, 0.85); backdrop-filter: blur(15px); 
+            border-bottom: 1px solid var(--border); z-index: 1000; 
+        }
+        .logo { font-weight: 900; font-size: 1.4rem; color: #fff; text-decoration: none; text-transform: uppercase; letter-spacing: 1px; }
         .logo span { color: var(--primary); }
-        nav a { color: var(--text-dim); text-decoration: none; margin-left: 1.5rem; font-size: 0.8rem; font-weight: 700; text-transform: uppercase; transition: 0.3s; }
+        
+        nav a { color: var(--text-dim); text-decoration: none; margin-left: 1.5rem; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; transition: 0.3s; letter-spacing: 1px; }
         nav a:hover, nav a.active { color: var(--primary); }
 
-        /* UI ADDITION: Fading/Animated Text */
-        .hero { flex: 1; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 120px 10% 60px; background: radial-gradient(circle at center, #112244 0%, #0b1121 100%); }
-        h1 { font-size: clamp(3.5rem, 12vw, 7rem); font-weight: 900; line-height: 0.9; margin-bottom: 1rem; letter-spacing: -2px; }
+        /* Hero Section */
+        .hero { 
+            flex: 1; display: flex; flex-direction: column; justify-content: center; 
+            align-items: center; text-align: center; padding: 120px 10% 60px; 
+            background: radial-gradient(circle at center, #112244 0%, #0b1121 70%); 
+        }
+
+        h1 { 
+            font-size: clamp(3.5rem, 12vw, 8rem); 
+            font-weight: 900; line-height: 0.85; 
+            margin-bottom: 1.5rem; letter-spacing: -3px; 
+            text-shadow: 0 0 30px rgba(0, 162, 255, 0.2);
+        }
         
-        .fade-wrapper { height: 30px; margin-bottom: 2rem; overflow: hidden; }
+        /* Terminal Fade Text */
+        .fade-wrapper { height: 30px; margin-bottom: 1.5rem; overflow: hidden; }
         .fade-text { 
             color: var(--primary); 
-            font-family: monospace; 
-            letter-spacing: 3px; 
+            font-family: 'Fira Code', monospace; 
+            letter-spacing: 2px; 
             text-transform: uppercase; 
-            font-size: 1rem;
-            animation: moveText 8s infinite;
+            font-size: 0.9rem;
+            animation: moveText 10s infinite;
         }
 
         @keyframes moveText {
@@ -40,80 +74,112 @@
             100% { transform: translateY(0); opacity: 1; }
         }
 
-        .hero p.desc { color: var(--text-dim); max-width: 750px; line-height: 1.6; font-size: 1.05rem; margin-bottom: 3rem; animation: fadeIn 2s ease; }
+        .hero p.desc { 
+            color: var(--text-dim); max-width: 800px; line-height: 1.8; 
+            font-size: 1.05rem; margin-bottom: 3.5rem; 
+            animation: fadeIn 1.5s ease-out; 
+        }
         
-        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes fadeIn { 
+            from { opacity: 0; transform: translateY(20px); } 
+            to { opacity: 1; transform: translateY(0); } 
+        }
 
         .btn-group { display: flex; gap: 1.5rem; }
-        .btn { padding: 1rem 2rem; border-radius: 6px; text-decoration: none; font-weight: 900; transition: 0.4s; text-transform: uppercase; font-size: 0.8rem; letter-spacing: 1px; }
-        .btn-primary { background: var(--primary); color: white; box-shadow: 0 0 30px rgba(0, 162, 255, 0.2); }
-        .btn-secondary { border: 1px solid rgba(255,255,255,0.1); color: white; }
-        .btn:hover { transform: translateY(-3px); filter: brightness(1.2); }
+        .btn { 
+            padding: 1.2rem 2.5rem; border-radius: 8px; text-decoration: none; 
+            font-weight: 900; transition: 0.4s; text-transform: uppercase; 
+            font-size: 0.8rem; letter-spacing: 2px; 
+        }
+        .btn-primary { 
+            background: var(--primary); color: white; 
+            box-shadow: 0 10px 30px var(--primary-glow); 
+        }
+        .btn-secondary { 
+            border: 1px solid var(--border); color: white; 
+            background: rgba(255,255,255,0.03); backdrop-filter: blur(5px);
+        }
+        .btn:hover { transform: translateY(-5px); filter: brightness(1.2); }
 
-        /* FOOTER OPTIMIZATION: Slimmer and cleaner */
-        footer { background: #070a14; padding: 3rem 8% 1.5rem; border-top: 1px solid rgba(255,255,255,0.05); }
-        .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 2rem; margin-bottom: 2rem; }
-        .footer-col h4 { color: var(--primary); margin-bottom: 1rem; text-transform: uppercase; font-size: 0.7rem; letter-spacing: 1px; }
-        .footer-col a, .footer-col p { color: var(--text-dim); text-decoration: none; font-size: 0.85rem; display: block; margin-bottom: 0.5rem; transition: 0.3s; }
-        .footer-col a:hover { color: var(--primary); }
+        /* Footer */
+        footer { background: #070a14; padding: 5rem 8% 2rem; border-top: 1px solid var(--border); }
+        .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 4rem; margin-bottom: 4rem; }
+        .footer-col h4 { color: var(--primary); margin-bottom: 1.5rem; text-transform: uppercase; font-size: 0.7rem; letter-spacing: 2px; font-weight: 900; }
+        .footer-col a, .footer-col p { color: var(--text-dim); text-decoration: none; font-size: 0.85rem; display: block; margin-bottom: 0.8rem; transition: 0.2s; }
+        .footer-col a:hover { color: var(--primary); padding-left: 5px; }
         
-        .social-icons { display: flex; gap: 12px; margin-top: 10px; }
-        .social-icons a { font-size: 1rem; color: var(--text-dim); text-decoration: none; }
-        .social-icons a:hover { color: var(--primary); }
+        .social-icons { display: flex; gap: 15px; margin-top: 15px; }
+        .social-icons a { font-size: 1.2rem; color: var(--text-dim); transition: 0.3s; }
+        .social-icons a:hover { color: var(--primary); transform: translateY(-3px); }
 
-        .footer-bottom { text-align: center; color: #444; font-size: 0.65rem; border-top: 1px solid rgba(255,255,255,0.03); padding-top: 1.5rem; text-transform: uppercase; letter-spacing: 1px; }
+        .footer-bottom { 
+            text-align: center; color: #333; font-size: 0.65rem; 
+            border-top: 1px solid rgba(255,255,255,0.02); padding-top: 2rem; 
+            text-transform: uppercase; letter-spacing: 1px; 
+        }
+
+        @media (max-width: 768px) {
+            h1 { font-size: 3.5rem; }
+            .btn-group { flex-direction: column; width: 100%; }
+            .btn { text-align: center; }
+            header { padding: 1.2rem 5%; }
+            nav { display: none; } /* Consider adding a mobile menu icon */
+        }
     </style>
 </head>
 <body>
     <header>
         <a href="index.html" class="logo">GASA <span>TECH</span></a>
-        <nav><a href="index.html" class="active">Home</a><a href="about.html">Architecture</a><a href="services.html">Services</a><a href="portfolio.html">Portfolio</a><a href="pricing.html">Pricing</a><a href="contact.html">Deploy</a></nav>
+        <nav>
+            <a href="index.html" class="active">Home</a>
+            <a href="about.html">Architecture</a>
+            <a href="services.html">Services</a>
+            <a href="portfolio.html">Portfolio</a>
+            <a href="pricing.html">Pricing</a>
+            <a href="contact.html">Deploy</a>
+        </nav>
     </header>
 
-    <section class="hero">
+    <main class="hero">
         <div class="fade-wrapper">
             <div class="fade-text">
                 System Status: Active_<br>
-                Digital Architecture_<br>
-                SEO Optimization_<br>
-                UI/UX Engineering_
+                Full-Stack Architecture_<br>
+                SEO Strategic Optimization_<br>
+                UI/UX Core Engineering_
             </div>
         </div>
         <h1>GASA TECH</h1>
-        <p class="desc">We engineer high-performance digital infrastructure for businesses that demand precision. From advanced PWAs to strategic SEO architecture, GASA TECH (PTY) LTD deploys the technical foundation your brand needs to scale in the 2026 digital economy.</p>
+        <p class="desc">We engineer high-performance digital infrastructure for brands that refuse to be average. From advanced React applications to strategic technical foundations, GASA TECH (PTY) LTD deploys the tools you need to dominate the South African digital landscape.</p>
         <div class="btn-group">
             <a href="contact.html" class="btn btn-primary">Start Deployment</a>
-            <a href="services.html" class="btn btn-secondary">Capabilities</a>
+            <a href="services.html" class="btn btn-secondary">Our Capabilities</a>
         </div>
-    </section>
+    </main>
 
     <footer>
         <div class="footer-grid">
             <div class="footer-col">
-                <h4>Protocol</h4>
-                <a href="about.html">Architecture</a>
-                <a href="portfolio.html">Portfolio</a>
-                <a href="pricing.html">Pricing</a>
+                <h4>Architecture</h4>
+                <a href="about.html">Design Philosophy</a>
+                <a href="portfolio.html">Case Studies</a>
+                <a href="pricing.html">System Pricing</a>
             </div>
             <div class="footer-col">
-                <h4>Support</h4>
-                <a href="privacy.html">Privacy</a>
-                <a href="contact.html">Contact</a>
-                <p>+27 69 140 1737</p>
+                <h4>Uplink</h4>
+                <a href="privacy.html">Privacy Protocol</a>
+                <a href="contact.html">Secure Contact</a>
+                <p>Randburg, Johannesburg</p>
+                <p style="color: var(--primary); font-weight: 800;">+27 69 140 1737</p>
             </div>
             <div class="footer-col">
-                <h4>Connect</h4>
+                <h4>Social Grid</h4>
                 <div class="social-icons">
                     <a href="https://tiktok.com/@gasatechpty"><i class="fab fa-tiktok"></i></a>
                     <a href="https://instagram.com/gasatechptyltd"><i class="fab fa-instagram"></i></a>
                     <a href="https://linkedin.com/company/gasatechptyltd"><i class="fab fa-linkedin-in"></i></a>
                     <a href="mailto:gasatechptyltd@gmail.com"><i class="fas fa-envelope"></i></a>
                 </div>
-            </div>
-            <div class="footer-col">
-                <h4>Hub</h4>
-                <p>Johannesburg, GP</p>
-                <p>South Africa</p>
             </div>
         </div>
         <div class="footer-bottom">&copy; 2026 GASA TECH (PTY) LTD. Engineered in South Africa.</div>
