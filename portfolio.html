@@ -5,15 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portfolio | GASA TECH</title>
     <link rel="icon" type="image/png" href="favicon.png?v=2.1">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     
     <style>
         :root { 
             --bg: #0b1121; 
-            --card-bg: rgba(22, 27, 34, 0.5); 
+            --card-bg: rgba(22, 27, 34, 0.6); 
             --primary: #00a2ff; 
-            --primary-glow: rgba(0, 162, 255, 0.4);
+            --primary-glow: rgba(0, 162, 255, 0.3);
             --text-main: #ffffff; 
             --text-dim: #8b949e; 
             --border: rgba(255, 255, 255, 0.08);
@@ -29,7 +29,6 @@
             overflow-x: hidden;
         }
 
-        /* Nav Bar - Synced */
         header { 
             position: fixed; top: 0; width: 100%; padding: 1.5rem 8%; 
             display: flex; justify-content: space-between; align-items: center; 
@@ -38,110 +37,89 @@
         }
         .logo { font-weight: 900; font-size: 1.4rem; color: #fff; text-decoration: none; text-transform: uppercase; }
         .logo span { color: var(--primary); }
-        nav a { color: var(--text-dim); text-decoration: none; margin-left: 1.5rem; font-size: 0.8rem; font-weight: 700; text-transform: uppercase; transition: 0.3s; }
+        nav a { color: var(--text-dim); text-decoration: none; margin-left: 1.5rem; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; transition: 0.3s; letter-spacing: 1px;}
         nav a.active, nav a:hover { color: var(--primary); }
 
-        /* Portfolio Content */
         .portfolio-container { padding: 180px 8% 80px; max-width: 1400px; margin: 0 auto; }
         
         .header-box { margin-bottom: 4rem; text-align: center; }
-        .header-box h1 { font-size: clamp(2.5rem, 7vw, 4rem); font-weight: 900; letter-spacing: -2px; line-height: 1; }
+        .header-box h1 { font-size: clamp(2.5rem, 7vw, 4.5rem); font-weight: 900; letter-spacing: -3px; line-height: 1; }
         .header-box h1 span { color: var(--primary); text-shadow: 0 0 30px var(--primary-glow); }
-        .header-box p { color: var(--text-dim); max-width: 600px; margin: 20px auto 0; font-size: 1.1rem; }
+        .header-box p { color: var(--text-dim); max-width: 600px; margin: 20px auto 0; font-size: 1.1rem; opacity: 0.8; }
 
-        /* Recommendation: System Stats Bar */
         .stats-bar {
-            display: flex;
-            justify-content: center;
-            gap: 3rem;
-            margin-bottom: 5rem;
-            padding: 1.5rem;
-            background: rgba(255,255,255,0.02);
-            border: 1px solid var(--border);
-            border-radius: 16px;
+            display: flex; justify-content: center; gap: 4rem; margin-bottom: 5rem;
+            padding: 2rem; background: rgba(255,255,255,0.01);
+            border: 1px solid var(--border); border-radius: 20px;
+            backdrop-filter: blur(10px);
         }
         .stat-item { text-align: center; }
-        .stat-val { display: block; font-size: 1.2rem; font-weight: 900; color: var(--primary); }
-        .stat-lab { font-size: 0.6rem; text-transform: uppercase; letter-spacing: 2px; color: var(--text-dim); }
+        .stat-val { display: block; font-size: 1.5rem; font-weight: 900; color: var(--primary); font-family: 'Fira Code', monospace; }
+        .stat-lab { font-size: 0.6rem; text-transform: uppercase; letter-spacing: 2px; color: var(--text-dim); margin-top: 5px; display: block; }
 
-        /* Grid System */
-        .portfolio-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 2rem;
-        }
+        .portfolio-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 2.5rem; }
 
         .project-card {
-            background: var(--card-bg);
-            border: 1px solid var(--border);
-            border-radius: 24px;
-            padding: 2.5rem;
-            text-decoration: none;
-            color: inherit;
-            transition: 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
-            display: flex;
-            flex-direction: column;
-            backdrop-filter: blur(5px);
-            position: relative;
+            background: var(--card-bg); border: 1px solid var(--border);
+            border-radius: 24px; padding: 2rem; text-decoration: none;
+            color: inherit; transition: 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+            display: flex; flex-direction: column; position: relative; overflow: hidden;
         }
 
         .project-card:hover {
-            border-color: var(--primary);
-            transform: translateY(-10px);
-            background: rgba(0, 162, 255, 0.03);
-            box-shadow: 0 30px 60px rgba(0,0,0,0.5);
+            border-color: var(--primary); transform: translateY(-10px);
+            background: rgba(0, 162, 255, 0.04);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.4), 0 0 20px var(--primary-glow);
         }
 
-        .card-top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem; }
+        .card-top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem; }
         
         .project-icon { 
-            width: 50px; height: 50px; background: rgba(0, 162, 255, 0.1); 
-            border-radius: 12px; display: flex; align-items: center; justify-content: center;
-            color: var(--primary); font-size: 1.4rem; border: 1px solid rgba(0,162,255,0.2);
+            width: 45px; height: 45px; background: rgba(0, 162, 255, 0.1); 
+            border-radius: 10px; display: flex; align-items: center; justify-content: center;
+            color: var(--primary); font-size: 1.2rem; border: 1px solid rgba(0,162,255,0.2);
         }
 
         .status-pill {
-            font-family: monospace; font-size: 0.6rem; padding: 4px 12px;
-            background: rgba(0, 255, 136, 0.1); color: #00ff88;
-            border: 1px solid rgba(0, 255, 136, 0.3); border-radius: 50px; 
+            font-family: 'Fira Code', monospace; font-size: 0.6rem; padding: 5px 12px;
+            background: rgba(0, 255, 136, 0.05); color: #00ff88;
+            border: 1px solid rgba(0, 255, 136, 0.2); border-radius: 50px; 
             text-transform: uppercase; letter-spacing: 1px;
         }
 
-        .project-card h3 { font-size: 1.5rem; font-weight: 900; margin-bottom: 1rem; letter-spacing: -0.5px; }
-        .project-card p { color: var(--text-dim); font-size: 0.9rem; margin-bottom: 2rem; line-height: 1.7; flex-grow: 1; }
+        .project-card h3 { font-size: 1.6rem; font-weight: 900; margin-bottom: 0.8rem; letter-spacing: -0.5px; }
+        .project-card p { color: var(--text-dim); font-size: 0.95rem; margin-bottom: 2rem; line-height: 1.7; flex-grow: 1; }
 
-        /* Recommendation: Tech Specs Tags inside cards */
         .project-specs {
-            display: flex;
-            gap: 10px;
-            margin-bottom: 2rem;
-            border-top: 1px solid var(--border);
-            padding-top: 1.5rem;
+            display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 2rem;
+            border-top: 1px solid var(--border); padding-top: 1.5rem;
         }
-        .spec-tag { font-size: 0.6rem; color: var(--text-dim); font-family: monospace; text-transform: uppercase; }
+        .spec-tag { font-size: 0.65rem; color: var(--text-dim); font-family: 'Fira Code', monospace; background: rgba(255,255,255,0.03); padding: 4px 8px; border-radius: 4px; }
 
         .card-footer { 
-            display: flex; align-items: center; 
-            color: var(--primary); font-weight: 900; font-size: 0.75rem; 
+            display: flex; align-items: center; justify-content: space-between;
+            color: var(--primary); font-weight: 900; font-size: 0.7rem; 
             text-transform: uppercase; letter-spacing: 2px;
         }
-        .card-footer i { margin-left: 10px; transition: 0.3s; }
-        .project-card:hover .card-footer i { transform: translateX(8px); }
+        .card-footer i { transition: 0.3s; }
+        .project-card:hover .card-footer i { transform: translateX(5px); }
 
-        /* Slim Footer - Synced */
-        footer { background: #070a14; padding: 3rem 8% 1.5rem; border-top: 1px solid var(--border); margin-top: 100px; }
-        .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 2rem; margin-bottom: 2rem; }
-        .footer-col h4 { color: var(--primary); margin-bottom: 1rem; text-transform: uppercase; font-size: 0.7rem; letter-spacing: 1px; }
-        .footer-col a, .footer-col p { color: var(--text-dim); text-decoration: none; font-size: 0.85rem; display: block; margin-bottom: 0.5rem; }
-        .footer-col a:hover { color: var(--primary); }
+        footer { background: #070a14; padding: 5rem 8% 2rem; border-top: 1px solid var(--border); margin-top: 100px; }
+        .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 4rem; margin-bottom: 4rem; }
+        .footer-col h4 { color: var(--primary); margin-bottom: 1.5rem; text-transform: uppercase; font-size: 0.7rem; letter-spacing: 2px; font-weight: 900; }
+        .footer-col a, .footer-col p { color: var(--text-dim); text-decoration: none; font-size: 0.85rem; display: block; margin-bottom: 0.8rem; transition: 0.2s; }
+        .footer-col a:hover { color: var(--primary); padding-left: 5px; }
         
-        .social-icons { display: flex; gap: 12px; margin-top: 10px; }
-        .social-icons a { font-size: 1rem; color: var(--text-dim); text-decoration: none; transition: 0.3s; }
+        .social-icons { display: flex; gap: 15px; margin-top: 15px; }
+        .social-icons a { font-size: 1.2rem; color: var(--text-dim); transition: 0.3s; }
         .social-icons a:hover { color: var(--primary); transform: translateY(-3px); }
 
-        .footer-bottom { text-align: center; color: #444; font-size: 0.65rem; border-top: 1px solid rgba(255,255,255,0.03); padding-top: 1.5rem; text-transform: uppercase; letter-spacing: 1px; }
+        .footer-bottom { text-align: center; color: #333; font-size: 0.65rem; border-top: 1px solid rgba(255,255,255,0.02); padding-top: 2rem; text-transform: uppercase; letter-spacing: 1px; }
 
-        @media (max-width: 768px) { .stats-bar { flex-direction: column; gap: 1.5rem; } }
+        @media (max-width: 768px) { 
+            .stats-bar { flex-direction: column; gap: 2rem; padding: 2rem 1rem; } 
+            .portfolio-grid { grid-template-columns: 1fr; }
+        }
     </style>
 </head>
 <body>
@@ -161,7 +139,7 @@
     <main class="portfolio-container">
         <div class="header-box">
             <h1>Active <span>Deployments</span></h1>
-            <p>Custom digital infrastructure engineered for high-performance South African enterprises.</p>
+            <p>High-performance digital infrastructure engineered for 2026 enterprise requirements.</p>
         </div>
 
         <div class="stats-bar">
@@ -170,12 +148,12 @@
                 <span class="stat-lab">System Uptime</span>
             </div>
             <div class="stat-item">
-                <span class="stat-val">12+</span>
+                <span class="stat-val">14</span>
                 <span class="stat-lab">Active Nodes</span>
             </div>
             <div class="stat-item">
-                <span class="stat-val">0.4s</span>
-                <span class="stat-lab">Avg. Load Speed</span>
+                <span class="stat-val">0.38s</span>
+                <span class="stat-lab">Latency Average</span>
             </div>
         </div>
         
@@ -183,70 +161,62 @@
             
             <a href="https://emmanuelmhlanga.github.io/ebbrato-travel-agency/" target="_blank" class="project-card">
                 <div class="card-top">
-                    <div class="project-icon"><i class="fas fa-plane"></i></div>
+                    <div class="project-icon"><i class="fas fa-plane-departure"></i></div>
                     <div class="status-pill">Active Node</div>
                 </div>
-                <div>
-                    <h3>Ebbrato Travel Agency</h3>
-                    <p>A specialized travel ecosystem designed for immersive destination discovery and seamless booking flows.</p>
-                </div>
+                <h3>Ebbrato Travel</h3>
+                <p>An immersive destination ecosystem with optimized booking logic and high-tier visual architecture.</p>
                 <div class="project-specs">
-                    <span class="spec-tag">#Tourism</span>
-                    <span class="spec-tag">#UI/UX</span>
-                    <span class="spec-tag">#Frontend</span>
+                    <span class="spec-tag">#UX_ENGINEERING</span>
+                    <span class="spec-tag">#FRONTEND</span>
+                    <span class="spec-tag">#TRAVEL_API</span>
                 </div>
-                <div class="card-footer">Inspect Deployment <i class="fas fa-arrow-right"></i></div>
+                <div class="card-footer"><span>Inspect Node</span> <i class="fas fa-chevron-right"></i></div>
             </a>
 
             <a href="https://iletha.com" target="_blank" class="project-card">
                 <div class="card-top">
-                    <div class="project-icon"><i class="fas fa-bullhorn"></i></div>
+                    <div class="project-icon"><i class="fas fa-network-wired"></i></div>
                     <div class="status-pill">Active Node</div>
                 </div>
-                <div>
-                    <h3>Iletha</h3>
-                    <p>Co-operative digital marketing infrastructure built to drive corporate growth and high-tier engagement.</p>
-                </div>
+                <h3>Iletha Co-op</h3>
+                <p>Corporate digital marketing infrastructure designed for cooperative engagement and scalable outreach.</p>
                 <div class="project-specs">
-                    <span class="spec-tag">#Marketing</span>
-                    <span class="spec-tag">#Corporate</span>
-                    <span class="spec-tag">#Fullstack</span>
+                    <span class="spec-tag">#MARKETING_SYSTEMS</span>
+                    <span class="spec-tag">#FULLSTACK</span>
+                    <span class="spec-tag">#ENTERPRISE</span>
                 </div>
-                <div class="card-footer">Inspect Deployment <i class="fas fa-arrow-right"></i></div>
+                <div class="card-footer"><span>Inspect Node</span> <i class="fas fa-chevron-right"></i></div>
             </a>
 
             <a href="https://neobreedmarketingsolutions.com" target="_blank" class="project-card">
                 <div class="card-top">
-                    <div class="project-icon"><i class="fas fa-chart-line"></i></div>
+                    <div class="project-icon"><i class="fas fa-microchip"></i></div>
                     <div class="status-pill">Active Node</div>
                 </div>
-                <div>
-                    <h3>Neo Breed</h3>
-                    <p>High-conversion marketing solutions platform focused on strategic brand positioning and outreach.</p>
-                </div>
+                <h3>Neo Breed</h3>
+                <p>Strategic brand positioning platform utilizing advanced SEO architecture and conversion-focused UI.</p>
                 <div class="project-specs">
-                    <span class="spec-tag">#SEO</span>
-                    <span class="spec-tag">#Strategy</span>
-                    <span class="spec-tag">#LeadGen</span>
+                    <span class="spec-tag">#SEO_ARCH</span>
+                    <span class="spec-tag">#LEAD_GEN</span>
+                    <span class="spec-tag">#BRANDING</span>
                 </div>
-                <div class="card-footer">Inspect Deployment <i class="fas fa-arrow-right"></i></div>
+                <div class="card-footer"><span>Inspect Node</span> <i class="fas fa-chevron-right"></i></div>
             </a>
 
             <a href="https://vileamico.co.za" target="_blank" class="project-card">
                 <div class="card-top">
-                    <div class="project-icon"><i class="fas fa-ticket-alt"></i></div>
+                    <div class="project-icon"><i class="fas fa-vr-cardboard"></i></div>
                     <div class="status-pill">Active Node</div>
                 </div>
-                <div>
-                    <h3>Vile Amico</h3>
-                    <p>A dynamic entertainment portal engineered for high-traffic media consumption and event engagement.</p>
-                </div>
+                <h3>Vile Amico</h3>
+                <p>Dynamic media consumption portal engineered for high-bandwidth entertainment and event management.</p>
                 <div class="project-specs">
-                    <span class="spec-tag">#Media</span>
-                    <span class="spec-tag">#HighTraffic</span>
-                    <span class="spec-tag">#Events</span>
+                    <span class="spec-tag">#MEDIA_HUB</span>
+                    <span class="spec-tag">#HIGH_TRAFFIC</span>
+                    <span class="spec-tag">#EVENTS</span>
                 </div>
-                <div class="card-footer">Inspect Deployment <i class="fas fa-arrow-right"></i></div>
+                <div class="card-footer"><span>Inspect Node</span> <i class="fas fa-chevron-right"></i></div>
             </a>
 
         </div>
@@ -255,30 +225,25 @@
     <footer>
         <div class="footer-grid">
             <div class="footer-col">
-                <h4>System</h4>
-                <a href="about.html">Architecture</a>
+                <h4>Architecture</h4>
+                <a href="about.html">Systems</a>
                 <a href="portfolio.html">Deployments</a>
                 <a href="pricing.html">Pricing</a>
             </div>
             <div class="footer-col">
-                <h4>Support</h4>
+                <h4>Uplink</h4>
                 <a href="privacy.html">Privacy</a>
                 <a href="contact.html">Contact</a>
-                <p>+27 69 140 1737</p>
+                <p style="color: var(--primary);">+27 69 140 1737</p>
             </div>
             <div class="footer-col">
-                <h4>Connect</h4>
+                <h4>Social Grid</h4>
                 <div class="social-icons">
                     <a href="https://tiktok.com/@gasatechpty"><i class="fab fa-tiktok"></i></a>
                     <a href="https://instagram.com/gasatechptyltd"><i class="fab fa-instagram"></i></a>
                     <a href="https://linkedin.com/company/gasatechptyltd"><i class="fab fa-linkedin-in"></i></a>
                     <a href="mailto:gasatechptyltd@gmail.com"><i class="fas fa-envelope"></i></a>
                 </div>
-            </div>
-            <div class="footer-col">
-                <h4>Hub</h4>
-                <p>Johannesburg, GP</p>
-                <p>South Africa</p>
             </div>
         </div>
         <div class="footer-bottom">&copy; 2026 GASA TECH (PTY) LTD. Engineered in South Africa.</div>
