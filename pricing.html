@@ -121,17 +121,30 @@
         .tier-elite:hover .deploy-btn { background: var(--elite); border-color: var(--elite); color: #000; }
         .tier-elite:hover { border-color: var(--elite); }
 
+        /* Payment Section */
+        .payment-section { margin-top: 100px; text-align: center; border-top: 1px solid var(--border); padding-top: 60px; }
+        .payment-section h3 { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 3px; color: var(--text-dim); margin-bottom: 2rem; }
+        .payment-grid { display: flex; justify-content: center; align-items: center; gap: 30px; flex-wrap: wrap; opacity: 0.6; filter: grayscale(1); transition: 0.3s; }
+        .payment-grid:hover { opacity: 1; filter: grayscale(0); }
+        .payment-grid i { font-size: 2.5rem; transition: 0.3s; }
+        .payment-grid i:hover { color: var(--primary); transform: scale(1.1); }
+        .sa-badge { font-family: 'Fira Code', monospace; font-size: 0.7rem; color: #00ff88; display: block; margin-top: 1rem; }
+
+        /* Recommendation Section */
+        .rec-section { margin-top: 100px; background: rgba(255,255,255,0.02); border: 1px solid var(--border); border-radius: 40px; padding: 5rem 3rem; }
+        .rec-section h2 { font-size: 2.5rem; font-weight: 900; margin-bottom: 3rem; text-align: center; }
+        .rec-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; }
+        .rec-item { padding: 1.5rem; background: rgba(0,0,0,0.2); border-radius: 16px; border-left: 2px solid var(--primary); }
+        .rec-item h4 { font-size: 0.8rem; color: var(--primary); text-transform: uppercase; margin-bottom: 8px; }
+        .rec-item p { font-size: 0.85rem; color: var(--text-dim); }
+
         footer { background: #070a14; padding: 5rem 8% 2rem; border-top: 1px solid var(--border); margin-top: 120px; }
         .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 4rem; margin-bottom: 4rem; }
         .footer-col h4 { color: var(--primary); margin-bottom: 1.5rem; text-transform: uppercase; font-size: 0.7rem; letter-spacing: 2px; font-weight: 900; }
         .footer-col a, .footer-col p { color: var(--text-dim); text-decoration: none; font-size: 0.85rem; display: block; margin-bottom: 0.8rem; }
-        .footer-col a:hover { color: var(--primary); }
-        
         .social-icons { display: flex; gap: 15px; margin-top: 15px; }
         .social-icons a { font-size: 1.2rem; color: var(--text-dim); transition: 0.3s; }
-        .social-icons a:hover { color: var(--primary); transform: translateY(-3px); }
-
-        .footer-bottom { text-align: center; color: #333; font-size: 0.65rem; border-top: 1px solid rgba(255,255,255,0.02); padding-top: 2rem; text-transform: uppercase; letter-spacing: 1px; }
+        .footer-bottom { text-align: center; color: #333; font-size: 0.65rem; border-top: 1px solid rgba(255,255,255,0.02); padding-top: 2rem; }
 
         @media (max-width: 768px) { 
             .pricing-grid { grid-template-columns: 1fr; }
@@ -206,6 +219,51 @@
                 <a href="contact.html" class="deploy-btn">Deploy Elite</a>
             </div>
         </div>
+
+        <section class="payment-section">
+            <h3>Supported Payment Gateways</h3>
+            <div class="payment-grid">
+                <i class="fab fa-cc-visa" title="Visa"></i>
+                <i class="fab fa-cc-mastercard" title="Mastercard"></i>
+                <i class="fab fa-cc-discover" title="Maestro/Discover"></i>
+                <i class="fas fa-credit-card" title="Local Debit Cards"></i>
+                <i class="fab fa-cc-apple-pay" title="Apple Pay"></i>
+                <i class="fab fa-cc-paypal" title="PayPal"></i>
+                <i class="fas fa-building-columns" title="EFT Secure"></i>
+            </div>
+            <span class="sa-badge">// Encrypted for all South African Banking Nodes</span>
+        </section>
+
+        <section class="rec-section">
+            <h2>Investment <span>Intelligence</span></h2>
+            <div class="rec-grid">
+                <div class="rec-item"><h4>01. Value Anchoring</h4> Presenting the Elite Tier first makes the Standard Tier look like an undeniable bargain.</div>
+                <div class="rec-item"><h4>02. Local SEO Yield</h4> Every Rand spent on SEO architecture returns 5x in local lead generation.</div>
+                <div class="rec-item"><h4>03. Speed Equity</h4> A site that loads in <1s is worth 50% more in conversion value than a 3s site.</div>
+                <div class="rec-item"><h4>04. Security Premium</h4> SSL isn't just safety; it's a 2026 search ranking requirement.</div>
+                <div class="rec-item"><h4>05. PWA Longevity</h4> Investing in a PWA reduces future mobile app development costs by 100%.</div>
+                <div class="rec-item"><h4>06. Scalability Logic</h4> Our basic sites are built on enterprise cores, making future upgrades seamless.</div>
+                <div class="rec-item"><h4>07. Hosting Integrity</h4> Low-cost hosting is a liability. We use high-bandwidth SA data centers.</div>
+                <div class="rec-item"><h4>08. Automation ROI</h4> Custom forms and auto-responses save your staff 10+ hours a week.</div>
+                <div class="rec-item"><h4>09. Domain Strategy</h4> Owning a .co.za is critical for trust in the South African market.</div>
+                <div class="rec-item"><h4>10. Branding Cohesion</h4> A professional site increases your brand's perceived value by up to 300%.</div>
+                <div class="rec-item"><h4>11. Zero Maintenance</h4> Our clean code architecture means fewer bugs and zero "hidden" repair costs.</div>
+                <div class="rec-item"><h4>12. Future Proofing</h4> We use ES6+ and modern CSS to ensure your site lasts 5+ years without a rewrite.</div>
+                <div class="rec-item"><h4>13. High-Traffic Ready</h4> Elite tiers are engineered to handle viral social media traffic spikes.</div>
+                <div class="rec-item"><h4>14. Email Node Utility</h4> Professional @yourdomain.co.za emails increase client trust by 80%.</div>
+                <div class="rec-item"><h4>15. Interaction Design</h4> Micro-interactions keep users on-site longer, lowering bounce rates.</div>
+                <div class="rec-item"><h4>16. Social Grid Sync</h4> Automatic feeds mean your site stays fresh without manual updates.</div>
+                <div class="rec-item"><h4>17. API Versatility</h4> Connect your site to WhatsApp, CRM, or POS systems instantly.</div>
+                <div class="rec-item"><h4>18. Dark Mode Efficiency</h4> Modern OLED screens use less power on dark sites—a subtle "green" benefit.</div>
+                <div class="rec-item"><h4>19. Analytics Insight</h4> Knowing where your traffic comes from is the best way to spend your marketing budget.</div>
+                <div class="rec-item"><h4>20. Content Governance</h4> Easy-to-edit portfolios mean you never have to pay for "text updates."</div>
+                <div class="rec-item"><h4>21. Global Standards</h4> We build to Silicon Valley specs but at Johannesburg market prices.</div>
+                <div class="rec-item"><h4>22. Lead Capture</h4> Our "Deploy" systems turn passive browsers into active inquiries.</div>
+                <div class="rec-item"><h4>23. Zero Technical Debt</h4> We don't use heavy plugins; we write lean, fast, custom code.</div>
+                <div class="rec-item"><h4>24. 24/7 Operation</h4> Your site is your best salesperson, working while you sleep in Randburg.</div>
+                <div class="rec-item"><h4>25. Brand Legacy</h4> A GASA TECH build is an asset that grows in value as your business scales.</div>
+            </div>
+        </section>
     </main>
 
     <footer>
