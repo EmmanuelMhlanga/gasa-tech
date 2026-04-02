@@ -1,9 +1,19 @@
+# GASA TECH (PTY) LTD - Robots Deployment Protocol
+# 2026 Indexing Strategy
+
 User-agent: *
 Allow: /
+Allow: /css/  # Recommended: Allow CSS so Google can verify mobile responsiveness
+Allow: /js/   # Recommended: Allow JS if it handles critical UI rendering
 
-# Direct Google to your sitemap
+# Disallow specific system/private nodes
+Disallow: /admin/
+Disallow: /temp/
+Disallow: /assets/private/
+
+# Sitemap Uplink
 Sitemap: https://gasatech.co.za/sitemap.xml
 
-# Prevent indexing of system folders to save crawl budget
-Disallow: /css/
-Disallow: /js/
+# Specific instruction for Googlebot to prioritize your portfolio
+User-agent: Googlebot
+Allow: /portfolio.html
