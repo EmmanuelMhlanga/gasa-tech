@@ -4,23 +4,121 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Terms of Service | GASA TECH</title>
+    <link rel="icon" type="image/png" href="favicon.png?v=2.2">
     <link rel="manifest" href="manifest.json">
-    <meta name="theme-color" content="#00a2ff">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    
     <style>
-        body { background: #0d1b2a; color: #fff; font-family: 'Inter', sans-serif; padding: 100px 15%; line-height: 1.8; }
-        h1 { color: #00a2ff; margin-bottom: 40px; }
-        h2 { margin-top: 30px; border-left: 3px solid #00a2ff; padding-left: 15px; }
-        .back-btn { display: inline-block; margin-bottom: 20px; color: #00a2ff; text-decoration: none; }
+        :root { 
+            --bg: #0b1121; 
+            --card-bg: rgba(22, 27, 34, 0.6); 
+            --primary: #00a2ff; 
+            --text-main: #ffffff; 
+            --text-dim: #8b949e; 
+            --border: rgba(255, 255, 255, 0.08);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
+
+        body { 
+            background: var(--bg); 
+            color: var(--text-main); 
+            background: radial-gradient(circle at 50% 0%, #112244 0%, #0b1121 70%);
+            line-height: 1.8;
+            min-height: 100vh;
+        }
+
+        header { 
+            position: fixed; top: 0; width: 100%; padding: 1.5rem 8%; 
+            display: flex; justify-content: space-between; align-items: center; 
+            background: rgba(11, 17, 33, 0.85); backdrop-filter: blur(15px); 
+            border-bottom: 1px solid var(--border); z-index: 1000; 
+        }
+        .logo { font-weight: 900; font-size: 1.4rem; color: #fff; text-decoration: none; text-transform: uppercase; }
+        .logo span { color: var(--primary); }
+        
+        .content-container { padding: 160px 8% 80px; max-width: 900px; margin: 0 auto; }
+        
+        .back-link { 
+            color: var(--primary); text-decoration: none; font-size: 0.8rem; 
+            font-weight: 700; text-transform: uppercase; letter-spacing: 1px;
+            display: flex; align-items: center; gap: 8px; margin-bottom: 2rem;
+        }
+
+        h1 { font-size: 3rem; font-weight: 900; letter-spacing: -2px; margin-bottom: 1rem; }
+        h1 span { color: var(--primary); }
+        .last-updated { color: var(--text-dim); font-size: 0.8rem; font-family: 'Fira Code', monospace; margin-bottom: 4rem; }
+
+        .terms-block {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: 2.5rem;
+            margin-bottom: 2rem;
+            backdrop-filter: blur(10px);
+        }
+
+        .terms-block h2 {
+            font-size: 1.1rem;
+            color: var(--primary);
+            margin-bottom: 1.2rem;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .terms-block p { color: var(--text-dim); font-size: 0.95rem; }
+
+        footer { background: #070a14; padding: 4rem 8% 2rem; border-top: 1px solid var(--border); text-align: center; }
+        .footer-bottom { color: #333; font-size: 0.65rem; text-transform: uppercase; letter-spacing: 1px; }
+
+        @media (max-width: 768px) { .content-container { padding-top: 120px; } h1 { font-size: 2.2rem; } }
     </style>
 </head>
 <body>
-    <a href="index.html" class="back-btn">← Back to Home</a>
-    <h1>Terms of Service</h1>
-    <h2>1. Service Deployment</h2>
-    <p>Projects are initiated upon receipt of the initial deposit as per the selected package (Basic, Standard, or Premium).</p>
-    <h2>2. Hosting & Domains</h2>
-    <p>Free .co.za domains and hosting included in packages are valid for one year from the date of deployment.</p>
-    <h2>3. Intellectual Property</h2>
-    <p>Upon final payment, the client retains full ownership of the digital assets deployed by GASA TECH.</p>
+
+    <header>
+        <a href="index.html" class="logo">GASA <span>TECH</span></a>
+    </header>
+
+    <main class="content-container">
+        <a href="index.html" class="back-link"><i class="fas fa-arrow-left"></i> Return to Terminal</a>
+        
+        <h1>Terms of <span>Service</span></h1>
+        <p class="last-updated">PROTOCOL_REV: 02-04-2026 // SITE_ID: GASA_HQ</p>
+
+        <div class="terms-block">
+            <h2><i class="fas fa-rocket"></i> 1. Service Deployment</h2>
+            <p>System initialization begins immediately upon receipt of the initial deposit (50% for standard deployments). Projected timelines are estimates based on the architectural complexity of the selected package (Basic, Standard, or Premium).</p>
+        </div>
+
+        <div class="terms-block">
+            <h2><i class="fas fa-globe"></i> 2. Hosting & Domains</h2>
+            <p>Complimentary .co.za domains and system hosting included in GASA TECH packages are provisioned for a standard 12-month cycle. Renewal protocols must be initiated 30 days prior to expiry to ensure zero system downtime.</p>
+        </div>
+
+        <div class="terms-block">
+            <h2><i class="fas fa-code-branch"></i> 3. Intellectual Property</h2>
+            <p>Ownership of all digital assets, including custom source code and UI designs, is transferred to the client upon successful final payment. GASA TECH (PTY) LTD reserves the right to display completed projects in our portfolio for architectural demonstration.</p>
+        </div>
+
+        <div class="terms-block">
+            <h2><i class="fas fa-credit-card"></i> 4. Payment Protocols</h2>
+            <p>Final system deployment to the live domain occurs only after full invoice settlement. Late settlements may result in temporary system suspension to maintain infrastructure integrity.</p>
+        </div>
+
+        <div class="terms-block">
+            <h2><i class="fas fa-exclamation-triangle"></i> 5. Liability</h2>
+            <p>GASA TECH is not liable for data loss or service interruptions caused by third-party hosting nodes or unauthorized client modifications to the system source code post-handover.</p>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-bottom">&copy; 2026 GASA TECH (PTY) LTD. All Rights Reserved. South Africa.</div>
+    </footer>
+
 </body>
 </html>
