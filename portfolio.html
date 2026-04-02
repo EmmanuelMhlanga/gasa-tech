@@ -45,23 +45,12 @@
         .header-box { margin-bottom: 4rem; text-align: center; }
         .header-box h1 { font-size: clamp(2.5rem, 7vw, 4.5rem); font-weight: 900; letter-spacing: -3px; line-height: 1; }
         .header-box h1 span { color: var(--primary); text-shadow: 0 0 30px var(--primary-glow); }
-        .header-box p { color: var(--text-dim); max-width: 600px; margin: 20px auto 0; font-size: 1.1rem; opacity: 0.8; }
-
-        .stats-bar {
-            display: flex; justify-content: center; gap: 4rem; margin-bottom: 5rem;
-            padding: 2rem; background: rgba(255,255,255,0.01);
-            border: 1px solid var(--border); border-radius: 20px;
-            backdrop-filter: blur(10px);
-        }
-        .stat-item { text-align: center; }
-        .stat-val { display: block; font-size: 1.5rem; font-weight: 900; color: var(--primary); font-family: 'Fira Code', monospace; }
-        .stat-lab { font-size: 0.6rem; text-transform: uppercase; letter-spacing: 2px; color: var(--text-dim); margin-top: 5px; display: block; }
 
         .portfolio-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 2.5rem; }
 
         .project-card {
             background: var(--card-bg); border: 1px solid var(--border);
-            border-radius: 24px; padding: 2rem; text-decoration: none;
+            border-radius: 24px; padding: 2.5rem; text-decoration: none;
             color: inherit; transition: 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
             display: flex; flex-direction: column; position: relative; overflow: hidden;
         }
@@ -72,54 +61,50 @@
             box-shadow: 0 20px 40px rgba(0,0,0,0.4), 0 0 20px var(--primary-glow);
         }
 
-        .card-top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem; }
-        
-        .project-icon { 
-            width: 45px; height: 45px; background: rgba(0, 162, 255, 0.1); 
-            border-radius: 10px; display: flex; align-items: center; justify-content: center;
-            color: var(--primary); font-size: 1.2rem; border: 1px solid rgba(0,162,255,0.2);
+        /* Logo Fade Effect */
+        .logo-container {
+            width: 100%; height: 60px; margin-bottom: 1.5rem;
+            display: flex; align-items: center; justify-content: flex-start;
+        }
+        .company-logo {
+            max-height: 50px; max-width: 180px;
+            opacity: 0.3; filter: grayscale(100%) brightness(200%);
+            transition: 0.5s ease;
+        }
+        .project-card:hover .company-logo {
+            opacity: 1; filter: grayscale(0%) brightness(100%);
         }
 
+        .card-top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem; }
+        .project-icon { color: var(--primary); font-size: 1.4rem; }
         .status-pill {
             font-family: 'Fira Code', monospace; font-size: 0.6rem; padding: 5px 12px;
             background: rgba(0, 255, 136, 0.05); color: #00ff88;
-            border: 1px solid rgba(0, 255, 136, 0.2); border-radius: 50px; 
-            text-transform: uppercase; letter-spacing: 1px;
+            border: 1px solid rgba(0, 255, 136, 0.2); border-radius: 50px; text-transform: uppercase;
         }
 
-        .project-card h3 { font-size: 1.6rem; font-weight: 900; margin-bottom: 0.8rem; letter-spacing: -0.5px; }
-        .project-card p { color: var(--text-dim); font-size: 0.95rem; margin-bottom: 2rem; line-height: 1.7; flex-grow: 1; }
+        .project-card h3 { font-size: 1.6rem; font-weight: 900; margin-bottom: 0.8rem; }
+        .project-card p { color: var(--text-dim); font-size: 0.95rem; margin-bottom: 2rem; flex-grow: 1; }
 
-        .project-specs {
-            display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 2rem;
-            border-top: 1px solid var(--border); padding-top: 1.5rem;
-        }
-        .spec-tag { font-size: 0.65rem; color: var(--text-dim); font-family: 'Fira Code', monospace; background: rgba(255,255,255,0.03); padding: 4px 8px; border-radius: 4px; }
+        .spec-tag { font-size: 0.65rem; color: var(--text-dim); font-family: 'Fira Code', monospace; background: rgba(255,255,255,0.03); padding: 4px 8px; border-radius: 4px; margin-right: 5px; }
 
-        .card-footer { 
-            display: flex; align-items: center; justify-content: space-between;
-            color: var(--primary); font-weight: 900; font-size: 0.7rem; 
-            text-transform: uppercase; letter-spacing: 2px;
+        /* Recommendations Section */
+        .rec-section { margin-top: 100px; padding-top: 60px; border-top: 1px solid var(--border); }
+        .rec-section h2 { font-size: 2.5rem; font-weight: 900; margin-bottom: 3rem; text-align: center; }
+        .rec-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; }
+        .rec-item { 
+            background: rgba(255,255,255,0.02); padding: 1.5rem; border-radius: 15px; 
+            border-left: 3px solid var(--primary); font-size: 0.85rem; color: var(--text-dim);
         }
-        .card-footer i { transition: 0.3s; }
-        .project-card:hover .card-footer i { transform: translateX(5px); }
+        .rec-item strong { color: #fff; display: block; margin-bottom: 5px; font-size: 0.9rem; }
 
         footer { background: #070a14; padding: 5rem 8% 2rem; border-top: 1px solid var(--border); margin-top: 100px; }
-        .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 4rem; margin-bottom: 4rem; }
-        .footer-col h4 { color: var(--primary); margin-bottom: 1.5rem; text-transform: uppercase; font-size: 0.7rem; letter-spacing: 2px; font-weight: 900; }
-        .footer-col a, .footer-col p { color: var(--text-dim); text-decoration: none; font-size: 0.85rem; display: block; margin-bottom: 0.8rem; transition: 0.2s; }
-        .footer-col a:hover { color: var(--primary); padding-left: 5px; }
-        
+        .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 4rem; }
+        .footer-col h4 { color: var(--primary); margin-bottom: 1.5rem; text-transform: uppercase; font-size: 0.7rem; letter-spacing: 2px; }
+        .footer-col a { color: var(--text-dim); text-decoration: none; font-size: 0.85rem; display: block; margin-bottom: 0.8rem; }
         .social-icons { display: flex; gap: 15px; margin-top: 15px; }
-        .social-icons a { font-size: 1.2rem; color: var(--text-dim); transition: 0.3s; }
-        .social-icons a:hover { color: var(--primary); transform: translateY(-3px); }
-
-        .footer-bottom { text-align: center; color: #333; font-size: 0.65rem; border-top: 1px solid rgba(255,255,255,0.02); padding-top: 2rem; text-transform: uppercase; letter-spacing: 1px; }
-
-        @media (max-width: 768px) { 
-            .stats-bar { flex-direction: column; gap: 2rem; padding: 2rem 1rem; } 
-            .portfolio-grid { grid-template-columns: 1fr; }
-        }
+        .social-icons a { font-size: 1.2rem; color: var(--text-dim); }
+        .footer-bottom { text-align: center; color: #333; font-size: 0.65rem; padding-top: 2rem; }
     </style>
 </head>
 <body>
@@ -139,87 +124,122 @@
     <main class="portfolio-container">
         <div class="header-box">
             <h1>Active <span>Deployments</span></h1>
-            <p>High-performance digital infrastructure engineered for 2026 enterprise requirements.</p>
-        </div>
-
-        <div class="stats-bar">
-            <div class="stat-item">
-                <span class="stat-val">100%</span>
-                <span class="stat-lab">System Uptime</span>
-            </div>
-            <div class="stat-item">
-                <span class="stat-val">14</span>
-                <span class="stat-lab">Active Nodes</span>
-            </div>
-            <div class="stat-item">
-                <span class="stat-val">0.38s</span>
-                <span class="stat-lab">Latency Average</span>
-            </div>
         </div>
         
         <div class="portfolio-grid">
             
-            <a href="https://emmanuelmhlanga.github.io/ebbrato-travel-agency/" target="_blank" class="project-card">
+            <a href="https://ebbratotravel.co.za" target="_blank" class="project-card">
+                <div class="logo-container">
+                    <img src="ebbratotravellogo.png" alt="Ebbrato" class="company-logo">
+                </div>
                 <div class="card-top">
-                    <div class="project-icon"><i class="fas fa-plane-departure"></i></div>
+                    <div class="project-icon"><i class="fas fa-map-marked-alt"></i></div>
                     <div class="status-pill">Active Node</div>
                 </div>
                 <h3>Ebbrato Travel</h3>
-                <p>An immersive destination ecosystem with optimized booking logic and high-tier visual architecture.</p>
-                <div class="project-specs">
-                    <span class="spec-tag">#UX_ENGINEERING</span>
-                    <span class="spec-tag">#FRONTEND</span>
-                    <span class="spec-tag">#TRAVEL_API</span>
+                <p>A premier tourism platform engineered for immersive destination discovery and seamless travel logistics management.</p>
+                <div>
+                    <span class="spec-tag">#TOURISM_TECH</span>
+                    <span class="spec-tag">#UI_UX</span>
                 </div>
-                <div class="card-footer"><span>Inspect Node</span> <i class="fas fa-chevron-right"></i></div>
             </a>
 
-            <a href="https://iletha.com" target="_blank" class="project-card">
+            <a href="https://emmanuelmhlanga.github.io/digital-poise-agency/" target="_blank" class="project-card">
+                <div class="logo-container">
+                    <img src="digitalpoiselogo.png" alt="Digital Poise" class="company-logo">
+                </div>
                 <div class="card-top">
-                    <div class="project-icon"><i class="fas fa-network-wired"></i></div>
+                    <div class="project-icon"><i class="fas fa-bullhorn"></i></div>
                     <div class="status-pill">Active Node</div>
                 </div>
-                <h3>Iletha Co-op</h3>
-                <p>Corporate digital marketing infrastructure designed for cooperative engagement and scalable outreach.</p>
-                <div class="project-specs">
-                    <span class="spec-tag">#MARKETING_SYSTEMS</span>
-                    <span class="spec-tag">#FULLSTACK</span>
-                    <span class="spec-tag">#ENTERPRISE</span>
+                <h3>Digital Poise</h3>
+                <p>A sophisticated marketing engine focused on brand authority and data-driven digital growth strategies.</p>
+                <div>
+                    <span class="spec-tag">#MARKETING_API</span>
+                    <span class="spec-tag">#SEO_ENGINE</span>
                 </div>
-                <div class="card-footer"><span>Inspect Node</span> <i class="fas fa-chevron-right"></i></div>
             </a>
 
             <a href="https://neobreedmarketingsolutions.com" target="_blank" class="project-card">
+                <div class="logo-container">
+                    <img src="neobreedmarketingsolutionslogo.png" alt="Neo Breed" class="company-logo">
+                </div>
                 <div class="card-top">
-                    <div class="project-icon"><i class="fas fa-microchip"></i></div>
+                    <div class="project-icon"><i class="fas fa-chart-line"></i></div>
                     <div class="status-pill">Active Node</div>
                 </div>
                 <h3>Neo Breed</h3>
-                <p>Strategic brand positioning platform utilizing advanced SEO architecture and conversion-focused UI.</p>
-                <div class="project-specs">
-                    <span class="spec-tag">#SEO_ARCH</span>
+                <p>Integrated marketing solutions architected for modern startups and scaling enterprise-level campaigns.</p>
+                <div>
                     <span class="spec-tag">#LEAD_GEN</span>
-                    <span class="spec-tag">#BRANDING</span>
+                    <span class="spec-tag">#CONVERSION_UI</span>
                 </div>
-                <div class="card-footer"><span>Inspect Node</span> <i class="fas fa-chevron-right"></i></div>
             </a>
 
             <a href="https://vileamico.co.za" target="_blank" class="project-card">
+                <div class="logo-container">
+                    <img src="vileamicologo.png" alt="Vile Amico" class="company-logo">
+                </div>
                 <div class="card-top">
-                    <div class="project-icon"><i class="fas fa-vr-cardboard"></i></div>
+                    <div class="project-icon"><i class="fas fa-compact-disc"></i></div>
                     <div class="status-pill">Active Node</div>
                 </div>
                 <h3>Vile Amico</h3>
-                <p>Dynamic media consumption portal engineered for high-bandwidth entertainment and event management.</p>
-                <div class="project-specs">
-                    <span class="spec-tag">#MEDIA_HUB</span>
-                    <span class="spec-tag">#HIGH_TRAFFIC</span>
-                    <span class="spec-tag">#EVENTS</span>
+                <p>A cutting-edge entertainment hub designed for high-fidelity media hosting and digital talent management.</p>
+                <div>
+                    <span class="spec-tag">#MEDIA_STORAGE</span>
+                    <span class="spec-tag">#ENTERTAINMENT</span>
                 </div>
-                <div class="card-footer"><span>Inspect Node</span> <i class="fas fa-chevron-right"></i></div>
+            </a>
+
+            <a href="https://iletha.com" target="_blank" class="project-card">
+                <div class="logo-container">
+                    <img src="ilethalogo.png" alt="iLetha" class="company-logo">
+                </div>
+                <div class="card-top">
+                    <div class="project-icon"><i class="fas fa-server"></i></div>
+                    <div class="status-pill">Active Node</div>
+                </div>
+                <h3>iLetha</h3>
+                <p>A comprehensive full-stack IT and digital marketing ecosystem, integrating robust infrastructure with creative outreach.</p>
+                <div>
+                    <span class="spec-tag">#FULLSTACK</span>
+                    <span class="spec-tag">#IT_INFRA</span>
+                </div>
             </a>
 
         </div>
+
+        <section class="rec-section">
+            <h2>Strategic <span>Insights 2026</span></h2>
+            <div class="rec-grid">
+                <div class="rec-item"><strong>01. PWA Integration</strong> Transform your web presence into an installable mobile experience for 3x higher retention.</div>
+                <div class="rec-item"><strong>02. Edge Caching</strong> Deploy assets closer to Johannesburg nodes to reduce latency below 200ms.</div>
+                <div class="rec-item"><strong>03. Semantic SEO</strong> Use JSON-LD schemas to ensure Google understands your service hierarchy perfectly.</div>
+                <div class="rec-item"><strong>04. Dark Mode First</strong> Save battery life and reduce eye strain for mobile-first African users.</div>
+                <div class="rec-item"><strong>05. API-Driven UI</strong> Decouple your frontend from your data for faster global scaling.</div>
+                <div class="rec-item"><strong>06. Trust Signals</strong> Implement live SSL verification and security badges to increase conversion by 20%.</div>
+                <div class="rec-item"><strong>07. Local SEO</strong> Optimize for 'Randburg' and 'Johannesburg' keywords to capture high-intent local traffic.</div>
+                <div class="rec-item"><strong>08. Micro-Interactions</strong> Use subtle animations to guide user focus toward "Book Now" buttons.</div>
+                <div class="rec-item"><strong>09. Core Web Vitals</strong> Prioritize Largest Contentful Paint (LCP) for better ranking.</div>
+                <div class="rec-item"><strong>10. WhatsApp Bridge</strong> Integrate direct-to-chat features for the local market's preferred contact method.</div>
+                <div class="rec-item"><strong>11. Content Depth</strong> Maintain blogs with 1500+ words to establish industry authority.</div>
+                <div class="rec-item"><strong>12. Social Proof</strong> Display real-time client feedback via dynamic testimonial sliders.</div>
+                <div class="rec-item"><strong>13. Image Compression</strong> Use WebP formats to save data for mobile-heavy audiences.</div>
+                <div class="rec-item"><strong>14. Accessible Design</strong> Ensure WCAG compliance for wider audience inclusivity.</div>
+                <div class="rec-item"><strong>15. AI Chatbots</strong> Deploy custom LLM support to handle 80% of routine client inquiries.</div>
+                <div class="rec-item"><strong>16. One-Tap CTA</strong> Reduce friction by placing call-to-actions within "thumb-range" on mobile.</div>
+                <div class="rec-item"><strong>17. Video Backgrounds</strong> Use silent, optimized MP4s for higher engagement on landing pages.</div>
+                <div class="rec-item"><strong>18. Newsletter Hub</strong> Build a zero-party data list for consistent re-marketing.</div>
+                <div class="rec-item"><strong>19. Analytics Audit</strong> Track heatmaps to identify where users are dropping off your funnel.</div>
+                <div class="rec-item"><strong>20. Cloud Hosting</strong> Use Azure or AWS for 99.9% uptime and auto-scaling.</div>
+                <div class="rec-item"><strong>21. Personalization</strong> Serve different content based on whether the user is a first-time visitor.</div>
+                <div class="rec-item"><strong>22. Branding Consistency</strong> Match your digital UI with your physical business cards.</div>
+                <div class="rec-item"><strong>23. Speed Optimization</strong> Minify JS and CSS to keep the site under 2MB total size.</div>
+                <div class="rec-item"><strong>24. Lead Magnets</strong> Offer free PDF guides or audits to capture email addresses.</div>
+                <div class="rec-item"><strong>25. Security Updates</strong> Conduct bi-weekly system audits to prevent zero-day vulnerabilities.</div>
+            </div>
+        </section>
     </main>
 
     <footer>
@@ -246,7 +266,7 @@
                 </div>
             </div>
         </div>
-        <div class="footer-bottom">&copy; 2026 GASA TECH (PTY) LTD. Engineered in South Africa.</div>
+        <div class="footer-bottom">&copy; 2026 GASA TECH (PTY) LTD. Engineered by Emmanuel Nkosana Mhlanga.</div>
     </footer>
 
 </body>
